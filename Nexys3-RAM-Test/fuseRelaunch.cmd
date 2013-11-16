@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "/home/main/FPGA-MISC/Nexys3-RAM-Test/ram_test_isim_beh.exe" -prj "/home/main/FPGA-MISC/Nexys3-RAM-Test/ram_test_beh.prj" "work.ram_test" 
+-intstyle "ise" -incremental -lib "secureip" -o "/home/main/FPGA-MISC/Nexys3-RAM-Test/sync_sram_tb_isim_beh.exe" -prj "/home/main/FPGA-MISC/Nexys3-RAM-Test/sync_sram_tb_beh.prj" "work.sync_sram_tb" 
