@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/main/FPGA-MISC/Nexys3-RAM-Test/ram_test.ncd
+OUTFILE=/home/main/FPGA-MISC/Nexys3-RAM-Test/ram_test.bit
+FAMILY=Spartan6
+PART=xc6slx16-3csg324
+WORKINGDIR=/home/main/FPGA-MISC/Nexys3-RAM-Test
+LICENSE=ISE
+USER_INFO=210826213_0_0_741

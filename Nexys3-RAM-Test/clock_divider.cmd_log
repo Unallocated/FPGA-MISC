@@ -1,0 +1,1 @@
+vhdtdtfi -prj Nexys3-RAM-Test -o /home/main/FPGA-MISC/Nexys3-RAM-Test/clock_divider.vhi -module clock_divider -template /opt/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work clock_divider.vhd 
