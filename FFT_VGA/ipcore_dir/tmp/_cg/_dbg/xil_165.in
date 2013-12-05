@@ -1,0 +1,36 @@
+SET_FLAG DEBUG FALSE
+SET_FLAG MODE INTERACTIVE
+SET_FLAG STANDALONE_MODE FALSE
+SET_PREFERENCE devicefamily spartan6
+SET_PREFERENCE device xc6slx16
+SET_PREFERENCE speedgrade -3
+SET_PREFERENCE package csg324
+SET_PREFERENCE verilogsim false
+SET_PREFERENCE vhdlsim true
+SET_PREFERENCE simulationfiles Structural
+SET_PREFERENCE busformat BusFormatAngleBracketNotRipped
+SET_PREFERENCE outputdirectory /root/FPGA-MISC/FFT_VGA/ipcore_dir/
+SET_PREFERENCE workingdirectory /root/FPGA-MISC/FFT_VGA/ipcore_dir/tmp/
+SET_PREFERENCE subworkingdirectory /root/FPGA-MISC/FFT_VGA/ipcore_dir/tmp/_cg/
+SET_PREFERENCE transientdirectory /root/FPGA-MISC/FFT_VGA/ipcore_dir/tmp/_cg/_dbg/
+SET_PREFERENCE designentry VHDL
+SET_PREFERENCE flowvendor Other
+SET_PREFERENCE addpads false
+SET_PREFERENCE projectname coregen
+SET_PREFERENCE formalverification false
+SET_PREFERENCE asysymbol false
+SET_PREFERENCE implementationfiletype Ngc
+SET_PREFERENCE foundationsym false
+SET_PREFERENCE createndf false
+SET_PREFERENCE removerpms false
+SET_SIM_PARAMETER C_COMPONENT_NAME duc_ddc_compiler_v2_0
+SET_CORE_NAME DUC/DDC Compiler
+SET_CORE_VERSION 2.0
+SET_CORE_VLNV xilinx.com:ip:duc_ddc_compiler:2.0
+SET_CORE_CLASS com.xilinx.ip.duc_ddc_compiler_v2_0.duc_ddc_compiler_v2_0
+SET_CORE_PATH /opt/Xilinx/14.7/ISE_DS/ISE/coregen/ip/xilinx/dsp/com/xilinx/ip/duc_ddc_compiler_v2_0
+SET_CORE_GUIPATH /opt/Xilinx/14.7/ISE_DS/ISE/coregen/ip/xilinx/dsp/com/xilinx/ip/duc_ddc_compiler_v2_0/gui/duc_ddc_compiler_v2_0.tcl
+SET_CORE_DATASHEET /opt/Xilinx/14.7/ISE_DS/ISE/coregen/ip/xilinx/dsp/com/xilinx/ip/duc_ddc_compiler_v2_0/doc/duc_ddc_ds766.pdf
+ADD_CORE_DOCUMENT </opt/Xilinx/14.7/ISE_DS/ISE/coregen/ip/xilinx/dsp/com/xilinx/ip/duc_ddc_compiler_v2_0/doc/duc_ddc_compiler_v2_0_readme.txt><duc_ddc_compiler_v2_0_readme.txt>
+ADD_CORE_DOCUMENT </opt/Xilinx/14.7/ISE_DS/ISE/coregen/ip/xilinx/dsp/com/xilinx/ip/duc_ddc_compiler_v2_0/doc/duc_ddc_compiler_v2_0_vinfo.html><duc_ddc_compiler_v2_0_vinfo.html>
+ADD_CORE_DOCUMENT </opt/Xilinx/14.7/ISE_DS/ISE/coregen/ip/xilinx/dsp/com/xilinx/ip/duc_ddc_compiler_v2_0/doc/duc_ddc_ds766.pdf><duc_ddc_ds766.pdf>

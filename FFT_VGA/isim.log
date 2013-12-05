@@ -4927,3 +4927,4 @@ at 250 ns(7), Instance /fft_ram_tb/uut/adc_ram_inst/U0/native_mem_module/mem_mod
 at 387200 ns(7): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/fft_ram_tb/uut/fft_ram_inst/U0/native_mem_module/mem_module/).
 at 412925 ns(8): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/fft_ram_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/).
 Stopped at time : 464480 ns : File "/root/FPGA-MISC/FFT_VGA/fft_ram_tb.vhd" Line 136
+# exit 0
