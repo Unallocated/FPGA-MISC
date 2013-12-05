@@ -43,13 +43,15 @@ ARCHITECTURE behavior OF fft_ram_tb IS
     PORT(
          clk : IN  std_logic;
          rst : IN  std_logic;
-         adc_clk : OUT  std_logic;
-         adc_data : IN  std_logic_vector(7 downto 0);
+--         adc_clk : OUT  std_logic;
+--         adc_data : IN  std_logic_vector(7 downto 0);
          hs : OUT  std_logic;
          vs : OUT  std_logic;
-         blue : OUT  std_logic_vector(0 downto 0);
-         red : OUT  std_logic_vector(0 downto 0);
-         green : OUT  std_logic_vector(0 downto 0)
+         switches : in std_logic_vector(7 downto 0);
+         leds : out std_logic_vector(7 downto 0);
+         blue : OUT  std_logic_vector(1 downto 0);
+         red : OUT  std_logic_vector(2 downto 0);
+         green : OUT  std_logic_vector(2 downto 0)
         );
     END COMPONENT;
     
@@ -63,9 +65,11 @@ ARCHITECTURE behavior OF fft_ram_tb IS
    signal adc_clk : std_logic;
    signal hs : std_logic;
    signal vs : std_logic;
-   signal blue : std_logic_vector(0 downto 0);
-   signal red : std_logic_vector(0 downto 0);
-   signal green : std_logic_vector(0 downto 0);
+   signal switches : std_logic_vector(7 downto 0);
+   signal leds : std_logic_vector(7 downto 0);
+   signal blue : std_logic_vector(1 downto 0);
+   signal red : std_logic_vector(2 downto 0);
+   signal green : std_logic_vector(2 downto 0);
 
    -- Clock period definitions
    constant clk_period : time := 10 ns;
@@ -115,8 +119,10 @@ BEGIN
    uut: fft_with_ram PORT MAP (
           clk => clk,
           rst => rst,
-          adc_clk => adc_clk,
-          adc_data => adc_data,
+--          adc_clk => adc_clk,
+--          adc_data => adc_data,
+		  leds => leds,
+		  switches => switches,
           hs => hs,
           vs => vs,
           blue => blue,

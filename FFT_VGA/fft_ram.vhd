@@ -9,6 +9,8 @@ entity fft_with_ram is
            rst : in  STD_LOGIC;
 --           adc_clk : out  STD_LOGIC;
 --           adc_in : in  STD_LOGIC_VECTOR (7 downto 0);
+			switches : in std_logic_vector(7 downto 0);
+			leds : out std_logic_vector(7 downto 0);
            hs : out  STD_LOGIC;
            vs : out  STD_LOGIC;
            blue : out  STD_LOGIC_VECTOR (1 downto 0);
@@ -131,6 +133,7 @@ architecture Behavioral of fft_with_ram is
 	signal vga_ram_in_we : std_logic_vector(0 downto 0) := "0";
 	signal vga_ram_in_en : std_logic := '0';
 	
+	
 	COMPONENT vga_ram
 	  PORT (
 	    clka : IN STD_LOGIC;
@@ -172,14 +175,14 @@ architecture Behavioral of fft_with_ram is
 	END COMPONENT;
 	
 	signal dds_out : std_logic_vector(7 downto 0) := (others => '0');
-	signal dds_data : std_logic_vector(7 downto 0) := (others => '1');
+	signal dds_data : std_logic_vector(11 downto 0) := (others => '1');
 	signal dds_we, dds_we_n, dds_clk : std_logic := '0';
 	
 	COMPONENT dds
 	  PORT (
 	    clk : IN STD_LOGIC;
 	    we : IN STD_LOGIC;
-	    data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+	    data : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
 	    sine : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
 	  );
 	END COMPONENT;
@@ -202,15 +205,18 @@ architecture Behavioral of fft_with_ram is
 	signal mag_state : mag_state_t := MAG_MULT;
 	
 	signal mag_pos : unsigned(fft_xk_index'range) := (others => '0');
+	signal delay : unsigned(31 downto 0) := (others => '0');
 begin
-
-	adc_ram_in_data <= dds_out;
+	leds <= (others => dds_we);
+--	dds_we <= '1';
+--	dds_data <= switches;
+	adc_ram_in_data <= std_logic_vector(unsigned(dds_out) + 128);
 	fft_xn_re <= adc_ram_out_data;
 	adc_ram_out_addr <= fft_xn_index;
 	fft_ram_in_addr <= fft_xk_index;
 	fft_ram_in_data <= fft_xk_re & fft_xk_im;
 	fft_ram_out_addr <= std_logic_vector(mag_pos);
-	vga_ram_in_data <= std_logic_vector(unsigned(sqrt_out(7 downto 0)) + 128);
+	vga_ram_in_data <= sqrt_out(7 downto 0);
 	vga_ram_in_addr <= std_logic_vector(unsigned(mag_pos));
 	--adc_clk <= not adc_clk180;
 	vga_ram_out_addr <= std_logic_vector(to_unsigned(x_pos, 8) + 1);
@@ -243,14 +249,15 @@ begin
 			counter2 := (others => '0');
 			master_state <= INIT;
 			init_state <= INIT_CLEAR;
+			fft_start <= '0';
 			fft_state <= FFT_WAIT_FOR_RFD;
 			adc_clk180_ce <= '1';
 			adc_ram_in_we <= "0";
-			
+			delay <= (others => '0');
 			--adc_fifo_wr_en <= '0';
 			mag_pos <= (others => '0');
 		elsif(rising_edge(base_clk)) then
-			if(counter2 = 100000000) then
+			if(counter2 = 10000000) then
 				counter2 := (others => '0');
 				dds_data <= std_logic_vector(unsigned(dds_data) + 1);
 				dds_we <= '1';
@@ -258,7 +265,10 @@ begin
 				dds_we <= '0';
 				counter2 := counter2 + 1;
 			end if;
-			
+--			
+--			if(master_state = FFT and fft_done = '1') then
+--				fft_start <= '0';
+--			end if;
 			
 			if(counter = max) then
 				counter := (others => '0');
@@ -272,6 +282,7 @@ begin
 			when INIT =>
 				master_state <= SAMPLE;
 				adc_ram_in_we <= "1";
+				
 				adc_clk180_ce <= '1';
 				mag_pos <= (others => '0');
 			when SAMPLE =>
@@ -287,15 +298,22 @@ begin
 					fft_state <= FFT_WAIT_FOR_RFD;
 				end case;
 			when FFT =>
+				fft_ce <= '1';
+				fft_sclr <= '0';
+				
 				case fft_state is
 				when FFT_WAIT_FOR_RFD =>
-					fft_ce <= '1';
-					fft_start <= '1';
-					
-					if(fft_rfd = '1') then
-						fft_state <= FFT_LOAD;
+--					if(delay /= (delay'range => '0')) then
+--						delay <= delay - 1;
+--					else
+						fft_start <= '1';		
 						
-					end if;
+						if(fft_rfd = '1') then
+							fft_state <= FFT_LOAD;
+							
+						end if;
+					
+--					end if;
 				when FFT_LOAD =>
 					
 					if(fft_rfd = '0') then
@@ -303,9 +321,9 @@ begin
 					end if;
 				when FFT_WAIT_FOR_DV =>
 					
-					if(fft_edone = '1') then
-						fft_start <= '0';
-					end if;
+--					if(fft_edone = '1') then
+--						fft_start <= '0';
+--					end if;
 					
 					if(fft_dv = '1') then
 						fft_state <= FFT_UNLOAD;
@@ -322,20 +340,47 @@ begin
 						fft_ram_out_en <= '1';
 						vga_ram_in_we <= "1";
 						vga_ram_in_en <= '1';
+						fft_sclr <= '1';
+						fft_start <= '0';
+						
+--						if(fft_dv = '1') then
+--							fft_start <= '0';
+--							fft_sclr <= '1';
+--							fft_state <= FFT_WAIT_FOR_RFD;
+--							master_state <= MAG;
+--							mag_pos <= (mag_pos'range => '0');
+--							fft_ram_out_en <= '1';
+--							vga_ram_in_we <= "1";
+--							vga_ram_in_en <= '1';
+--							delay <= to_unsigned(60_00, 32);
+--						end if;
 					end if;
 				end case;
 			when MAG =>
 --				master_state <= INIT;
 				case mag_state is 
 					when MAG_MULT =>
-						mult_a <= fft_ram_out_data(7 downto 0);
-						mult_b <= fft_ram_out_data(15 downto 8);
+						vga_ram_in_clk <= '0';
+						if(fft_ram_out_data(7) = '1') then
+							mult_a <= std_logic_vector(unsigned(not fft_ram_out_data(7 downto 0)) + 1);
+						else
+							mult_a <= fft_ram_out_data(7 downto 0);
+						end if;
+						
+						if(fft_ram_out_data(15) = '1') then
+							mult_b <= std_logic_vector(unsigned(not fft_ram_out_data(15 downto 8)) + 1);
+						else
+							mult_b <= fft_ram_out_data(15 downto 8);
+						end if;
+--						mult_a <= fft_ram_out_data(7 downto 0);
+--						mult_b <= fft_ram_out_data(15 downto 8);
 						
 						mag_state <= MAG_CORDIC_START;
 					when MAG_CORDIC_START =>
 						sqrt_in <= mult_p;
 						mag_state <= MAG_CORDIC_STOP;
 					when MAG_CORDIC_STOP =>
+						vga_ram_in_clk <= '1';
 						if(mag_pos = (mag_pos'range => '1')) then
 							master_state <= INIT;
 							mag_pos <= (mag_pos'range => '0');
@@ -366,6 +411,28 @@ begin
 			end if;
 		end if;
 	end process;
+	
+--	dds_writer_process : process(dds_clk, switches)
+--		variable last_switches : std_logic_vector(switches'range) := (others => '0');
+--		variable delay : unsigned(2 downto 0) := (others => '0');
+--	begin
+--		
+--		if(rising_edge(dds_clk)) then
+--			if(switches /= last_switches) then
+--				dds_data <= switches;
+--				dds_we <= '1';
+--				last_switches := switches;
+--				delay := (delay'range => '1');
+--			else
+--			
+--				if(delay /= (delay'range => '0')) then
+--					delay := delay - 1;
+--				else
+--					dds_we <= '0';
+--				end if;
+--			end if;
+--		end if;
+--	end process;
 	
 
 	adc_ram_inst : adc_ram
@@ -442,7 +509,7 @@ begin
 	  
 	vga_ram_inst : vga_ram
 	  PORT MAP (
-	    clka => base_clk180,
+	    clka => vga_ram_in_clk,
 	    ena => vga_ram_in_en,
 	    wea => vga_ram_in_we,
 	    addra => vga_ram_in_addr,

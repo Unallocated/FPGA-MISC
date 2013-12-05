@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.7
-# Date: Tue Dec 10 02:42:21 2013
+# Date: Thu Dec  5 05:24:13 2013
 #
 ##############################################################
 #
@@ -96,7 +96,7 @@ CSET phase_offset_angles6=0
 CSET phase_offset_angles7=0
 CSET phase_offset_angles8=0
 CSET phase_offset_angles9=0
-CSET phase_width=8
+CSET phase_width=12
 CSET pinc1=0
 CSET pinc10=0
 CSET pinc11=0
@@ -139,4 +139,4 @@ CSET spurious_free_dynamic_range=36
 MISC pkg_timestamp=2012-08-28T14:48:35Z
 # END Extra information
 GENERATE
-# CRC: a588ec28
+# CRC: 893439f5

@@ -1,5 +1,1 @@
-work	"fft_ram.vhd"
-work	"ipcore_dir/adc_ram.vhd"
-work	"ipcore_dir/dcm.vhd"
 work	"ipcore_dir/fft_core.vhd"
-work	"ipcore_dir/fft_ram.vhd"

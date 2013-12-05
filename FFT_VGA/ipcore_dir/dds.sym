@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="dds">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2013-12-10T2:43:11</timestamp>
+    <timestamp>2013-12-5T5:25:3</timestamp>
     <pin polarity="Input" x="0" y="80" name="clk" />
     <pin polarity="Input" x="0" y="176" name="we" />
-    <pin polarity="Input" x="0" y="272" name="data[7:0]" />
+    <pin polarity="Input" x="0" y="272" name="data[11:0]" />
     <pin polarity="Output" x="352" y="176" name="sine[7:0]" />
     <graph>
         <text style="fontsize:40;fontname:Arial" x="32" y="32">dds</text>
@@ -14,7 +14,7 @@
         <line x2="32" y1="176" y2="176" x1="0" />
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="176" type="pin we" />
         <line x2="32" y1="272" y2="272" style="linewidth:W" x1="0" />
-        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="272" type="pin data[7:0]" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="272" type="pin data[11:0]" />
         <line x2="320" y1="176" y2="176" style="linewidth:W" x1="352" />
         <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="316" y="176" type="pin sine[7:0]" />
     </graph>
