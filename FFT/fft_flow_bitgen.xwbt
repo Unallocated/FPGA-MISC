@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=/root/FFT/fft_flow.ncd
-OUTFILE=/root/FFT/fft_flow.bit
-FAMILY=Spartan6
-PART=xc6slx16-3csg324
-WORKINGDIR=/root/FFT
-LICENSE=ISE
-USER_INFO=210826213_0_0_741

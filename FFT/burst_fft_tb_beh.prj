@@ -1,2 +1,0 @@
-vhdl work "ipcore_dir/fft_burst_mode.vhd"
-vhdl work "burst_fft_tb.vhd"

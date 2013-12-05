@@ -1,3 +1,0 @@
-vhdl work "ipcore_dir/fft_flow_dds.vhd"
-vhdl work "fft_flow.vhd"
-vhdl work "flow_fft_tb.vhd"

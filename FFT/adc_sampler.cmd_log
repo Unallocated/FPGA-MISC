@@ -1,2 +1,0 @@
-xst -intstyle ise -ifn "/root/FFT/adc_sampler.xst" -ofn "/root/FFT/adc_sampler.syr" 
-vhdtdtfi -prj FFT -o /root/FFT/adc_sampler.vhi -module adc_sampler -template /opt/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work adc_sampler.vhd 

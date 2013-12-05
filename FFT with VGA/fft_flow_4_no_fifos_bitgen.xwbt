@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.ncd
-OUTFILE=/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.bit
-FAMILY=Spartan6
-PART=xc6slx16-3csg324
-WORKINGDIR=/root/FPGA-MISC/FFT with VGA
-LICENSE=ISE
-USER_INFO=210826213_0_0_741
