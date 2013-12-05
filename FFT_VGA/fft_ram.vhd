@@ -9,6 +9,7 @@ entity fft_with_ram is
            rst : in  STD_LOGIC;
 --           adc_clk : out  STD_LOGIC;
 --           adc_in : in  STD_LOGIC_VECTOR (7 downto 0);
+button : in std_logic;
 			switches : in std_logic_vector(7 downto 0);
 			leds : out std_logic_vector(7 downto 0);
            hs : out  STD_LOGIC;
@@ -19,6 +20,8 @@ entity fft_with_ram is
 end fft_with_ram;
 
 architecture Behavioral of fft_with_ram is
+
+	constant numberOfBits : integer := 9;
 
 	signal base_clk, base_clk180 : std_logic;
 	signal vga_clk, vga_clk180 : std_logic;
@@ -39,7 +42,7 @@ architecture Behavioral of fft_with_ram is
 	end component;
 	
 	signal fft_done, fft_en, fft_ce, fft_rfd, fft_start, fft_busy, fft_sclr, fft_edone, fft_dv : std_logic := '0';
-	signal fft_xk_index, fft_xn_index : std_logic_vector(7 downto 0) := (others => '0');
+	signal fft_xk_index, fft_xn_index : std_logic_vector(numberOfBits-1 downto 0) := (others => '0');
 	signal fft_xk_re, fft_xn_re : std_logic_vector(7 downto 0) := (others => '0');
 	signal fft_xk_im, fft_xn_im : std_logic_vector(7 downto 0) := (others => '0');
 	signal fft_blk_exp : std_logic_vector(4 downto 0) := (others => '0');
@@ -55,12 +58,12 @@ architecture Behavioral of fft_with_ram is
 		 fwd_inv : IN STD_LOGIC;
 		 fwd_inv_we : IN STD_LOGIC;
 		 rfd : OUT STD_LOGIC;
-		 xn_index : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		 xn_index : OUT STD_LOGIC_VECTOR(numberOfBits-1 DOWNTO 0);
 		 busy : OUT STD_LOGIC;
 		 edone : OUT STD_LOGIC;
 		 done : OUT STD_LOGIC;
 		 dv : OUT STD_LOGIC;
-		 xk_index : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		 xk_index : OUT STD_LOGIC_VECTOR(numberOfBits-1 DOWNTO 0);
 		 xk_re : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 		 xk_im : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 		 blk_exp : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
@@ -76,10 +79,10 @@ architecture Behavioral of fft_with_ram is
 	  PORT (
 	    clka : IN STD_LOGIC;
 	    wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-	    addra : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+	    addra : IN STD_LOGIC_VECTOR(numberOfBits-1 DOWNTO 0);
 	    dina : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 	    clkb : IN STD_LOGIC;
-	    addrb : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+	    addrb : IN STD_LOGIC_VECTOR(numberOfBits-1 DOWNTO 0);
 	    doutb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
 	  );
 	END COMPONENT;
@@ -88,18 +91,18 @@ architecture Behavioral of fft_with_ram is
 	signal fft_ram_in_addr, fft_ram_out_addr : std_logic_vector(fft_xk_index'range) := (others => '0');
 	signal fft_ram_in_we : std_logic_vector(0 downto 0) := "0";
 	signal fft_ram_in_en, fft_ram_out_en : std_logic := '0';
-	signal fft_ram_in_data, fft_ram_out_data : std_logic_vector((fft_xk_index'length * 2)-1 downto 0) := (others => '0');
+	signal fft_ram_in_data, fft_ram_out_data : std_logic_vector((fft_xn_re'length * 2)-1 downto 0) := (others => '0');
 	
 	COMPONENT fft_ram_simple
 	  PORT (
 	    clka : IN STD_LOGIC;
 	    ena : IN STD_LOGIC;
 	    wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-	    addra : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+	    addra : IN STD_LOGIC_VECTOR(numberOfBits-1 DOWNTO 0);
 	    dina : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 	    clkb : IN STD_LOGIC;
 	    enb : IN STD_LOGIC;
-	    addrb : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+	    addrb : IN STD_LOGIC_VECTOR(numberOfBits-1 DOWNTO 0);
 	    doutb : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 	  );
 	END COMPONENT;
@@ -139,10 +142,10 @@ architecture Behavioral of fft_with_ram is
 	    clka : IN STD_LOGIC;
 	    ena : IN STD_LOGIC;
 	    wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-	    addra : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+	    addra : IN STD_LOGIC_VECTOR(numberOfBits-1 DOWNTO 0);
 	    dina : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 	    clkb : IN STD_LOGIC;
-	    addrb : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+	    addrb : IN STD_LOGIC_VECTOR(numberOfBits-1 DOWNTO 0);
 	    doutb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
 	  );
 	END COMPONENT;
@@ -150,6 +153,7 @@ architecture Behavioral of fft_with_ram is
 	signal blue_in : std_logic_vector(1 downto 0) := (others => '0');
 	signal red_in, green_in : std_logic_vector(2 downto 0) := (others => '0');
 	signal x_pos, y_pos : integer := 0;
+	signal vs_buffer : std_logic := '0';
 	
 	COMPONENT vga_configurable
 		Generic ( 
@@ -208,6 +212,7 @@ architecture Behavioral of fft_with_ram is
 	signal delay : unsigned(31 downto 0) := (others => '0');
 begin
 	leds <= (others => dds_we);
+	vs <= vs_buffer;
 --	dds_we <= '1';
 --	dds_data <= switches;
 	adc_ram_in_data <= std_logic_vector(unsigned(dds_out) + 128);
@@ -219,16 +224,16 @@ begin
 	vga_ram_in_data <= sqrt_out(7 downto 0);
 	vga_ram_in_addr <= std_logic_vector(unsigned(mag_pos));
 	--adc_clk <= not adc_clk180;
-	vga_ram_out_addr <= std_logic_vector(to_unsigned(x_pos, 8) + 1);
+	vga_ram_out_addr <= std_logic_vector(to_unsigned(x_pos, fft_xk_index'length) + 1);
 	
 	process(adc_clk180)
-		variable counter : integer range 0 to 255 := 0;
+		variable counter : integer range 0 to (2 ** fft_xk_index'length) - 1 := 0;
 	begin
 		if(rising_edge(adc_clk180)) then
 			if(adc_ram_in_we = "0") then
 				counter := 0;
 			else
-				if(counter = 255) then
+				if(counter = (2 ** fft_xk_index'length) - 1) then
 					counter := 0;
 				else
 					counter := counter + 1;
@@ -257,13 +262,15 @@ begin
 			--adc_fifo_wr_en <= '0';
 			mag_pos <= (others => '0');
 		elsif(rising_edge(base_clk)) then
-			if(counter2 = 10000000) then
-				counter2 := (others => '0');
-				dds_data <= std_logic_vector(unsigned(dds_data) + 1);
-				dds_we <= '1';
-			else
-				dds_we <= '0';
-				counter2 := counter2 + 1;
+			if(button = '0') then
+				if(counter2 = 1000000) then
+					counter2 := (others => '0');
+					dds_data <= std_logic_vector(unsigned(dds_data) + 1);
+					dds_we <= '1';
+				else
+					dds_we <= '0';
+					counter2 := counter2 + 1;
+				end if;
 			end if;
 --			
 --			if(master_state = FFT and fft_done = '1') then
@@ -298,21 +305,24 @@ begin
 					fft_state <= FFT_WAIT_FOR_RFD;
 				end case;
 			when FFT =>
-				fft_ce <= '1';
-				fft_sclr <= '0';
+				
 				
 				case fft_state is
 				when FFT_WAIT_FOR_RFD =>
---					if(delay /= (delay'range => '0')) then
---						delay <= delay - 1;
---					else
-						fft_start <= '1';		
-						
-						if(fft_rfd = '1') then
-							fft_state <= FFT_LOAD;
+--					if(vs_buffer = '1') then
+							fft_ce <= '1';
+						fft_sclr <= '0';
+	--					if(delay /= (delay'range => '0')) then
+	--						delay <= delay - 1;
+	--					else
+							fft_start <= '1';		
 							
-						end if;
-					
+							if(fft_rfd = '1') then
+								fft_state <= FFT_LOAD;
+								
+							end if;
+						
+	--					end if;
 --					end if;
 				when FFT_LOAD =>
 					
@@ -528,7 +538,7 @@ begin
 		clk => vga_clk,
 		rst => rst,
 		hs => hs,
-		vs => vs,
+		vs => vs_buffer,
 		green => green,
 		red => red,
 		blue => blue,

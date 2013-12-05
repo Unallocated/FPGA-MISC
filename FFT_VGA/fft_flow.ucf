@@ -47,6 +47,7 @@ NET "leds<7>"         LOC = "T11" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin na
 #NET "sine_out<5>"          LOC = "J1"  | IOSTANDARD = "LVCMOS33";   #Bank = 3, Pin name = IO_L40N_M3DQ7,                     Sch name = JB8
 #NET "sine_out<6>"          LOC = "K3"  | IOSTANDARD = "LVCMOS33";   #Bank = 3, Pin name = IO_L42N_GCLK24_M3LDM,              Sch name = JB9
 #NET "sine_out<7>"          LOC = "K5"  | IOSTANDARD = "LVCMOS33";   #Bank = 3, Pin name = IO_L43N_GCLK22_IRDY2_M3CASN,       Sch name = JB1
+NET "button"         LOC = "C4"  | IOSTANDARD = "LVCMOS33";   #Bank = 0, Pin name = IO_L1N_VREF,                       Sch name = BTNL
 
 NET "red<0>"      LOC = "U7"  | IOSTANDARD = "LVCMOS33";   # Bank = 2, Pin name = IO_L43P,                          Sch name = RED0
 NET "red<1>"      LOC = "V7"  | IOSTANDARD = "LVCMOS33";   # Bank = 2, Pin name = IO_L43N,                          Sch name = RED1

@@ -91,7 +91,7 @@ ENTITY vga_ram_exdes IS
     ENA            : IN STD_LOGIC;  --opt port
   
     WEA            : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    ADDRA          : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    ADDRA          : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
   
     DINA           : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
   
@@ -99,7 +99,7 @@ ENTITY vga_ram_exdes IS
 
   
       --Inputs - Port B
-    ADDRB          : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    ADDRB          : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
     DOUTB          : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     CLKB           : IN STD_LOGIC
 
@@ -123,7 +123,7 @@ ARCHITECTURE xilinx OF vga_ram_exdes IS
     ENA        : IN STD_LOGIC;  --opt port
   
     WEA        : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    ADDRA      : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    ADDRA      : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
   
     DINA       : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 
@@ -132,7 +132,7 @@ ARCHITECTURE xilinx OF vga_ram_exdes IS
 
   
       --Port B
-    ADDRB      : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    ADDRB      : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
     DOUTB      : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     CLKB       : IN STD_LOGIC
 

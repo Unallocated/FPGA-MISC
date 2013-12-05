@@ -208,12 +208,12 @@ COMPONENT fft_core
     fwd_inv : IN STD_LOGIC;
     fwd_inv_we : IN STD_LOGIC;
     rfd : OUT STD_LOGIC;
-    xn_index : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+    xn_index : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
     busy : OUT STD_LOGIC;
     edone : OUT STD_LOGIC;
     done : OUT STD_LOGIC;
     dv : OUT STD_LOGIC;
-    xk_index : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+    xk_index : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
     xk_re : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     xk_im : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     blk_exp : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)

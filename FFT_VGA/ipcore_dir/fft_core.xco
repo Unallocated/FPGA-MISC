@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.7
-# Date: Tue Dec  3 00:44:10 2013
+# Date: Thu Dec  5 07:30:17 2013
 #
 ##############################################################
 #
@@ -63,10 +63,10 @@ CSET scaling_options=block_floating_point
 CSET sclr=true
 CSET target_clock_frequency=50
 CSET target_data_throughput=50
-CSET transform_length=256
+CSET transform_length=512
 # END Parameters
 # BEGIN Extra information
 MISC pkg_timestamp=2012-08-28T14:48:07Z
 # END Extra information
 GENERATE
-# CRC: e326964a
+# CRC: 6f67d2e0
