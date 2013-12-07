@@ -1,0 +1,28 @@
+Release 14.7 ngcbuild P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/ngcbuild -dd
+/root/FPGA-MISC/Serial_SRAM/_ngo -sd ipcore_dir -p xc6slx16-csg324-3 -i
+/root/FPGA-MISC/Serial_SRAM/test.ngc /root/FPGA-MISC/Serial_SRAM/test_cs.ngc
+
+Prepending components to an absolute path is invalid.
+Reading NGO file "/root/FPGA-MISC/Serial_SRAM/test.ngc" ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGCBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   0
+
+Total memory usage is 390888 kilobytes
+
+Writing NGC file "/root/FPGA-MISC/Serial_SRAM/test_cs.ngc" ...
+Total REAL time to NGCBUILD completion:  3 sec
+Total CPU time to NGCBUILD completion:   3 sec
+
+Writing NGCBUILD log file "/root/FPGA-MISC/Serial_SRAM/test_cs.blc"...

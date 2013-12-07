@@ -1,0 +1,3 @@
+vhdl work "ipcore_dir/phase_gen.vhd"
+vhdl work "test_one.vhd"
+vhdl work "test.vhd"

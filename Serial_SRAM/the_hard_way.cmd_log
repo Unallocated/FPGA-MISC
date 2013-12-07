@@ -1,0 +1,23 @@
+xst -intstyle ise -ifn "/root/FPGA-MISC/Serial_SRAM/the_hard_way.xst" -ofn "/root/FPGA-MISC/Serial_SRAM/the_hard_way.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/Serial_SRAM/the_hard_way.xst" -ofn "/root/FPGA-MISC/Serial_SRAM/the_hard_way.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/Serial_SRAM/the_hard_way.xst" -ofn "/root/FPGA-MISC/Serial_SRAM/the_hard_way.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/Serial_SRAM/the_hard_way.xst" -ofn "/root/FPGA-MISC/Serial_SRAM/the_hard_way.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc6slx16-csg324-3 the_hard_way.ngc the_hard_way.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o the_hard_way_map.ncd the_hard_way.ngd the_hard_way.pcf 
+par -w -intstyle ise -ol high -mt off the_hard_way_map.ncd the_hard_way.ncd the_hard_way.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml the_hard_way.twx the_hard_way.ncd -o the_hard_way.twr the_hard_way.pcf 
+bitgen -intstyle ise -f the_hard_way.ut the_hard_way.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/Serial_SRAM/the_hard_way.xst" -ofn "/root/FPGA-MISC/Serial_SRAM/the_hard_way.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc nexys3.ucf -p xc6slx16-csg324-3 the_hard_way.ngc the_hard_way.ngd  
+xst -intstyle ise -ifn "/root/FPGA-MISC/Serial_SRAM/the_hard_way.xst" -ofn "/root/FPGA-MISC/Serial_SRAM/the_hard_way.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc nexys3.ucf -p xc6slx16-csg324-3 the_hard_way.ngc the_hard_way.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o the_hard_way_map.ncd the_hard_way.ngd the_hard_way.pcf 
+par -w -intstyle ise -ol high -mt off the_hard_way_map.ncd the_hard_way.ncd the_hard_way.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml the_hard_way.twx the_hard_way.ncd -o the_hard_way.twr the_hard_way.pcf -ucf nexys3.ucf 
+bitgen -intstyle ise -f the_hard_way.ut the_hard_way.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/Serial_SRAM/the_hard_way.xst" -ofn "/root/FPGA-MISC/Serial_SRAM/the_hard_way.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc nexys3.ucf -p xc6slx16-csg324-3 the_hard_way.ngc the_hard_way.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o the_hard_way_map.ncd the_hard_way.ngd the_hard_way.pcf 
+par -w -intstyle ise -ol high -mt off the_hard_way_map.ncd the_hard_way.ncd the_hard_way.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml the_hard_way.twx the_hard_way.ncd -o the_hard_way.twr the_hard_way.pcf -ucf nexys3.ucf 
+bitgen -intstyle ise -f the_hard_way.ut the_hard_way.ncd 

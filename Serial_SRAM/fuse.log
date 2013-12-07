@@ -1,0 +1,37 @@
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib secureip -o /root/FPGA-MISC/Serial_SRAM/test_isim_beh.exe -prj /root/FPGA-MISC/Serial_SRAM/test_beh.prj work.test 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Parsing VHDL file "/root/FPGA-MISC/Serial_SRAM/ipcore_dir/phase_gen.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/Serial_SRAM/test_one.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/Serial_SRAM/test.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 116264 KB
+Fuse CPU Usage: 1250 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package numeric_std
+Compiling package vcomponents
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling package textio
+Compiling package vital_timing
+Compiling package vital_primitives
+Compiling package vpkg
+Compiling architecture bufg_v of entity BUFG [bufg_default]
+Compiling architecture dcm_sp_clock_divide_by_2_v of entity dcm_sp_clock_divide_by_2 [dcm_sp_clock_divide_by_2_default]
+Compiling architecture dcm_sp_maximum_period_check_v of entity dcm_sp_maximum_period_check [\dcm_sp_maximum_period_check("*"...]
+Compiling architecture dcm_sp_maximum_period_check_v of entity dcm_sp_maximum_period_check [\dcm_sp_maximum_period_check("*"...]
+Compiling architecture dcm_sp_clock_lost_v of entity dcm_sp_clock_lost [dcm_sp_clock_lost_default]
+Compiling architecture dcm_sp_v of entity DCM_SP [\DCM_SP(true,"*",true,false,2.0,...]
+Compiling architecture xilinx of entity phase_gen [phase_gen_default]
+Compiling architecture behavioral of entity test_one [test_one_default]
+Compiling architecture behavioral of entity test
+Time Resolution for simulation is 1ps.
+Compiled 27 VHDL Units
+Built simulation executable /root/FPGA-MISC/Serial_SRAM/test_isim_beh.exe
+Fuse Memory Usage: 247964 KB
+Fuse CPU Usage: 1730 ms
+GCC CPU Usage: 1710 ms

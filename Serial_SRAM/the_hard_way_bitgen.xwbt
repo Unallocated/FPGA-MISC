@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/root/FPGA-MISC/Serial_SRAM/the_hard_way.ncd
+OUTFILE=/root/FPGA-MISC/Serial_SRAM/the_hard_way.bit
+FAMILY=Spartan6
+PART=xc6slx16-3csg324
+WORKINGDIR=/root/FPGA-MISC/Serial_SRAM
+LICENSE=ISE
+USER_INFO=210826213_0_0_741

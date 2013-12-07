@@ -1,0 +1,496 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.07 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.07 secs
+ 
+--> 
+Reading design: the_hard_way.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "the_hard_way.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "the_hard_way"
+Output Format                      : NGC
+Target Device                      : xc6slx16-3-csg324
+
+---- Source Options
+Top Module Name                    : the_hard_way
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/root/FPGA-MISC/Serial_SRAM/the_hard_way.vhd" into library work
+Parsing entity <the_hard_way>.
+Parsing architecture <Behavioral> of entity <the_hard_way>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <the_hard_way> (architecture <Behavioral>) from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <the_hard_way>.
+    Related source file is "/root/FPGA-MISC/Serial_SRAM/the_hard_way.vhd".
+WARNING:Xst:647 - Input <si> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 32-bit register for signal <pos>.
+    Found 32-bit register for signal <count>.
+    Found 1-bit register for signal <slow_clk>.
+    Found 1-bit register for signal <cs>.
+    Found 1-bit register for signal <sck>.
+    Found 1-bit register for signal <so>.
+    Found 32-bit adder for signal <count[31]_GND_3_o_add_1_OUT> created at line 32.
+    Found 32-bit adder for signal <pos[31]_GND_3_o_add_163_OUT> created at line 420.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  68 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+Unit <the_hard_way> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 32-bit adder                                          : 2
+# Registers                                            : 6
+ 1-bit register                                        : 4
+ 32-bit register                                       : 2
+# Multiplexers                                         : 2
+ 32-bit 2-to-1 multiplexer                             : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <the_hard_way>.
+The following registers are absorbed into counter <count>: 1 register on signal <count>.
+The following registers are absorbed into counter <pos>: 1 register on signal <pos>.
+Unit <the_hard_way> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 2
+ 32-bit up counter                                     : 2
+# Registers                                            : 4
+ Flip-Flops                                            : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <the_hard_way> ...
+WARNING:Xst:1293 - FF/Latch <pos_15> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_16> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_17> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_18> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_19> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_20> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_21> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_22> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_23> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_24> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_25> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_26> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_27> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_28> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_29> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_30> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_31> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <count_22> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <count_23> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <count_24> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <count_25> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <count_26> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <count_27> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <count_28> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <count_29> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <count_30> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <count_31> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_8> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_9> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_10> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_11> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_12> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_13> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pos_14> has a constant value of 0 in block <the_hard_way>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block the_hard_way, actual ratio is 1.
+FlipFlop pos_0 has been replicated 2 time(s)
+FlipFlop pos_1 has been replicated 2 time(s)
+FlipFlop pos_2 has been replicated 3 time(s)
+FlipFlop pos_3 has been replicated 3 time(s)
+FlipFlop pos_4 has been replicated 1 time(s)
+FlipFlop pos_5 has been replicated 2 time(s)
+FlipFlop pos_6 has been replicated 2 time(s)
+FlipFlop pos_7 has been replicated 2 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 51
+ Flip-Flops                                            : 51
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : the_hard_way.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 235
+#      GND                         : 1
+#      INV                         : 4
+#      LUT1                        : 29
+#      LUT2                        : 10
+#      LUT3                        : 12
+#      LUT4                        : 9
+#      LUT5                        : 38
+#      LUT6                        : 47
+#      MUXCY                       : 52
+#      MUXF7                       : 2
+#      VCC                         : 1
+#      XORCY                       : 30
+# FlipFlops/Latches                : 51
+#      FDC                         : 47
+#      FDCE                        : 1
+#      FDE                         : 3
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 4
+#      IBUF                        : 1
+#      OBUF                        : 3
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx16csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              51  out of  18224     0%  
+ Number of Slice LUTs:                  149  out of   9112     1%  
+    Number used as Logic:               149  out of   9112     1%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    163
+   Number with an unused Flip Flop:     112  out of    163    68%  
+   Number with an unused LUT:            14  out of    163     8%  
+   Number of fully used LUT-FF pairs:    37  out of    163    22%  
+   Number of unique control sets:         4
+
+IO Utilization: 
+ Number of IOs:                           6
+ Number of bonded IOBs:                   5  out of    232     2%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 23    |
+slow_clk                           | BUFG                   | 28    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 5.653ns (Maximum Frequency: 176.900MHz)
+   Minimum input arrival time before clock: 3.933ns
+   Maximum output required time after clock: 3.668ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 4.137ns (frequency: 241.747MHz)
+  Total number of paths / destination ports: 760 / 24
+-------------------------------------------------------------------------
+Delay:               4.137ns (Levels of Logic = 2)
+  Source:            count_10 (FF)
+  Destination:       slow_clk (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: count_10 to slow_clk
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.447   0.981  count_10 (count_10)
+     LUT6:I0->O           23   0.203   1.401  GND_3_o_count[31]_equal_1_o<31>1 (GND_3_o_count[31]_equal_1_o<31>)
+     LUT4:I0->O            1   0.203   0.579  GND_3_o_count[31]_equal_1_o<31>5 (GND_3_o_count[31]_equal_1_o)
+     FDCE:CE                   0.322          slow_clk
+    ----------------------------------------
+    Total                      4.137ns (1.175ns logic, 2.962ns route)
+                                       (28.4% logic, 71.6% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'slow_clk'
+  Clock period: 5.653ns (frequency: 176.900MHz)
+  Total number of paths / destination ports: 1962 / 28
+-------------------------------------------------------------------------
+Delay:               5.653ns (Levels of Logic = 6)
+  Source:            pos_1_1 (FF)
+  Destination:       cs (FF)
+  Source Clock:      slow_clk rising
+  Destination Clock: slow_clk rising
+
+  Data Path: pos_1_1 to cs
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.447   0.845  pos_1_1 (pos_1_1)
+     LUT3:I0->O           11   0.205   1.247  GND_3_o_pos[31]_equal_149_o<31>111 (GND_3_o_pos[31]_equal_149_o<31>11)
+     LUT6:I0->O            1   0.203   0.000  out12_G (N58)
+     MUXF7:I1->O           2   0.140   0.617  out12 (out13)
+     LUT6:I5->O            3   0.205   0.651  out15 (out223)
+     LUT4:I3->O            1   0.205   0.580  GND_3_o_PWR_3_o_Select_153_o_cy1_SW0 (N53)
+     LUT6:I5->O            1   0.205   0.000  GND_3_o_PWR_3_o_Select_153_o_cy1 (GND_3_o_PWR_3_o_Select_153_o)
+     FDE:D                     0.102          cs
+    ----------------------------------------
+    Total                      5.653ns (1.712ns logic, 3.941ns route)
+                                       (30.3% logic, 69.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 23 / 23
+-------------------------------------------------------------------------
+Offset:              3.185ns (Levels of Logic = 1)
+  Source:            rst (PAD)
+  Destination:       slow_clk (FF)
+  Destination Clock: clk rising
+
+  Data Path: rst to slow_clk
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            49   1.222   1.533  rst_IBUF (rst_IBUF)
+     FDCE:CLR                  0.430          slow_clk
+    ----------------------------------------
+    Total                      3.185ns (1.652ns logic, 1.533ns route)
+                                       (51.9% logic, 48.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'slow_clk'
+  Total number of paths / destination ports: 28 / 28
+-------------------------------------------------------------------------
+Offset:              3.933ns (Levels of Logic = 2)
+  Source:            rst (PAD)
+  Destination:       sck (FF)
+  Destination Clock: slow_clk rising
+
+  Data Path: rst to sck
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            49   1.222   1.533  rst_IBUF (rst_IBUF)
+     INV:I->O              3   0.206   0.650  rst_inv1_INV_0 (rst_inv)
+     FDE:CE                    0.322          sck
+    ----------------------------------------
+    Total                      3.933ns (1.750ns logic, 2.183ns route)
+                                       (44.5% logic, 55.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'slow_clk'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              3.668ns (Levels of Logic = 1)
+  Source:            cs (FF)
+  Destination:       cs (PAD)
+  Source Clock:      slow_clk rising
+
+  Data Path: cs to cs
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              3   0.447   0.650  cs (cs_OBUF)
+     OBUF:I->O                 2.571          cs_OBUF (cs)
+    ----------------------------------------
+    Total                      3.668ns (3.018ns logic, 0.650ns route)
+                                       (82.3% logic, 17.7% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    4.137|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock slow_clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+slow_clk       |    5.653|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 10.14 secs
+ 
+--> 
+
+
+Total memory usage is 387232 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   35 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

@@ -1,0 +1,2 @@
+vhdl work ../../phase_gen.vhd
+vhdl work ../example_design/phase_gen_exdes.vhd
