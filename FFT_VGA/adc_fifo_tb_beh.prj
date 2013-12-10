@@ -1,2 +1,0 @@
-vhdl work "ipcore_dir/adc_fifo.vhd"
-vhdl work "adc_fifo_tb.vhd"

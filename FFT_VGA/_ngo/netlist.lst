@@ -1,9 +1,0 @@
-/root/FPGA-MISC/FFT_VGA/fft_with_ram.ngc 1386715716
-ipcore_dir/fft_core.ngc 1386715650
-ipcore_dir/multiplier.ngc 1386636949
-ipcore_dir/adc_ram.ngc 1386634854
-ipcore_dir/fft_ram_simple.ngc 1386637775
-ipcore_dir/vga_ram.ngc 1386640306
-ipcore_dir/dds.ngc 1386643386
-ipcore_dir/sqrt.ngc 1386638950
-OK

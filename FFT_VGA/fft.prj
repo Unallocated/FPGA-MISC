@@ -1,4 +1,0 @@
-vhdl work "ipcore_dir/dcm.vhd"
-vhdl work "ipcore_dir/adc_fifo.vhd"
-vhdl work "ipcore_dir/fft_core.vhd"
-vhdl work "fft.vhd"
