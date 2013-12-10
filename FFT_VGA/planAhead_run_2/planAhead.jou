@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:24:36 MDT 2013
+# Start of session at: Mon Dec  9 21:58:09 2013
+# Process ID: 43858
+# Log file: /root/FPGA-MISC/FFT_VGA/planAhead_run_2/planAhead.log
+# Journal file: /root/FPGA-MISC/FFT_VGA/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source /root/FPGA-MISC/FFT_VGA/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+set_property package_pin "" [get_ports [list  adc_clk]]

@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "/home/main/git/FPGA-MISC/FFT_VGA/ipcore_dir/fft_core.vhd";
+static const char *ng0 = "/root/FPGA-MISC/FFT_VGA/ipcore_dir/fft_core.vhd";
 
 
 

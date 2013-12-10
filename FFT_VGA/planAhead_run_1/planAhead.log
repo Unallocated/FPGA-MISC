@@ -1,0 +1,226 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:24:36 MDT 2013
+# Start of session at: Mon Dec  9 21:37:59 2013
+# Process ID: 42261
+# Log file: /root/FPGA-MISC/FFT_VGA/planAhead_run_1/planAhead.log
+# Journal file: /root/FPGA-MISC/FFT_VGA/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Common 17-86] Your PlanAhead license expires in 7 day(s)
+INFO: [Device 21-36] Loading parts and site information from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source /root/FPGA-MISC/FFT_VGA/pa.fromNcd.tcl
+# create_project -name FFT_VGA -dir "/root/FPGA-MISC/FFT_VGA/planAhead_run_1" -part xc6slx16csg324-3
+# set srcset [get_property srcset [current_run -impl]]
+# set_property design_mode GateLvl $srcset
+# set_property edif_top_file "/root/FPGA-MISC/FFT_VGA/fft_with_ram.ngc" [ get_property srcset [ current_run ] ]
+# add_files -norecurse { {/root/FPGA-MISC/FFT_VGA} {ipcore_dir} }
+# add_files [list {ipcore_dir/fft_ram_simple.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/vga_ram.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/adc_ram.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/multiplier.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/fft_ram.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/fft_core.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/adc_fifo.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/sqrt.ncf}] -fileset [get_property constrset [current_run]]
+# set_property target_constrs_file "/root/FPGA-MISC/FFT_VGA/fft_flow.ucf" [current_fileset -constrset]
+Adding file '/root/FPGA-MISC/FFT_VGA/fft_flow.ucf' to fileset 'constrs_1'
+# add_files [list {fft_flow.ucf}] -fileset [get_property constrset [current_run]]
+# add_files [list {fft_with_ram.ucf}] -fileset [get_property constrset [current_run]]
+# link_design
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+Design is defaulting to project part: xc6slx16csg324-3
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design fft_with_ram.ngc ...
+WARNING:NetListWriters:298 - No output is written to fft_with_ram.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:306 - Signal bus
+   vga_instance/GND_24_o_GND_24_o_sub_13_OUT[9 : 3] on block fft_with_ram is not
+   reconstructed, because there are some missing bus signals.
+  finished :Prep
+Writing EDIF netlist file fft_with_ram.edif ...
+ngc2edif: Total memory usage is 103676 kilobytes
+
+Parsing EDIF File [./planAhead_run_1/FFT_VGA.data/cache/fft_with_ram_ngc_253fd368.edif]
+Finished Parsing EDIF File [./planAhead_run_1/FFT_VGA.data/cache/fft_with_ram_ngc_253fd368.edif]
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design fft_ram_simple.ngc ...
+WARNING:NetListWriters:298 - No output is written to fft_ram_simple.xncf,
+   ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file fft_ram_simple.edif ...
+ngc2edif: Total memory usage is 102944 kilobytes
+
+Reading core file '/root/FPGA-MISC/FFT_VGA/ipcore_dir/fft_ram_simple.ngc' for (cell view 'fft_ram_simple', library 'fft_with_ram_lib', file 'fft_with_ram.ngc')
+Parsing EDIF File [./planAhead_run_1/FFT_VGA.data/cache/fft_ram_simple_ngc_e7cf6e13.edif]
+Finished Parsing EDIF File [./planAhead_run_1/FFT_VGA.data/cache/fft_ram_simple_ngc_e7cf6e13.edif]
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design fft_core.ngc ...
+WARNING:NetListWriters:298 - No output is written to fft_core.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file fft_core.edif ...
+ngc2edif: Total memory usage is 106036 kilobytes
+
+Reading core file '/root/FPGA-MISC/FFT_VGA/ipcore_dir/fft_core.ngc' for (cell view 'fft_core', library 'fft_with_ram_lib', file 'fft_with_ram.ngc')
+Parsing EDIF File [./planAhead_run_1/FFT_VGA.data/cache/fft_core_ngc_e7cf6e13.edif]
+Finished Parsing EDIF File [./planAhead_run_1/FFT_VGA.data/cache/fft_core_ngc_e7cf6e13.edif]
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design sqrt.ngc ...
+WARNING:NetListWriters:298 - No output is written to sqrt.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file sqrt.edif ...
+ngc2edif: Total memory usage is 103712 kilobytes
+
+Reading core file '/root/FPGA-MISC/FFT_VGA/ipcore_dir/sqrt.ngc' for (cell view 'sqrt', library 'fft_with_ram_lib', file 'fft_with_ram.ngc')
+Parsing EDIF File [./planAhead_run_1/FFT_VGA.data/cache/sqrt_ngc_e7cf6e13.edif]
+Finished Parsing EDIF File [./planAhead_run_1/FFT_VGA.data/cache/sqrt_ngc_e7cf6e13.edif]
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design adc_ram.ngc ...
+WARNING:NetListWriters:298 - No output is written to adc_ram.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file adc_ram.edif ...
+ngc2edif: Total memory usage is 102916 kilobytes
+
+Reading core file '/root/FPGA-MISC/FFT_VGA/ipcore_dir/adc_ram.ngc' for (cell view 'adc_ram', library 'fft_with_ram_lib', file 'fft_with_ram.ngc')
+Parsing EDIF File [./planAhead_run_1/FFT_VGA.data/cache/adc_ram_ngc_e7cf6e13.edif]
+Finished Parsing EDIF File [./planAhead_run_1/FFT_VGA.data/cache/adc_ram_ngc_e7cf6e13.edif]
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design vga_ram.ngc ...
+WARNING:NetListWriters:298 - No output is written to vga_ram.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file vga_ram.edif ...
+ngc2edif: Total memory usage is 102920 kilobytes
+
+Reading core file '/root/FPGA-MISC/FFT_VGA/ipcore_dir/vga_ram.ngc' for (cell view 'vga_ram', library 'fft_with_ram_lib', file 'fft_with_ram.ngc')
+Parsing EDIF File [./planAhead_run_1/FFT_VGA.data/cache/vga_ram_ngc_e7cf6e13.edif]
+Finished Parsing EDIF File [./planAhead_run_1/FFT_VGA.data/cache/vga_ram_ngc_e7cf6e13.edif]
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design multiplier.ngc ...
+WARNING:NetListWriters:298 - No output is written to multiplier.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file multiplier.edif ...
+ngc2edif: Total memory usage is 103348 kilobytes
+
+Reading core file '/root/FPGA-MISC/FFT_VGA/ipcore_dir/multiplier.ngc' for (cell view 'multiplier', library 'fft_with_ram_lib', file 'fft_with_ram.ngc')
+Parsing EDIF File [./planAhead_run_1/FFT_VGA.data/cache/multiplier_ngc_e7cf6e13.edif]
+Finished Parsing EDIF File [./planAhead_run_1/FFT_VGA.data/cache/multiplier_ngc_e7cf6e13.edif]
+Loading clock regions from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/spartan6lx/xc6slx16/ClockRegion.xml
+Loading clock buffers from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/spartan6lx/xc6slx16/ClockBuffers.xml
+Loading package pin functions from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/spartan6lx/xc6slx16/csg324/Package.xml
+Loading io standards from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/spartan6/drc.xml
+WARNING: [Timing 38-83] Timing library cell SRLC32E does not define port A[4] which is referred to in the netlist. The library cell will be ignored and the cell will be treated as a black box for timing purposes.
+WARNING: [Timing 38-83] Timing library cell SRLC32E does not define port A[3] which is referred to in the netlist. The library cell will be ignored and the cell will be treated as a black box for timing purposes.
+WARNING: [Timing 38-83] Timing library cell SRLC32E does not define port A[2] which is referred to in the netlist. The library cell will be ignored and the cell will be treated as a black box for timing purposes.
+WARNING: [Timing 38-83] Timing library cell SRLC32E does not define port A[1] which is referred to in the netlist. The library cell will be ignored and the cell will be treated as a black box for timing purposes.
+WARNING: [Timing 38-83] Timing library cell SRLC32E does not define port A[0] which is referred to in the netlist. The library cell will be ignored and the cell will be treated as a black box for timing purposes.
+Parsing UCF File [/root/FPGA-MISC/FFT_VGA/ipcore_dir/fft_ram_simple.ncf]
+Finished Parsing UCF File [/root/FPGA-MISC/FFT_VGA/ipcore_dir/fft_ram_simple.ncf]
+Parsing UCF File [/root/FPGA-MISC/FFT_VGA/ipcore_dir/vga_ram.ncf]
+Finished Parsing UCF File [/root/FPGA-MISC/FFT_VGA/ipcore_dir/vga_ram.ncf]
+Parsing UCF File [/root/FPGA-MISC/FFT_VGA/ipcore_dir/adc_ram.ncf]
+Finished Parsing UCF File [/root/FPGA-MISC/FFT_VGA/ipcore_dir/adc_ram.ncf]
+Parsing UCF File [/root/FPGA-MISC/FFT_VGA/ipcore_dir/multiplier.ncf]
+Finished Parsing UCF File [/root/FPGA-MISC/FFT_VGA/ipcore_dir/multiplier.ncf]
+Parsing UCF File [/root/FPGA-MISC/FFT_VGA/ipcore_dir/fft_core.ncf]
+Finished Parsing UCF File [/root/FPGA-MISC/FFT_VGA/ipcore_dir/fft_core.ncf]
+Parsing UCF File [/root/FPGA-MISC/FFT_VGA/ipcore_dir/sqrt.ncf]
+Finished Parsing UCF File [/root/FPGA-MISC/FFT_VGA/ipcore_dir/sqrt.ncf]
+Parsing UCF File [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'adc_in<0>' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:8]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'adc_in<0>' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:8]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'adc_in<1>' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:9]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'adc_in<1>' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:9]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'adc_in<2>' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:10]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'adc_in<2>' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:10]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'adc_in<3>' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:11]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'adc_in<3>' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:11]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'adc_in<4>' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:12]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'adc_in<4>' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:12]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'adc_in<5>' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:13]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'adc_in<5>' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:13]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'adc_in<6>' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:14]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'adc_in<6>' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:14]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'adc_in<7>' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:15]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'adc_in<7>' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:15]
+CRITICAL WARNING: [Constraints 18-11] Could not find pin 'dcm_inst/clkout5_buf.O' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:24]
+CRITICAL WARNING: [Constraints 18-10] Could not create constraint 'CLOCK_DEDICATED_ROUTE' [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf:24]
+Finished Parsing UCF File [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf]
+Parsing UCF File [/root/FPGA-MISC/FFT_VGA/fft_with_ram.ucf]
+Finished Parsing UCF File [/root/FPGA-MISC/FFT_VGA/fft_with_ram.ucf]
+INFO: [Designutils 20-20] Invalid constraints found, use command 'write_ucf -constraints invalid <file>' to save all the invalid constraints to a file
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Phase 0 | Netlist Checksum: fe922f0f
+link_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:24 . Memory (MB): peak = 2861.605 ; gain = 197.637
+# read_xdl -file "/root/FPGA-MISC/FFT_VGA/fft_with_ram.ncd"
+Release 14.7 - xdl P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+WARNING:XDL:213 - The resulting xdl output will not have LUT equation strings or RAM INIT strings.
+Loading device for application Rf_Device from file '6slx16.nph' in environment /opt/Xilinx/14.7/ISE_DS/ISE/.
+   "fft_with_ram" is an NCD, version 3.2, device xc6slx16, package csg324, speed -3
+Successfully converted design '/root/FPGA-MISC/FFT_VGA/fft_with_ram.ncd' to '/root/FPGA-MISC/FFT_VGA/fft_with_ram.xdl'.
+INFO: [Designutils 20-669] Parsing Placement File : /root/FPGA-MISC/FFT_VGA/fft_with_ram.ncd
+INFO: [Designutils 20-658] Finished Parsing Placement File : /root/FPGA-MISC/FFT_VGA/fft_with_ram.ncd
+INFO: [Designutils 20-671] Placed 1398 instances
+read_xdl: Time (s): cpu = 00:00:22 ; elapsed = 00:00:13 . Memory (MB): peak = 2861.605 ; gain = 0.000
+# if {[catch {read_twx -name results_1 -file "/root/FPGA-MISC/FFT_VGA/fft_with_ram.twx"} eInfo]} {
+#    puts "WARNING: there was a problem importing \"/root/FPGA-MISC/FFT_VGA/fft_with_ram.twx\": $eInfo"
+# }

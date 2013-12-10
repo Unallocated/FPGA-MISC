@@ -97,6 +97,8 @@ ARCHITECTURE simulation_arch OF adc_fifo_synth IS
     -- FIFO interface signal declarations
     SIGNAL wr_clk_i                       :   STD_LOGIC;
     SIGNAL rd_clk_i                       :   STD_LOGIC;
+    SIGNAL wr_data_count                  :   STD_LOGIC_VECTOR(9-1 DOWNTO 0);
+    SIGNAL wr_ack                         :   STD_LOGIC;
     SIGNAL almost_full                    :   STD_LOGIC;
     SIGNAL almost_empty                   :   STD_LOGIC;
     SIGNAL rst	                          :   STD_LOGIC;
@@ -291,6 +293,8 @@ ARCHITECTURE simulation_arch OF adc_fifo_synth IS
     PORT MAP (
            WR_CLK                    => wr_clk_i,
            RD_CLK                    => rd_clk_i,
+           WR_DATA_COUNT             => wr_data_count,
+           WR_ACK                    => wr_ack,
            ALMOST_FULL               => almost_full,
            ALMOST_EMPTY              => almost_empty,
            RST                       => rst,

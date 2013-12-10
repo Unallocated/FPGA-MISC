@@ -1,0 +1,126 @@
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+par -w -intstyle ise -ol high -mt off fft_with_ram_map.ncd fft_with_ram.ncd fft_with_ram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_with_ram.twx fft_with_ram.ncd -o fft_with_ram.twr fft_with_ram.pcf 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -uc fft_with_ram.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+par -w -intstyle ise -ol high -mt off fft_with_ram_map.ncd fft_with_ram.ncd fft_with_ram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_with_ram.twx fft_with_ram.ncd -o fft_with_ram.twr fft_with_ram.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_with_ram.ut fft_with_ram.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+par -w -intstyle ise -ol high -mt off fft_with_ram_map.ncd fft_with_ram.ncd fft_with_ram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_with_ram.twx fft_with_ram.ncd -o fft_with_ram.twr fft_with_ram.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_with_ram.ut fft_with_ram.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+par -w -intstyle ise -ol high -mt off fft_with_ram_map.ncd fft_with_ram.ncd fft_with_ram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_with_ram.twx fft_with_ram.ncd -o fft_with_ram.twr fft_with_ram.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_with_ram.ut fft_with_ram.ncd 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+par -w -intstyle ise -ol high -mt off fft_with_ram_map.ncd fft_with_ram.ncd fft_with_ram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_with_ram.twx fft_with_ram.ncd -o fft_with_ram.twr fft_with_ram.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_with_ram.ut fft_with_ram.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+par -w -intstyle ise -ol high -mt off fft_with_ram_map.ncd fft_with_ram.ncd fft_with_ram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_with_ram.twx fft_with_ram.ncd -o fft_with_ram.twr fft_with_ram.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_with_ram.ut fft_with_ram.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+par -w -intstyle ise -ol high -mt off fft_with_ram_map.ncd fft_with_ram.ncd fft_with_ram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_with_ram.twx fft_with_ram.ncd -o fft_with_ram.twr fft_with_ram.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_with_ram.ut fft_with_ram.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+par -w -intstyle ise -ol high -mt off fft_with_ram_map.ncd fft_with_ram.ncd fft_with_ram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_with_ram.twx fft_with_ram.ncd -o fft_with_ram.twr fft_with_ram.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_with_ram.ut fft_with_ram.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+par -w -intstyle ise -ol high -mt off fft_with_ram_map.ncd fft_with_ram.ncd fft_with_ram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_with_ram.twx fft_with_ram.ncd -o fft_with_ram.twr fft_with_ram.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_with_ram.ut fft_with_ram.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+par -w -intstyle ise -ol high -mt off fft_with_ram_map.ncd fft_with_ram.ncd fft_with_ram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_with_ram.twx fft_with_ram.ncd -o fft_with_ram.twr fft_with_ram.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_with_ram.ut fft_with_ram.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+par -w -intstyle ise -ol high -mt off fft_with_ram_map.ncd fft_with_ram.ncd fft_with_ram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_with_ram.twx fft_with_ram.ncd -o fft_with_ram.twr fft_with_ram.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_with_ram.ut fft_with_ram.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+par -w -intstyle ise -ol high -mt off fft_with_ram_map.ncd fft_with_ram.ncd fft_with_ram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_with_ram.twx fft_with_ram.ncd -o fft_with_ram.twr fft_with_ram.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_with_ram.ut fft_with_ram.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+par -w -intstyle ise -ol high -mt off fft_with_ram_map.ncd fft_with_ram.ncd fft_with_ram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_with_ram.twx fft_with_ram.ncd -o fft_with_ram.twr fft_with_ram.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_with_ram.ut fft_with_ram.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.xst" -ofn "/root/FPGA-MISC/FFT_VGA/fft_with_ram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 fft_with_ram.ngc fft_with_ram.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fft_with_ram_map.ncd fft_with_ram.ngd fft_with_ram.pcf 
+par -w -intstyle ise -ol high -mt off fft_with_ram_map.ncd fft_with_ram.ncd fft_with_ram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_with_ram.twx fft_with_ram.ncd -o fft_with_ram.twr fft_with_ram.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_with_ram.ut fft_with_ram.ncd 

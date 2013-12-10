@@ -200,6 +200,8 @@ PACKAGE adc_fifo_pkg IS
    PORT (
            WR_CLK                    : IN  std_logic;
      	   RD_CLK                    : IN  std_logic;
+     	   WR_DATA_COUNT             : OUT std_logic_vector(9-1 DOWNTO 0);
+           WR_ACK                    : OUT std_logic;
            ALMOST_FULL               : OUT std_logic;
            ALMOST_EMPTY              : OUT std_logic;
            RST                       : IN  std_logic;

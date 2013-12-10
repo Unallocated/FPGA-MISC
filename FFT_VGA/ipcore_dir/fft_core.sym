@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="fft_core">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2014-6-23T11:18:58</timestamp>
+    <timestamp>2013-12-10T22:47:35</timestamp>
     <pin polarity="Input" x="0" y="80" name="xn_re[7:0]" />
     <pin polarity="Input" x="0" y="528" name="xn_im[7:0]" />
     <pin polarity="Input" x="0" y="976" name="start" />

@@ -22,7 +22,7 @@
 --    devices, or systems.  Use in such applications are expressly            --
 --    prohibited.                                                             --
 --                                                                            --
---    (c) Copyright 1995-2014 Xilinx, Inc.                                    --
+--    (c) Copyright 1995-2013 Xilinx, Inc.                                    --
 --    All rights reserved.                                                    --
 --------------------------------------------------------------------------------
 
@@ -50,13 +50,13 @@ COMPONENT fft_ram
     clka : IN STD_LOGIC;
     ena : IN STD_LOGIC;
     wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    addra : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    addra : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
     dina : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     douta : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     clkb : IN STD_LOGIC;
     enb : IN STD_LOGIC;
     web : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    addrb : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    addrb : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
     dinb : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     doutb : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
   );

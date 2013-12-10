@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "/home/main/git/FPGA-MISC/FFT_VGA/adc_fifo_tb_isim_beh.exe" -prj "/home/main/git/FPGA-MISC/FFT_VGA/adc_fifo_tb_beh.prj" "work.adc_fifo_tb" 
+-intstyle "ise" -incremental -lib "secureip" -o "/root/FPGA-MISC/FFT_VGA/fft_ram_tb_isim_beh.exe" -prj "/root/FPGA-MISC/FFT_VGA/fft_ram_tb_beh.prj" "work.fft_ram_tb" 

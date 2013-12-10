@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "/home/main/git/FPGA-MISC/FFT_VGA/fft_tb.vhd";
+static const char *ng0 = "/root/FPGA-MISC/FFT_VGA/fft_tb.vhd";
 extern char *IEEE_P_2592010699;
 extern char *IEEE_P_1242562249;
 

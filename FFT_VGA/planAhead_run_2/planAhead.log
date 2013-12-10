@@ -1,0 +1,215 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:24:36 MDT 2013
+# Start of session at: Mon Dec  9 21:58:09 2013
+# Process ID: 43858
+# Log file: /root/FPGA-MISC/FFT_VGA/planAhead_run_2/planAhead.log
+# Journal file: /root/FPGA-MISC/FFT_VGA/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Common 17-86] Your PlanAhead license expires in 7 day(s)
+INFO: [Device 21-36] Loading parts and site information from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source /root/FPGA-MISC/FFT_VGA/pa.fromHdl.tcl
+# create_project -name FFT_VGA -dir "/root/FPGA-MISC/FFT_VGA/planAhead_run_2" -part xc6slx16csg324-3
+# set_param project.pinAheadLayout yes
+# set srcset [get_property srcset [current_run -impl]]
+# set_property target_constrs_file "fft_flow.ucf" [current_fileset -constrset]
+Adding file '/root/FPGA-MISC/FFT_VGA/fft_flow.ucf' to fileset 'constrs_1'
+# set hdlfile [add_files [list {ipcore_dir/dcm.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# add_files [list {ipcore_dir/fft_core.ngc}]
+# set hdlfile [add_files [list {ipcore_dir/adc_ram.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {ipcore_dir/multiplier.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {ipcore_dir/fft_ram_simple.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {ipcore_dir/sqrt.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {ipcore_dir/vga_ram.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {lib.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {vga_configurable.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# add_files [list {ipcore_dir/vga_ram.ngc}]
+# add_files [list {ipcore_dir/sqrt.ngc}]
+# add_files [list {ipcore_dir/multiplier.ngc}]
+# add_files [list {ipcore_dir/fft_ram_simple.ngc}]
+# set hdlfile [add_files [list {ipcore_dir/fft_core.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# add_files [list {ipcore_dir/adc_ram.ngc}]
+# set hdlfile [add_files [list {fft_ram.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# add_files [list {fft.ngc}]
+# set_property top fft_with_ram $srcset
+# add_files [list {fft_flow.ucf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/fft_ram_simple.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/vga_ram.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/adc_ram.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/multiplier.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/fft_ram.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/fft_core.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/adc_fifo.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/sqrt.ncf}] -fileset [get_property constrset [current_run]]
+# open_rtl_design -part xc6slx16csg324-3
+Using Verific elaboration
+Parsing VHDL file "/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "/root/FPGA-MISC/FFT_VGA/lib.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/FFT_VGA/vga_configurable.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/FFT_VGA/ipcore_dir/vga_ram.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/FFT_VGA/ipcore_dir/sqrt.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/FFT_VGA/ipcore_dir/multiplier.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/FFT_VGA/ipcore_dir/fft_ram_simple.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/FFT_VGA/ipcore_dir/dcm.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/FFT_VGA/ipcore_dir/adc_ram.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/FFT_VGA/fft_ram.vhd" into library work
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design adc_ram.ngc ...
+WARNING:NetListWriters:298 - No output is written to adc_ram.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file adc_ram.edif ...
+ngc2edif: Total memory usage is 102888 kilobytes
+
+Reading core file '/root/FPGA-MISC/FFT_VGA/ipcore_dir/adc_ram.ngc' for (cell view 'adc_ram', library 'work', file 'adc_ram.vhd')
+Parsing EDIF File [./.Xil/PlanAhead-43858-kali/ngc2edif/adc_ram.edif]
+Finished Parsing EDIF File [./.Xil/PlanAhead-43858-kali/ngc2edif/adc_ram.edif]
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design fft_core.ngc ...
+WARNING:NetListWriters:298 - No output is written to fft_core.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file fft_core.edif ...
+ngc2edif: Total memory usage is 106036 kilobytes
+
+Reading core file '/root/FPGA-MISC/FFT_VGA/ipcore_dir/fft_core.ngc' for (cell view 'fft_core', library 'work', file 'fft_ram.vhd')
+Parsing EDIF File [./.Xil/PlanAhead-43858-kali/ngc2edif/fft_core.edif]
+Finished Parsing EDIF File [./.Xil/PlanAhead-43858-kali/ngc2edif/fft_core.edif]
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design fft_ram_simple.ngc ...
+WARNING:NetListWriters:298 - No output is written to fft_ram_simple.xncf,
+   ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file fft_ram_simple.edif ...
+ngc2edif: Total memory usage is 102940 kilobytes
+
+Reading core file '/root/FPGA-MISC/FFT_VGA/ipcore_dir/fft_ram_simple.ngc' for (cell view 'fft_ram_simple', library 'work', file 'fft_ram_simple.vhd')
+Parsing EDIF File [./.Xil/PlanAhead-43858-kali/ngc2edif/fft_ram_simple.edif]
+Finished Parsing EDIF File [./.Xil/PlanAhead-43858-kali/ngc2edif/fft_ram_simple.edif]
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design multiplier.ngc ...
+WARNING:NetListWriters:298 - No output is written to multiplier.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file multiplier.edif ...
+ngc2edif: Total memory usage is 103340 kilobytes
+
+Reading core file '/root/FPGA-MISC/FFT_VGA/ipcore_dir/multiplier.ngc' for (cell view 'multiplier', library 'work', file 'multiplier.vhd')
+Parsing EDIF File [./.Xil/PlanAhead-43858-kali/ngc2edif/multiplier.edif]
+Finished Parsing EDIF File [./.Xil/PlanAhead-43858-kali/ngc2edif/multiplier.edif]
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design sqrt.ngc ...
+WARNING:NetListWriters:298 - No output is written to sqrt.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file sqrt.edif ...
+ngc2edif: Total memory usage is 103712 kilobytes
+
+Reading core file '/root/FPGA-MISC/FFT_VGA/ipcore_dir/sqrt.ngc' for (cell view 'sqrt', library 'work', file 'sqrt.vhd')
+Parsing EDIF File [./.Xil/PlanAhead-43858-kali/ngc2edif/sqrt.edif]
+Finished Parsing EDIF File [./.Xil/PlanAhead-43858-kali/ngc2edif/sqrt.edif]
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design vga_ram.ngc ...
+WARNING:NetListWriters:298 - No output is written to vga_ram.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file vga_ram.edif ...
+ngc2edif: Total memory usage is 102924 kilobytes
+
+Reading core file '/root/FPGA-MISC/FFT_VGA/ipcore_dir/vga_ram.ngc' for (cell view 'vga_ram', library 'work', file 'vga_ram.vhd')
+Parsing EDIF File [./.Xil/PlanAhead-43858-kali/ngc2edif/vga_ram.edif]
+Finished Parsing EDIF File [./.Xil/PlanAhead-43858-kali/ngc2edif/vga_ram.edif]
+Loading clock regions from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/spartan6lx/xc6slx16/ClockRegion.xml
+Loading clock buffers from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/spartan6lx/xc6slx16/ClockBuffers.xml
+Loading package pin functions from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/spartan6lx/xc6slx16/csg324/Package.xml
+Loading io standards from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/spartan6/drc.xml
+WARNING: [Timing 38-83] Timing library cell SRLC32E does not define port A[4] which is referred to in the netlist. The library cell will be ignored and the cell will be treated as a black box for timing purposes.
+WARNING: [Timing 38-83] Timing library cell SRLC32E does not define port A[3] which is referred to in the netlist. The library cell will be ignored and the cell will be treated as a black box for timing purposes.
+WARNING: [Timing 38-83] Timing library cell SRLC32E does not define port A[2] which is referred to in the netlist. The library cell will be ignored and the cell will be treated as a black box for timing purposes.
+WARNING: [Timing 38-83] Timing library cell SRLC32E does not define port A[1] which is referred to in the netlist. The library cell will be ignored and the cell will be treated as a black box for timing purposes.
+WARNING: [Timing 38-83] Timing library cell SRLC32E does not define port A[0] which is referred to in the netlist. The library cell will be ignored and the cell will be treated as a black box for timing purposes.
+Parsing UCF File [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf]
+Finished Parsing UCF File [/root/FPGA-MISC/FFT_VGA/fft_flow.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Phase 0 | Netlist Checksum: 5acbb5f9
+open_rtl_design: Time (s): cpu = 00:00:37 ; elapsed = 00:00:24 . Memory (MB): peak = 2843.938 ; gain = 184.457
+update_compile_order -fileset sim_1
+set_property package_pin "" [get_ports [list  adc_clk]]
+exit
+ERROR: [#UNDEF] *** Exception: ui.h.b: Found deleted key in HTclEventBroker. Verify if the classes listed here call cleanup()
+HTclEvent: DEBUG_PORT_CONFIG_CHANGE   Classes: ui.views.aR 
+HTclEvent: DEBUG_CORE_CONFIG_CHANGE   Classes: ui.views.aR 
+HTclEvent: SIGNAL_MODIFY   Classes: ui.views.aR 
+HTclEvent: SIGNAL_BUS_MODIFY   Classes: ui.views.aR 
+ (See /root/FPGA-MISC/FFT_VGA/planAhead_pid43858.debug)
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Sun Jun 29 22:09:36 2014...
+INFO: [Common 17-83] Releasing license: PlanAhead

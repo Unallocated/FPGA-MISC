@@ -1,29 +1,21 @@
-Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "secureip" -o "/home/main/git/FPGA-MISC/FFT_VGA/adc_fifo_tb_isim_beh.exe" -prj "/home/main/git/FPGA-MISC/FFT_VGA/adc_fifo_tb_beh.prj" "work.adc_fifo_tb" 
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "secureip" -o "/root/FPGA-MISC/FFT_VGA/fft_ram_tb_isim_beh.exe" -prj "/root/FPGA-MISC/FFT_VGA/fft_ram_tb_beh.prj" "work.fft_ram_tb" 
 ISim P.20131013 (signature 0xfbc00daa)
-Number of CPUs detected in this system: 8
-Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Parsing VHDL file "/home/main/git/FPGA-MISC/FFT_VGA/ipcore_dir/adc_fifo.vhd" into library work
-Parsing VHDL file "/home/main/git/FPGA-MISC/FFT_VGA/adc_fifo_tb.vhd" into library work
-Starting static elaboration
-Completed static elaboration
-Fuse Memory Usage: 102692 KB
-Fuse CPU Usage: 1340 ms
-Compiling package standard
-Compiling package std_logic_1164
-Compiling package numeric_std
-Compiling package std_logic_arith
-Compiling package std_logic_unsigned
-Compiling architecture behavioral of entity fifo_generator_v9_3_bhv_as [\fifo_generator_v9_3_bhv_as(8,"0...]
-Compiling architecture behavioral of entity fifo_generator_v9_3_bhv_preload0 [\fifo_generator_v9_3_bhv_preload...]
-Compiling architecture behavioral of entity fifo_generator_v9_3_conv [\fifo_generator_v9_3_conv(0,0,8,...]
-Compiling architecture behavioral of entity fifo_generator_v9_3 [\fifo_generator_v9_3(0,0,8,"Blan...]
-Compiling architecture adc_fifo_a of entity adc_fifo [adc_fifo_default]
-Compiling architecture behavior of entity adc_fifo_tb
-Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
-Compiled 16 VHDL Units
-Built simulation executable /home/main/git/FPGA-MISC/FFT_VGA/adc_fifo_tb_isim_beh.exe
-Fuse Memory Usage: 1202392 KB
-Fuse CPU Usage: 1530 ms
-GCC CPU Usage: 150 ms
+Parsing VHDL file "/root/FPGA-MISC/FFT_VGA/ipcore_dir/dcm.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/FFT_VGA/ipcore_dir/fft_core.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/FFT_VGA/ipcore_dir/adc_ram.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/FFT_VGA/ipcore_dir/multiplier.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/FFT_VGA/ipcore_dir/fft_ram_simple.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/FFT_VGA/ipcore_dir/sqrt.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/FFT_VGA/ipcore_dir/vga_ram.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/FFT_VGA/fft_ram.vhd" into library work
+ERROR:HDLCompiler:104 - "/root/FPGA-MISC/FFT_VGA/fft_ram.vhd" Line 5: Cannot find <uas> in library <work>. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
+ERROR:HDLCompiler:854 - "/root/FPGA-MISC/FFT_VGA/fft_ram.vhd" Line 7: Unit <fft_with_ram> ignored due to previous errors.
+ERROR:HDLCompiler:69 - "/root/FPGA-MISC/FFT_VGA/fft_ram.vhd" Line 154: <vga_timing> is not declared.
+ERROR:HDLCompiler:69 - "/root/FPGA-MISC/FFT_VGA/fft_ram.vhd" Line 170: <vga_25mhz_640x480> is not declared.
+ERROR:HDLCompiler:69 - "/root/FPGA-MISC/FFT_VGA/fft_ram.vhd" Line 171: <vga_25mhz_640x480> is not declared.
+ERROR:HDLCompiler:69 - "/root/FPGA-MISC/FFT_VGA/fft_ram.vhd" Line 408: <vga_25mhz_640x480> is not declared.
+ERROR:HDLCompiler:854 - "/root/FPGA-MISC/FFT_VGA/fft_ram.vhd" Line 19: Unit <behavioral> ignored due to previous errors.
+VHDL file /root/FPGA-MISC/FFT_VGA/fft_ram.vhd ignored due to errors

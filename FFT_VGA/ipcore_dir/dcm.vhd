@@ -55,8 +55,8 @@
 -- "Output    Output      Phase     Duty      Pk-to-Pk        Phase"
 -- "Clock    Freq (MHz) (degrees) Cycle (%) Jitter (ps)  Error (ps)"
 ------------------------------------------------------------------------------
--- CLK_OUT1___100.000______0.000______50.0______172.490____235.738
--- CLK_OUT2___100.000____180.000______50.0______172.490____235.738
+-- CLK_OUT1____50.000______0.000______50.0______198.618____235.738
+-- CLK_OUT2____50.000____180.000______50.0______198.618____235.738
 -- CLK_OUT3____25.000______0.000______50.0______228.777____235.738
 -- CLK_OUT4____25.000____180.000______50.0______228.777____235.738
 -- CLK_OUT5_____4.000______0.000______50.0______330.210____235.738
@@ -86,6 +86,7 @@ port
   VGA_OUT          : out    std_logic;
   VGA_OUT_180          : out    std_logic;
   ADC_OUT          : out    std_logic;
+  ADC_OUT_180_CE       : in     std_logic;
   ADC_OUT_180          : out    std_logic;
   -- Status and control signals
   RESET             : in     std_logic
@@ -134,10 +135,10 @@ begin
     DIVCLK_DIVIDE        => 1,
     CLKFBOUT_MULT        => 4,
     CLKFBOUT_PHASE       => 0.000,
-    CLKOUT0_DIVIDE       => 4,
+    CLKOUT0_DIVIDE       => 8,
     CLKOUT0_PHASE        => 0.000,
     CLKOUT0_DUTY_CYCLE   => 0.500,
-    CLKOUT1_DIVIDE       => 4,
+    CLKOUT1_DIVIDE       => 8,
     CLKOUT1_PHASE        => 180.000,
     CLKOUT1_DUTY_CYCLE   => 0.500,
     CLKOUT2_DIVIDE       => 16,
@@ -205,9 +206,10 @@ begin
    (O   => ADC_OUT,
     I   => clkout4);
 
-  clkout6_buf : BUFG
+  clkout6_buf : BUFGCE
   port map
    (O   => ADC_OUT_180,
+    CE  => ADC_OUT_180_CE,
     I   => clkout5);
 
 end xilinx;

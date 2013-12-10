@@ -115,6 +115,7 @@ port
   VGA_OUT          : out    std_logic;
   VGA_OUT_180          : out    std_logic;
   ADC_OUT          : out    std_logic;
+  ADC_OUT_180_CE       : in     std_logic;
   ADC_OUT_180          : out    std_logic;
   -- Status and control signals
   RESET             : in     std_logic
@@ -155,6 +156,7 @@ end generate counters_1;
     VGA_OUT           => clk_int(3),
     VGA_OUT_180           => clk_int(4),
     ADC_OUT           => clk_int(5),
+    ADC_OUT_180_CE        => '1',
     ADC_OUT_180           => clk_int(6),
     -- Status and control signals
     RESET              => RESET);

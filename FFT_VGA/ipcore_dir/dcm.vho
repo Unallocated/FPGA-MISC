@@ -54,8 +54,8 @@
 -- "Output    Output      Phase     Duty      Pk-to-Pk        Phase"
 -- "Clock    Freq (MHz) (degrees) Cycle (%) Jitter (ps)  Error (ps)"
 ------------------------------------------------------------------------------
--- CLK_OUT1___100.000______0.000______50.0______172.490____235.738
--- CLK_OUT2___100.000____180.000______50.0______172.490____235.738
+-- CLK_OUT1____50.000______0.000______50.0______198.618____235.738
+-- CLK_OUT2____50.000____180.000______50.0______198.618____235.738
 -- CLK_OUT3____25.000______0.000______50.0______228.777____235.738
 -- CLK_OUT4____25.000____180.000______50.0______228.777____235.738
 -- CLK_OUT5_____4.000______0.000______50.0______330.210____235.738
@@ -79,6 +79,7 @@ port
   VGA_OUT          : out    std_logic;
   VGA_OUT_180          : out    std_logic;
   ADC_OUT          : out    std_logic;
+  ADC_OUT_180_CE       : in     std_logic;
   ADC_OUT_180          : out    std_logic;
   -- Status and control signals
   RESET             : in     std_logic
@@ -99,6 +100,7 @@ your_instance_name : dcm
     VGA_OUT => VGA_OUT,
     VGA_OUT_180 => VGA_OUT_180,
     ADC_OUT => ADC_OUT,
+    ADC_OUT_180_CE => ADC_OUT_180_CE,
     ADC_OUT_180 => ADC_OUT_180,
     -- Status and control signals
     RESET  => RESET);

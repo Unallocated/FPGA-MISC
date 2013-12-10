@@ -22,7 +22,7 @@
 --    devices, or systems.  Use in such applications are expressly            --
 --    prohibited.                                                             --
 --                                                                            --
---    (c) Copyright 1995-2014 Xilinx, Inc.                                    --
+--    (c) Copyright 1995-2013 Xilinx, Inc.                                    --
 --    All rights reserved.                                                    --
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
@@ -51,10 +51,12 @@ ENTITY adc_fifo IS
     dout : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     full : OUT STD_LOGIC;
     almost_full : OUT STD_LOGIC;
+    wr_ack : OUT STD_LOGIC;
     overflow : OUT STD_LOGIC;
     empty : OUT STD_LOGIC;
     almost_empty : OUT STD_LOGIC;
-    underflow : OUT STD_LOGIC
+    underflow : OUT STD_LOGIC;
+    wr_data_count : OUT STD_LOGIC_VECTOR(8 DOWNTO 0)
   );
 END adc_fifo;
 
@@ -71,10 +73,12 @@ COMPONENT wrapped_adc_fifo
     dout : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     full : OUT STD_LOGIC;
     almost_full : OUT STD_LOGIC;
+    wr_ack : OUT STD_LOGIC;
     overflow : OUT STD_LOGIC;
     empty : OUT STD_LOGIC;
     almost_empty : OUT STD_LOGIC;
-    underflow : OUT STD_LOGIC
+    underflow : OUT STD_LOGIC;
+    wr_data_count : OUT STD_LOGIC_VECTOR(8 DOWNTO 0)
   );
 END COMPONENT;
 
@@ -170,8 +174,8 @@ END COMPONENT;
       c_has_srst => 0,
       c_has_underflow => 1,
       c_has_valid => 0,
-      c_has_wr_ack => 0,
-      c_has_wr_data_count => 0,
+      c_has_wr_ack => 1,
+      c_has_wr_data_count => 1,
       c_has_wr_rst => 0,
       c_implementation_type => 2,
       c_implementation_type_axis => 1,
@@ -285,10 +289,12 @@ U0 : wrapped_adc_fifo
     dout => dout,
     full => full,
     almost_full => almost_full,
+    wr_ack => wr_ack,
     overflow => overflow,
     empty => empty,
     almost_empty => almost_empty,
-    underflow => underflow
+    underflow => underflow,
+    wr_data_count => wr_data_count
   );
 -- synthesis translate_on
 
