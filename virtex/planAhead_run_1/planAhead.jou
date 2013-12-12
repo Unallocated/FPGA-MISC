@@ -1,0 +1,11 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:24:36 MDT 2013
+# Start of session at: Thu Jan 23 20:23:33 2014
+# Process ID: 48932
+# Log file: /root/FPGA-MISC/virtex/planAhead_run_1/planAhead.log
+# Journal file: /root/FPGA-MISC/virtex/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source /root/FPGA-MISC/virtex/pa.fromHdl.tcl
+update_compile_order -fileset sim_1

@@ -1,0 +1,7 @@
+vhdl work ../example_design/lll_sync_block.vhd
+vhdl work ../example_design/lll_reset_sync.vhd
+vhdl work ../example_design/lll_tx_elastic_buffer.vhd
+vhdl work ../example_design/lll_dcm_reset.vhd
+vhdl work ../example_design/lll_block.vhd
+vhdl work ../example_design/lll_example_design.vhd
+

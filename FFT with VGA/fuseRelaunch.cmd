@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "/home/main/git/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos_isim_beh.exe" -prj "/home/main/git/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos_beh.prj" "work.fft_flow_4_no_fifos" 
+-intstyle "ise" -incremental -lib "secureip" -o "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos_tb_isim_beh.exe" -prj "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos_tb_beh.prj" "work.fft_flow_4_no_fifos_tb" 

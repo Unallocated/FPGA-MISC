@@ -1,0 +1,11 @@
+Release 14.7 Drc P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Mon Dec  9 12:25:49 2013
+
+drc -z virtex_55.ncd virtex_55.pcf
+
+INFO:PhysDesignRules:1437 - To achieve optimal frequency synthesis performance
+   with the CLKFX and CLKFX180 outputs of the DCM_ADV comp
+   Inst_t_pll/DCM_ADV_INST, consult the device Data Sheet.
+DRC detected 0 errors and 0 warnings.

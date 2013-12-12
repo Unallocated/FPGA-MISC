@@ -1,0 +1,267 @@
+CONFIG PART = xc4vlx25sf363-10;
+
+#***********************************************************
+# Internal core constraints: please do not remove.         *
+#***********************************************************
+
+# Constrain between flip-flops and the Block Memory for the 8B10B encoder and decoder
+INST "core_wrapper/gig_eth_pcs_pma_core/U0/gpcs_pma_inst/USE_TBI?PCS_OUTPUT/ENCODER/LOOK_UP_TABLE" TNM = "codec8b10b";
+INST "core_wrapper/gig_eth_pcs_pma_core/U0/gpcs_pma_inst/USE_TBI?PCS_OUTPUT/DECODER/LOOK_UP_TABLE" TNM = "codec8b10b";
+TIMESPEC "ts_ffs_to_codec8b10b" = FROM FFS TO "codec8b10b" 8000 ps;
+TIMESPEC "ts_codec8b10b_to_ffs" = FROM "codec8b10b" TO FFS 8000 ps;
+
+# Constrain between Distributed Memory (output data) and the 1st set of flip-flops
+INST "core_wrapper/gig_eth_pcs_pma_core/U0/gpcs_pma_inst/USE_TBI?PCS_OUTPUT/BASEX.RECLOCK_RX_DATA/RXDATA_FIFO_REG1*"  TNM = "rx_distmem_regs";
+TIMESPEC "ts_rx_rams_to_ffs" = FROM "RAMS" TO "rx_distmem_regs" 6 ns DATAPATHONLY;
+
+# Identify clock domain crossing registers
+INST "core_wrapper/gig_eth_pcs_pma_core/U0/gpcs_pma_inst/USE_TBI?PCS_OUTPUT/BASEX.RECLOCK_RX_DATA/NEXT_WR_ADDR*"      TNM = "tx_graycode";
+INST "core_wrapper/gig_eth_pcs_pma_core/U0/gpcs_pma_inst/USE_TBI?PCS_OUTPUT/BASEX.RECLOCK_RX_DATA/WR_ADDR_PLUS2*"     TNM = "tx_graycode";
+INST "core_wrapper/gig_eth_pcs_pma_core/U0/gpcs_pma_inst/USE_TBI?PCS_OUTPUT/BASEX.RECLOCK_RX_DATA/WR_ADDRGRAY*"       TNM = "tx_graycode";
+INST "core_wrapper/gig_eth_pcs_pma_core/U0/gpcs_pma_inst/USE_TBI?PCS_OUTPUT/BASEX.RECLOCK_RX_DATA/*/data_sync*"       TNM = "rx_graycode";
+
+# Control Gray Code delay and skew across clock boundary
+TIMESPEC "ts_rx_skew_control" = FROM "tx_graycode" TO "rx_graycode" 14 ns DATAPATHONLY;
+
+# Target asynchronous reset path
+INST "core_wrapper/gig_eth_pcs_pma_core/U0/gpcs_pma_inst/HAS_MANAGEMENT.MDIO/RESET_REG" TNM = "async_reset";
+INST "core_wrapper/gig_eth_pcs_pma_core/U0/gpcs_pma_inst/USE_TBI.PCS_OUTPUT/BASEX.RECLOCK_RX_DATA/WR_RESET_PIPE" TNM = "pma_rxclk_reset_sync";
+INST "core_wrapper/gig_eth_pcs_pma_core/U0/gpcs_pma_inst/USE_TBI.PCS_OUTPUT/BASEX.RECLOCK_RX_DATA/WR_RESET"      TNM = "pma_rxclk_reset_sync";
+
+# Constrain this asynchronous reset path to be less than one pma_rx_clk period
+TIMESPEC "ts_pma_rxclk_reset_sync" = FROM "async_reset" TO "pma_rxclk_reset_sync" 14 ns DATAPATHONLY;
+
+
+# Place the MDIO logic in it's own timing groups
+#
+# The MDIO logic is constrained to 400 ns (8 ns * 50).  This is assigned to
+# ("ts_tx_clk" * 50) so that the tools preserve the clock relationship during
+# timing analysis
+#
+INST "core_wrapper/gig_eth_pcs_pma_core/U0/gpcs_pma_inst/HAS_MANAGEMENT.MDIO/MDIO_INTERFACE*" TNM = FFS "mdio_logic";
+TIMESPEC "TS_mdio" = PERIOD "mdio_logic" "ts_tx_clk" * 50 PRIORITY 0;
+
+
+
+#***********************************************************
+# The following constraints target the Ten-Bit-Interface   *
+# implemented in the Example Design.                       *
+#***********************************************************
+
+#-----------------------------------------------------------
+# TBI IOSTANDARD Constraints: please select an I/O         -
+# Standard (LVTTL is suggested).                           -
+#-----------------------------------------------------------
+
+INST "tx_code_group<?>" IOSTANDARD = LVTTL;
+INST "pma_tx_clk"       IOSTANDARD = LVTTL;
+
+INST "rx_code_group<?>" IOSTANDARD = LVTTL;
+INST "pma_rx_clk0"      IOSTANDARD = LVTTL;
+
+INST "loc_ref"          IOSTANDARD = LVTTL;
+INST "ewrap"            IOSTANDARD = LVTTL;
+INST "en_cdet"          IOSTANDARD = LVTTL;
+
+#-----------------------------------------------------------
+# Fast Skew maximises output setup and hold timing         -
+#-----------------------------------------------------------
+INST "tx_code_group<?>" SLEW = FAST;
+INST "pma_tx_clk"       SLEW = FAST;
+
+
+#-----------------------------------------------------------
+# Lock down the TBI Rx signals to the same bank for low    -
+# skew.  This is an example placement only.                -
+#-----------------------------------------------------------
+INST "pma_rx_clk0"      LOC = "B12";
+INST "rx_code_group<?>" LOC = "BANK5";
+
+#-----------------------------------------------------------
+# To Adjust TBI Rx Input Setup/Hold Timing                 -
+#-----------------------------------------------------------
+
+# DCM Phase Shift required is dependant on FPGA device and
+# may need to be changed.
+INST "core_wrapper/tbi_rx_clk0_dcm" CLKOUT_PHASE_SHIFT = FIXED;
+INST "core_wrapper/tbi_rx_clk0_dcm" PHASE_SHIFT = -35;
+
+#Turn off deskew adjust to reduce clock jitter, phase shift is used to align clock
+INST "core_wrapper/tbi_rx_clk0_dcm" DESKEW_ADJUST = 0;
+
+# Lock down these DCM to achieve consistent PAR results
+INST "core_wrapper/tbi_rx_clk0_dcm" LOC = DCM_ADV_X0Y3;
+
+#-----------------------------------------------------------
+# To check (analyze) TBI Rx Input Setup/Hold Timing        -
+#-----------------------------------------------------------
+
+NET "rx_code_group<?>" OFFSET = IN 2.5 ns VALID 3 ns BEFORE "pma_rx_clk0" RISING;
+
+
+
+#-----------------------------------------------------------
+# TBI Clock period Constraints: please do not relax        -
+#-----------------------------------------------------------
+
+# Describe the TBI clocks at the input pads
+
+NET "pma_rx_clk0" TNM_NET = "pma_rx_clk0";
+TIMESPEC "ts_pma_rx_clk0" = PERIOD "pma_rx_clk0" 16000 ps HIGH 50 %;
+
+# Describe the TBI clocks after the DCM
+
+NET "core_wrapper/pma_rx_clk0_bufg" TNM_NET = "pma_rx_clk0_bufg";
+TIMESPEC "ts_pma_rx_clk0_bufg" = PERIOD "pma_rx_clk0_bufg" 16000 ps HIGH 50 %;
+
+NET "gtx_clk_bufg" TNM_NET = "clk_tx";
+TIMEGRP  "tx_logic" = "clk_tx" EXCEPT "mdio_logic";
+TIMESPEC "ts_tx_clk" = PERIOD "tx_logic" 8000 ps HIGH 50 %;
+
+
+
+
+#***********************************************************
+# The following constraints target the GMII implemented in *
+# the Example Design.                                      *
+#***********************************************************
+
+# If the GMII is intended to be an internal interface,
+# the GMII signals can be connected directly to user
+# logic and all the following constraints in this file
+# should be removed.
+#
+# If the GMII is intended to be an external interface,
+# all of the following constraints in this file should be
+# maintained.
+
+
+#-----------------------------------------------------------
+# GMII IOSTANDARD Constraints: please select an I/O        -
+# Standard (LVTTL is suggested).                           -
+#-----------------------------------------------------------
+
+INST "gmii_txd<?>"      IOSTANDARD = LVTTL;
+INST "gmii_tx_en"       IOSTANDARD = LVTTL;
+INST "gmii_tx_er"       IOSTANDARD = LVTTL;
+
+INST "gmii_rxd<?>"      IOSTANDARD = LVTTL;
+INST "gmii_rx_dv"       IOSTANDARD = LVTTL;
+INST "gmii_rx_er"       IOSTANDARD = LVTTL;
+
+INST "gmii_tx_clk"      IOSTANDARD = LVTTL;
+INST "gmii_rx_clk"      IOSTANDARD = LVTTL;
+
+#-----------------------------------------------------------
+# Fast Skew maximises output setup and hold timing         -
+#-----------------------------------------------------------
+INST "gmii_rxd<?>"      SLEW = FAST;
+INST "gmii_rx_dv"       SLEW = FAST;
+INST "gmii_rx_er"       SLEW = FAST;
+INST "gmii_rx_clk"      SLEW = FAST;
+
+#-----------------------------------------------------------
+# To Adjust GMII Tx Input Setup/Hold Timing                -
+#-----------------------------------------------------------
+# DCM Phase Shift required is dependant on FPGA device and
+# may need to be changed.
+INST *gmii_tx_dcm                     CLKOUT_PHASE_SHIFT = FIXED;
+INST *gmii_tx_dcm                     PHASE_SHIFT = -70;
+
+#Turn off deskew adjust to reduce clock jitter, phase shift is used to align clock
+INST *gmii_tx_dcm                     DESKEW_ADJUST = 0;
+
+# Lock down these DCM to achieve consistent PAR results
+INST *gmii_tx_dcm                     LOC = DCM_ADV_X0Y4;
+
+#-----------------------------------------------------------
+# To check (analyze) GMII Tx Input Setup/Hold Timing       -
+#-----------------------------------------------------------
+INST "gmii_txd*"  TNM = IN_GMII;
+INST "gmii_tx_en" TNM = IN_GMII;
+INST "gmii_tx_er" TNM = IN_GMII;
+
+TIMEGRP "IN_GMII" OFFSET = IN 2 ns VALID 2 ns BEFORE "gmii_tx_clk";
+
+
+#-----------------------------------------------------------
+# GMII Transmitter Constraints:  place flip-flops in IOB   -
+#-----------------------------------------------------------
+  
+INST "gmii_txd_reg*"  IOB = true;
+INST "gmii_tx_en_reg" IOB = true;
+INST "gmii_tx_er_reg" IOB = true;
+         
+
+#-----------------------------------------------------------
+# GMII Receiver Constraints:  place flip-flops in IOB      -
+#-----------------------------------------------------------
+INST "gmii_rxd_obuf*"  IOB = true;
+INST "gmii_rx_dv_obuf" IOB = true;
+INST "gmii_rx_er_obuf" IOB = true;
+
+
+#-----------------------------------------------------------
+# GMII Clock period Constraints: please do not relax       -
+#-----------------------------------------------------------
+
+# Describe the GMII Tx clock at the input pads
+NET "gmii_tx_clk" TNM_NET = "gmii_tx_clk";
+TIMESPEC "ts_gmii_tx_clk" = PERIOD "gmii_tx_clk" 8000 ps HIGH 50 %;
+
+# Describe the GMII Tx clock after the DCM
+NET "gmii_tx_clk_bufg" TNM_NET = "gmii_tx_clk_bufg";
+TIMESPEC "ts_gmii_tx_clk_bufg" = PERIOD "gmii_tx_clk_bufg" 8000 ps HIGH 50 %;
+
+
+#-----------------------------------------------------------
+# For the purposes of this example design, set all other   -
+# I/O to also use LVTTL.                                   -
+#                                                          -
+# This prevents PAR experiencing IOB banking issues due to -
+# different Voltage standards.                             -
+#                                                          -
+#-----------------------------------------------------------
+INST "gtx_clk"                 IOSTANDARD = LVTTL;
+INST "mdc"                     IOSTANDARD = LVTTL;
+INST "mdio_i"                  IOSTANDARD = LVTTL;
+INST "mdio_o"                  IOSTANDARD = LVTTL;
+INST "mdio_t"                  IOSTANDARD = LVTTL;
+INST "phyad<?>"                IOSTANDARD = LVTTL;
+INST "link_timer_value<?>"     IOSTANDARD = LVTTL;
+INST "an_interrupt"            IOSTANDARD = LVTTL;
+INST "reset"                   IOSTANDARD = LVTTL;
+INST "signal_detect"           IOSTANDARD = LVTTL;
+INST "status_vector*"          IOSTANDARD = LVTTL;
+
+
+#-----------------------------------------------------------
+# GMII Tx Elastic Buffer Constraints                       -
+#-----------------------------------------------------------
+
+# Identify clock domain crossing registers
+INST "tx_elastic_buffer_inst/rd_addrgray*" TNM = "rd_graycode";
+INST "tx_elastic_buffer_inst/wr_addrgray*" TNM = "wr_graycode";
+
+# Control Gray Code delay and skew across clock boundary
+TIMESPEC "ts_tx_skew_control1" = FROM "rd_graycode" TO "FFS" 6 ns DATAPATHONLY;
+TIMESPEC "ts_tx_skew_control2" = FROM "wr_graycode" TO "FFS" 6 ns DATAPATHONLY;
+
+# Constrain between Distributed Memory (output data) and the 1st set of flip-flops
+INST "tx_elastic_buffer_inst/txd_fifo_reg1*"  TNM = "TX_FIFO_SAMPLE";
+INST "tx_elastic_buffer_inst/tx_en_fifo_reg1" TNM = "TX_FIFO_SAMPLE";
+INST "tx_elastic_buffer_inst/tx_er_fifo_reg1" TNM = "TX_FIFO_SAMPLE";
+TIMESPEC "ts_tx_rams_to_ffs" = FROM "RAMS" TO "TX_FIFO_SAMPLE"  6 ns DATAPATHONLY; 
+
+#-----------------------------------------------------------
+# Lock down the GMII Tx signals to the same bank for low   -
+# skew.  This is an example placement only.                -
+#-----------------------------------------------------------
+
+INST "gmii_tx_clk" LOC = "B14";
+INST "gtx_clk"     LOC = "W13";
+INST "gmii_tx_en"  LOC = "BANK6";
+INST "gmii_tx_er"  LOC = "BANK6";
+INST "gmii_txd<?>" LOC = "BANK6";
+
+

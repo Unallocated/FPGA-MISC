@@ -1,0 +1,122 @@
+
+****** PlanAhead v14.7 (64-bit)
+  **** Build 321239 by xbuild on Fri Sep 27 19:24:36 MDT 2013
+    ** Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Common 17-86] Your PlanAhead license expires in 0 day(s)
+INFO: [Device 21-36] Loading parts and site information from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source /root/FPGA-MISC/virtex/pa.fromHdl.tcl
+# create_project -name virtex -dir "/root/FPGA-MISC/virtex/planAhead_run_3" -part xc4vsx55ff1148-12
+# set_param project.pinAheadLayout yes
+# set srcset [get_property srcset [current_run -impl]]
+# set_property target_constrs_file "virtex_55.ucf" [current_fileset -constrset]
+Adding file '/root/FPGA-MISC/virtex/virtex_55.ucf' to fileset 'constrs_1'
+# set hdlfile [add_files [list {t_pll.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {virtex_55.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set_property top virtex_55 $srcset
+# add_files [list {virtex_55.ucf}] -fileset [get_property constrset [current_run]]
+# open_rtl_design -part xc4vsx55ff1148-12
+Using Verific elaboration
+Parsing VHDL file "/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "/root/FPGA-MISC/virtex/t_pll.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/virtex/virtex_55.vhd" into library work
+INFO: [Designutils 20-910] Reading macro library /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/virtex4/hd_int_macros.edn
+Parsing EDIF File [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/virtex4/hd_int_macros.edn]
+Finished Parsing EDIF File [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/virtex4/hd_int_macros.edn]
+INFO: [Device 21-21] Reading bus macro file /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/virtex4/pr_bus_macros.xml
+Loading clock regions from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/virtex4/virtex4sx/xc4vsx55/ClockRegion.xml
+Loading clock buffers from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/virtex4/virtex4sx/xc4vsx55/ClockBuffers.xml
+Loading package from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/virtex4/virtex4sx/xc4vsx55/ff1148/Package.xml
+Loading io standards from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/virtex4/IOStandards.xml
+INFO: [Device 21-19] Loading pkg sso from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/virtex4/virtex4sx/xc4vsx55/ff1148/SSORules.xml
+Loading list of drcs for the architecture : /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/virtex4/drc.xml
+INFO: [Timing 38-77] Reading timing library /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/virtex4/virtex4sx/virtex4sx-12.lib.
+INFO: [Timing 38-34] Done reading timing library /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/virtex4/virtex4sx/virtex4sx-12.lib.
+Parsing UCF File [/root/FPGA-MISC/virtex/virtex_55.ucf]
+Finished Parsing UCF File [/root/FPGA-MISC/virtex/virtex_55.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Phase 0 | Netlist Checksum: 7c875e72
+open_rtl_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:09 . Memory (MB): peak = 2838.258 ; gain = 178.562
+update_compile_order -fileset sim_1
+set_property iostandard HSLVDCI_33 [get_ports [list clk]]
+set_property is_loc_fixed false [get_ports [list  clk]]
+set_property is_loc_fixed true [get_ports [list  clk]]
+set_property is_loc_fixed false [get_ports [list  clk]]
+startgroup
+set_property package_pin F18 [get_ports clk]
+endgroup
+set_property iostandard SSTL2_II [get_ports [list clk]]
+startgroup
+set_property package_pin F18 [get_ports clk]
+endgroup
+refresh_design
+Using Verific elaboration
+Parsing VHDL file "/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "/root/FPGA-MISC/virtex/t_pll.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/virtex/virtex_55.vhd" into library work
+INFO: [Designutils 20-910] Reading macro library /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/virtex4/hd_int_macros.edn
+Parsing EDIF File [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/virtex4/hd_int_macros.edn]
+Finished Parsing EDIF File [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/virtex4/hd_int_macros.edn]
+INFO: [Timing 38-77] Reading timing library /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/virtex4/virtex4sx/virtex4sx-12.lib.
+INFO: [Timing 38-34] Done reading timing library /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/virtex4/virtex4sx/virtex4sx-12.lib.
+Parsing UCF File [/root/FPGA-MISC/virtex/virtex_55.ucf]
+Finished Parsing UCF File [/root/FPGA-MISC/virtex/virtex_55.ucf]
+set_property iostandard LVCMOS25 [get_ports [list a_n]]
+set_property package_pin "" [get_ports [list  a_n]]
+startgroup
+create_interface interface_1
+set_property interface interface_1 [get_ports [list  a_n a_p]]
+endgroup
+set_property iostandard HSLVDCI_33 [get_ports [list a_n a_p]]
+set_property package_pin "" [get_ports [list  a_n]]
+refresh_design
+Using Verific elaboration
+Parsing VHDL file "/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "/root/FPGA-MISC/virtex/t_pll.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/virtex/virtex_55.vhd" into library work
+INFO: [Designutils 20-910] Reading macro library /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/virtex4/hd_int_macros.edn
+Parsing EDIF File [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/virtex4/hd_int_macros.edn]
+Finished Parsing EDIF File [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/virtex4/hd_int_macros.edn]
+INFO: [Timing 38-77] Reading timing library /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/virtex4/virtex4sx/virtex4sx-12.lib.
+INFO: [Timing 38-34] Done reading timing library /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/virtex4/virtex4sx/virtex4sx-12.lib.
+Parsing UCF File [/root/FPGA-MISC/virtex/virtex_55.ucf]
+Finished Parsing UCF File [/root/FPGA-MISC/virtex/virtex_55.ucf]
+refresh_design
+Using Verific elaboration
+Parsing VHDL file "/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "/root/FPGA-MISC/virtex/t_pll.vhd" into library work
+Parsing VHDL file "/root/FPGA-MISC/virtex/virtex_55.vhd" into library work
+INFO: [Designutils 20-910] Reading macro library /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/virtex4/hd_int_macros.edn
+Parsing EDIF File [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/virtex4/hd_int_macros.edn]
+Finished Parsing EDIF File [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/virtex4/hd_int_macros.edn]
+INFO: [Timing 38-77] Reading timing library /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/virtex4/virtex4sx/virtex4sx-12.lib.
+INFO: [Timing 38-34] Done reading timing library /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/virtex4/virtex4sx/virtex4sx-12.lib.
+Parsing UCF File [/root/FPGA-MISC/virtex/virtex_55.ucf]
+Finished Parsing UCF File [/root/FPGA-MISC/virtex/virtex_55.ucf]
+refresh_design: Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 2847.785 ; gain = 0.000
+set_property iostandard LVDCI_DV2_25 [get_ports [list a_n]]
+set_property package_pin "" [get_ports [list  a_n]]
+set_property iostandard SSTL2_I_DCI [get_ports [list a_n]]
+set_property iostandard LVCMOS25 [get_ports [list clk]]
+startgroup
+set_property package_pin A3 [get_ports a_n]
+endgroup
+exit
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Mon Dec 16 23:48:02 2013...
+INFO: [Common 17-83] Releasing license: PlanAhead

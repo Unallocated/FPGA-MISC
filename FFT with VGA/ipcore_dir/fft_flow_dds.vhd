@@ -44,7 +44,7 @@ ENTITY fft_flow_dds IS
   PORT (
     clk : IN STD_LOGIC;
     we : IN STD_LOGIC;
-    data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    data : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
     rdy : OUT STD_LOGIC;
     sine : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
   );
@@ -56,7 +56,7 @@ COMPONENT wrapped_fft_flow_dds
   PORT (
     clk : IN STD_LOGIC;
     we : IN STD_LOGIC;
-    data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    data : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
     rdy : OUT STD_LOGIC;
     sine : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
   );
@@ -65,7 +65,7 @@ END COMPONENT;
 -- Configuration specification
   FOR ALL : wrapped_fft_flow_dds USE ENTITY XilinxCoreLib.dds_compiler_v4_0(behavioral)
     GENERIC MAP (
-      c_accumulator_width => 8,
+      c_accumulator_width => 12,
       c_amplitude => 0,
       c_channels => 1,
       c_has_ce => 0,
@@ -90,7 +90,7 @@ END COMPONENT;
       c_phase_offset => 0,
       c_phase_offset_value => "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
       c_por_mode => 0,
-      c_use_dsp48 => 0,
+      c_use_dsp48 => 1,
       c_xdevicefamily => "spartan6"
     );
 -- synthesis translate_on

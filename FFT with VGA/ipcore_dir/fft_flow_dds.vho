@@ -67,7 +67,7 @@ COMPONENT fft_flow_dds
   PORT (
     clk : IN STD_LOGIC;
     we : IN STD_LOGIC;
-    data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    data : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
     rdy : OUT STD_LOGIC;
     sine : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
   );

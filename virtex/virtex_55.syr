@@ -1,0 +1,372 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> 
+Reading design: virtex_55.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "virtex_55.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "virtex_55"
+Output Format                      : NGC
+Target Device                      : xc4vsx55-12-ff1148
+
+---- Source Options
+Top Module Name                    : virtex_55
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Number of Regional Clock Buffers   : 32
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "/root/FPGA-MISC/virtex/t_pll.vhd" in Library work.
+Entity <t_pll> compiled.
+Entity <t_pll> (Architecture <BEHAVIORAL>) compiled.
+Compiling vhdl file "/root/FPGA-MISC/virtex/virtex_55.vhd" in Library work.
+Entity <virtex_55> compiled.
+Entity <virtex_55> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <virtex_55> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <t_pll> in library <work> (architecture <BEHAVIORAL>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <virtex_55> in library <work> (Architecture <behavioral>).
+WARNING:Xst:753 - "/root/FPGA-MISC/virtex/virtex_55.vhd" line 28: Unconnected output port 'CLKIN_IBUFG_OUT' of component 't_pll'.
+WARNING:Xst:753 - "/root/FPGA-MISC/virtex/virtex_55.vhd" line 28: Unconnected output port 'CLK0_OUT' of component 't_pll'.
+Entity <virtex_55> analyzed. Unit <virtex_55> generated.
+
+Analyzing Entity <t_pll> in library <work> (Architecture <BEHAVIORAL>).
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <CLKIN_IBUFG_INST> in unit <t_pll>.
+    Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <CLKIN_IBUFG_INST> in unit <t_pll>.
+    Set user-defined property "IBUF_LOW_PWR =  TRUE" for instance <CLKIN_IBUFG_INST> in unit <t_pll>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <CLKIN_IBUFG_INST> in unit <t_pll>.
+    Set user-defined property "CLKDV_DIVIDE =  2.0000000000000000" for instance <DCM_ADV_INST> in unit <t_pll>.
+    Set user-defined property "CLKFX_DIVIDE =  1" for instance <DCM_ADV_INST> in unit <t_pll>.
+    Set user-defined property "CLKFX_MULTIPLY =  2" for instance <DCM_ADV_INST> in unit <t_pll>.
+    Set user-defined property "CLKIN_DIVIDE_BY_2 =  FALSE" for instance <DCM_ADV_INST> in unit <t_pll>.
+    Set user-defined property "CLKIN_PERIOD =  31.2500000000000000" for instance <DCM_ADV_INST> in unit <t_pll>.
+    Set user-defined property "CLKOUT_PHASE_SHIFT =  NONE" for instance <DCM_ADV_INST> in unit <t_pll>.
+    Set user-defined property "CLK_FEEDBACK =  1X" for instance <DCM_ADV_INST> in unit <t_pll>.
+    Set user-defined property "DCM_AUTOCALIBRATION =  TRUE" for instance <DCM_ADV_INST> in unit <t_pll>.
+    Set user-defined property "DCM_PERFORMANCE_MODE =  MAX_SPEED" for instance <DCM_ADV_INST> in unit <t_pll>.
+    Set user-defined property "DESKEW_ADJUST =  SYSTEM_SYNCHRONOUS" for instance <DCM_ADV_INST> in unit <t_pll>.
+    Set user-defined property "DFS_FREQUENCY_MODE =  LOW" for instance <DCM_ADV_INST> in unit <t_pll>.
+    Set user-defined property "DLL_FREQUENCY_MODE =  LOW" for instance <DCM_ADV_INST> in unit <t_pll>.
+    Set user-defined property "DUTY_CYCLE_CORRECTION =  TRUE" for instance <DCM_ADV_INST> in unit <t_pll>.
+    Set user-defined property "FACTORY_JF =  F0F0" for instance <DCM_ADV_INST> in unit <t_pll>.
+    Set user-defined property "PHASE_SHIFT =  0" for instance <DCM_ADV_INST> in unit <t_pll>.
+    Set user-defined property "SIM_DEVICE =  VIRTEX4" for instance <DCM_ADV_INST> in unit <t_pll>.
+    Set user-defined property "STARTUP_WAIT =  FALSE" for instance <DCM_ADV_INST> in unit <t_pll>.
+Entity <t_pll> analyzed. Unit <t_pll> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <t_pll>.
+    Related source file is "/root/FPGA-MISC/virtex/t_pll.vhd".
+Unit <t_pll> synthesized.
+
+
+Synthesizing Unit <virtex_55>.
+    Related source file is "/root/FPGA-MISC/virtex/virtex_55.vhd".
+    Found 1-bit register for signal <test_buf>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <virtex_55> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 1
+ 1-bit register                                        : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 1
+ Flip-Flops                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <virtex_55> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block virtex_55, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 1
+ Flip-Flops                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : virtex_55.ngr
+Top Level Output File Name         : virtex_55
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 2
+
+Cell Usage :
+# BELS                             : 2
+#      GND                         : 1
+#      INV                         : 1
+# FlipFlops/Latches                : 1
+#      FD                          : 1
+# Clock Buffers                    : 2
+#      BUFG                        : 2
+# IO Buffers                       : 2
+#      IBUFG                       : 1
+#      OBUF                        : 1
+# DCM_ADVs                         : 1
+#      DCM_ADV                     : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 4vsx55ff1148-12 
+
+ Number of Slices:                        1  out of  24576     0%  
+ Number of Slice Flip Flops:              1  out of  49152     0%  
+ Number of 4 input LUTs:                  1  out of  49152     0%  
+ Number of IOs:                           2
+ Number of bonded IOBs:                   2  out of    640     0%  
+ Number of GCLKs:                         2  out of     32     6%  
+ Number of DCM_ADVs:                      1  out of      8    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)        | Load  |
+-----------------------------------+------------------------------+-------+
+clk                                | Inst_t_pll/DCM_ADV_INST:CLKFX| 1     |
+-----------------------------------+------------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -12
+
+   Minimum period: 2.206ns (Maximum Frequency: 453.371MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 3.806ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 2.206ns (frequency: 453.371MHz)
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               1.103ns (Levels of Logic = 1)
+  Source:            test_buf (FF)
+  Destination:       test_buf (FF)
+  Source Clock:      clk rising 2.0X
+  Destination Clock: clk rising 2.0X
+
+  Data Path: test_buf to test_buf
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.272   0.279  test_buf (test_buf)
+     INV:I->O              1   0.269   0.266  test_buf_rstpot1_INV_0 (test_buf_rstpot)
+     FD:D                      0.017          test_buf
+    ----------------------------------------
+    Total                      1.103ns (0.558ns logic, 0.545ns route)
+                                       (50.6% logic, 49.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              3.806ns (Levels of Logic = 1)
+  Source:            test_buf (FF)
+  Destination:       test (PAD)
+  Source Clock:      clk rising 2.0X
+
+  Data Path: test_buf to test
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.272   0.279  test_buf (test_buf)
+     OBUF:I->O                 3.255          test_OBUF (test)
+    ----------------------------------------
+    Total                      3.806ns (3.527ns logic, 0.279ns route)
+                                       (92.7% logic, 7.3% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 6.64 secs
+ 
+--> 
+
+
+Total memory usage is 544584 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

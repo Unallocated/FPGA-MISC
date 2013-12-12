@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "/root/FPGA-MISC/SPI/master.xst" -ofn "/root/FPGA-MISC/SPI/master.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/SPI/master.xst" -ofn "/root/FPGA-MISC/SPI/master.syr" 

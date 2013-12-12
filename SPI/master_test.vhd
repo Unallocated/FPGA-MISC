@@ -13,8 +13,8 @@ ARCHITECTURE behavior OF master_test IS
          clk : IN  std_logic;
          rst : IN  std_logic;
          sck : OUT  std_logic;
-         so : OUT  std_logic;
-         si : IN  std_logic;
+         mosi : OUT  std_logic;
+         miso : IN  std_logic;
          ce : OUT  std_logic;
          we : IN  std_logic;
          data_in : IN  std_logic_vector(7 downto 0);
@@ -28,14 +28,14 @@ ARCHITECTURE behavior OF master_test IS
    --Inputs
    signal clk : std_logic := '0';
    signal rst : std_logic := '0';
-   signal si : std_logic := '0';
+   signal miso : std_logic := '0';
    signal we : std_logic := '0';
    signal data_in : std_logic_vector(7 downto 0) := (others => '0');
    signal start : std_logic := '0';
 
  	--Outputs
    signal sck : std_logic;
-   signal so : std_logic;
+   signal mosi : std_logic;
    signal ce : std_logic;
    signal data_out : std_logic_vector(7 downto 0);
    signal done : std_logic;
@@ -50,8 +50,8 @@ BEGIN
           clk => clk,
           rst => rst,
           sck => sck,
-          so => so,
-          si => si,
+          mosi => mosi,
+          miso => miso,
           ce => ce,
           we => we,
           data_in => data_in,

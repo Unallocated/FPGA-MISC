@@ -6,9 +6,10 @@ entity fft_flow_4_no_fifos is
     Port ( clk : in  STD_LOGIC;
            rst : in  STD_LOGIC;
 		     leds : out STD_LOGIC_VECTOR(7 downto 0);
-           adc_in : in  STD_LOGIC_VECTOR (7 downto 0);
+           adc_in : in  STD_LOGIC_VECTOR (11 downto 0);
            adc_clk : out  STD_LOGIC;
            switches : in  STD_LOGIC_VECTOR (7 downto 0);
+           sine_out : out std_logic_vector(7 downto 0);
            hs : out  STD_LOGIC;
            vs : out  STD_LOGIC;
            red : out  STD_LOGIC_VECTOR (2 downto 0);
@@ -17,6 +18,20 @@ entity fft_flow_4_no_fifos is
 end fft_flow_4_no_fifos;
 
 architecture Behavioral of fft_flow_4_no_fifos is
+
+	signal dds_we, dds_rdy, dds_clk : std_logic := '0';
+	signal dds_sine : std_logic_vector(7 downto 0) := (others => '0');
+	signal dds_data : std_logic_vector(11 downto 0) := (others => '0');
+
+	COMPONENT fft_flow_dds
+	  PORT (
+	    clk : IN STD_LOGIC;
+	    we : IN STD_LOGIC;
+	    data : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+	    rdy : OUT STD_LOGIC;
+	    sine : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+	  );
+	END COMPONENT;
 
 	signal fft_clk, fft_sclr, fft_start, fft_rfd, fft_busy, fft_edone, fft_done, fft_dv, fft_ce, fft_ovflo, fft_scale_we : std_logic := '0';
 	signal fft_xn_re, fft_xn_im, fft_xk_re, fft_xk_im : std_logic_vector(7 downto 0) := (others => '0');
@@ -70,11 +85,12 @@ architecture Behavioral of fft_flow_4_no_fifos is
 	
 	signal original_clk, vga_clk : std_logic := '0';
 	
-	component flow_3_dcm
+	component fft_flow_4_no_fifos_dcm
 		port (
 		  CLK_IN1  : in  std_logic;
 		  VGA_CLK  : out std_logic;
 		  BASE_CLK : out std_logic;
+		  CLK_OUT3 : out std_logic;
 		  RESET    : in  std_logic
 		 );
 	end component;
@@ -87,28 +103,56 @@ architecture Behavioral of fft_flow_4_no_fifos is
 	
 	type fft_out_ram_t is array(0 to 127) of std_logic_vector(15 downto 0);
 	signal fft_out_ram : fft_out_ram_t := (others => (others => '0'));
-	signal fft_ram_pos : unsigned(adc_ram(0)'range) := (others => '0');
-	type fft_state_t is (FFT_WAIT_FOR_RFD, FFT_LOAD, FFT_STALL, FFT_UNLOAD);
+	signal fft_ram_pos : unsigned(adc_ram(0)'high-1 downto 0) := (others => '0');
+	type fft_state_t is (FFT_WAIT_FOR_RFD, FFT_LOAD, FFT_STALL, FFT_WAIT_FOR_DV, FFT_UNLOAD);
 	signal fft_state : fft_state_t := FFT_WAIT_FOR_RFD;
 	
 	type vga_ram_t is array(0 to 127) of std_logic_vector(7 downto 0);
 	signal vga_ram : vga_ram_t := (others => (others => '0'));
-	signal vga_ram_pos : unsigned(adc_ram(0)'range) := (others => '0');
+	signal vga_ram_pos : unsigned(adc_ram(0)'high-1 downto 0) := (others => '0');
 	
 	type mag_state_t is (MAG_1, MAG_2);
 	signal mag_state : mag_state_t := MAG_1;
 	
 	type master_state_t is (STARTUP, SAMPLE, FFT, MAG);
 	signal master_state : master_state_t := STARTUP;
+	
+	function  sqrt  ( d : UNSIGNED ) return UNSIGNED is
+		variable a : unsigned(31 downto 0):=d;  --original input.
+		variable q : unsigned(15 downto 0):=(others => '0');  --result.
+		variable left,right,r : unsigned(17 downto 0):=(others => '0');  --input to adder/sub.r-remainder.
+		variable i : integer:=0;
 
+	begin
+		for i in 0 to 15 loop
+			right(0):='1';
+			right(1):=r(17);
+			right(17 downto 2):=q;
+			left(1 downto 0):=a(31 downto 30);
+			left(17 downto 2):=r(15 downto 0);
+			a(31 downto 2):=a(29 downto 0);  --shifting by 2 bit.
+			if ( r(17) = '1') then
+				r := left + right;
+			else
+				r := left - right;
+			end if;
+			q(15 downto 1) := q(14 downto 0);
+			q(0) := not r(17);
+		end loop; 
+		return q(7 downto 0);
+
+	end sqrt;
 begin
 
-	process(original_clk, rst)
+	sine_out <= std_logic_vector(unsigned(dds_sine) + 127);
+
+	process(dds_clk, rst)
 		variable a : unsigned(31 downto 0);  --original input.
 		variable q : unsigned(15 downto 0):=(others => '0');  --result.
 		variable left,right,r : unsigned(17 downto 0):=(others => '0');  --input to adder/sub.r-remainder.
 		variable i : integer:=0;
 		variable iteration : integer range 0 to 15 := 0;
+		variable im, re : std_logic_vector(7 downto 0);
 	begin
 		if(rst = '1') then
 			vga_ram <= (others => (others => '0'));
@@ -134,10 +178,11 @@ begin
 					adc_state <= ADC_CLK_LOW;
 				when ADC_CLK_LOW =>
 					adc_clk <= '0';
-					adc_ram(to_integer(adc_ram_pos)) <= adc_in;
+					adc_ram(to_integer(adc_ram_pos)) <= std_logic_vector(unsigned(dds_sine) + 127);
 					if(adc_ram_pos = (adc_ram_pos'range => '1')) then
 						master_state <= FFT;
 						fft_state <= FFT_WAIT_FOR_RFD;
+						adc_ram_pos <= (others => '0');
 					else
 						adc_ram_pos <= adc_ram_pos + 1;
 						adc_state <= ADC_CLK_HIGH;
@@ -149,7 +194,7 @@ begin
 					fft_start <= '1';
 					if(fft_rfd = '1') then
 						fft_state <= FFT_LOAD;
-						fft_start <= '0';
+						--fft_start <= '0';
 					end if;
 				when FFT_LOAD =>
 					if(fft_rfd = '1') then
@@ -159,55 +204,89 @@ begin
 					end if;
 				when FFT_STALL =>
 					if(fft_edone = '1') then
+						fft_state <= FFT_WAIT_FOR_DV;
+					end if;
+				when FFT_WAIT_FOR_DV =>
+					if(fft_dv = '1') then
 						fft_state <= FFT_UNLOAD;
 					end if;
 				when FFT_UNLOAD =>
 					if(fft_dv = '1') then
+						fft_start <= '0';
 						if(fft_xk_index(fft_xk_index'high) = '0') then
-							fft_out_ram(to_integer(unsigned(fft_xk_index))) <= fft_xk_re & fft_xk_im;
+							leds <= fft_xk_re;
+							if(fft_xk_re(fft_xk_re'high) = '1') then
+								re := not fft_xk_re;
+							else
+								re := fft_xk_re;
+							end if;
+							
+							if(fft_xk_im(fft_xk_im'high) = '1') then
+								im := not fft_xk_im;
+							else
+								im := fft_xk_im;
+							end if;
+							
+							fft_out_ram(to_integer(unsigned(fft_xk_index(6 downto 0)))) <= re & im;
+							--vga_ram(to_integer(unsigned(fft_xk_index(6 downto 0)))) <= fft_xk_re;
+--							fft_out_ram(to_integer(unsigned(fft_xk_index(6 downto 0)))) <= "0000000000000000";
 						end if;
 					else
 						fft_start <= '0';
 						master_state <= MAG;
 						mag_state <= MAG_1;
+						fft_state <= FFT_WAIT_FOR_RFD;
 						iteration := 0;
 					end if;
 				end case;
 			when MAG =>
 				case mag_state is
 				when MAG_1 =>
-					a := x"0000" & unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(15 downto 8)) * 
-						unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(7 downto 0));
+					a := x"0000" &
+						(unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(15 downto 8)) * unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(15 downto 8))) + 
+						(unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(7 downto 0)) * unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(7 downto 0)));
+						
 					mag_state <= MAG_2;
 				when MAG_2 =>
-					right(0):='1';
-					right(1):=r(17);
-					right(17 downto 2):=q;
-					left(1 downto 0):=a(31 downto 30);
-					left(17 downto 2):=r(15 downto 0);
-					a(31 downto 2):=a(29 downto 0);  --shifting by 2 bit.
-					if ( r(17) = '1') then
-						r := left + right;
-					else
-						r := left - right;
-					end if;
-					q(15 downto 1) := q(14 downto 0);
-					q(0) := not r(17);
+					vga_ram(to_integer(fft_ram_pos)) <= std_logic_vector(sqrt(a));
 					
-					if(iteration = 15) then
-						iteration := 0;
-						vga_ram(to_integer(fft_ram_pos)) <= std_logic_vector(q(7 downto 0));
-						if(fft_ram_pos = (fft_ram_pos'range => '1')) then
-							master_state <= SAMPLE;
-							fft_ram_pos <= (others => '0');
-							mag_state <= MAG_1;
-						else
-							mag_state <= MAG_1;
-							fft_ram_pos <= fft_ram_pos + 1;
-						end if;
+					if(fft_ram_pos = (fft_ram_pos'range => '1')) then
+						master_state <= SAMPLE;
+						fft_ram_pos <= (fft_ram_pos'range => '0');
 					else
-						iteration := iteration + 1;
+						fft_ram_pos <= fft_ram_pos + 1;
 					end if;
+					
+					mag_state <= MAG_1;
+--					right(0):='1';
+--					right(1):=r(17);
+--					right(17 downto 2):=q;
+--					left(1 downto 0):=a(31 downto 30);
+--					left(17 downto 2):=r(15 downto 0);
+--					a(31 downto 2):=a(29 downto 0);  --shifting by 2 bit.
+--					if ( r(17) = '1') then
+--						r := left + right;
+--					else
+--						r := left - right;
+--					end if;
+--					q(15 downto 1) := q(14 downto 0);
+--					q(0) := not r(17);
+--					
+--					if(iteration = 15) then
+--						iteration := 0;
+--						vga_ram(to_integer(fft_ram_pos)) <= std_logic_vector(q(7 downto 0));
+--						--vga_ram(to_integer(fft_ram_pos)) <= fft_out_ram(to_integer(fft_ram_pos))(7 downto 0);
+--						if(fft_ram_pos = (fft_ram_pos'range => '1')) then
+--							master_state <= SAMPLE;
+--							fft_ram_pos <= (others => '0');
+--							mag_state <= MAG_1;
+--						else
+--							mag_state <= MAG_1;
+--							fft_ram_pos <= fft_ram_pos + 1;
+--						end if;
+--					else
+--						iteration := iteration + 1;
+--					end if;
 				end case;
 			end case;
 		end if;
@@ -215,7 +294,7 @@ begin
 
 	fft_instance : fft_burst_mode
 	  PORT MAP (
-	    clk => original_clk,
+	    clk => dds_clk,
 	    ce => '1',
 	    start => fft_start,
 	    xn_re => fft_xn_re,
@@ -241,12 +320,15 @@ begin
 	begin
 		if(rst = '1') then
 			blue_in <= (others => '0');
+			red_in <= (others => '0');
+			green_in <= (others => '0');
 		elsif(rising_edge(vga_clk)) then
+			blue_in <= (others => '0');
+			red_in <= (others => '0');
+			green_in <= (others => '0');
 			if(x_pos > -1 and y_pos > -1 and x_pos < vga_ram'length) then
-				if(vga_ram(x_pos) = std_logic_vector(to_unsigned(y_pos, vga_ram(0)'length))) then
+				if(vga_ram(x_pos) <= std_logic_vector(to_unsigned(y_pos, vga_ram(0)'length))) then
 					blue_in <= (others => '1');
-				else
-					blue_in <= (others => '0');
 				end if;
 			end if;
 		end if;
@@ -267,12 +349,71 @@ begin
 		green_in => green_in
 	);
 	
-	dcm_instance : flow_3_dcm
+	scale_changer_process : process(original_clk, rst)
+		variable last_switches : std_logic_vector(switches'range) := (others => '0');
+		variable toggle : std_logic := '0';
+	begin
+		if(rst = '1') then
+			fft_scale <= (others => '0');
+			fft_scale_we <= '0';
+			toggle := '0';
+		elsif(rising_edge(original_clk)) then
+			if(last_switches /= switches) then
+				last_switches := switches;
+				fft_scale <= switches;
+				toggle := '0';
+			end if;
+			
+			if(toggle = '0') then
+				fft_scale_we <= '1';
+				toggle := '1';
+			else
+				fft_scale_we <= '0';
+			end if;
+		end if;
+	end process;
+	
+	dds_changer_process : process(original_clk, rst)
+		variable last_input : std_logic_vector(dds_data'range) := (others => '0');
+		variable toggle : std_logic := '0';
+	begin
+		if(rst = '1') then
+			dds_data <= (others => '0');
+			dds_we <= '0';
+			toggle := '0';
+		elsif(rising_edge(original_clk)) then
+			if(last_input /= adc_in) then
+				last_input := adc_in;
+				dds_data <= adc_in;
+				toggle := '0';
+			end if;
+			
+			if(toggle = '0') then
+				dds_we <= '1';
+				toggle := '1';
+			else
+				dds_we <= '0';
+			end if;
+		end if;
+	end process;
+	
+	
+	dcm_instance : fft_flow_4_no_fifos_dcm
 	  port map(
 	    CLK_IN1  => clk,
 	    VGA_CLK  => vga_clk,
 	    BASE_CLK => original_clk,
+	    CLK_OUT3 => dds_clk,
 	    RESET    => rst);
+	    
+	dds_inst : fft_flow_dds
+	  PORT MAP (
+	    clk => dds_clk,
+	    we => dds_we,
+	    data => dds_data,
+	    rdy => dds_rdy,
+	    sine => dds_sine
+	  );
 
 end Behavioral;
 

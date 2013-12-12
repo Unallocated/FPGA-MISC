@@ -1,0 +1,2 @@
+vhdl work ../../fft_flow_4_no_fifos_dcm.vhd
+vhdl work ../example_design/fft_flow_4_no_fifos_dcm_exdes.vhd

@@ -1,0 +1,2 @@
+net "clk" loc="F18" | CLOCK_DEDICATED_ROUTE = FALSE;
+net "test" loc="e18";

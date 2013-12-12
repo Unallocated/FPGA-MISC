@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/root/FPGA-MISC/virtex/virtex_55.ncd
+OUTFILE=/root/FPGA-MISC/virtex/virtex_55.bit
+FAMILY=Virtex4
+PART=xc4vsx55-12ff1148
+WORKINGDIR=/root/FPGA-MISC/virtex
+LICENSE=ISE
+USER_INFO=210826213_0_0_741

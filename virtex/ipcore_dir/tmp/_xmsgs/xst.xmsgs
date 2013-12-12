@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">link_timer_basex</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">link_timer_sgmii</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">mgt_rx_reset</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">mgt_tx_reset</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">userclk</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">userclk2</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">dcm_locked</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">rxbufstatus</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">rxchariscomma</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">rxcharisk</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">rxclkcorcnt</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">rxdata</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">rxdisperr</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">rxnotintable</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">rxrundisp</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">txbuferr</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">powerdown</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">txchardispmode</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">txchardispval</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">txcharisk</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">txdata</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">enablealign</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">basex_or_sgmii</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">drp_dclk</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">drp_req</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">drp_gnt</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">drp_den</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">drp_dwe</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">drp_drdy</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">drp_daddr</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">drp_di</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">drp_do</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">systemtimer_s_field</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">systemtimer_ns_field</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">rxrecclk</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos; is tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">rxphy_s_field</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/lll.vhd</arg>&quot; line <arg fmt="%d" index="2">162</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">rxphy_ns_field</arg>&apos; of component &apos;<arg fmt="%s" index="4">gig_eth_pcs_pma_v11_5</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/gig_eth_pcs_pma_v11_5/gpcs_pma_gen.vhd</arg>&quot; line <arg fmt="%d" index="2">564</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">DUPLEX_MODE</arg>&apos; of component &apos;<arg fmt="%s" index="4">MANAGEMENT</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/gig_eth_pcs_pma_v11_5/gpcs_pma_gen.vhd</arg>&quot; line <arg fmt="%d" index="2">564</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">COLL_TEST</arg>&apos; of component &apos;<arg fmt="%s" index="4">MANAGEMENT</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/gig_eth_pcs_pma_v11_5/gpcs_pma_gen.vhd</arg>&quot; line <arg fmt="%d" index="2">726</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">TX_CONFIG_VALID</arg>&apos; of component &apos;<arg fmt="%s" index="4">AUTO_NEG</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/gig_eth_pcs_pma_v11_5/gpcs_pma_gen.vhd</arg>&quot; line <arg fmt="%d" index="2">871</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">RECEIVING</arg>&apos; of component &apos;<arg fmt="%s" index="4">RX</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/gig_eth_pcs_pma_v11_5/gpcs_pma_gen.vhd</arg>&quot; line <arg fmt="%d" index="2">1241</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">TXRUNDISP</arg>&apos; of component &apos;<arg fmt="%s" index="4">TBI</arg>&apos;.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">AN_ADV_REG&lt;14&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">MANAGEMENT</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">AN_ADV_REG&lt;11&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">MANAGEMENT</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">AN_ADV_REG&lt;10&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">MANAGEMENT</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">AN_ADV_REG&lt;0&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">MANAGEMENT</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">MR_LP_ADV_ABILITY_INT&lt;12&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">MR_LP_ADV_ABILITY_INT&lt;11&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">MR_LP_ADV_ABILITY_INT&lt;1&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">SGMII_PHY_STATUS</arg>&gt; in unit &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">SGMII_SPEED</arg>&gt; in unit &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt; has a constant value of <arg fmt="%s" index="3">10</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="warning" file="Xst" num="39" delta="new" >Property &quot;<arg fmt="%s" index="1">shreg_extract</arg>&quot; not applicable on a <arg fmt="%s" index="2">instance</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="39" delta="new" >Property &quot;<arg fmt="%s" index="1">shreg_extract</arg>&quot; not applicable on a <arg fmt="%s" index="2">instance</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/gig_eth_pcs_pma_v11_5/TBI/encode_8b10b.vhd</arg>&quot; line <arg fmt="%d" index="2">409</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">DOB</arg>&apos; of component &apos;<arg fmt="%s" index="4">RAMB16_S18_S18</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/gig_eth_pcs_pma_v11_5/TBI/encode_8b10b.vhd</arg>&quot; line <arg fmt="%d" index="2">409</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">DOPA</arg>&apos; of component &apos;<arg fmt="%s" index="4">RAMB16_S18_S18</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/gig_eth_pcs_pma_v11_5/TBI/encode_8b10b.vhd</arg>&quot; line <arg fmt="%d" index="2">409</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">DOPB</arg>&apos; of component &apos;<arg fmt="%s" index="4">RAMB16_S18_S18</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/gig_eth_pcs_pma_v11_5/TBI/encode_8b10b.vhd</arg>&quot; line <arg fmt="%d" index="2">409</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">RAMB16_S18_S18</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/gig_eth_pcs_pma_v11_5/TBI/decode_8b10b.vhd</arg>&quot; line <arg fmt="%d" index="2">398</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">DOB</arg>&apos; of component &apos;<arg fmt="%s" index="4">RAMB16_S18_S18</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/gig_eth_pcs_pma_v11_5/TBI/decode_8b10b.vhd</arg>&quot; line <arg fmt="%d" index="2">398</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">DOPA</arg>&apos; of component &apos;<arg fmt="%s" index="4">RAMB16_S18_S18</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/gig_eth_pcs_pma_v11_5/TBI/decode_8b10b.vhd</arg>&quot; line <arg fmt="%d" index="2">398</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">DOPB</arg>&apos; of component &apos;<arg fmt="%s" index="4">RAMB16_S18_S18</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/_dbg/gig_eth_pcs_pma_v11_5/TBI/decode_8b10b.vhd</arg>&quot; line <arg fmt="%d" index="2">398</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">RAMB16_S18_S18</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">AN_NP_TX_REG&lt;6&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">MANAGEMENT</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">AN_NP_TX_REG&lt;7&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">MANAGEMENT</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">AN_NP_TX_REG&lt;8&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">MANAGEMENT</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">AN_NP_TX_REG&lt;9&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">MANAGEMENT</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">AN_NP_TX_REG&lt;10&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">MANAGEMENT</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">AN_NP_TX_REG&lt;12&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">MANAGEMENT</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">AN_NP_TX_REG&lt;15&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">MANAGEMENT</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">AN_NP_TX_REG&lt;1&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">MANAGEMENT</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">AN_NP_TX_REG&lt;2&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">MANAGEMENT</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">AN_NP_TX_REG&lt;3&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">MANAGEMENT</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">AN_NP_TX_REG&lt;4&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">MANAGEMENT</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">AN_NP_TX_REG&lt;5&gt;</arg>&gt; in unit &lt;<arg fmt="%s" index="2">MANAGEMENT</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">NP_LOADED_SET</arg>&gt; in unit &lt;<arg fmt="%s" index="2">MANAGEMENT</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">MR_NP_TX&lt;15&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">MR_NP_TX&lt;12&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">BASEX_OR_SGMII</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">RXBUFSTATUS&lt;0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">LINK_TIMER_BASEX</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">MR_ADV_ABILITY&lt;15&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">MR_ADV_ABILITY&lt;10&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">MR_ADV_ABILITY&lt;7&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">MR_ADV_ABILITY&lt;5:1&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">LINK_TIMER_SGMII</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">SGMII_SPEED_RSLVD</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">SGMII_PHY_STATUS_RSLVD</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">SGMII_PHY_MODE</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RX_CONFIG_SNAPSHOT&lt;14&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">BASEX_REMOTE_FAULT_RSLVD</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="info" file="Xst" num="1799" delta="new" >State <arg fmt="%s" index="1">next_page_wait</arg> is never reached in FSM &lt;<arg fmt="%s" index="2">STATE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">RXBUFSTATUS&lt;0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">RXBUFSTATUS&lt;0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">ENCODER_OUTPUT&lt;15:13&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">ENCODER_OUTPUT&lt;11:10&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">BASEX_OR_SGMII_REQ</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">SGMII_PHY_MODE</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">DATA_WR_SEL&lt;14&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">DATA_WR_SEL&lt;11:9&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">DATA_WR_SEL&lt;6&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">DATA_WR_SEL&lt;4:0&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">AN_LP_ABILTY_REG&lt;11:9&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">AN_LP_ABILTY_REG&lt;4:0&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">RXDISPERR&lt;0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">DRP_GNT</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">USERCLK2</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">RXCLKCORCNT</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">RXBUFSTATUS</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">RXRUNDISP&lt;0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">DRP_DRDY</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">RXNOTINTABLE&lt;0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">RXCHARISK&lt;0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">SYSTEMTIMER_S_FIELD</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">DRP_DCLK</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">RXCHARISCOMMA&lt;0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">RXDATA</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">TXBUFERR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">SYSTEMTIMER_NS_FIELD</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">DRP_DO</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">RXRECCLK</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">USERCLK</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">DCM_LOCKED</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">TX_RST_SM</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">TXEVEN</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">TXBUFERR_INT</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">TIMER_PHASE</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">SYNC_STATUS_DRP_REG</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">SYNC_STATUS_DRP</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RX_VARIABLE_LATENCY_ADJUST_ENABLE</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">RX_TIMER_ADJUST</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">RX_RST_SM</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RX_LATENCY_ADJUST_ENABLE</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RX_GT_FIXED_LATENCY_ADJUST</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RX_GT_FIXED_LATENCY</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RX_FIXED_LATENCY_ADJUST_ENABLE</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RXRUNDISP_RECLOCK</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RXRECRESET_PIPE</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RXRECRESET</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RXNOTINTABLE_RECLOCK</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RXDISPERR_RECLOCK</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RXDATA_RECLOCK</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RXCLKCORCNT_RECLOCK</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RXCHARISK_RECLOCK</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RXCHARISCOMMA_RECLOCK</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RXBUFSTATUS_RECLOCK</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RUNDISP_EN</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">RESTART_AN_EN_REG</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">RESTART_AN_EN</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">RESET_INT_PIPE</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RECLOCK_S</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">RECLOCK_NS</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">DRP_REQ_INT</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">CORRECTED_S</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">CORRECTED_NS</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">CONFIGURATION_VECTOR_REG</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">BARREL_SHIFT_RD_TOGGLE_SYNC</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">BARREL_SHIFT_RD_TOGGLE_REG</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">BARREL_SHIFT_RD_TOGGLE</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">BARREL_SHIFT_POSITION_DRP</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">BARREL_SHIFT_DELAY_ADJUST</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">BARREL_SHIFT_DELAY</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">rxdisperr&lt;0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">drp_gnt</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">userclk2</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">basex_or_sgmii</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">rxclkcorcnt</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">rxbufstatus</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">rxrundisp&lt;0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">drp_drdy</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">rxnotintable&lt;0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">rxcharisk&lt;0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">systemtimer_s_field</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">drp_dclk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">link_timer_basex</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">rxchariscomma&lt;0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">rxdata</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">txbuferr</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">systemtimer_ns_field</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">link_timer_sgmii</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">drp_do</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">rxrecclk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">userclk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">dcm_locked</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">RX_CONFIG_SNAPSHOT_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PREVIOUS_STATE_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PREVIOUS_STATE_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PREVIOUS_STATE_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PREVIOUS_STATE_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PREVIOUS_STATE_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PREVIOUS_STATE_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PREVIOUS_STATE_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PREVIOUS_STATE_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">TX_CONFIG_REG_INT_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">TX_CONFIG_REG_INT_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">TX_CONFIG_REG_INT_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">TX_CONFIG_REG_INT_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">TX_CONFIG_REG_INT_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">TX_CONFIG_REG_INT_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">TX_CONFIG_REG_INT_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">TX_CONFIG_REG_INT_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MR_NP_RX_INT_16</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MR_NP_RX_INT_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MR_NP_RX_INT_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MR_NP_RX_INT_13</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MR_NP_RX_INT_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MR_NP_RX_INT_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MR_NP_RX_INT_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MR_NP_RX_INT_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MR_NP_RX_INT_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MR_NP_RX_INT_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MR_NP_RX_INT_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MR_NP_RX_INT_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MR_NP_RX_INT_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MR_NP_RX_INT_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MR_NP_RX_INT_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MR_NP_RX_INT_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">BASE_OR_NP</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MR_PAGE_RX_SET</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">TX_CONFIG_REG_INT_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">AUTO_NEG</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">MR_PAGE_RX_CLEAR_REG2</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">MR_PAGE_RX_CLEAR_REG1</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1426" delta="new" >The value init of the FF/Latch <arg fmt="%s" index="1">AN_NP_TX_REG_0</arg> hinder the constant cleaning in the block <arg fmt="%s" index="2">MANAGEMENT</arg>.
+You should achieve better results by setting this init to <arg fmt="%i" index="3">1</arg>.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">BASEX_REMOTE_FAULT_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MR_LP_ADV_ABILITY_INT_14&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">BASEX_REMOTE_FAULT_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MR_LP_ADV_ABILITY_INT_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="1730" delta="new" >XST has found some RLOC properties in element <arg fmt="%s" index="1">SYNC_SIGNAL_DETECT</arg> which is instantiated several times. To handle this constraint XST will add the property &quot;hu_set <arg fmt="%s" index="2">SYNC_SIGNAL_DETECT</arg>&quot; on each element with RLOC.
+</msg>
+
+<msg type="info" file="Xst" num="1730" delta="new" >XST has found some RLOC properties in element <arg fmt="%s" index="1">RECLOCK_WR_ADDRGRAY[0].SYNC_WR_ADDRGRAY</arg> which is instantiated several times. To handle this constraint XST will add the property &quot;hu_set <arg fmt="%s" index="2">RECLOCK_WR_ADDRGRAY[0].SYNC_WR_ADDRGRAY</arg>&quot; on each element with RLOC.
+</msg>
+
+<msg type="info" file="Xst" num="1730" delta="new" >XST has found some RLOC properties in element <arg fmt="%s" index="1">RECLOCK_WR_ADDRGRAY[1].SYNC_WR_ADDRGRAY</arg> which is instantiated several times. To handle this constraint XST will add the property &quot;hu_set <arg fmt="%s" index="2">RECLOCK_WR_ADDRGRAY[1].SYNC_WR_ADDRGRAY</arg>&quot; on each element with RLOC.
+</msg>
+
+<msg type="info" file="Xst" num="1730" delta="new" >XST has found some RLOC properties in element <arg fmt="%s" index="1">RECLOCK_WR_ADDRGRAY[2].SYNC_WR_ADDRGRAY</arg> which is instantiated several times. To handle this constraint XST will add the property &quot;hu_set <arg fmt="%s" index="2">RECLOCK_WR_ADDRGRAY[2].SYNC_WR_ADDRGRAY</arg>&quot; on each element with RLOC.
+</msg>
+
+<msg type="info" file="Xst" num="1730" delta="new" >XST has found some RLOC properties in element <arg fmt="%s" index="1">RECLOCK_WR_ADDRGRAY[3].SYNC_WR_ADDRGRAY</arg> which is instantiated several times. To handle this constraint XST will add the property &quot;hu_set <arg fmt="%s" index="2">RECLOCK_WR_ADDRGRAY[3].SYNC_WR_ADDRGRAY</arg>&quot; on each element with RLOC.
+</msg>
+
+<msg type="info" file="Xst" num="1730" delta="new" >XST has found some RLOC properties in element <arg fmt="%s" index="1">SYNC_MDIO_IN</arg> which is instantiated several times. To handle this constraint XST will add the property &quot;hu_set <arg fmt="%s" index="2">SYNC_MDIO_IN</arg>&quot; on each element with RLOC.
+</msg>
+
+<msg type="info" file="Xst" num="1730" delta="new" >XST has found some RLOC properties in element <arg fmt="%s" index="1">SYNC_MDC</arg> which is instantiated several times. To handle this constraint XST will add the property &quot;hu_set <arg fmt="%s" index="2">SYNC_MDC</arg>&quot; on each element with RLOC.
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">LOOK_UP_TABLE</arg> in unit <arg fmt="%s" index="2">ENCODE_8B10B</arg> of type <arg fmt="%s" index="3">RAMB16_S18_S18</arg> has been replaced by <arg fmt="%s" index="4">RAMB16</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">LOOK_UP_TABLE</arg> in unit <arg fmt="%s" index="2">DECODE_8B10B</arg> of type <arg fmt="%s" index="3">RAMB16_S18_S18</arg> has been replaced by <arg fmt="%s" index="4">RAMB16</arg>
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TOGGLE_RX</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">AUTO_NEG</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/HAS_AUTO_NEG.AUTO_NEGOTIATION/MASK_RUDI_CLKCOR</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/HAS_AUTO_NEG.AUTO_NEGOTIATION/IDLE_REMOVED</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/HAS_AUTO_NEG.AUTO_NEGOTIATION/IDLE_INSERTED</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/HAS_AUTO_NEG.AUTO_NEGOTIATION/IDLE_INSERTED_REG3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/TRANSMITTER/TX_CONFIG_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/TRANSMITTER/TX_CONFIG_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/TRANSMITTER/TX_CONFIG_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/TRANSMITTER/TX_CONFIG_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/TRANSMITTER/TX_CONFIG_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/TRANSMITTER/TX_CONFIG_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/TRANSMITTER/TX_CONFIG_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/TRANSMITTER/TX_CONFIG_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/TRANSMITTER/TX_CONFIG_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/HAS_AUTO_NEG.AUTO_NEGOTIATION/IDLE_INSERTED_REG1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/HAS_AUTO_NEG.AUTO_NEGOTIATION/IDLE_INSERTED_REG4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/HAS_AUTO_NEG.AUTO_NEGOTIATION/IDLE_REMOVED_REG1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/HAS_AUTO_NEG.AUTO_NEGOTIATION/IDLE_INSERTED_REG2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/HAS_AUTO_NEG.AUTO_NEGOTIATION/IDLE_REMOVED_REG2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">lll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/USE_TBI.PCS_OUTPUT/ENCODER/RUNDISP_OUT</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">lll</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/HAS_MANAGEMENT.MDIO/AN_NP_TX_REG_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">lll</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/HAS_MANAGEMENT.MDIO/COLL_TEST_REG</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">lll</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/HAS_MANAGEMENT.MDIO/CLEAR_PAGE_RECEIVED</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">lll</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/RECEIVER/RECEIVING</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">lll</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/RECEIVER/RX_INVALID_REG1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">lll</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/RECEIVER/RX_INVALID_REG2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">lll</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/HAS_AUTO_NEG.AUTO_NEGOTIATION/TX_CONFIG_VALID</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">lll</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/HAS_AUTO_NEG.AUTO_NEGOTIATION/RX_RUDI_INVALID_REG</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">lll</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/RECEIVER/IDLE_REG_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">lll</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;U0/gpcs_pma_inst/HAS_AUTO_NEG.AUTO_NEGOTIATION/RX_IDLE_REG1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/USE_TBI.PCS_OUTPUT/BASEX.RECLOCK_RX_DATA/WR_ADDRGRAY_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">lll</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;U0/gpcs_pma_inst/USE_TBI.PCS_OUTPUT/BASEX.RECLOCK_RX_DATA/NEXT_WR_ADDR_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/gpcs_pma_inst/RECEIVER/IDLE_REG_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">lll</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;U0/gpcs_pma_inst/HAS_AUTO_NEG.AUTO_NEGOTIATION/RX_IDLE_REG2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2169" delta="new" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+</msg>
+
+</messages>
+

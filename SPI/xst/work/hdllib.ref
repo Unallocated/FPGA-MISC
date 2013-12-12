@@ -1,0 +1,4 @@
+EN master_minimal NULL /root/FPGA-MISC/SPI/master_minimal.vhd sub00/vhpl02 1387511296
+AR master behavioral /root/FPGA-MISC/SPI/master.vhd sub00/vhpl01 1387309104
+AR master_minimal behavioral /root/FPGA-MISC/SPI/master_minimal.vhd sub00/vhpl03 1387511297
+EN master NULL /root/FPGA-MISC/SPI/master.vhd sub00/vhpl00 1387309103

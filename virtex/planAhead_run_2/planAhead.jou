@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:24:36 MDT 2013
+# Start of session at: Thu Dec  5 22:18:37 2013
+# Process ID: 7936
+# Log file: /root/FPGA-MISC/virtex/planAhead_run_2/planAhead.log
+# Journal file: /root/FPGA-MISC/virtex/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source /root/FPGA-MISC/virtex/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+set_property package_pin "" [get_ports [list  clk]]
+set_property iostandard HSLVDCI_15 [get_ports [list clk]]
+set_property iostandard LVCMOS15 [get_ports [list clk]]
+set_property iostandard LVCMOS15 [get_ports [list test]]
+set_property package_pin "" [get_ports [list  clk]]
+set_property package_pin "" [get_ports [list  clk]]

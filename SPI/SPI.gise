@@ -21,8 +21,131 @@
 
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="SPI.xise"/>
 
-  <files xmlns="http://www.xilinx.com/XMLSchema"/>
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="master.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="master.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="master.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="master.ngr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="master.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="master.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="master.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="master.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="master_envsettings.html"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="master_minimal.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="master_minimal.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="master_minimal.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="master_minimal.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="master_minimal.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="master_minimal.ngr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="master_minimal.pcf" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="master_minimal.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="master_minimal.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="master_minimal.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="master_minimal.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="master_minimal_envsettings.html"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="master_minimal_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="master_minimal_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="master_minimal_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="master_minimal_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="master_minimal_map.xrpt"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="master_minimal_ngdbuild.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="master_minimal_summary.html"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="master_minimal_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="master_minimal_usage.xml"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="master_minimal_vhdl.prj"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="master_minimal_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="master_summary.html"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="master_test_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="master_test_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="master_test_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="master_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
 
-  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1387511411" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1387511411">
+      <status xil_pn:value="SuccessfullyRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1387511411" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="5276891297554674163" xil_pn:start_ts="1387511411">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1387511411" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="8892582759583529890" xil_pn:start_ts="1387511411">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1387511411" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1387511411">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1387511411" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="2055172308959529205" xil_pn:start_ts="1387511411">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1387511411" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="1106364426758808884" xil_pn:start_ts="1387511411">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1387511411" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="4311206641952465324" xil_pn:start_ts="1387511411">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1387511421" xil_pn:in_ck="262817172237636542" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="1723089407279322703" xil_pn:start_ts="1387511411">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="master_minimal.lso"/>
+      <outfile xil_pn:name="master_minimal.ngc"/>
+      <outfile xil_pn:name="master_minimal.ngr"/>
+      <outfile xil_pn:name="master_minimal.prj"/>
+      <outfile xil_pn:name="master_minimal.stx"/>
+      <outfile xil_pn:name="master_minimal.syr"/>
+      <outfile xil_pn:name="master_minimal.xst"/>
+      <outfile xil_pn:name="master_minimal_xst.xrpt"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1387511421" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-5884896434721038454" xil_pn:start_ts="1387511421">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1387511427" xil_pn:in_ck="-1113763697837258518" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-5191364531534082707" xil_pn:start_ts="1387511421">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <outfile xil_pn:name="master_minimal.bld"/>
+      <outfile xil_pn:name="master_minimal.ngd"/>
+      <outfile xil_pn:name="master_minimal_ngdbuild.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1386906674" xil_pn:in_ck="-3669867892531867783" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-7028996002982311030" xil_pn:start_ts="1386906665">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="master_minimal.pcf"/>
+      <outfile xil_pn:name="master_minimal_map.map"/>
+      <outfile xil_pn:name="master_minimal_map.mrp"/>
+      <outfile xil_pn:name="master_minimal_map.ncd"/>
+      <outfile xil_pn:name="master_minimal_map.ngm"/>
+      <outfile xil_pn:name="master_minimal_map.xrpt"/>
+      <outfile xil_pn:name="master_minimal_summary.xml"/>
+      <outfile xil_pn:name="master_minimal_usage.xml"/>
+    </transform>
+  </transforms>
 
 </generated_project>

@@ -1,6 +1,9 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
+-- Simple SPI master.  Only works for one device ATM.  Though it's easy to add extra devices by making the ce input 
+-- a vector with X bits and adding an integer input
+
 entity master is
 	Generic(data_width : integer   := 8;
 		    ce_active_low  : boolean := true;
@@ -8,7 +11,7 @@ entity master is
 	);
 	Port(clk      : in  STD_LOGIC;
 		 rst      : in  STD_LOGIC;
-		 si       : in  STD_LOGIC;
+		 miso     : in  STD_LOGIC;
 		 start    : in  STD_LOGIC;
 		 we       : in  STD_LOGIC;
 		 data_in  : in  STD_LOGIC_VECTOR(data_width - 1 downto 0);
@@ -16,7 +19,7 @@ entity master is
 		 done     : out STD_LOGIC;
 		 sck      : out STD_LOGIC;
 		 ce       : out STD_LOGIC;
-		 so       : out STD_LOGIC);
+		 mosi     : out STD_LOGIC);
 end master;
 
 architecture Behavioral of master is
@@ -73,7 +76,7 @@ begin
 				when SCK_IDLE =>
 					case base_state is
 						when BASE_IDLE =>
-							so       <= '0';
+							mosi <= '0';
 							if(ce_active_low = true) then
 								ce <= '1';
 							else
@@ -84,9 +87,9 @@ begin
 							data_pos := data_width - 1;
 						when BASE_DATA_TRANSFER =>
 							if (we_buffer = '1') then
-								so <= data_in_buffer(data_pos);
+								mosi <= data_in_buffer(data_pos);
 							else
-								data_out(data_pos) <= si;
+								data_out(data_pos) <= miso;
 							end if;
 
 							if (data_pos = 0) then

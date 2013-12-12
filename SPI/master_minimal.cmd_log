@@ -1,0 +1,9 @@
+xst -intstyle ise -ifn "/root/FPGA-MISC/SPI/master_minimal.xst" -ofn "/root/FPGA-MISC/SPI/master_minimal.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/SPI/master_minimal.xst" -ofn "/root/FPGA-MISC/SPI/master_minimal.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/SPI/master_minimal.xst" -ofn "/root/FPGA-MISC/SPI/master_minimal.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc4vsx55-ff1148-12 master_minimal.ngc master_minimal.ngd  
+map -intstyle ise -p xc4vsx55-ff1148-12 -global_opt off -cm area -ir off -pr off -u -c 100 -o master_minimal_map.ncd master_minimal.ngd master_minimal.pcf 
+xst -intstyle ise -ifn "/root/FPGA-MISC/SPI/master_minimal.xst" -ofn "/root/FPGA-MISC/SPI/master_minimal.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 master_minimal.ngc master_minimal.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -u -lc off -power off -o master_minimal_map.ncd master_minimal.ngd master_minimal.pcf 
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -u -lc off -power off -o master_minimal_map.ncd master_minimal.ngd master_minimal.pcf 

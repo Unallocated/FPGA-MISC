@@ -1,0 +1,2 @@
+vhdl work "master.vhd"
+vhdl work "master_test.vhd"

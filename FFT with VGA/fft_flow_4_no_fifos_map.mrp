@@ -1,0 +1,1657 @@
+Release 14.7 Map P.20131013 (lin64)
+Xilinx Mapping Report File for Design 'fft_flow_4_no_fifos'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol
+high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt 2 -detail -ir
+off -pr off -lc off -power off -o fft_flow_4_no_fifos_map.ncd
+fft_flow_4_no_fifos.ngd fft_flow_4_no_fifos.pcf 
+Target Device  : xc6slx16
+Target Package : csg324
+Target Speed   : -3
+Mapper Version : spartan6 -- $Revision: 1.55 $
+Mapped Date    : Thu Dec 12 18:20:59 2013
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:   13
+Slice Logic Utilization:
+  Number of Slice Registers:                 5,996 out of  18,224   32%
+    Number used as Flip Flops:               5,996
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                      2,881 out of   9,112   31%
+    Number used as logic:                    2,699 out of   9,112   29%
+      Number using O6 output only:           2,459
+      Number using O5 output only:               1
+      Number using O5 and O6:                  239
+      Number used as ROM:                        0
+    Number used as Memory:                      76 out of   2,176    3%
+      Number used as Dual Port RAM:              0
+      Number used as Single Port RAM:            0
+      Number used as Shift Register:            76
+        Number using O6 output only:            42
+        Number using O5 output only:             0
+        Number using O5 and O6:                 34
+    Number used exclusively as route-thrus:    106
+      Number with same-slice register load:     95
+      Number with same-slice carry load:        11
+      Number with other load:                    0
+
+Slice Logic Distribution:
+  Number of occupied Slices:                 1,865 out of   2,278   81%
+  Number of MUXCYs used:                       332 out of   4,556    7%
+  Number of LUT Flip Flop pairs used:        6,758
+    Number with an unused Flip Flop:           962 out of   6,758   14%
+    Number with an unused LUT:               3,877 out of   6,758   57%
+    Number of fully used LUT-FF pairs:       1,919 out of   6,758   28%
+    Number of unique control sets:             537
+    Number of slice register sites lost
+      to control set restrictions:             318 out of  18,224    1%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        49 out of     232   21%
+    Number of LOCed IOBs:                       49 out of      49  100%
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                         0 out of      32    0%
+  Number of RAMB8BWERs:                          8 out of      64   12%
+  Number of BUFIO2/BUFIO2_2CLKs:                 1 out of      32    3%
+    Number used as BUFIO2s:                      1
+    Number used as BUFIO2_2CLKs:                 0
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             1 out of      32    3%
+    Number used as BUFIO2FBs:                    1
+    Number used as BUFIO2FB_2CLKs:               0
+  Number of BUFG/BUFGMUXs:                       4 out of      16   25%
+    Number used as BUFGs:                        4
+    Number used as BUFGMUX:                      0
+  Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
+  Number of ILOGIC2/ISERDES2s:                   0 out of     248    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     248    0%
+  Number of OLOGIC2/OSERDES2s:                   0 out of     248    0%
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     128    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                           23 out of      32   71%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       2    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            1 out of       2   50%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+Average Fanout of Non-Clock Nets:                3.66
+
+Peak Memory Usage:  893 MB
+Total REAL time to MAP completion:  2 mins 19 secs 
+Total CPU time to MAP completion (all processors):   2 mins 25 secs 
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:Security:40 - Your license for 'ISE' expires in 4 days.
+WARNING:Pack:2238 - Function generator symbol "fft_instance/blk00000662" (Output
+   Signal = fft_instance/sig00000964) has an invalid use of the LUTNM
+   constraint. There are no other function generator symbols with a matching
+   LUTNM constraint value (LUTNM=fft_instance/hlutnm00000050). The constraint
+   will be ignored.
+WARNING:Pack:2238 - Function generator symbol "fft_instance/blk00000664" (Output
+   Signal = fft_instance/sig00000965) has an invalid use of the LUTNM
+   constraint. There are no other function generator symbols with a matching
+   LUTNM constraint value (LUTNM=fft_instance/hlutnm00000051). The constraint
+   will be ignored.
+WARNING:Pack:2238 - Function generator symbol "fft_instance/blk000006a5" (Output
+   Signal = fft_instance/sig00000984) has an invalid use of the LUTNM
+   constraint. There are no other function generator symbols with a matching
+   LUTNM constraint value (LUTNM=fft_instance/hlutnm00000061). The constraint
+   will be ignored.
+WARNING:Pack:2238 - Function generator symbol "fft_instance/blk000006a7" (Output
+   Signal = fft_instance/sig00000985) has an invalid use of the LUTNM
+   constraint. There are no other function generator symbols with a matching
+   LUTNM constraint value (LUTNM=fft_instance/hlutnm00000062). The constraint
+   will be ignored.
+WARNING:Pack:2238 - Function generator symbol "fft_instance/blk000006a9" (Output
+   Signal = fft_instance/sig00000986) has an invalid use of the LUTNM
+   constraint. There are no other function generator symbols with a matching
+   LUTNM constraint value (LUTNM=fft_instance/hlutnm00000063). The constraint
+   will be ignored.
+WARNING:Pack:2238 - Function generator symbol "fft_instance/blk000006ba" (Output
+   Signal = fft_instance/sig0000098d) has an invalid use of the LUTNM
+   constraint. There are no other function generator symbols with a matching
+   LUTNM constraint value (LUTNM=fft_instance/hlutnm00000067). The constraint
+   will be ignored.
+WARNING:Pack:2238 - Function generator symbol "fft_instance/blk000006bc" (Output
+   Signal = fft_instance/sig0000098e) has an invalid use of the LUTNM
+   constraint. There are no other function generator symbols with a matching
+   LUTNM constraint value (LUTNM=fft_instance/hlutnm00000068). The constraint
+   will be ignored.
+WARNING:Pack:2238 - Function generator symbol "fft_instance/blk000006be" (Output
+   Signal = fft_instance/sig0000098f) has an invalid use of the LUTNM
+   constraint. There are no other function generator symbols with a matching
+   LUTNM constraint value (LUTNM=fft_instance/hlutnm00000069). The constraint
+   will be ignored.
+WARNING:Pack:2238 - Function generator symbol "fft_instance/blk00000657" (Output
+   Signal = fft_instance/sig00000960) has an invalid use of the LUTNM
+   constraint. There are no other function generator symbols with a matching
+   LUTNM constraint value (LUTNM=fft_instance/hlutnm0000004c). The constraint
+   will be ignored.
+WARNING:Pack:2238 - Function generator symbol "fft_instance/blk00000659" (Output
+   Signal = fft_instance/sig00000961) has an invalid use of the LUTNM
+   constraint. There are no other function generator symbols with a matching
+   LUTNM constraint value (LUTNM=fft_instance/hlutnm0000004d). The constraint
+   will be ignored.
+WARNING:Pack:2238 - Function generator symbol "fft_instance/blk0000065b" (Output
+   Signal = fft_instance/sig00000962) has an invalid use of the LUTNM
+   constraint. There are no other function generator symbols with a matching
+   LUTNM constraint value (LUTNM=fft_instance/hlutnm0000004e). The constraint
+   will be ignored.
+WARNING:Pack:2238 - Function generator symbol "fft_instance/blk00000660" (Output
+   Signal = fft_instance/sig00000963) has an invalid use of the LUTNM
+   constraint. There are no other function generator symbols with a matching
+   LUTNM constraint value (LUTNM=fft_instance/hlutnm0000004f). The constraint
+   will be ignored.
+WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
+   (RAMB8BWER).  9K Block RAM initialization data, both user defined and
+   default, may be incorrect and should not be used.  For more information,
+   please reference Xilinx Answer Record 39999.
+
+Section 3 - Informational
+-------------------------
+INFO:Map:284 - Map is running with the multi-threading option on. Map currently
+   supports the use of up to 2 processors. Based on the the user options and
+   machine load, Map will use 2 processors during this run.
+INFO:Security:54 - 'xc6slx16' is a WebPack part.
+INFO:Security:66 - Your license for 'ISE' is for evaluation use only.
+INFO:LIT:243 - Logical network
+   dds_inst/U0/i_synth/i_rdy.i_single_channel.i_non_trivial_lat.i_rdy/opt_has_pi
+   pe.first_q has no load.
+INFO:LIT:243 - Logical network
+   fft_instance/U0/i_synth/non_floating_point.arch_b.xfft_inst/control/control/d
+   one_pr_d_1 has no load.
+INFO:LIT:243 - Logical network fft_instance/sig0000089b has no load.
+INFO:LIT:243 - Logical network fft_instance/sig0000089c has no load.
+INFO:LIT:243 - Logical network fft_instance/sig0000089d has no load.
+INFO:LIT:243 - Logical network fft_instance/sig0000089e has no load.
+INFO:LIT:243 - Logical network fft_instance/sig0000089f has no load.
+INFO:LIT:243 - Logical network fft_instance/sig000008a0 has no load.
+INFO:LIT:243 - Logical network fft_instance/sig000008a1 has no load.
+INFO:LIT:243 - Logical network fft_instance/sig000008a2 has no load.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
+   1.260 Volts)
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+INFO:Pack:1650 - Map created a placed design.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+ 247 block(s) removed
+  63 block(s) optimized away
+ 201 signal(s) removed
+  44 Block(s) redundant
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+Loadless block "fft_instance/blk000001d0" (SFF) removed.
+ The signal "fft_instance/sig00000514" is loadless and has been removed.
+  Loadless block "fft_instance/blk000001bf" (ROM) removed.
+   The signal "fft_instance/sig000003da" is loadless and has been removed.
+    Loadless block "fft_instance/blk00000148" (FF) removed.
+     The signal "fft_instance/sig00000486" is loadless and has been removed.
+Loadless block "fft_instance/blk000001d1" (SFF) removed.
+ The signal "fft_instance/sig00000515" is loadless and has been removed.
+  Loadless block "fft_instance/blk000001c0" (ROM) removed.
+   The signal "fft_instance/sig000003db" is loadless and has been removed.
+    Loadless block "fft_instance/blk00000147" (FF) removed.
+     The signal "fft_instance/sig00000487" is loadless and has been removed.
+Loadless block "fft_instance/blk000001d2" (SFF) removed.
+ The signal "fft_instance/sig00000516" is loadless and has been removed.
+  Loadless block "fft_instance/blk000001c1" (ROM) removed.
+   The signal "fft_instance/sig000003dc" is loadless and has been removed.
+    Loadless block "fft_instance/blk00000146" (FF) removed.
+     The signal "fft_instance/sig00000488" is loadless and has been removed.
+Loadless block "fft_instance/blk000001d3" (SFF) removed.
+ The signal "fft_instance/sig00000517" is loadless and has been removed.
+  Loadless block "fft_instance/blk000001c2" (ROM) removed.
+Loadless block "fft_instance/blk000001d4" (SFF) removed.
+ The signal "fft_instance/sig00000518" is loadless and has been removed.
+  Loadless block "fft_instance/blk000001c3" (ROM) removed.
+Loadless block "fft_instance/blk000001d5" (SFF) removed.
+ The signal "fft_instance/sig00000519" is loadless and has been removed.
+  Loadless block "fft_instance/blk000001c4" (ROM) removed.
+Loadless block "fft_instance/blk000001f2" (SFF) removed.
+ The signal "fft_instance/sig00000525" is loadless and has been removed.
+  Loadless block "fft_instance/blk000001e1" (ROM) removed.
+   The signal "fft_instance/sig000003cc" is loadless and has been removed.
+    Loadless block "fft_instance/blk00000156" (FF) removed.
+     The signal "fft_instance/sig00000478" is loadless and has been removed.
+Loadless block "fft_instance/blk000001f3" (SFF) removed.
+ The signal "fft_instance/sig00000526" is loadless and has been removed.
+  Loadless block "fft_instance/blk000001e2" (ROM) removed.
+   The signal "fft_instance/sig000003cd" is loadless and has been removed.
+    Loadless block "fft_instance/blk00000155" (FF) removed.
+     The signal "fft_instance/sig00000479" is loadless and has been removed.
+Loadless block "fft_instance/blk000001f4" (SFF) removed.
+ The signal "fft_instance/sig00000527" is loadless and has been removed.
+  Loadless block "fft_instance/blk000001e3" (ROM) removed.
+   The signal "fft_instance/sig000003ce" is loadless and has been removed.
+    Loadless block "fft_instance/blk00000154" (FF) removed.
+     The signal "fft_instance/sig0000047a" is loadless and has been removed.
+Loadless block "fft_instance/blk000001f5" (SFF) removed.
+ The signal "fft_instance/sig00000528" is loadless and has been removed.
+  Loadless block "fft_instance/blk000001e4" (ROM) removed.
+Loadless block "fft_instance/blk000001f6" (SFF) removed.
+ The signal "fft_instance/sig00000529" is loadless and has been removed.
+  Loadless block "fft_instance/blk000001e5" (ROM) removed.
+Loadless block "fft_instance/blk000001f7" (SFF) removed.
+ The signal "fft_instance/sig0000052a" is loadless and has been removed.
+  Loadless block "fft_instance/blk000001e6" (ROM) removed.
+Loadless block "fft_instance/blk00000214" (SFF) removed.
+ The signal "fft_instance/sig00000536" is loadless and has been removed.
+  Loadless block "fft_instance/blk00000203" (ROM) removed.
+   The signal "fft_instance/sig000003be" is loadless and has been removed.
+    Loadless block "fft_instance/blk0000013a" (FF) removed.
+     The signal "fft_instance/sig0000044e" is loadless and has been removed.
+Loadless block "fft_instance/blk00000215" (SFF) removed.
+ The signal "fft_instance/sig00000537" is loadless and has been removed.
+  Loadless block "fft_instance/blk00000204" (ROM) removed.
+   The signal "fft_instance/sig000003bf" is loadless and has been removed.
+    Loadless block "fft_instance/blk00000139" (FF) removed.
+     The signal "fft_instance/sig0000044f" is loadless and has been removed.
+Loadless block "fft_instance/blk00000216" (SFF) removed.
+ The signal "fft_instance/sig00000538" is loadless and has been removed.
+  Loadless block "fft_instance/blk00000205" (ROM) removed.
+   The signal "fft_instance/sig000003c0" is loadless and has been removed.
+    Loadless block "fft_instance/blk00000138" (FF) removed.
+     The signal "fft_instance/sig00000450" is loadless and has been removed.
+Loadless block "fft_instance/blk00000217" (SFF) removed.
+ The signal "fft_instance/sig00000539" is loadless and has been removed.
+  Loadless block "fft_instance/blk00000206" (ROM) removed.
+Loadless block "fft_instance/blk00000218" (SFF) removed.
+ The signal "fft_instance/sig0000053a" is loadless and has been removed.
+  Loadless block "fft_instance/blk00000207" (ROM) removed.
+Loadless block "fft_instance/blk00000219" (SFF) removed.
+ The signal "fft_instance/sig0000053b" is loadless and has been removed.
+  Loadless block "fft_instance/blk00000208" (ROM) removed.
+Loadless block "fft_instance/blk00000236" (SFF) removed.
+ The signal "fft_instance/sig00000547" is loadless and has been removed.
+  Loadless block "fft_instance/blk00000225" (ROM) removed.
+   The signal "fft_instance/sig000003b0" is loadless and has been removed.
+    Loadless block "fft_instance/blk0000012c" (FF) removed.
+     The signal "fft_instance/sig00000440" is loadless and has been removed.
+Loadless block "fft_instance/blk00000237" (SFF) removed.
+ The signal "fft_instance/sig00000548" is loadless and has been removed.
+  Loadless block "fft_instance/blk00000226" (ROM) removed.
+   The signal "fft_instance/sig000003b1" is loadless and has been removed.
+    Loadless block "fft_instance/blk0000012b" (FF) removed.
+     The signal "fft_instance/sig00000441" is loadless and has been removed.
+Loadless block "fft_instance/blk00000238" (SFF) removed.
+ The signal "fft_instance/sig00000549" is loadless and has been removed.
+  Loadless block "fft_instance/blk00000227" (ROM) removed.
+   The signal "fft_instance/sig000003b2" is loadless and has been removed.
+    Loadless block "fft_instance/blk0000012a" (FF) removed.
+     The signal "fft_instance/sig00000442" is loadless and has been removed.
+Loadless block "fft_instance/blk00000239" (SFF) removed.
+ The signal "fft_instance/sig0000054a" is loadless and has been removed.
+  Loadless block "fft_instance/blk00000228" (ROM) removed.
+Loadless block "fft_instance/blk0000023a" (SFF) removed.
+ The signal "fft_instance/sig0000054b" is loadless and has been removed.
+  Loadless block "fft_instance/blk00000229" (ROM) removed.
+Loadless block "fft_instance/blk0000023b" (SFF) removed.
+ The signal "fft_instance/sig0000054c" is loadless and has been removed.
+  Loadless block "fft_instance/blk0000022a" (ROM) removed.
+Loadless block "fft_instance/blk00000258" (SFF) removed.
+ The signal "fft_instance/sig00000558" is loadless and has been removed.
+  Loadless block "fft_instance/blk00000247" (ROM) removed.
+   The signal "fft_instance/sig000003a2" is loadless and has been removed.
+    Loadless block "fft_instance/blk0000011e" (FF) removed.
+     The signal "fft_instance/sig0000046a" is loadless and has been removed.
+Loadless block "fft_instance/blk00000259" (SFF) removed.
+ The signal "fft_instance/sig00000559" is loadless and has been removed.
+  Loadless block "fft_instance/blk00000248" (ROM) removed.
+   The signal "fft_instance/sig000003a3" is loadless and has been removed.
+    Loadless block "fft_instance/blk0000011d" (FF) removed.
+     The signal "fft_instance/sig0000046b" is loadless and has been removed.
+Loadless block "fft_instance/blk0000025a" (SFF) removed.
+ The signal "fft_instance/sig0000055a" is loadless and has been removed.
+  Loadless block "fft_instance/blk00000249" (ROM) removed.
+   The signal "fft_instance/sig000003a4" is loadless and has been removed.
+    Loadless block "fft_instance/blk0000011c" (FF) removed.
+     The signal "fft_instance/sig0000046c" is loadless and has been removed.
+Loadless block "fft_instance/blk0000025b" (SFF) removed.
+ The signal "fft_instance/sig0000055b" is loadless and has been removed.
+  Loadless block "fft_instance/blk0000024a" (ROM) removed.
+Loadless block "fft_instance/blk0000025c" (SFF) removed.
+ The signal "fft_instance/sig0000055c" is loadless and has been removed.
+  Loadless block "fft_instance/blk0000024b" (ROM) removed.
+Loadless block "fft_instance/blk0000025d" (SFF) removed.
+ The signal "fft_instance/sig0000055d" is loadless and has been removed.
+  Loadless block "fft_instance/blk0000024c" (ROM) removed.
+Loadless block "fft_instance/blk0000027a" (SFF) removed.
+ The signal "fft_instance/sig00000569" is loadless and has been removed.
+  Loadless block "fft_instance/blk00000269" (ROM) removed.
+   The signal "fft_instance/sig00000394" is loadless and has been removed.
+    Loadless block "fft_instance/blk00000110" (FF) removed.
+     The signal "fft_instance/sig0000045c" is loadless and has been removed.
+Loadless block "fft_instance/blk0000027b" (SFF) removed.
+ The signal "fft_instance/sig0000056a" is loadless and has been removed.
+  Loadless block "fft_instance/blk0000026a" (ROM) removed.
+   The signal "fft_instance/sig00000395" is loadless and has been removed.
+    Loadless block "fft_instance/blk0000010f" (FF) removed.
+     The signal "fft_instance/sig0000045d" is loadless and has been removed.
+Loadless block "fft_instance/blk0000027c" (SFF) removed.
+ The signal "fft_instance/sig0000056b" is loadless and has been removed.
+  Loadless block "fft_instance/blk0000026b" (ROM) removed.
+   The signal "fft_instance/sig00000396" is loadless and has been removed.
+    Loadless block "fft_instance/blk0000010e" (FF) removed.
+     The signal "fft_instance/sig0000045e" is loadless and has been removed.
+Loadless block "fft_instance/blk0000027d" (SFF) removed.
+ The signal "fft_instance/sig0000056c" is loadless and has been removed.
+  Loadless block "fft_instance/blk0000026c" (ROM) removed.
+Loadless block "fft_instance/blk0000027e" (SFF) removed.
+ The signal "fft_instance/sig0000056d" is loadless and has been removed.
+  Loadless block "fft_instance/blk0000026d" (ROM) removed.
+Loadless block "fft_instance/blk0000027f" (SFF) removed.
+ The signal "fft_instance/sig0000056e" is loadless and has been removed.
+  Loadless block "fft_instance/blk0000026e" (ROM) removed.
+Loadless block "fft_instance/blk0000029c" (SFF) removed.
+ The signal "fft_instance/sig0000057a" is loadless and has been removed.
+  Loadless block "fft_instance/blk0000028b" (ROM) removed.
+   The signal "fft_instance/sig00000386" is loadless and has been removed.
+    Loadless block "fft_instance/blk00000102" (FF) removed.
+     The signal "fft_instance/sig00000432" is loadless and has been removed.
+Loadless block "fft_instance/blk0000029d" (SFF) removed.
+ The signal "fft_instance/sig0000057b" is loadless and has been removed.
+  Loadless block "fft_instance/blk0000028c" (ROM) removed.
+   The signal "fft_instance/sig00000387" is loadless and has been removed.
+    Loadless block "fft_instance/blk00000101" (FF) removed.
+     The signal "fft_instance/sig00000433" is loadless and has been removed.
+Loadless block "fft_instance/blk0000029e" (SFF) removed.
+ The signal "fft_instance/sig0000057c" is loadless and has been removed.
+  Loadless block "fft_instance/blk0000028d" (ROM) removed.
+   The signal "fft_instance/sig00000388" is loadless and has been removed.
+    Loadless block "fft_instance/blk00000100" (FF) removed.
+     The signal "fft_instance/sig00000434" is loadless and has been removed.
+Loadless block "fft_instance/blk0000029f" (SFF) removed.
+ The signal "fft_instance/sig0000057d" is loadless and has been removed.
+  Loadless block "fft_instance/blk0000028e" (ROM) removed.
+Loadless block "fft_instance/blk000002a0" (SFF) removed.
+ The signal "fft_instance/sig0000057e" is loadless and has been removed.
+  Loadless block "fft_instance/blk0000028f" (ROM) removed.
+Loadless block "fft_instance/blk000002a1" (SFF) removed.
+ The signal "fft_instance/sig0000057f" is loadless and has been removed.
+  Loadless block "fft_instance/blk00000290" (ROM) removed.
+Loadless block "fft_instance/blk000002be" (SFF) removed.
+ The signal "fft_instance/sig0000058b" is loadless and has been removed.
+  Loadless block "fft_instance/blk000002ad" (ROM) removed.
+   The signal "fft_instance/sig00000378" is loadless and has been removed.
+    Loadless block "fft_instance/blk000000f4" (FF) removed.
+     The signal "fft_instance/sig00000424" is loadless and has been removed.
+Loadless block "fft_instance/blk000002bf" (SFF) removed.
+ The signal "fft_instance/sig0000058c" is loadless and has been removed.
+  Loadless block "fft_instance/blk000002ae" (ROM) removed.
+   The signal "fft_instance/sig00000379" is loadless and has been removed.
+    Loadless block "fft_instance/blk000000f3" (FF) removed.
+     The signal "fft_instance/sig00000425" is loadless and has been removed.
+Loadless block "fft_instance/blk000002c0" (SFF) removed.
+ The signal "fft_instance/sig0000058d" is loadless and has been removed.
+  Loadless block "fft_instance/blk000002af" (ROM) removed.
+   The signal "fft_instance/sig0000037a" is loadless and has been removed.
+    Loadless block "fft_instance/blk000000f2" (FF) removed.
+     The signal "fft_instance/sig00000426" is loadless and has been removed.
+Loadless block "fft_instance/blk000002c1" (SFF) removed.
+ The signal "fft_instance/sig0000058e" is loadless and has been removed.
+  Loadless block "fft_instance/blk000002b0" (ROM) removed.
+Loadless block "fft_instance/blk000002c2" (SFF) removed.
+ The signal "fft_instance/sig0000058f" is loadless and has been removed.
+  Loadless block "fft_instance/blk000002b1" (ROM) removed.
+Loadless block "fft_instance/blk000002c3" (SFF) removed.
+ The signal "fft_instance/sig00000590" is loadless and has been removed.
+  Loadless block "fft_instance/blk000002b2" (ROM) removed.
+Loadless block "fft_instance/blk000004ae" (ROM) removed.
+Loadless block "fft_instance/blk000004af" (ROM) removed.
+Loadless block "fft_instance/blk000004e1" (SFF) removed.
+ The signal "fft_instance/sig000007eb" is loadless and has been removed.
+Loadless block "fft_instance/blk0000060f/blk00000612" (XOR) removed.
+ The signal "fft_instance/blk0000060f/sig00000c5b" is loadless and has been
+removed.
+  Loadless block "fft_instance/blk0000060f/blk00000618" (MUX) removed.
+ The signal "fft_instance/blk0000060f/sig00000c59" is loadless and has been
+removed.
+  Loadless block "fft_instance/blk0000060f/blk0000062a" (BUF) removed.
+Loadless block "fft_instance/blk00000658" (ROM) removed.
+Loadless block "fft_instance/blk0000065a" (ROM) removed.
+Loadless block "fft_instance/blk0000065c" (ROM) removed.
+Loadless block "fft_instance/blk00000661" (ROM) removed.
+Loadless block "fft_instance/blk00000663" (ROM) removed.
+Loadless block "fft_instance/blk00000665" (ROM) removed.
+Loadless block "fft_instance/blk000006a6" (ROM) removed.
+Loadless block "fft_instance/blk000006a8" (ROM) removed.
+Loadless block "fft_instance/blk000006aa" (ROM) removed.
+Loadless block "fft_instance/blk000006bb" (ROM) removed.
+Loadless block "fft_instance/blk000006bd" (ROM) removed.
+Loadless block "fft_instance/blk000006bf" (ROM) removed.
+Loadless block "fft_instance/blk000006ea" (ROM) removed.
+ The signal "fft_instance/sig000009a0" is loadless and has been removed.
+  Loadless block "fft_instance/blk000006e5" (FF) removed.
+Loadless block "fft_instance/blk000006eb" (ROM) removed.
+ The signal "fft_instance/sig0000099f" is loadless and has been removed.
+  Loadless block "fft_instance/blk000006e6" (FF) removed.
+Loadless block "fft_instance/blk000006ec" (ROM) removed.
+ The signal "fft_instance/sig0000099e" is loadless and has been removed.
+  Loadless block "fft_instance/blk000006e7" (FF) removed.
+Loadless block "fft_instance/blk000006ed" (ROM) removed.
+ The signal "fft_instance/sig0000099d" is loadless and has been removed.
+  Loadless block "fft_instance/blk000006e8" (FF) removed.
+Loadless block "fft_instance/blk000006ee" (ROM) removed.
+Loadless block "fft_instance/blk000006ef" (ROM) removed.
+ The signal "fft_instance/sig000009a1" is loadless and has been removed.
+  Loadless block "fft_instance/blk000006e9" (FF) removed.
+Loadless block "fft_instance/blk000006f0" (ROM) removed.
+The signal
+"dds_inst/U0/i_synth/i_rdy.i_single_channel.i_non_trivial_lat.i_rdy/opt_has_pipe
+.first_q" is sourceless and has been removed.
+The signal
+"fft_instance/U0/i_synth/non_floating_point.arch_b.xfft_inst/control/control/don
+e_pr_d_1" is sourceless and has been removed.
+The signal
+"fft_instance/U0/i_synth/non_floating_point.arch_b.xfft_inst/single_channel.data
+path/sch_schedule_from_port.has_overflow.ovflo_gated" is sourceless and has been
+removed.
+ Sourceless block "fft_instance/blk00000814" (ROM) removed.
+  The signal "fft_instance/sig000009fe" is sourceless and has been removed.
+   Sourceless block "fft_instance/blk000007ef" (FF) removed.
+The signal "fft_instance/sig00000243" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk000000d4" (FF) removed.
+  The signal "fft_instance/sig0000019a" is sourceless and has been removed.
+   Sourceless block "fft_instance/blk00000810" (ROM) removed.
+    The signal "fft_instance/sig000009ff" is sourceless and has been removed.
+     Sourceless block "fft_instance/blk000007f0" (FF) removed.
+      The signal "fft_instance/sig00000155" is sourceless and has been removed.
+The signal "fft_instance/sig00000522" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk000001de" (SFF) removed.
+  The signal "fft_instance/sig000004a9" is sourceless and has been removed.
+   Sourceless block "fft_instance/blk000007e0" (ROM) removed.
+    The signal "fft_instance/sig000009ee" is sourceless and has been removed.
+     Sourceless block "fft_instance/blk000007e5" (ROM) removed.
+The signal "fft_instance/sig00000523" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk000001df" (SFF) removed.
+  The signal "fft_instance/sig000004aa" is sourceless and has been removed.
+The signal "fft_instance/sig00000524" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk000001e0" (SFF) removed.
+  The signal "fft_instance/sig000004ab" is sourceless and has been removed.
+The signal "fft_instance/sig00000533" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk00000200" (SFF) removed.
+  The signal "fft_instance/sig000004a6" is sourceless and has been removed.
+   Sourceless block "fft_instance/blk000007db" (ROM) removed.
+    The signal "fft_instance/sig000009e9" is sourceless and has been removed.
+     Sourceless block "fft_instance/blk000007dd" (ROM) removed.
+      The signal "fft_instance/sig000009eb" is sourceless and has been removed.
+   Sourceless block "fft_instance/blk000007df" (ROM) removed.
+    The signal "fft_instance/sig000009ed" is sourceless and has been removed.
+The signal "fft_instance/sig00000534" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk00000201" (SFF) removed.
+  The signal "fft_instance/sig000004a7" is sourceless and has been removed.
+The signal "fft_instance/sig00000535" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk00000202" (SFF) removed.
+  The signal "fft_instance/sig000004a8" is sourceless and has been removed.
+The signal "fft_instance/sig00000544" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk00000222" (SFF) removed.
+  The signal "fft_instance/sig000004a3" is sourceless and has been removed.
+   Sourceless block "fft_instance/blk000007e2" (ROM) removed.
+    The signal "fft_instance/sig000009f0" is sourceless and has been removed.
+The signal "fft_instance/sig00000545" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk00000223" (SFF) removed.
+  The signal "fft_instance/sig000004a4" is sourceless and has been removed.
+The signal "fft_instance/sig00000546" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk00000224" (SFF) removed.
+  The signal "fft_instance/sig000004a5" is sourceless and has been removed.
+The signal "fft_instance/sig00000555" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk00000244" (SFF) removed.
+  The signal "fft_instance/sig000004a0" is sourceless and has been removed.
+   Sourceless block "fft_instance/blk000007de" (ROM) removed.
+    The signal "fft_instance/sig000009ec" is sourceless and has been removed.
+   Sourceless block "fft_instance/blk000007e1" (ROM) removed.
+    The signal "fft_instance/sig000009ef" is sourceless and has been removed.
+The signal "fft_instance/sig00000556" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk00000245" (SFF) removed.
+  The signal "fft_instance/sig000004a1" is sourceless and has been removed.
+The signal "fft_instance/sig00000557" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk00000246" (SFF) removed.
+  The signal "fft_instance/sig000004a2" is sourceless and has been removed.
+The signal "fft_instance/sig00000566" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk00000266" (SFF) removed.
+  The signal "fft_instance/sig0000049d" is sourceless and has been removed.
+   Sourceless block "fft_instance/blk000007d9" (ROM) removed.
+    The signal "fft_instance/sig000009e7" is sourceless and has been removed.
+     Sourceless block "fft_instance/blk000007da" (ROM) removed.
+      The signal "fft_instance/sig000009e8" is sourceless and has been removed.
+The signal "fft_instance/sig00000567" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk00000267" (SFF) removed.
+  The signal "fft_instance/sig0000049e" is sourceless and has been removed.
+The signal "fft_instance/sig00000568" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk00000268" (SFF) removed.
+  The signal "fft_instance/sig0000049f" is sourceless and has been removed.
+The signal "fft_instance/sig00000577" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk00000288" (SFF) removed.
+  The signal "fft_instance/sig0000049a" is sourceless and has been removed.
+   Sourceless block "fft_instance/blk000007dc" (ROM) removed.
+    The signal "fft_instance/sig000009ea" is sourceless and has been removed.
+   Sourceless block "fft_instance/blk000007e4" (ROM) removed.
+    The signal "fft_instance/sig000009f2" is sourceless and has been removed.
+The signal "fft_instance/sig00000578" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk00000289" (SFF) removed.
+  The signal "fft_instance/sig0000049b" is sourceless and has been removed.
+The signal "fft_instance/sig00000579" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk0000028a" (SFF) removed.
+  The signal "fft_instance/sig0000049c" is sourceless and has been removed.
+The signal "fft_instance/sig00000588" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk000002aa" (SFF) removed.
+  The signal "fft_instance/sig00000497" is sourceless and has been removed.
+   Sourceless block "fft_instance/blk000007d8" (ROM) removed.
+    The signal "fft_instance/sig000009e6" is sourceless and has been removed.
+   Sourceless block "fft_instance/blk000007e3" (ROM) removed.
+    The signal "fft_instance/sig000009f1" is sourceless and has been removed.
+The signal "fft_instance/sig00000589" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk000002ab" (SFF) removed.
+  The signal "fft_instance/sig00000498" is sourceless and has been removed.
+The signal "fft_instance/sig0000058a" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk000002ac" (SFF) removed.
+  The signal "fft_instance/sig00000499" is sourceless and has been removed.
+The signal "fft_instance/sig00000599" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk000002cc" (SFF) removed.
+  The signal "fft_instance/sig00000494" is sourceless and has been removed.
+The signal "fft_instance/sig0000059a" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk000002cd" (SFF) removed.
+  The signal "fft_instance/sig00000495" is sourceless and has been removed.
+The signal "fft_instance/sig0000059b" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk000002ce" (SFF) removed.
+  The signal "fft_instance/sig00000496" is sourceless and has been removed.
+The signal "fft_instance/sig0000089b" is sourceless and has been removed.
+The signal "fft_instance/sig0000089c" is sourceless and has been removed.
+The signal "fft_instance/sig0000089d" is sourceless and has been removed.
+The signal "fft_instance/sig0000089e" is sourceless and has been removed.
+The signal "fft_instance/sig0000089f" is sourceless and has been removed.
+The signal "fft_instance/sig000008a0" is sourceless and has been removed.
+The signal "fft_instance/sig000008a1" is sourceless and has been removed.
+The signal "fft_instance/sig000008a2" is sourceless and has been removed.
+The signal "fft_instance/sig00000855" is sourceless and has been removed.
+The signal "fft_instance/sig00000007" is sourceless and has been removed.
+The signal "fft_instance/sig00000008" is sourceless and has been removed.
+The signal "fft_instance/sig00000850" is sourceless and has been removed.
+ Sourceless block "fft_instance/blk00000816" (ROM) removed.
+  The signal "fft_instance/sig000009f3" is sourceless and has been removed.
+   Sourceless block "fft_instance/blk000007e6" (FF) removed.
+    The signal "fft_instance/sig00000005" is sourceless and has been removed.
+The signal "fft_instance/sig00000926" is sourceless and has been removed.
+The signal "fft_instance/sig00000a00" is sourceless and has been removed.
+The signal "fft_instance/blk0000058e/blk0000058f/sig00000be0" is sourceless and
+has been removed.
+The signal "fft_instance/blk0000058e/blk0000058f/sig00000be1" is sourceless and
+has been removed.
+The signal "fft_instance/blk0000058e/blk0000058f/sig00000be2" is sourceless and
+has been removed.
+ Sourceless block "fft_instance/blk0000058e/blk0000058f/blk00000593" (FF)
+removed.
+The signal "fft_instance/blk00000594/blk00000595/sig00000bf4" is sourceless and
+has been removed.
+The signal "fft_instance/blk00000594/blk00000595/sig00000bf5" is sourceless and
+has been removed.
+The signal "fft_instance/blk00000594/blk00000595/sig00000bf6" is sourceless and
+has been removed.
+ Sourceless block "fft_instance/blk00000594/blk00000595/blk00000599" (FF)
+removed.
+The signal "fft_instance/blk0000059a/blk0000059b/sig00000bff" is sourceless and
+has been removed.
+The signal "fft_instance/blk0000059a/blk0000059b/sig00000c00" is sourceless and
+has been removed.
+The signal "fft_instance/blk0000059a/blk0000059b/sig00000c01" is sourceless and
+has been removed.
+ Sourceless block "fft_instance/blk0000059a/blk0000059b/blk0000059f" (FF)
+removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "n4079<6>" is unused and has been removed.
+ Unused block "n4079<6>11" (ROM) removed.
+The signal "n4079<5>" is unused and has been removed.
+ Unused block "n4079<5>1" (ROM) removed.
+The signal "n4079<4>" is unused and has been removed.
+ Unused block "n4079<4>1" (ROM) removed.
+Unused block "dds_inst/blk00000005" (FF) removed.
+Unused block "fft_instance/blk000001cd" (ROM) removed.
+Unused block "fft_instance/blk000001ce" (ROM) removed.
+Unused block "fft_instance/blk000001cf" (ROM) removed.
+Unused block "fft_instance/blk000001ef" (ROM) removed.
+Unused block "fft_instance/blk000001f0" (ROM) removed.
+Unused block "fft_instance/blk000001f1" (ROM) removed.
+Unused block "fft_instance/blk00000211" (ROM) removed.
+Unused block "fft_instance/blk00000212" (ROM) removed.
+Unused block "fft_instance/blk00000213" (ROM) removed.
+Unused block "fft_instance/blk00000233" (ROM) removed.
+Unused block "fft_instance/blk00000234" (ROM) removed.
+Unused block "fft_instance/blk00000235" (ROM) removed.
+Unused block "fft_instance/blk00000255" (ROM) removed.
+Unused block "fft_instance/blk00000256" (ROM) removed.
+Unused block "fft_instance/blk00000257" (ROM) removed.
+Unused block "fft_instance/blk00000277" (ROM) removed.
+Unused block "fft_instance/blk00000278" (ROM) removed.
+Unused block "fft_instance/blk00000279" (ROM) removed.
+Unused block "fft_instance/blk00000299" (ROM) removed.
+Unused block "fft_instance/blk0000029a" (ROM) removed.
+Unused block "fft_instance/blk0000029b" (ROM) removed.
+Unused block "fft_instance/blk000002bb" (ROM) removed.
+Unused block "fft_instance/blk000002bc" (ROM) removed.
+Unused block "fft_instance/blk000002bd" (ROM) removed.
+Unused block "fft_instance/blk000004d2" (SRL16E) removed.
+Unused block "fft_instance/blk000004f0" (FF) removed.
+Unused block "fft_instance/blk000004f1" (FF) removed.
+Unused block "fft_instance/blk000004f2" (FF) removed.
+Unused block "fft_instance/blk000004f3" (FF) removed.
+Unused block "fft_instance/blk000004f4" (FF) removed.
+Unused block "fft_instance/blk000004f5" (FF) removed.
+Unused block "fft_instance/blk000004f6" (FF) removed.
+Unused block "fft_instance/blk000004f7" (FF) removed.
+Unused block "fft_instance/blk00000507" (SFF) removed.
+Unused block "fft_instance/blk0000058e/blk0000058f/blk00000590" (ZERO) removed.
+Unused block "fft_instance/blk0000058e/blk0000058f/blk00000591" (ONE) removed.
+Unused block "fft_instance/blk0000058e/blk0000058f/blk00000592" (SRLC32E)
+removed.
+Unused block "fft_instance/blk00000594/blk00000595/blk00000596" (ZERO) removed.
+Unused block "fft_instance/blk00000594/blk00000595/blk00000597" (ONE) removed.
+Unused block "fft_instance/blk00000594/blk00000595/blk00000598" (SRLC32E)
+removed.
+Unused block "fft_instance/blk0000059a/blk0000059b/blk0000059c" (ZERO) removed.
+Unused block "fft_instance/blk0000059a/blk0000059b/blk0000059d" (ONE) removed.
+Unused block "fft_instance/blk0000059a/blk0000059b/blk0000059e" (SRLC16E)
+removed.
+Unused block "fft_instance/blk00000606" (FF) removed.
+Unused block "fft_instance/blk000007b4" (ROM) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+VCC 		XST_VCC
+VCC 		dds_inst/blk00000001
+GND 		dds_inst/blk00000002
+VCC 		fft_instance/blk00000001
+GND 		fft_instance/blk00000002
+FDE 		fft_instance/blk000000ab
+   optimized to 1
+LUT6 		fft_instance/blk000003ca
+   optimized to 0
+LUT6 		fft_instance/blk000003cb
+   optimized to 0
+GND 		fft_instance/blk000003d0/blk000003d1/blk000003d2
+VCC 		fft_instance/blk000003d0/blk000003d1/blk000003d3
+GND 		fft_instance/blk00000456/blk00000457
+GND 		fft_instance/blk00000469/blk0000046a
+GND 		fft_instance/blk0000047c/blk0000047d
+GND 		fft_instance/blk0000048f/blk00000490
+GND 		fft_instance/blk000004b0/blk000004b1/blk000004b2
+VCC 		fft_instance/blk000004b0/blk000004b1/blk000004b3
+GND 		fft_instance/blk000004b6/blk000004b7/blk000004b8
+VCC 		fft_instance/blk000004b6/blk000004b7/blk000004b9
+GND 		fft_instance/blk000004bc/blk000004bd/blk000004be
+VCC 		fft_instance/blk000004bc/blk000004bd/blk000004bf
+GND 		fft_instance/blk000004c2/blk000004c3/blk000004c4
+VCC 		fft_instance/blk000004c2/blk000004c3/blk000004c5
+GND 		fft_instance/blk000004c8/blk000004c9/blk000004ca
+VCC 		fft_instance/blk000004c8/blk000004c9/blk000004cb
+FDE 		fft_instance/blk000004eb
+   optimized to 0
+FDE 		fft_instance/blk000004ed
+   optimized to 0
+VCC 		fft_instance/blk00000520/blk00000521
+GND 		fft_instance/blk00000520/blk00000522
+VCC 		fft_instance/blk00000545/blk00000546
+GND 		fft_instance/blk00000545/blk00000547
+VCC 		fft_instance/blk00000564/blk00000565
+GND 		fft_instance/blk00000564/blk00000566
+GND 		fft_instance/blk00000574/blk00000575/blk00000576
+VCC 		fft_instance/blk00000574/blk00000575/blk00000577
+VCC 		fft_instance/blk0000057e/blk0000057f
+GND 		fft_instance/blk0000057e/blk00000580
+GND 		fft_instance/blk00000588/blk00000589/blk0000058a
+VCC 		fft_instance/blk00000588/blk00000589/blk0000058b
+GND 		fft_instance/blk000005a0/blk000005a1/blk000005a2
+VCC 		fft_instance/blk000005a0/blk000005a1/blk000005a3
+GND 		fft_instance/blk000005a6/blk000005a7/blk000005a8
+VCC 		fft_instance/blk000005a6/blk000005a7/blk000005a9
+GND 		fft_instance/blk000005c4/blk000005c5/blk000005c7
+VCC 		fft_instance/blk000005c4/blk000005c5/blk000005c8
+GND 		fft_instance/blk000005ca/blk000005cb/blk000005cc
+VCC 		fft_instance/blk000005ca/blk000005cb/blk000005cd
+GND 		fft_instance/blk000005d0/blk000005d1/blk000005d3
+VCC 		fft_instance/blk000005d0/blk000005d1/blk000005d4
+VCC 		fft_instance/blk0000060f/blk00000610
+FDE 		fft_instance/blk000006dd
+   optimized to 0
+FDE 		fft_instance/blk000006de
+   optimized to 0
+GND 		fft_instance/blk000006f1/blk000006f2
+GND 		fft_instance/blk00000709/blk0000070a/blk0000070b
+VCC 		fft_instance/blk00000709/blk0000070a/blk0000070c
+GND 		fft_instance/blk00000719/blk0000071a/blk0000071b
+VCC 		fft_instance/blk00000719/blk0000071a/blk0000071c
+GND 		fft_instance/blk00000729/blk0000072a/blk0000072b
+VCC 		fft_instance/blk00000729/blk0000072a/blk0000072c
+GND 		fft_instance/blk00000739/blk0000073a/blk0000073b
+VCC 		fft_instance/blk00000739/blk0000073a/blk0000073c
+FD 		fft_instance/blk000007f1
+   optimized to 1
+LUT5 		fft_instance/blk0000081b
+   optimized to 1
+
+Redundant Block(s):
+TYPE 		BLOCK
+LUT1 		Maddsub_n4085_cy<2>_rt
+LUT1 		Maddsub_n4088_cy<2>_rt
+LUT1 		Maddsub_n4091_cy<2>_rt
+LUT1 		Maddsub_n4094_cy<2>_rt
+LUT1 		Maddsub_n4097_cy<2>_rt
+LUT1 		Maddsub_n4100_cy<2>_rt
+LUT1 		Maddsub_n4103_cy<2>_rt
+LUT1 		Maddsub_n4106_cy<2>_rt
+LUT1 		Maddsub_n4109_cy<2>_rt
+LUT1 		Maddsub_n4112_cy<2>_rt
+LUT1 		Maddsub_n4115_cy<2>_rt
+LUT1 		Maddsub_n4118_cy<2>_rt
+LUT1 		fft_instance/blk00000520/blk00000532
+LUT1 		fft_instance/blk00000520/blk00000533
+LUT1 		fft_instance/blk00000520/blk00000534
+LUT1 		fft_instance/blk00000520/blk00000535
+LUT1 		fft_instance/blk00000520/blk00000536
+LUT1 		fft_instance/blk00000520/blk00000537
+INV 		fft_instance/blk00000520/blk00000538
+LUT1 		fft_instance/blk00000545/blk00000553
+LUT1 		fft_instance/blk00000545/blk00000554
+LUT1 		fft_instance/blk00000545/blk00000555
+LUT1 		fft_instance/blk00000545/blk00000556
+INV 		fft_instance/blk00000545/blk00000557
+LUT1 		fft_instance/blk00000564/blk00000570
+LUT1 		fft_instance/blk00000564/blk00000571
+LUT1 		fft_instance/blk00000564/blk00000572
+INV 		fft_instance/blk00000564/blk00000573
+LUT1 		fft_instance/blk0000057e/blk00000586
+INV 		fft_instance/blk0000057e/blk00000587
+LUT1 		fft_instance/blk000006f1/blk00000707
+LUT1 		fft_instance/blk000006f1/blk00000708
+LUT2 		fft_instance/blk00000780
+LUT2 		fft_instance/blk000007a5
+LUT2 		fft_instance/blk000007a6
+LUT2 		fft_instance/blk000007bc
+LUT2 		fft_instance/blk000007b9
+LUT2 		fft_instance/blk000007b7
+LUT2 		fft_instance/blk000007b8
+LUT3 		fft_instance/blk000005e8
+LUT4 		fft_instance/blk0000062b
+LUT4 		fft_instance/blk0000062c
+LUT4 		fft_instance/blk0000062d
+LUT4 		fft_instance/blk0000062e
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| adc_clk                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| adc_in<0>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| adc_in<1>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| adc_in<2>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| adc_in<3>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| adc_in<4>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| adc_in<5>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| adc_in<6>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| adc_in<7>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| adc_in<8>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| adc_in<9>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| adc_in<10>                         | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| adc_in<11>                         | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| blue<0>                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| blue<1>                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| clk                                | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| green<0>                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| green<1>                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| green<2>                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| hs                                 | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| leds<0>                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| leds<1>                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| leds<2>                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| leds<3>                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| leds<4>                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| leds<5>                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| leds<6>                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| leds<7>                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| red<0>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| red<1>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| red<2>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| rst                                | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| sine_out<0>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| sine_out<1>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| sine_out<2>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| sine_out<3>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| sine_out<4>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| sine_out<5>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| sine_out<6>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| sine_out<7>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| switches<0>                        | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| switches<1>                        | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| switches<2>                        | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| switches<3>                        | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| switches<4>                        | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| switches<5>                        | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| switches<6>                        | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| switches<7>                        | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| vs                                 | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+PLL_ADV "dcm_instance/pll_base_inst/PLL_ADV":
+BANDWIDTH:OPTIMIZED
+CLK_FEEDBACK:CLKFBOUT
+COMPENSATION:SYSTEM_SYNCHRONOUS
+PLL_ADD_LEAKAGE:2
+PLL_AVDD_COMP_SET:2
+PLL_CLAMP_BYPASS:FALSE
+PLL_CLAMP_REF_SEL:1
+PLL_CLK0MX:0
+PLL_CLK1MX:0
+PLL_CLK2MX:0
+PLL_CLK3MX:0
+PLL_CLK4MX:0
+PLL_CLK5MX:0
+PLL_CLKBURST_CNT:0
+PLL_CLKBURST_ENABLE:TRUE
+PLL_CLKCNTRL:0
+PLL_CLKFBMX:0
+PLL_CLKFBOUT2_EDGE:TRUE
+PLL_CLKFBOUT2_NOCOUNT:TRUE
+PLL_CLKFBOUT_EDGE:TRUE
+PLL_CLKFBOUT_EN:FALSE
+PLL_CLKFBOUT_NOCOUNT:TRUE
+PLL_CLKOUT0_EDGE:TRUE
+PLL_CLKOUT0_EN:FALSE
+PLL_CLKOUT0_NOCOUNT:TRUE
+PLL_CLKOUT1_EDGE:TRUE
+PLL_CLKOUT1_EN:FALSE
+PLL_CLKOUT1_NOCOUNT:TRUE
+PLL_CLKOUT2_EDGE:TRUE
+PLL_CLKOUT2_EN:FALSE
+PLL_CLKOUT2_NOCOUNT:TRUE
+PLL_CLKOUT3_EDGE:TRUE
+PLL_CLKOUT3_EN:FALSE
+PLL_CLKOUT3_NOCOUNT:TRUE
+PLL_CLKOUT4_EDGE:TRUE
+PLL_CLKOUT4_EN:FALSE
+PLL_CLKOUT4_NOCOUNT:TRUE
+PLL_CLKOUT5_EDGE:TRUE
+PLL_CLKOUT5_EN:FALSE
+PLL_CLKOUT5_NOCOUNT:TRUE
+PLL_CLK_LOST_DETECT:FALSE
+PLL_CP:1
+PLL_CP_BIAS_TRIP_SHIFT:TRUE
+PLL_CP_REPL:1
+PLL_CP_RES:0
+PLL_DIRECT_PATH_CNTRL:TRUE
+PLL_DIVCLK_EDGE:TRUE
+PLL_DIVCLK_NOCOUNT:TRUE
+PLL_DVDD_COMP_SET:2
+PLL_EN:FALSE
+PLL_EN_DLY:TRUE
+PLL_EN_LEAKAGE:2
+PLL_EN_TCLK0:TRUE
+PLL_EN_TCLK1:TRUE
+PLL_EN_TCLK2:TRUE
+PLL_EN_TCLK3:TRUE
+PLL_EN_VCO0:FALSE
+PLL_EN_VCO1:FALSE
+PLL_EN_VCO2:FALSE
+PLL_EN_VCO3:FALSE
+PLL_EN_VCO4:FALSE
+PLL_EN_VCO5:FALSE
+PLL_EN_VCO6:FALSE
+PLL_EN_VCO7:FALSE
+PLL_EN_VCO_DIV1:FALSE
+PLL_EN_VCO_DIV6:TRUE
+PLL_INTFB:0
+PLL_IO_CLKSRC:0
+PLL_LFHF:3
+PLL_LOCK_FB_DLY:3
+PLL_LOCK_REF_DLY:5
+PLL_MAN_LF_EN:TRUE
+PLL_NBTI_EN:TRUE
+PLL_PFD_CNTRL:8
+PLL_PFD_DLY:1
+PLL_PWRD_CFG:FALSE
+PLL_REG_INPUT:TRUE
+PLL_RES:1
+PLL_SEL_SLIPD:FALSE
+PLL_SKEW_CNTRL:0
+PLL_TEST_IN_WINDOW:FALSE
+PLL_VDD_SEL:0
+PLL_VLFHIGH_DIS:TRUE
+CLKFBOUT_MULT = 4
+CLKFBOUT_PHASE = 0.0
+CLKIN1_PERIOD = 10
+CLKIN2_PERIOD = 10
+CLKOUT0_DIVIDE = 16
+CLKOUT0_DUTY_CYCLE = 0.5
+CLKOUT0_PHASE = 0.0
+CLKOUT1_DIVIDE = 20
+CLKOUT1_DUTY_CYCLE = 0.5
+CLKOUT1_PHASE = 0.0
+CLKOUT2_DIVIDE = 40
+CLKOUT2_DUTY_CYCLE = 0.5
+CLKOUT2_PHASE = 0.0
+CLKOUT3_DIVIDE = 1
+CLKOUT3_DUTY_CYCLE = 0.5
+CLKOUT3_PHASE = 0.0
+CLKOUT4_DIVIDE = 1
+CLKOUT4_DUTY_CYCLE = 0.5
+CLKOUT4_PHASE = 0.0
+CLKOUT5_DIVIDE = 1
+CLKOUT5_DUTY_CYCLE = 0.5
+CLKOUT5_PHASE = 0.0
+DIVCLK_DIVIDE = 1
+REF_JITTER = 0.01
+
+
+
+Section 12 - Control Set Information
+------------------------------------
++------------------------------------------------------------------------------------------------------------------------------------------+
+| Clock Signal | Reset Signal             | Set Signal | Enable Signal                                 | Slice Load Count | Bel Load Count |
++------------------------------------------------------------------------------------------------------------------------------------------+
+| dds_clk      |                          |            |                                               | 224              | 887            |
+| dds_clk      |                          |            | GLOBAL_LOGIC1                                 | 29               | 110            |
+| dds_clk      |                          |            | fft_instance/sig00000842                      | 3                | 8              |
+| dds_clk      |                          |            | fft_instance/sig0000087a                      | 3                | 7              |
+| dds_clk      |                          |            | fft_rfd                                       | 3                | 10             |
+| dds_clk      |                          |            | fft_scale_we                                  | 2                | 8              |
+| dds_clk      | fft_instance/sig00000002 |            | fft_instance/sig00000845                      | 23               | 64             |
+| dds_clk      | fft_instance/sig00000851 |            |                                               | 1                | 1              |
+| dds_clk      | fft_instance/sig00000880 |            | fft_instance/sig0000087b                      | 2                | 4              |
+| dds_clk      | fft_instance/sig00000890 |            |                                               | 2                | 9              |
+| dds_clk      | fft_rfd                  |            | fft_instance/sig00000853                      | 3                | 7              |
++------------------------------------------------------------------------------------------------------------------------------------------+
+| original_clk |                          |            |                                               | 4                | 6              |
+| original_clk |                          |            | _n11334_inv                                   | 8                | 8              |
+| original_clk |                          |            | _n11347_inv                                   | 2                | 8              |
+| original_clk |                          |            | _n11370_inv                                   | 2                | 8              |
+| original_clk |                          |            | _n11373_inv                                   | 3                | 12             |
+| original_clk | rst_IBUF                 |            |                                               | 6                | 6              |
+| original_clk | rst_IBUF                 |            | _n10009_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10022_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10035_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10048_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10061_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10074_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10087_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10100_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10113_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10126_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10139_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10152_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10165_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10178_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10191_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10204_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10217_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10230_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10243_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10256_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10269_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10282_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10295_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10308_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10321_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10334_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10347_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10360_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10373_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10386_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10399_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10412_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10425_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10438_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10451_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10464_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10477_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10490_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10503_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10516_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10529_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10542_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10555_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10568_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10581_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10594_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10607_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10620_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10633_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10646_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10659_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10672_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10685_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10698_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10711_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10724_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10737_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10750_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10763_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10776_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10789_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10802_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10815_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10828_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10841_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10854_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10867_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10880_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10893_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10906_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10919_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10932_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10945_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10958_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10971_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10984_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n10997_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11010_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11023_inv                                   | 3                | 14             |
+| original_clk | rst_IBUF                 |            | _n11036_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11049_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11062_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11075_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11088_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11101_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11114_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11127_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11140_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11153_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11166_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11179_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11192_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11205_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11218_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11231_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11244_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11257_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11270_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11283_inv                                   | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n11287_inv                                   | 3                | 7              |
+| original_clk | rst_IBUF                 |            | _n7313_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7319_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7325_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7331_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7337_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7343_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7349_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7355_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7361_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7367_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7373_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7379_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7385_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7391_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7397_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7403_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7409_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7415_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7421_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7427_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7433_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7439_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7445_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7451_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7457_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7463_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7469_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7475_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7481_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7487_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7493_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7499_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7505_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7511_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7517_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7523_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7529_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7535_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7541_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7547_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7553_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7559_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7565_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7571_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7577_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7583_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7589_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7595_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7601_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7607_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7613_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7619_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7625_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7631_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7637_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7643_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7649_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7655_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7661_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7667_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7673_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7679_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7685_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7691_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7697_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7703_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7709_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7715_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7721_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7727_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7733_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7739_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7745_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7751_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7757_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7763_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7769_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7775_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7781_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7787_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7793_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7799_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7805_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7811_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7817_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7823_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7829_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7835_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7841_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7847_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7853_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7859_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7865_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7871_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7877_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7883_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7889_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7895_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7901_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7907_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7913_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7919_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7925_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7931_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7937_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7943_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7949_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7955_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7961_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7967_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7973_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7979_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7985_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7991_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n7997_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8003_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8009_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8015_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8021_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8027_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8033_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8039_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8045_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8051_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8057_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8063_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8069_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8075_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8081_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8087_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8093_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8099_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8105_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8111_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8117_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8123_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8129_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8135_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8141_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8147_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8153_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8159_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8165_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8171_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8177_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8183_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8189_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8195_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8201_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8207_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8213_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8219_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8225_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8231_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8237_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8243_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8249_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8255_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8261_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8267_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8273_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8279_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8285_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8291_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8297_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8303_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8309_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8315_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8321_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8327_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8333_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8339_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8345_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8351_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8357_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8363_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8369_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8375_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8381_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8387_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8393_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8399_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8405_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8411_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8417_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8423_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8429_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8435_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8441_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8447_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8453_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8459_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8465_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8471_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8477_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8483_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8489_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8495_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8501_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8507_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8513_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8519_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8525_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8531_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8537_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8543_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8549_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8555_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8561_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8567_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8573_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8579_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8585_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8591_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8597_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8603_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8609_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8615_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8621_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8627_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8633_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8639_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8645_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8651_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8657_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8663_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8669_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8675_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8681_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8687_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8693_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8699_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8705_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8711_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8717_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8723_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8729_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8735_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8741_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8747_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8753_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8759_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8765_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8771_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8777_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8783_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8789_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8795_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8801_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8807_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8813_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8819_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8825_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8831_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8837_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8843_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8849_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8855_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8861_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8867_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8873_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8879_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8885_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8891_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8897_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8903_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8909_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8915_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8921_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8927_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8933_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8939_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8945_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8951_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8957_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8963_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8969_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8975_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8981_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8987_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8993_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n8999_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9005_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9011_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9017_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9023_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9029_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9035_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9041_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9047_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9053_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9059_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9065_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9071_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9077_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9083_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9089_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9095_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9101_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9107_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9113_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9119_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9125_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9131_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9137_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9143_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9149_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9155_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9161_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9167_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9173_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9179_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9185_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9191_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9197_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9203_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9209_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9215_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9221_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9227_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9233_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9239_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9245_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9251_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9257_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9263_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9269_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9275_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9281_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9287_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9293_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9299_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9305_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9311_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9317_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9323_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9329_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9335_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9341_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9347_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9353_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9359_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9365_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9371_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9377_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9383_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9389_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9395_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9401_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9407_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9413_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9419_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9425_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9431_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9437_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9443_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9449_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9455_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9461_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9467_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9473_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9479_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9485_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9491_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9497_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9503_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9509_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9515_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9521_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9527_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9533_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9539_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9545_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9551_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9557_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9563_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9569_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9575_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9581_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9587_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9593_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9599_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9605_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9613_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9619_inv                                    | 2                | 8              |
+| original_clk | rst_IBUF                 |            | _n9632_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9645_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9658_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9671_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9684_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9697_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9710_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9723_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9736_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9749_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9762_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9775_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9788_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9801_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9814_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9827_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9840_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9853_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9866_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9879_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9892_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9905_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9918_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9931_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9944_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9957_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9970_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9983_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | _n9996_inv                                    | 4                | 14             |
+| original_clk | rst_IBUF                 |            | n2457_inv                                     | 2                | 8              |
+| original_clk | rst_IBUF                 |            | n2469_inv                                     | 3                | 12             |
++------------------------------------------------------------------------------------------------------------------------------------------+
+| vga_clk      |                          |            | vga_instance/rst_inv                          | 3                | 3              |
+| vga_clk      | rst_IBUF                 |            |                                               | 4                | 11             |
+| vga_clk      | rst_IBUF                 |            | vga_instance/PWR_13_o_h_counter[9]_equal_16_o | 3                | 10             |
+| vga_clk      | vga_instance/_n0079      |            | vga_instance/rst_inv                          | 6                | 20             |
++------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Module               | Partition | Slices*       | Slice Reg     | LUTs          | LUTRAM        | BRAM/FIFO | DSP48A1 | BUFG  | BUFIO | BUFR  | DCM   | PLL_ADV   | Full Hierarchical Name                                    |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| fft_flow_4_no_fifos/ |           | 1606/1941     | 4948/5996     | 2261/2881     | 0/76          | 0/8       | 2/23    | 0/4   | 0/0   | 0/0   | 0/0   | 0/1       | fft_flow_4_no_fifos                                       |
+| +dcm_instance        |           | 0/0           | 0/0           | 0/0           | 0/0           | 0/0       | 0/0     | 4/4   | 0/0   | 0/0   | 0/0   | 1/1       | fft_flow_4_no_fifos/dcm_instance                          |
+| +dds_inst            |           | 0/0           | 0/0           | 0/0           | 0/0           | 1/1       | 1/1     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/dds_inst                              |
+| +fft_instance        |           | 255/315       | 898/1005      | 503/572       | 41/76         | 3/7       | 20/20   | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance                          |
+| ++blk000003d0        |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000003d0              |
+| +++blk000003d1       |           | 1/1           | 1/1           | 1/1           | 1/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000003d0/blk000003d1  |
+| ++blk00000456        |           | 6/6           | 16/16         | 6/6           | 0/0           | 1/1       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk00000456              |
+| ++blk00000469        |           | 5/5           | 16/16         | 6/6           | 0/0           | 1/1       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk00000469              |
+| ++blk0000047c        |           | 7/7           | 16/16         | 7/7           | 0/0           | 1/1       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk0000047c              |
+| ++blk0000048f        |           | 5/5           | 16/16         | 2/2           | 0/0           | 1/1       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk0000048f              |
+| ++blk000004b0        |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000004b0              |
+| +++blk000004b1       |           | 1/1           | 1/1           | 1/1           | 1/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000004b0/blk000004b1  |
+| ++blk000004b6        |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000004b6              |
+| +++blk000004b7       |           | 1/1           | 1/1           | 1/1           | 1/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000004b6/blk000004b7  |
+| ++blk000004bc        |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000004bc              |
+| +++blk000004bd       |           | 1/1           | 1/1           | 1/1           | 1/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000004bc/blk000004bd  |
+| ++blk000004c2        |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000004c2              |
+| +++blk000004c3       |           | 1/1           | 1/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000004c2/blk000004c3  |
+| ++blk000004c8        |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000004c8              |
+| +++blk000004c9       |           | 1/1           | 1/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000004c8/blk000004c9  |
+| ++blk00000520        |           | 2/2           | 0/0           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk00000520              |
+| ++blk00000545        |           | 2/2           | 0/0           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk00000545              |
+| ++blk00000564        |           | 2/2           | 0/0           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk00000564              |
+| ++blk00000574        |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk00000574              |
+| +++blk00000575       |           | 1/1           | 1/1           | 1/1           | 1/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk00000574/blk00000575  |
+| ++blk0000057e        |           | 1/1           | 0/0           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk0000057e              |
+| ++blk00000588        |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk00000588              |
+| +++blk00000589       |           | 1/1           | 1/1           | 1/1           | 1/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk00000588/blk00000589  |
+| ++blk000005a0        |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000005a0              |
+| +++blk000005a1       |           | 1/1           | 1/1           | 1/1           | 1/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000005a0/blk000005a1  |
+| ++blk000005a6        |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000005a6              |
+| +++blk000005a7       |           | 1/1           | 1/1           | 1/1           | 1/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000005a6/blk000005a7  |
+| ++blk000005c4        |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000005c4              |
+| +++blk000005c5       |           | 1/1           | 1/1           | 1/1           | 1/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000005c4/blk000005c5  |
+| ++blk000005ca        |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000005ca              |
+| +++blk000005cb       |           | 1/1           | 1/1           | 1/1           | 1/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000005ca/blk000005cb  |
+| ++blk000005d0        |           | 0/2           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000005d0              |
+| +++blk000005d1       |           | 2/2           | 1/1           | 1/1           | 1/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000005d0/blk000005d1  |
+| ++blk0000060f        |           | 2/2           | 6/6           | 6/6           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk0000060f              |
+| ++blk000006f1        |           | 2/2           | 0/0           | 7/7           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk000006f1              |
+| ++blk00000709        |           | 0/2           | 0/6           | 0/6           | 0/6           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk00000709              |
+| +++blk0000070a       |           | 2/2           | 6/6           | 6/6           | 6/6           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk00000709/blk0000070a  |
+| ++blk00000719        |           | 0/2           | 0/6           | 0/6           | 0/6           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk00000719              |
+| +++blk0000071a       |           | 2/2           | 6/6           | 6/6           | 6/6           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk00000719/blk0000071a  |
+| ++blk00000729        |           | 0/5           | 0/6           | 0/6           | 0/6           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk00000729              |
+| +++blk0000072a       |           | 5/5           | 6/6           | 6/6           | 6/6           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk00000729/blk0000072a  |
+| ++blk00000739        |           | 0/3           | 0/6           | 0/6           | 0/6           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk00000739              |
+| +++blk0000073a       |           | 3/3           | 6/6           | 6/6           | 6/6           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/fft_instance/blk00000739/blk0000073a  |
+| +vga_instance        |           | 20/20         | 43/43         | 48/48         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | fft_flow_4_no_fifos/vga_instance                          |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+* Slices can be packed with basic elements from multiple hierarchies.
+  Therefore, a slice will be counted in every hierarchical module
+  that each of its packed basic elements belong to.
+** For each column, there are two numbers reported <A>/<B>.
+   <A> is the number of elements that belong to that specific hierarchical module.
+   <B> is the total number of elements from that hierarchical module and any lower level
+   hierarchical modules below.
+*** The LUTRAM column counts all LUTs used as memory including RAM, ROM, and shift registers.

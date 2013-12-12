@@ -1,0 +1,15 @@
+# Output products list for <sqrt_core>
+_xmsgs/pn_parser.xmsgs
+sqrt_core/doc/cordic_ds249.pdf
+sqrt_core/doc/cordic_v4_0_vinfo.html
+sqrt_core.asy
+sqrt_core.gise
+sqrt_core.ngc
+sqrt_core.sym
+sqrt_core.vhd
+sqrt_core.vho
+sqrt_core.xco
+sqrt_core.xise
+sqrt_core_flist.txt
+sqrt_core_readme.txt
+sqrt_core_xmdf.tcl

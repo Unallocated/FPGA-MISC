@@ -1,0 +1,13740 @@
+--------------------------------------------------------------------------------
+-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--------------------------------------------------------------------------------
+--   ____  ____
+--  /   /\/   /
+-- /___/  \  /    Vendor: Xilinx
+-- \   \   \/     Version: P.20131013
+--  \   \         Application: netgen
+--  /   /         Filename: lll.vhd
+-- /___/   /\     Timestamp: Mon Dec  9 12:31:41 2013
+-- \   \  /  \ 
+--  \___\/\___\
+--             
+-- Command	: -w -sim -ofmt vhdl /root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/lll.ngc /root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/lll.vhd 
+-- Device	: 4vsx55ff1148-12
+-- Input file	: /root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/lll.ngc
+-- Output file	: /root/FPGA-MISC/virtex/ipcore_dir/tmp/_cg/lll.vhd
+-- # of Entities	: 1
+-- Design Name	: lll
+-- Xilinx	: /opt/Xilinx/14.7/ISE_DS/ISE/
+--             
+-- Purpose:    
+--     This VHDL netlist is a verification model and uses simulation 
+--     primitives which may not represent the true implementation of the 
+--     device, however the netlist is functionally correct and should not 
+--     be modified. This file cannot be synthesized and should only be used 
+--     with supported simulation tools.
+--             
+-- Reference:  
+--     Command Line Tools User Guide, Chapter 23
+--     Synthesis and Simulation Design Guide, Chapter 6
+--             
+--------------------------------------------------------------------------------
+
+
+-- synthesis translate_off
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+library UNISIM;
+use UNISIM.VCOMPONENTS.ALL;
+use UNISIM.VPKG.ALL;
+
+entity lll is
+  port (
+    pma_rx_clk1 : in STD_LOGIC := 'X'; 
+    mdio_in : in STD_LOGIC := 'X'; 
+    an_adv_config_val : in STD_LOGIC := 'X'; 
+    gmii_isolate : out STD_LOGIC; 
+    mdc : in STD_LOGIC := 'X'; 
+    en_cdet : out STD_LOGIC; 
+    signal_detect : in STD_LOGIC := 'X'; 
+    reset : in STD_LOGIC := 'X'; 
+    loc_ref : out STD_LOGIC; 
+    gmii_rx_dv : out STD_LOGIC; 
+    gmii_rx_er : out STD_LOGIC; 
+    mdio_out : out STD_LOGIC; 
+    an_interrupt : out STD_LOGIC; 
+    ewrap : out STD_LOGIC; 
+    gtx_clk : in STD_LOGIC := 'X'; 
+    an_restart_config : in STD_LOGIC := 'X'; 
+    configuration_valid : in STD_LOGIC := 'X'; 
+    gmii_tx_en : in STD_LOGIC := 'X'; 
+    gmii_tx_er : in STD_LOGIC := 'X'; 
+    mdio_tri : out STD_LOGIC; 
+    pma_rx_clk0 : in STD_LOGIC := 'X'; 
+    status_vector : out STD_LOGIC_VECTOR ( 15 downto 0 ); 
+    gmii_rxd : out STD_LOGIC_VECTOR ( 7 downto 0 ); 
+    tx_code_group : out STD_LOGIC_VECTOR ( 9 downto 0 ); 
+    rx_code_group0 : in STD_LOGIC_VECTOR ( 9 downto 0 ); 
+    rx_code_group1 : in STD_LOGIC_VECTOR ( 9 downto 0 ); 
+    phyad : in STD_LOGIC_VECTOR ( 4 downto 0 ); 
+    gmii_txd : in STD_LOGIC_VECTOR ( 7 downto 0 ); 
+    link_timer_value : in STD_LOGIC_VECTOR ( 8 downto 0 ); 
+    an_adv_config_vector : in STD_LOGIC_VECTOR ( 15 downto 0 ); 
+    configuration_vector : in STD_LOGIC_VECTOR ( 4 downto 0 ) 
+  );
+end lll;
+
+architecture STRUCTURE of lll is
+  signal N100 : STD_LOGIC; 
+  signal N102 : STD_LOGIC; 
+  signal N104 : STD_LOGIC; 
+  signal N105 : STD_LOGIC; 
+  signal N107 : STD_LOGIC; 
+  signal N111 : STD_LOGIC; 
+  signal N113 : STD_LOGIC; 
+  signal N117 : STD_LOGIC; 
+  signal N119 : STD_LOGIC; 
+  signal N12 : STD_LOGIC; 
+  signal N121 : STD_LOGIC; 
+  signal N123 : STD_LOGIC; 
+  signal N125 : STD_LOGIC; 
+  signal N127 : STD_LOGIC; 
+  signal N129 : STD_LOGIC; 
+  signal N131 : STD_LOGIC; 
+  signal N133 : STD_LOGIC; 
+  signal N135 : STD_LOGIC; 
+  signal N137 : STD_LOGIC; 
+  signal N139 : STD_LOGIC; 
+  signal N14 : STD_LOGIC; 
+  signal N141 : STD_LOGIC; 
+  signal N143 : STD_LOGIC; 
+  signal N145 : STD_LOGIC; 
+  signal N147 : STD_LOGIC; 
+  signal N151 : STD_LOGIC; 
+  signal N153 : STD_LOGIC; 
+  signal N157 : STD_LOGIC; 
+  signal N159 : STD_LOGIC; 
+  signal N16 : STD_LOGIC; 
+  signal N160 : STD_LOGIC; 
+  signal N162 : STD_LOGIC; 
+  signal N163 : STD_LOGIC; 
+  signal N165 : STD_LOGIC; 
+  signal N169 : STD_LOGIC; 
+  signal N171 : STD_LOGIC; 
+  signal N173 : STD_LOGIC; 
+  signal N175 : STD_LOGIC; 
+  signal N177 : STD_LOGIC; 
+  signal N181 : STD_LOGIC; 
+  signal N183 : STD_LOGIC; 
+  signal N184 : STD_LOGIC; 
+  signal N186 : STD_LOGIC; 
+  signal N188 : STD_LOGIC; 
+  signal N190 : STD_LOGIC; 
+  signal N192 : STD_LOGIC; 
+  signal N194 : STD_LOGIC; 
+  signal N196 : STD_LOGIC; 
+  signal N198 : STD_LOGIC; 
+  signal N2 : STD_LOGIC; 
+  signal N204 : STD_LOGIC; 
+  signal N206 : STD_LOGIC; 
+  signal N208 : STD_LOGIC; 
+  signal N210 : STD_LOGIC; 
+  signal N212 : STD_LOGIC; 
+  signal N213 : STD_LOGIC; 
+  signal N214 : STD_LOGIC; 
+  signal N215 : STD_LOGIC; 
+  signal N216 : STD_LOGIC; 
+  signal N218 : STD_LOGIC; 
+  signal N220 : STD_LOGIC; 
+  signal N222 : STD_LOGIC; 
+  signal N226 : STD_LOGIC; 
+  signal N228 : STD_LOGIC; 
+  signal N23 : STD_LOGIC; 
+  signal N230 : STD_LOGIC; 
+  signal N232 : STD_LOGIC; 
+  signal N234 : STD_LOGIC; 
+  signal N236 : STD_LOGIC; 
+  signal N242 : STD_LOGIC; 
+  signal N244 : STD_LOGIC; 
+  signal N248 : STD_LOGIC; 
+  signal N25 : STD_LOGIC; 
+  signal N250 : STD_LOGIC; 
+  signal N252 : STD_LOGIC; 
+  signal N253 : STD_LOGIC; 
+  signal N254 : STD_LOGIC; 
+  signal N255 : STD_LOGIC; 
+  signal N256 : STD_LOGIC; 
+  signal N257 : STD_LOGIC; 
+  signal N258 : STD_LOGIC; 
+  signal N259 : STD_LOGIC; 
+  signal N260 : STD_LOGIC; 
+  signal N261 : STD_LOGIC; 
+  signal N262 : STD_LOGIC; 
+  signal N263 : STD_LOGIC; 
+  signal N264 : STD_LOGIC; 
+  signal N265 : STD_LOGIC; 
+  signal N266 : STD_LOGIC; 
+  signal N267 : STD_LOGIC; 
+  signal N268 : STD_LOGIC; 
+  signal N269 : STD_LOGIC; 
+  signal N270 : STD_LOGIC; 
+  signal N271 : STD_LOGIC; 
+  signal N272 : STD_LOGIC; 
+  signal N273 : STD_LOGIC; 
+  signal N274 : STD_LOGIC; 
+  signal N275 : STD_LOGIC; 
+  signal N276 : STD_LOGIC; 
+  signal N277 : STD_LOGIC; 
+  signal N278 : STD_LOGIC; 
+  signal N279 : STD_LOGIC; 
+  signal N280 : STD_LOGIC; 
+  signal N281 : STD_LOGIC; 
+  signal N282 : STD_LOGIC; 
+  signal N283 : STD_LOGIC; 
+  signal N284 : STD_LOGIC; 
+  signal N285 : STD_LOGIC; 
+  signal N286 : STD_LOGIC; 
+  signal N287 : STD_LOGIC; 
+  signal N288 : STD_LOGIC; 
+  signal N289 : STD_LOGIC; 
+  signal N29 : STD_LOGIC; 
+  signal N290 : STD_LOGIC; 
+  signal N291 : STD_LOGIC; 
+  signal N292 : STD_LOGIC; 
+  signal N293 : STD_LOGIC; 
+  signal N294 : STD_LOGIC; 
+  signal N295 : STD_LOGIC; 
+  signal N296 : STD_LOGIC; 
+  signal N297 : STD_LOGIC; 
+  signal N298 : STD_LOGIC; 
+  signal N299 : STD_LOGIC; 
+  signal N300 : STD_LOGIC; 
+  signal N301 : STD_LOGIC; 
+  signal N302 : STD_LOGIC; 
+  signal N303 : STD_LOGIC; 
+  signal N304 : STD_LOGIC; 
+  signal N305 : STD_LOGIC; 
+  signal N306 : STD_LOGIC; 
+  signal N307 : STD_LOGIC; 
+  signal N308 : STD_LOGIC; 
+  signal N309 : STD_LOGIC; 
+  signal N310 : STD_LOGIC; 
+  signal N311 : STD_LOGIC; 
+  signal N37 : STD_LOGIC; 
+  signal N39 : STD_LOGIC; 
+  signal N41 : STD_LOGIC; 
+  signal N43 : STD_LOGIC; 
+  signal N44 : STD_LOGIC; 
+  signal N46 : STD_LOGIC; 
+  signal N48 : STD_LOGIC; 
+  signal N50 : STD_LOGIC; 
+  signal N54 : STD_LOGIC; 
+  signal N56 : STD_LOGIC; 
+  signal N58 : STD_LOGIC; 
+  signal N60 : STD_LOGIC; 
+  signal N61 : STD_LOGIC; 
+  signal N63 : STD_LOGIC; 
+  signal N70 : STD_LOGIC; 
+  signal N75 : STD_LOGIC; 
+  signal N77 : STD_LOGIC; 
+  signal N79 : STD_LOGIC; 
+  signal N85 : STD_LOGIC; 
+  signal N87 : STD_LOGIC; 
+  signal N93 : STD_LOGIC; 
+  signal N95 : STD_LOGIC; 
+  signal N97 : STD_LOGIC; 
+  signal N99 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_159 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_2_160 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_2_rstpot_161 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_mux0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_rstpot_164 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_2_165 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_2_rstpot : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_2_rstpot1_167 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_2_rstpot2_168 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_169 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_rstpot : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_rstpot1_171 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_rstpot2_172 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_AN_SYNC_STATUS_173 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_AN_SYNC_STATUS_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT_not0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CLEAR_STATUS_REG1_178 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CLEAR_STATUS_REG2_179 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CONFIG_REG_MATCH_COMB : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CONSISTENCY_MATCH_181 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CONSISTENCY_MATCH_COMB : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_GENERATE_REMOTE_FAULT_183 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_GENERATE_REMOTE_FAULT_rstpot : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_IDLE_MATCH_185 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_IDLE_MATCH_2_186 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_IDLE_MATCH_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_0_rstpot_189 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_1_rstpot_191 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_2_rstpot_193 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_3_rstpot_195 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_4_rstpot_197 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_5_rstpot_199 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_6_rstpot_201 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_7_rstpot_203 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_8_rstpot_205 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_DONE_206 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_DONE_rstpot_207 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_SATURATED_208 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_SATURATED_COMB : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_211 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_0_rstpot1_213 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_1_rstpot1_215 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_2_rstpot1_217 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_3_rstpot1_219 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_4_rstpot1_221 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_5_rstpot1_223 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_6_rstpot1_225 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_7_rstpot1_227 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_8_rstpot1_229 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00000_232 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00001_233 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00005_234 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00008_235 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq0000_inv : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_COMPLETE_237 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_COMPLETE_mux0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_CHANGE_239 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_CHANGE_xor0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_REG1_241 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_REG2_242 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LINK_STATUS_243 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LINK_STATUS_rstpot : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LINK_STATUS_rstpot1_245 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LINK_STATUS_rstpot2_246 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_15_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_16_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_6_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_7_Q : STD_LOGIC; 
+  signal NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_REMOTE_FAULT : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_REMOTE_FAULT_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_REMOTE_FAULT_and0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_INT_256 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_INT_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_INT_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_SET_REG1_259 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_SET_REG2_260 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_1_rt_300 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_2_rt_302 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_3_rt_304 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_4_rt_306 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_5_rt_308 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_6_rt_310 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_7_rt_312 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_xor_8_rt_314 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_1_rt_317 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_2_rt_319 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_3_rt_321 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_4_rt_323 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_5_rt_325 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_6_rt_327 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_7_rt_329 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_xor_8_rt_331 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_10_rt_334 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_1_rt_336 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_2_rt_338 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_3_rt_340 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_4_rt_342 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_5_rt_344 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_6_rt_346 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_7_rt_348 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_8_rt_350 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_9_rt_352 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_xor_11_rt_354 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_N6 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096_357 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RUDI_INVALID_360 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_361 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq000012_363 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq000025_364 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq000049_365 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq000062_366 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_0_rstpot_368 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_10_rstpot_371 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_11_rstpot_373 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_12_rstpot_375 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_13_rstpot_377 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_14_rstpot_379 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_15_rstpot_381 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_1_rstpot_382 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_2_rstpot_384 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_3_rstpot_386 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_4_rstpot_388 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_5_rstpot_390 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_6_rstpot_392 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_7_rstpot_394 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_8_rstpot_396 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_9_rstpot_398 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_0_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_0_rstpot_401 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_1_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_10_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_10_rstpot_404 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_11_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_11_rstpot_406 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_12_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_12_rstpot_408 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_13_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_13_rstpot_410 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_15_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_15_rstpot_412 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_1_rstpot_413 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_2_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_2_rstpot_415 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_3_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_3_rstpot_417 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_4_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_4_rstpot_419 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_5_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_5_rstpot_421 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_6_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_6_rstpot_423 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_7_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_7_rstpot_425 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_8_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_8_rstpot_427 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_9_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_9_rstpot_429 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116_430 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not00016_431 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_RUDI_INVALID_DELAY_0_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_0_1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_0_2 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_1_1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_1_2 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_2_1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_2_2 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_3_1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_3_2 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_4_1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_4_2 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_5_1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_5_2 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_6_1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_6_2 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_7_1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_7_2 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_8_1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_8_2 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER14_466 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER36_467 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER37_468 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER54_469 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER80_470 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER_REG_471 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER_REG2_472 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In12_475 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In2_476 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In28_477 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In44_478 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In103_481 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In30_482 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In42_483 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In50_484 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In7_485 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In79_486 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In17_489 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In56_490 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In64_491 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In74_492 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_N9 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_cmp_eq000311_494 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_SYNC_STATUS_HELD_495 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096_MSB_REG_508 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_11_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_12_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_12_mux00001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_13_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_13_mux00001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_14_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_14_mux0000_515 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_15_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_15_mux00001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_5_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_5_mux00001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_7_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_7_mux00001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_8_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_8_mux00001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_524 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_or0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_rstpot_527 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_DATA_INT_528 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_DATA_INT_rstpot : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_IDLE_530 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_IDLE_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_IDLE_or0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_EN_533 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_EN_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_REG_535 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_cmp_eq0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_mux0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_not0001_539 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_rstpot_540 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_13_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_13_mux0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_13_rstpot_543 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_15_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_15_not0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_5_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_7_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_8_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_COMPLETE_REG1_549 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_mux0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_rstpot_552 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_ENABLE_553 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_ENABLE_not0001 : STD_LOGIC; 
+  signal NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT_rstpot_558 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CLEAR_STATUS_REG_559 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CLEAR_STATUS_REG_COMB : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_COLL_TEST_REG_not0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CONFIGURATION_VALID_EN_562 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CONFIGURATION_VALID_EN_REG_563 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CONFIGURATION_VALID_EN_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_RD_5_cmp_eq0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_WR_SEL_15_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_WR_SEL_5_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_WR_SEL_7_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_WR_SEL_8_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DUPLEX_MODE_REG_571 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DUPLEX_MODE_REG_rstpot_572 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_IDLE_DETECT_REG1_573 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_IDLE_DETECT_REG1_not0001 : STD_LOGIC; 
+  signal NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_cmp_eq0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_mux0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_not0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_rstpot_579 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_LOOPBACK_REG_580 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_LOOPBACK_REG_mux0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_LOOPBACK_REG_rstpot_582 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_REG2 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_REG3_584 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_587 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or0000101_589 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or0000106_590 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or000026_591 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or000035_592 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or000062_593 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_not0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR_not0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_LOAD_EN : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_not0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_LAST_DATA_SHIFT_607 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_LAST_DATA_SHIFT_not0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG1_609 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG2_610 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG3_611 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_OUT_613 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_OUT_mux0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_OUT_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_TRI_616 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_TRI_mux0001_617 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_Mcount_BIT_COUNT : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_Mcount_BIT_COUNT1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_Mcount_BIT_COUNT2 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_Mcount_BIT_COUNT3 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_OPCODE_not0001_624 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_RD_625 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_RD_mux0003 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_12_23_647 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_14_17_650 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_14_26_651 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_15_47_653 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_15_65_654 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_1_SW1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_2_11_658 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_2_21_659 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_2_3_660 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd1_669 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd10_670 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd10_In : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd11_672 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd11_In : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd2_674 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd2_In : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd3_676 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd3_In : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd4_678 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_679 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_In : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd6_681 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd6_In : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd7_683 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd7_In : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd8_685 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd9_686 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd9_In : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_cmp_eq0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_mux0002 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_IN_REG2 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_IN_REG3_692 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_IN_REG4_693 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_N6 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_695 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_mux0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_not0001_697 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_rstpot_698 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESET_REG_699 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESET_REG_rstpot_700 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_EN_701 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_EN_REG_702 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_EN_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_REG_704 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_REG_rstpot_705 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_SYNC_MDC_data_sync1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_SYNC_MDIO_IN_data_sync1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_UNIDIRECTIONAL_ENABLE_REG_708 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_UNIDIRECTIONAL_ENABLE_REG_mux0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_UNIDIRECTIONAL_ENABLE_REG_rstpot_710 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_Mshreg_STATUS_VECTOR_1_711 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_Mshreg_STATUS_VECTOR_12_712 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_C_713 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_CARRIER_DETECT_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_CGBAD_715 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_CGBAD_REG2_716 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_CGBAD_REG3_717 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_CGBAD_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_C_HDR_REMOVED_REG_719 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_C_REG1_720 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_C_REG2_721 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_C_REG3_722 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_C_and0000_norst : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_D0p01 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_D0p0_REG_725 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EOP_726 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EOP_REG1_727 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EOP_REG1_or00001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EOP_or00001_729 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EOP_or000014 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EOP_or0000141_731 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EOP_or0000142_732 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EOP_or00006_733 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EXTEND_734 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EXTEND_ERR_735 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EXTEND_ERR_rstpot : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EXTEND_ERR_rstpot1_737 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EXTEND_REG1_738 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EXTEND_REG3_739 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EXTEND_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EXTEND_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EXTEND_rstpot1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EXTEND_rstpot11_743 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_744 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_REG1_745 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_REG1_rstpot_746 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_REG2_747 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_REG2_rstpot_748 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_rstpot_750 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_751 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG2_752 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG3_753 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG3_rstpot_754 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_and0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_rstpot1_756 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_757 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_and000026_759 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_and000061_760 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FALSE_K_761 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FALSE_K_and0000_762 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_763 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_and0000130_765 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_and000052_766 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FROM_IDLE_D_767 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FROM_IDLE_D_rstpot : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FROM_IDLE_D_rstpot1_769 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_770 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or0001_772 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_rstpot_773 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FROM_RX_K_774 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FROM_RX_K_rstpot : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FROM_RX_K_rstpot1_776 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_FROM_RX_K_rstpot2_777 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_I_778 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_782 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_REG1_783 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_REG1_rstpot_784 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_REG2_785 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_REG2_rstpot_786 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_rstpot_788 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_I_REG_789 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_I_and0000_790 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_K23p7 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_K23p71_792 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_K23p715_793 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_K23p76_794 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_K27p7_inv : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_K27p7_inv31_796 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_K28p51 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_798 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_inv : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_K28p5_REG2_800 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_K29p7 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_LINK_OK : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_Mshreg_CGBAD_REG2_803 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_Mshreg_EXTEND_REG3_804 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_Mshreg_FALSE_CARRIER_REG2_805 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_0_806 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_1_807 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_2_808 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_3_809 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_4_810 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_5_811 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_6_812 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_7_813 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_Mshreg_SOP_REG2_814 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_N10 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_N111 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_N36 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_N39 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_N41 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_R_820 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RECEIVE_821 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RECEIVE_rstpot1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RECEIVE_rstpot11_823 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RUDI_C_824 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RUDI_C_or00001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RUDI_I_826 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RXCHARISK_REG1_827 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_0_1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_1_11 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_2_1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_3_11_847 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_4_1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_5_11 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_6_1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_7_11 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_0_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_14_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_876 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_and000012_877 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_and000028_878 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_and00004_879 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_rstpot : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_rstpot1_881 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_rstpot2_882 : STD_LOGIC; 
+  signal NlwRenamedSig_OI_U0_gpcs_pma_inst_RECEIVER_RX_DV : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_DV_rstpot_884 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_ER_885 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_ER_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_ER_and00005_887 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_INVALID_888 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_INVALID_rstpot1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_INVALID_rstpot11_890 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_INVALID_rstpot12_891 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_R_REG1_892 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_S_893 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_SOP_894 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_SOP_REG2_895 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_SOP_REG3_896 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_SOP_and0000_897 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_SYNC_STATUS_REG_898 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_SYNC_STATUS_REG_inv : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_SYNC_STATUS_REG_rstpot_900 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_S_and0000_norst : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_T_902 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_T_REG1_903 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_T_REG2_904 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_WAIT_FOR_K_905 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_WAIT_FOR_K_rstpot1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RECEIVER_WAIT_FOR_K_rstpot11_907 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RESET_INT : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RXDISPERR_REG_910 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RXDISPERR_SRL : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RXNOTINTABLE_REG_912 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_RXNOTINTABLE_SRL : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SIGNAL_DETECT_REG : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SRESET_915 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SRESET_PIPE_916 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_STATUS_VECTOR_0_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_STATUS_VECTOR_0_PRE_918 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_STATUS_VECTOR_0_PRE_rstpot : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_STATUS_VECTOR_0_PRE_rstpot1_920 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_STATUS_VECTOR_1_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_STATUS_VECTOR_12_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_CGBAD_923 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_CGBAD_inv : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_ENCOMMAALIGN_925 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_ENCOMMAALIGN_rstpot_926 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_927 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_not0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS_0_rstpot_931 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS_1_rstpot_933 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS_or0000_934 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_N7 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_SIGNAL_DETECT_REG_937 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_938 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_In20_939 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_In69_940 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_In72 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_rstpot_942 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In115 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In36_945 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In5_946 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In73_947 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_rstpot_948 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_949 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_In13_950 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_In16_951 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_In32_952 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_In45_953 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_rstpot1_954 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_955 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In111_956 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In115_957 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In36_958 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In37_959 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In61_960 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In87_961 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In96_962 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_rstpot_963 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_STATE_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_and0000_966 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_or0000_967 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_rstpot_968 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_SYNC_SIGNAL_DETECT_data_sync1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_970 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_mux0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_not0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRPISK_973 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRPISK_mux0006 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_0_0_985 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_0_21 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_0_25_987 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_0_5_988 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_1_0_989 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_1_31 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_1_9_991 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_2_0_992 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_2_41 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_2_411 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_3_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_3_1_996 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_4_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_5_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_6_0_999 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_6_26 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_6_6_1001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_7_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_0_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_1_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_2_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_3_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_5_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_6_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_7_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CONFIG_K28p5_1018 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CONFIG_K28p5_rstpot : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_1020 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_mux0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_not0001_1022 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_INSERT_IDLE_1023 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_INSERT_IDLE_mux0007 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_K28p5_1025 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux00022 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux000221_1027 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux00026 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux000261_1029 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_N01 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_N12 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_N15 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_N31 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_R_1034 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_R_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_S_1038 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_SYNC_DISPARITY_1039 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_SYNC_DISPARITY_mux0001_1040 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_S_and0000_1041 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_S_inv : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_T_1043 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TRIGGER_S_1044 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TRIGGER_S_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TRIGGER_T_1046 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TRIGGER_T_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TXCHARDISPMODE_1048 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TXCHARDISPMODE_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TXCHARDISPVAL_1050 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TXCHARDISPVAL_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TXCHARISK_1052 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TXCHARISK_rstpot_1053 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_0_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_2_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_3_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_4_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_5_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_6_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_7_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_12_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_13_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_14_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_15_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_5_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_7_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_8_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TX_EN_REG1_1084 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TX_ER_REG1_1085 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TX_PACKET_1086 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_T_or0000_1087 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_V_1088 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_V_and0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_V_and000018_1090 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_V_and000044_1091 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_V_and00005_1092 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_V_and000072_1093 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_1094 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_inv : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_XMIT_DATA_INT_1096 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_TRANSMITTER_XMIT_DATA_INT_not0001_inv : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_UNIDIRECTIONAL_ENABLE : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_1099 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_COMB : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_COMB24_1101 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_1102 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_COMB : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_COMB16_1104 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_COMB31_1105 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_1106 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_inv : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_and0000_1109 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_rstpot_1110 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_1111 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_COMB : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_COMB16_1113 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_COMB43_1114 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_REG1_1115 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_REG1_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_REG2_1117 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_1118 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_COMB : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_COMB16_1120 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_COMB43_1121 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_2_11_SW0 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_2_11_SW01_1124 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_3_11 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_3_111_1126 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N10 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N111 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N7 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N8 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_and000013_1139 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_or00008_1141 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_rstpot_1142 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_0_SYNC_WR_ADDRGRAY_data_sync1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_1_SYNC_WR_ADDRGRAY_data_sync1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_2_SYNC_WR_ADDRGRAY_data_sync1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_3_SYNC_WR_ADDRGRAY_data_sync1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_REMOVE_IDLE_1155 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_REMOVE_IDLE_or000011_1156 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_REMOVE_IDLE_or000020_1157 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_REMOVE_IDLE_rstpot : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result_0_1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result_1_1_1263 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result_2_1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result_3_1 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY_1_xor0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY_2_xor0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_1287 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_PIPE_1288 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RUNDISP_REG_1305 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RUNDISP_REG_rstpot_1306 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISCOMMA_1307 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_mux0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDISPERR_1318 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDISPERR_rstpot_1319 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXNOTINTABLE_1320 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXRUNDISP_1321 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXRUNDISP_mux0000 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXRUNDISP_not0001 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_DISPARITY : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_0_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_12_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_1_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_2_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_3_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_4_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_5_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_6_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_7_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_8_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_9_Q : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_EN_CDET_1346 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_EWRAP_1347 : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_XMIT_CONFIG : STD_LOGIC; 
+  signal U0_gpcs_pma_inst_XMIT_DATA : STD_LOGIC; 
+  signal NlwRenamedSig_OI_status_vector_11_Q : STD_LOGIC; 
+  signal NlwRenamedSig_OI_status_vector_7_Q : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_0_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_1_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_2_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_3_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_4_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_5_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_6_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_7_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_8_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_9_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_10_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_11_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_12_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_13_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_14_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_15_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_16_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_17_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_18_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_19_DIST_RAM_SPO_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_CASCADEINA_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_CASCADEINB_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_CASCADEOUTA_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_CASCADEOUTB_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRA_14_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRA_3_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRA_2_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRA_1_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRA_0_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRB_14_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRB_3_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRB_2_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRB_1_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRB_0_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_31_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_30_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_29_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_28_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_27_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_26_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_25_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_24_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_23_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_22_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_21_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_20_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_19_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_18_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_17_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_16_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_31_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_30_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_29_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_28_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_27_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_26_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_25_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_24_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_23_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_22_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_21_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_20_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_19_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_18_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_17_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_16_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIPA_3_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIPA_2_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIPB_3_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIPB_2_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_31_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_30_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_29_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_28_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_27_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_26_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_25_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_24_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_23_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_22_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_21_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_20_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_19_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_18_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_17_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_16_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_15_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_14_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_13_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_11_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_10_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_31_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_30_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_29_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_28_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_27_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_26_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_25_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_24_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_23_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_22_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_21_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_20_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_19_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_18_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_17_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_16_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_15_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_14_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_13_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_12_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_11_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_10_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_9_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_8_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_7_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_6_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_5_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_4_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_3_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_2_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_1_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_0_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOPA_3_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOPA_2_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOPA_1_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOPA_0_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOPB_3_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOPB_2_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOPB_1_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOPB_0_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_CASCADEINA_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_CASCADEINB_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_CASCADEOUTA_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_CASCADEOUTB_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRA_14_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRA_3_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRA_2_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRA_1_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRA_0_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRB_14_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRB_3_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRB_2_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRB_1_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRB_0_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_31_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_30_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_29_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_28_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_27_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_26_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_25_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_24_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_23_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_22_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_21_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_20_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_19_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_18_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_17_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_16_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_31_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_30_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_29_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_28_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_27_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_26_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_25_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_24_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_23_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_22_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_21_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_20_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_19_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_18_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_17_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_16_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIPA_3_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIPA_2_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIPB_3_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIPB_2_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_31_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_30_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_29_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_28_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_27_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_26_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_25_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_24_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_23_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_22_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_21_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_20_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_19_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_18_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_17_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_16_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_31_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_30_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_29_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_28_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_27_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_26_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_25_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_24_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_23_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_22_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_21_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_20_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_19_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_18_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_17_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_16_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_15_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_14_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_13_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_12_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_11_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_10_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_9_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_8_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_7_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_6_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_5_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_4_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_3_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_2_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_1_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_0_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOPA_3_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOPA_2_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOPA_1_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOPA_0_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOPB_3_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOPB_2_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOPB_1_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOPB_0_UNCONNECTED : STD_LOGIC; 
+  signal NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT : STD_LOGIC_VECTOR ( 1 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER : STD_LOGIC_VECTOR ( 8 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER : STD_LOGIC_VECTOR ( 8 downto 0 ); 
+  signal NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT : STD_LOGIC_VECTOR ( 9 downto 8 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy : STD_LOGIC_VECTOR ( 6 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut : STD_LOGIC_VECTOR ( 6 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy : STD_LOGIC_VECTOR ( 6 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut : STD_LOGIC_VECTOR ( 6 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_cy : STD_LOGIC_VECTOR ( 3 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_lut : STD_LOGIC_VECTOR ( 4 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy : STD_LOGIC_VECTOR ( 7 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_lut : STD_LOGIC_VECTOR ( 0 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy : STD_LOGIC_VECTOR ( 7 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_lut : STD_LOGIC_VECTOR ( 0 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy : STD_LOGIC_VECTOR ( 10 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_lut : STD_LOGIC_VECTOR ( 0 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PREVIOUS_STATE : STD_LOGIC_VECTOR ( 3 downto 3 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG : STD_LOGIC_VECTOR ( 15 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_RUDI_INVALID_DELAY : STD_LOGIC_VECTOR ( 1 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result : STD_LOGIC_VECTOR ( 11 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096 : STD_LOGIC_VECTOR ( 11 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_RD : STD_LOGIC_VECTOR ( 3 downto 3 ); 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR : STD_LOGIC_VECTOR ( 4 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT : STD_LOGIC_VECTOR ( 3 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_OPCODE : STD_LOGIC_VECTOR ( 1 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG : STD_LOGIC_VECTOR ( 15 downto 0 ); 
+  signal U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001 : STD_LOGIC_VECTOR ( 15 downto 0 ); 
+  signal U0_gpcs_pma_inst_RECEIVER_IDLE_REG : STD_LOGIC_VECTOR ( 2 downto 0 ); 
+  signal U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5 : STD_LOGIC_VECTOR ( 7 downto 0 ); 
+  signal U0_gpcs_pma_inst_RECEIVER_RXD : STD_LOGIC_VECTOR ( 7 downto 0 ); 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG : STD_LOGIC_VECTOR ( 15 downto 0 ); 
+  signal U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_REG : STD_LOGIC_VECTOR ( 3 downto 0 ); 
+  signal U0_gpcs_pma_inst_RXBUFSTATUS_INT : STD_LOGIC_VECTOR ( 1 downto 1 ); 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS : STD_LOGIC_VECTOR ( 1 downto 0 ); 
+  signal U0_gpcs_pma_inst_SYNCHRONISATION_Result : STD_LOGIC_VECTOR ( 1 downto 1 ); 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP : STD_LOGIC_VECTOR ( 7 downto 0 ); 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT : STD_LOGIC_VECTOR ( 1 downto 0 ); 
+  signal U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA : STD_LOGIC_VECTOR ( 7 downto 0 ); 
+  signal U0_gpcs_pma_inst_TRANSMITTER_Result : STD_LOGIC_VECTOR ( 1 downto 0 ); 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TXDATA : STD_LOGIC_VECTOR ( 7 downto 0 ); 
+  signal U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1 : STD_LOGIC_VECTOR ( 7 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_lut : STD_LOGIC_VECTOR ( 1 downto 1 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_NEXT_WR_ADDR : STD_LOGIC_VECTOR ( 2 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR : STD_LOGIC_VECTOR ( 3 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY : STD_LOGIC_VECTOR ( 3 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY_sub0000 : STD_LOGIC_VECTOR ( 3 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO : STD_LOGIC_VECTOR ( 19 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1 : STD_LOGIC_VECTOR ( 19 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2 : STD_LOGIC_VECTOR ( 19 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3 : STD_LOGIC_VECTOR ( 19 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD : STD_LOGIC_VECTOR ( 9 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002 : STD_LOGIC_VECTOR ( 19 downto 10 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result : STD_LOGIC_VECTOR ( 3 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC : STD_LOGIC_VECTOR ( 3 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRBIN : STD_LOGIC_VECTOR ( 1 downto 1 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY : STD_LOGIC_VECTOR ( 3 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR : STD_LOGIC_VECTOR ( 3 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2 : STD_LOGIC_VECTOR ( 3 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT : STD_LOGIC_VECTOR ( 15 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA : STD_LOGIC_VECTOR ( 7 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI : STD_LOGIC_VECTOR ( 9 downto 0 ); 
+  signal U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA : STD_LOGIC_VECTOR ( 19 downto 0 ); 
+begin
+  gmii_isolate <= NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG;
+  en_cdet <= U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_EN_CDET_1346;
+  loc_ref <= NlwRenamedSig_OI_status_vector_7_Q;
+  gmii_rx_dv <= NlwRenamedSig_OI_U0_gpcs_pma_inst_RECEIVER_RX_DV;
+  gmii_rx_er <= U0_gpcs_pma_inst_RECEIVER_RX_ER_885;
+  mdio_out <= U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_OUT_613;
+  an_interrupt <= NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT;
+  ewrap <= U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_EWRAP_1347;
+  mdio_tri <= U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_TRI_616;
+  status_vector(15) <= NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT(9);
+  status_vector(14) <= NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT(8);
+  status_vector(13) <= NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_REMOTE_FAULT;
+  status_vector(12) <= U0_gpcs_pma_inst_STATUS_VECTOR_12_Q;
+  status_vector(11) <= NlwRenamedSig_OI_status_vector_11_Q;
+  status_vector(10) <= NlwRenamedSig_OI_status_vector_7_Q;
+  status_vector(9) <= NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT(1);
+  status_vector(8) <= NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT(0);
+  status_vector(7) <= NlwRenamedSig_OI_status_vector_7_Q;
+  status_vector(6) <= U0_gpcs_pma_inst_RXNOTINTABLE_REG_912;
+  status_vector(5) <= U0_gpcs_pma_inst_RXDISPERR_REG_910;
+  status_vector(4) <= U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RUDI_INVALID_360;
+  status_vector(3) <= U0_gpcs_pma_inst_RECEIVER_RUDI_I_826;
+  status_vector(2) <= U0_gpcs_pma_inst_RECEIVER_RUDI_C_824;
+  status_vector(1) <= U0_gpcs_pma_inst_STATUS_VECTOR_1_Q;
+  status_vector(0) <= U0_gpcs_pma_inst_STATUS_VECTOR_0_Q;
+  gmii_rxd(7) <= U0_gpcs_pma_inst_RECEIVER_RXD(7);
+  gmii_rxd(6) <= U0_gpcs_pma_inst_RECEIVER_RXD(6);
+  gmii_rxd(5) <= U0_gpcs_pma_inst_RECEIVER_RXD(5);
+  gmii_rxd(4) <= U0_gpcs_pma_inst_RECEIVER_RXD(4);
+  gmii_rxd(3) <= U0_gpcs_pma_inst_RECEIVER_RXD(3);
+  gmii_rxd(2) <= U0_gpcs_pma_inst_RECEIVER_RXD(2);
+  gmii_rxd(1) <= U0_gpcs_pma_inst_RECEIVER_RXD(1);
+  gmii_rxd(0) <= U0_gpcs_pma_inst_RECEIVER_RXD(0);
+  tx_code_group(9) <= U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(9);
+  tx_code_group(8) <= U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(8);
+  tx_code_group(7) <= U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(7);
+  tx_code_group(6) <= U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(6);
+  tx_code_group(5) <= U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(5);
+  tx_code_group(4) <= U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(4);
+  tx_code_group(3) <= U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(3);
+  tx_code_group(2) <= U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(2);
+  tx_code_group(1) <= U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(1);
+  tx_code_group(0) <= U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(0);
+  XST_GND : GND
+    port map (
+      G => NlwRenamedSig_OI_status_vector_7_Q
+    );
+  XST_VCC : VCC
+    port map (
+      P => NlwRenamedSig_OI_status_vector_11_Q
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_7 : FD
+    port map (
+      C => pma_rx_clk1,
+      D => rx_code_group1(7),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(7)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_EN_CDET : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_SYNCHRONISATION_ENCOMMAALIGN_925,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_EN_CDET_1346
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_8 : FD
+    port map (
+      C => pma_rx_clk1,
+      D => rx_code_group1(8),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(8)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_9 : FD
+    port map (
+      C => pma_rx_clk1,
+      D => rx_code_group1(9),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(9)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_11 : FD
+    port map (
+      C => pma_rx_clk0,
+      D => rx_code_group0(1),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(11)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_EWRAP : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_LOOPBACK_REG_580,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_EWRAP_1347
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_10 : FD
+    port map (
+      C => pma_rx_clk0,
+      D => rx_code_group0(0),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(10)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_14 : FD
+    port map (
+      C => pma_rx_clk0,
+      D => rx_code_group0(4),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(14)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_12 : FD
+    port map (
+      C => pma_rx_clk0,
+      D => rx_code_group0(2),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(12)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_13 : FD
+    port map (
+      C => pma_rx_clk0,
+      D => rx_code_group0(3),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(13)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_17 : FD
+    port map (
+      C => pma_rx_clk0,
+      D => rx_code_group0(7),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(17)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_15 : FD
+    port map (
+      C => pma_rx_clk0,
+      D => rx_code_group0(5),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(15)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_16 : FD
+    port map (
+      C => pma_rx_clk0,
+      D => rx_code_group0(6),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(16)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_0 : FD
+    port map (
+      C => pma_rx_clk1,
+      D => rx_code_group1(0),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(0)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_18 : FD
+    port map (
+      C => pma_rx_clk0,
+      D => rx_code_group0(8),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(18)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_19 : FD
+    port map (
+      C => pma_rx_clk0,
+      D => rx_code_group0(9),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(19)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_3 : FD
+    port map (
+      C => pma_rx_clk1,
+      D => rx_code_group1(3),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(3)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_1 : FD
+    port map (
+      C => pma_rx_clk1,
+      D => rx_code_group1(1),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(1)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_2 : FD
+    port map (
+      C => pma_rx_clk1,
+      D => rx_code_group1(2),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(2)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_6 : FD
+    port map (
+      C => pma_rx_clk1,
+      D => rx_code_group1(6),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(6)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_4 : FD
+    port map (
+      C => pma_rx_clk1,
+      D => rx_code_group1(4),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(4)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA_5 : FD
+    port map (
+      C => pma_rx_clk1,
+      D => rx_code_group1(5),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(5)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI_9 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_0_Q,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(9)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI_8 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_1_Q,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(8)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI_7 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_2_Q,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(7)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI_6 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_3_Q,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(6)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI_5 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_4_Q,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(5)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI_4 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_5_Q,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(4)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI_3 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_6_Q,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(3)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI_2 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_7_Q,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(2)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI_1 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_8_Q,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(1)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI_0 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_9_Q,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_TX_TBI(0)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA_7 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(7),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(7)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA_6 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(6),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(6)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA_5 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(5),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(5)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA_4 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(4),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(4)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA_3 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(3),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(3)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA_2 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(2),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(2)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA_1 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(1),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(1)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA_0 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(0),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(0)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISCOMMA : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(8),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISCOMMA_1307
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXNOTINTABLE : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(12),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXNOTINTABLE_1320
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_mux0001,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXRUNDISP : FDE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXRUNDISP_not0001,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXRUNDISP_mux0000,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXRUNDISP_1321
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_0_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(0),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk1,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_0_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(0)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_1_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(1),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk1,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_1_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(1)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_2_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(2),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk1,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_2_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(2)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_3_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(3),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk1,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_3_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(3)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_4_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(4),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk1,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_4_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(4)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_5_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(5),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk1,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_5_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(5)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_6_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(6),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk1,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_6_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(6)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_7_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(7),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk1,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_7_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(7)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_8_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(8),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk1,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_8_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(8)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_9_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(9),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk1,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_LOWER_9_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(9)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_10_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(10),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk0,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_10_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(10)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_11_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(11),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk0,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_11_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(11)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_12_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(12),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk0,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_12_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(12)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_13_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(13),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk0,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_13_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(13)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_14_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(14),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk0,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_14_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(14)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_15_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(15),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk0,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_15_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(15)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_16_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(16),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk0,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_16_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(16)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_17_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(17),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk0,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_17_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(17)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_18_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(18),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk0,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_18_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(18)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_19_DIST_RAM : RAM16X1D
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0),
+      A1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1),
+      A2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2),
+      A3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3),
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_RX_TBI_DATA(19),
+      DPRA0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      DPRA1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      DPRA2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      DPRA3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      WCLK => pma_rx_clk0,
+      WE => NlwRenamedSig_OI_status_vector_11_Q,
+      SPO => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_GEN_RXD_FIFO_UPPER_19_DIST_RAM_SPO_UNCONNECTED,
+      DPO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(19)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR_3 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result_3_1,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR_2 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result_2_1,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR_1 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result_1_1_1263,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR_0 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result_0_1,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2_3 : FDR
+    port map (
+      C => pma_rx_clk0,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result(3),
+      R => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_1287,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(3)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2_2 : FDR
+    port map (
+      C => pma_rx_clk0,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result(2),
+      R => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_1287,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(2)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2_1 : FDS
+    port map (
+      C => pma_rx_clk0,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result(1),
+      S => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_1287,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(1)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2_0 : FDR
+    port map (
+      C => pma_rx_clk0,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result(0),
+      R => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_1287,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(0)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_3_SYNC_WR_ADDRGRAY_data_sync : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY(3),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_3_SYNC_WR_ADDRGRAY_data_sync1
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_3_SYNC_WR_ADDRGRAY_data_sync_reg : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_3_SYNC_WR_ADDRGRAY_data_sync1,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(3)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_2_SYNC_WR_ADDRGRAY_data_sync : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY(2),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_2_SYNC_WR_ADDRGRAY_data_sync1
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_2_SYNC_WR_ADDRGRAY_data_sync_reg : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_2_SYNC_WR_ADDRGRAY_data_sync1,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(2)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_1_SYNC_WR_ADDRGRAY_data_sync : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY(1),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_1_SYNC_WR_ADDRGRAY_data_sync1
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_1_SYNC_WR_ADDRGRAY_data_sync_reg : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_1_SYNC_WR_ADDRGRAY_data_sync1,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(1)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_0_SYNC_WR_ADDRGRAY_data_sync : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY(0),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_0_SYNC_WR_ADDRGRAY_data_sync1
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_0_SYNC_WR_ADDRGRAY_data_sync_reg : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RECLOCK_WR_ADDRGRAY_0_SYNC_WR_ADDRGRAY_data_sync1,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(0)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY_3 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY_sub0000(3),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(3)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY_2 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY_sub0000(2),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(2)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY_1 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY_sub0000(1),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(1)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY_0 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY_sub0000(0),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(0)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_19 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(19),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(19)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_18 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(18),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(18)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_17 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(17),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(17)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_16 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(16),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(16)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_15 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(15),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(15)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_14 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(14),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(14)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_13 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(13),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(13)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_12 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(12),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(12)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_11 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(11),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(11)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_10 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(10),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(10)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_9 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(9),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(9)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_8 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(8),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(8)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_7 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(7),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(7)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_6 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(6),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(6)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_5 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(5),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(5)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_4 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(4),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(4)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_3 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(3),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(3)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_2 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(2),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(2)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_1 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(1),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(1)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_0 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(0),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(0)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_19 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(19),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(19)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_18 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(18),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(18)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_17 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(17),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(17)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_16 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(16),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(16)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_15 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(15),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(15)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_14 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(14),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(14)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_13 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(13),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(13)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_12 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(12),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(12)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_11 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(11),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(11)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_10 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(10),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(10)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_9 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(9),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(9)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_8 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(8),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(8)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_7 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(7),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(7)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_6 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(6),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(6)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_5 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(5),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(5)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_4 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(4),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(4)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_3 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(3),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(3)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_2 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(2),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(2)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_1 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(1),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(1)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2_0 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(0),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG2(0)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_19 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(19),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(19)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_18 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(18),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(18)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_17 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(17),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(17)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_16 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(16),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(16)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_15 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(15),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(15)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_14 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(14),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(14)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_13 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(13),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(13)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_12 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(12),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(12)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_11 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(11),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(11)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_10 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(10),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(10)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_9 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(9),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(9)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_8 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(8),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(8)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_7 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(7),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(7)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_6 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(6),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(6)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_5 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(5),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(5)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_4 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(4),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(4)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_3 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(3),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(3)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_2 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(2),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(2)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_1 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(1),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(1)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1_0 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO(0),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(0)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_3 : FDR
+    port map (
+      C => pma_rx_clk0,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY(3),
+      R => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_1287,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(3)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_2 : FDR
+    port map (
+      C => pma_rx_clk0,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_NEXT_WR_ADDR(2),
+      R => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_1287,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(2)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_1 : FDR
+    port map (
+      C => pma_rx_clk0,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_NEXT_WR_ADDR(1),
+      R => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_1287,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(1)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_0 : FDR
+    port map (
+      C => pma_rx_clk0,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_NEXT_WR_ADDR(0),
+      R => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_1287,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR(0)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY_2 : FDR
+    port map (
+      C => pma_rx_clk0,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY_2_xor0000,
+      R => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_1287,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY(2)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY_1 : FDR
+    port map (
+      C => pma_rx_clk0,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY_1_xor0000,
+      R => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_1287,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY(1)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY_0 : FDR
+    port map (
+      C => pma_rx_clk0,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result(1),
+      R => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_1287,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY(0)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY_3 : FDR
+    port map (
+      C => pma_rx_clk0,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(3),
+      R => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_1287,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY(3)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_REG2 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_inv,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_REG1_1115,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_REG2_1117
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_inv,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_COMB,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_1111
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_inv,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_COMB,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_1118
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_REG1 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_inv,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_REG1_or0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_REG1_1115
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_inv,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_COMB,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_1099
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_inv,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_COMB,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_1102
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET : FDP
+    port map (
+      C => pma_rx_clk0,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_PIPE_1288,
+      PRE => U0_gpcs_pma_inst_RESET_INT,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_1287
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN : FDS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_inv,
+      S => U0_gpcs_pma_inst_RXBUFSTATUS_INT(1),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_1106
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_PIPE : FDP
+    port map (
+      C => pma_rx_clk0,
+      D => NlwRenamedSig_OI_status_vector_7_Q,
+      PRE => U0_gpcs_pma_inst_RESET_INT,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_PIPE_1288
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_9 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(19),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(9)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_8 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(18),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(8)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_7 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(17),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(7)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_6 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(16),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(6)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_5 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(15),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(5)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_4 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(14),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(4)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_3 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(13),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(3)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_2 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(12),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(2)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_1 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(11),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(1)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_0 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(10),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(0)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CONFIGURATION_VALID_EN_REG : FDR
+    port map (
+      C => gtx_clk,
+      D => configuration_valid,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CONFIGURATION_VALID_EN_REG_563
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_15 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_15_not0001,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_WR_SEL_15_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_15_Q
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_5 : FDSE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_15_not0001,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_WR_SEL_5_Q,
+      S => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_5_Q
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_IDLE_DETECT_REG1 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_IDLE_DETECT_REG1_not0001,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_IDLE_530,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_IDLE_DETECT_REG1_573
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_7 : FDSE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_15_not0001,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_WR_SEL_7_Q,
+      S => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_7_Q
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_8 : FDSE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_15_not0001,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_WR_SEL_8_Q,
+      S => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_8_Q
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CONFIGURATION_VALID_EN : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CONFIGURATION_VALID_EN_and0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CONFIGURATION_VALID_EN_562
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_and0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_REG : FDR
+    port map (
+      C => gtx_clk,
+      D => an_adv_config_val,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_REG_535
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_EN_REG : FDR
+    port map (
+      C => gtx_clk,
+      D => an_restart_config,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_EN_REG_702
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_EN : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_EN_and0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_EN_533
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_EN : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_EN_and0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_EN_701
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_IN_REG3 : FDS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_IN_REG2,
+      S => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_IN_REG3_692
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_REG3 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_REG2,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_REG3_584
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_IN_REG4 : FDS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_IN_REG3_692,
+      S => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_IN_REG4_693
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CLEAR_STATUS_REG : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG3_611,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CLEAR_STATUS_REG_COMB,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CLEAR_STATUS_REG_559
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_ENABLE : FDSE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_ENABLE_not0001,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(0),
+      S => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_ENABLE_553
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_COMPLETE_REG1 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG3_611,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_COMPLETE_237,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_COMPLETE_REG1_549
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_SYNC_MDIO_IN_data_sync_reg : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_SYNC_MDIO_IN_data_sync1,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_IN_REG2
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_SYNC_MDIO_IN_data_sync : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => mdio_in,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_SYNC_MDIO_IN_data_sync1
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_SYNC_MDC_data_sync_reg : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_SYNC_MDC_data_sync1,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_REG2
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_SYNC_MDC_data_sync : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => mdc,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_SYNC_MDC_data_sync1
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd8 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd9_686,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd8_685
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd4 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_679,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd4_678
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd1 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd2_674,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd1_669
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd11 : FDSE
+    generic map(
+      INIT => '1'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd11_In,
+      S => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd11_672
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd10 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd10_In,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd10_670
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd7 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd7_In,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd7_683
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd9 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd9_In,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd9_686
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_In,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_679
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd6 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd6_In,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd6_681
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd2 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd2_In,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd2_674
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd3 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd3_In,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd3_676
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_3 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_not0001,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_Mcount_BIT_COUNT3,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(3)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_2 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_not0001,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_Mcount_BIT_COUNT2,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(2)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_1 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_not0001,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_Mcount_BIT_COUNT1,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(1)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_0 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_not0001,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_Mcount_BIT_COUNT,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(0)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG3 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG2_610,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG3_611
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG2_610,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_mux0002,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_RD : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG2_610,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_RD_mux0003,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_RD_625
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_OPCODE_1 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_OPCODE_not0001_624,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_OPCODE(1)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_OPCODE_0 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_OPCODE_not0001_624,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(0),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_OPCODE(0)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR_4 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR_not0001,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(3),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(4)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR_3 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR_not0001,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(2),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(3)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR_2 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR_not0001,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(2)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR_1 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR_not0001,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(0),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(1)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR_0 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR_not0001,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(0)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG2 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG1_609,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG2_610
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_TRI : FDSE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_TRI_mux0001_617,
+      S => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_TRI_616
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_15 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(15),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(15)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_14 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(14),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(14)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_13 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(13),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(13)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_12 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(12),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(12)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_11 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(11),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(11)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_10 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(10),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(10)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_9 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(9),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(9)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_8 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(8),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(8)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_7 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(7),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(7)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_6 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(6),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(6)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_5 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(5),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(5)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_4 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(4),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(4)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_3 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(3),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(3)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_2 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(2),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(2)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_1 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(1),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_0 : FDE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(0),
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(0)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG : FDSE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_IN_REG4_693,
+      S => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG1 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG1_609
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_OUT : FDSE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_OUT_mux0001,
+      S => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_OUT_613
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_LAST_DATA_SHIFT : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => NlwRenamedSig_OI_status_vector_11_Q,
+      R => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_LAST_DATA_SHIFT_not0001,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_LAST_DATA_SHIFT_607
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_not0001,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_587
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_15 : FDE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_14_and0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(7),
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(15)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_14 : FDE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_14_and0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(6),
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(14)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_ER : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RX_ER_and0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_ER_885
+    );
+  U0_gpcs_pma_inst_RECEIVER_SOP : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_SOP_and0000_897,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_RECEIVER_SOP_894
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_NIT : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_and0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_763
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_K : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_FALSE_K_and0000_762,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_RECEIVER_FALSE_K_761
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_0 : FDE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_0_and0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(0),
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(0)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_1 : FDE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_0_and0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(1),
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(1)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_2 : FDE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_0_and0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(2),
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(2)
+    );
+  U0_gpcs_pma_inst_RECEIVER_I : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_I_and0000_790,
+      Q => U0_gpcs_pma_inst_RECEIVER_I_778
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_3 : FDE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_0_and0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(3),
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(3)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_4 : FDE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_0_and0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(4),
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(4)
+    );
+  U0_gpcs_pma_inst_RECEIVER_R : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_K23p7,
+      Q => U0_gpcs_pma_inst_RECEIVER_R_820
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_5 : FDE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_0_and0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(5),
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(5)
+    );
+  U0_gpcs_pma_inst_RECEIVER_T : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_K29p7,
+      Q => U0_gpcs_pma_inst_RECEIVER_T_902
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_6 : FDE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_0_and0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(6),
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(6)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_8 : FDE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_14_and0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(0),
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(8)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_7 : FDE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_0_and0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(7),
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(7)
+    );
+  U0_gpcs_pma_inst_RECEIVER_CGBAD : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_CGBAD_or0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_RECEIVER_CGBAD_715
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_9 : FDE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_14_and0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(1),
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(9)
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_DATA : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_and0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_757
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXCHARISK_REG1 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308,
+      Q => U0_gpcs_pma_inst_RECEIVER_RXCHARISK_REG1_827
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_10 : FDE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_14_and0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(2),
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(10)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_and0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_11 : FDE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_14_and0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(3),
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(11)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_12 : FDE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_14_and0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(4),
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(12)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_13 : FDE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_14_and0000,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(5),
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(13)
+    );
+  U0_gpcs_pma_inst_RECEIVER_S : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_S_and0000_norst,
+      R => U0_gpcs_pma_inst_RECEIVER_K27p7_inv,
+      Q => U0_gpcs_pma_inst_RECEIVER_S_893
+    );
+  U0_gpcs_pma_inst_RECEIVER_K28p5_REG2 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_798,
+      Q => U0_gpcs_pma_inst_RECEIVER_K28p5_REG2_800
+    );
+  U0_gpcs_pma_inst_RECEIVER_R_REG1 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_R_820,
+      Q => U0_gpcs_pma_inst_RECEIVER_R_REG1_892
+    );
+  U0_gpcs_pma_inst_RECEIVER_EXTEND_REG1 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_EXTEND_734,
+      Q => U0_gpcs_pma_inst_RECEIVER_EXTEND_REG1_738
+    );
+  U0_gpcs_pma_inst_RECEIVER_I_REG : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_I_778,
+      Q => U0_gpcs_pma_inst_RECEIVER_I_REG_789
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_REG_0 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_REG(0)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_REG_1 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_REG(0),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_REG(1)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_REG_2 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_REG(1),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_REG(2)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_REG_3 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_REG(2),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_REG(3)
+    );
+  U0_gpcs_pma_inst_RECEIVER_T_REG1 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_T_902,
+      Q => U0_gpcs_pma_inst_RECEIVER_T_REG1_903
+    );
+  U0_gpcs_pma_inst_RECEIVER_C : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_C_and0000_norst,
+      R => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_inv,
+      Q => U0_gpcs_pma_inst_RECEIVER_C_713
+    );
+  U0_gpcs_pma_inst_RECEIVER_IDLE_REG_0 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_I_REG_789,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_RECEIVER_IDLE_REG(0)
+    );
+  U0_gpcs_pma_inst_RECEIVER_IDLE_REG_1 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_IDLE_REG(0),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_RECEIVER_IDLE_REG(1)
+    );
+  U0_gpcs_pma_inst_RECEIVER_IDLE_REG_2 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_IDLE_REG(1),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_RECEIVER_IDLE_REG(2)
+    );
+  U0_gpcs_pma_inst_RECEIVER_C_REG1 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_C_713,
+      Q => U0_gpcs_pma_inst_RECEIVER_C_REG1_720
+    );
+  U0_gpcs_pma_inst_RECEIVER_T_REG2 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_T_REG1_903,
+      Q => U0_gpcs_pma_inst_RECEIVER_T_REG2_904
+    );
+  U0_gpcs_pma_inst_RECEIVER_C_REG2 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_C_REG1_720,
+      Q => U0_gpcs_pma_inst_RECEIVER_C_REG2_721
+    );
+  U0_gpcs_pma_inst_RECEIVER_SOP_REG3 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_SOP_REG2_895,
+      Q => U0_gpcs_pma_inst_RECEIVER_SOP_REG3_896
+    );
+  U0_gpcs_pma_inst_RECEIVER_CGBAD_REG3 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_CGBAD_REG2_716,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_RECEIVER_CGBAD_REG3_717
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXD_1 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_6_1,
+      R => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG,
+      Q => U0_gpcs_pma_inst_RECEIVER_RXD(1)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXD_3 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_4_1,
+      R => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG,
+      Q => U0_gpcs_pma_inst_RECEIVER_RXD(3)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXD_5 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_2_1,
+      R => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG,
+      Q => U0_gpcs_pma_inst_RECEIVER_RXD(5)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXD_7 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_0_1,
+      R => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG,
+      Q => U0_gpcs_pma_inst_RECEIVER_RXD(7)
+    );
+  U0_gpcs_pma_inst_RECEIVER_C_REG3 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_C_REG2_721,
+      Q => U0_gpcs_pma_inst_RECEIVER_C_REG3_722
+    );
+  U0_gpcs_pma_inst_RECEIVER_C_HDR_REMOVED_REG : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_C_REG2_721,
+      R => NlwRenamedSig_OI_status_vector_11_Q,
+      Q => U0_gpcs_pma_inst_RECEIVER_C_HDR_REMOVED_REG_719
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_SIGNAL_DETECT_REG : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      Q => U0_gpcs_pma_inst_SYNCHRONISATION_SIGNAL_DETECT_REG_937
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_EVEN : FDRS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_not0001,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      S => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_and0000,
+      Q => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_927
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXDATA_0 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_7_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXDATA(0)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXDATA_1 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_6_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXDATA(1)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXDATA_2 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_5_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXDATA(2)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXDATA_3 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_4_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXDATA(3)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXDATA_4 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_3_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXDATA(4)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXDATA_5 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_2_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXDATA(5)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXDATA_7 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_0_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXDATA(7)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_XMIT_DATA_INT : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_TRANSMITTER_XMIT_DATA_INT_not0001_inv,
+      D => U0_gpcs_pma_inst_XMIT_DATA,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_XMIT_DATA_INT_1096
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRPISK : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRPISK_mux0006,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRPISK_973
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_SYNC_DISPARITY : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_SYNC_DISPARITY_mux0001_1040,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_SYNC_DISPARITY_1039
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_5 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_TRANSMITTER_XMIT_DATA_INT_not0001_inv,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_5_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_5_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_7 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_TRANSMITTER_XMIT_DATA_INT_not0001_inv,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_7_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_7_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_8 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_TRANSMITTER_XMIT_DATA_INT_not0001_inv,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_8_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_8_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_12 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_TRANSMITTER_XMIT_DATA_INT_not0001_inv,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_12_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_12_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_13 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_TRANSMITTER_XMIT_DATA_INT_not0001_inv,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_13_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_13_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_14 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_TRANSMITTER_XMIT_DATA_INT_not0001_inv,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_14_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_14_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_15 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_TRANSMITTER_XMIT_DATA_INT_not0001_inv,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_15_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_15_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_S : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_S_and0000_1041,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_S_1038
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_T : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_T_or0000_1087,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_T_1043
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXCHARDISPMODE : FDS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_TXCHARDISPMODE_and0000,
+      S => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXCHARDISPMODE_1048
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TX_ER_REG1 : FD
+    port map (
+      C => gtx_clk,
+      D => gmii_tx_er,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TX_ER_REG1_1085
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_not0001,
+      D => U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_mux0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_970
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_3 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_3_Q,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(3)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_4 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_4_Q,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(4)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_5 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_5_Q,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(5)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_7 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_7_Q,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(7)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT : FDSE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_TRANSMITTER_XMIT_DATA_INT_not0001_inv,
+      D => U0_gpcs_pma_inst_XMIT_CONFIG,
+      S => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_1094
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TRIGGER_S : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_TRIGGER_S_and0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TRIGGER_S_1044
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TRIGGER_T : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_TRIGGER_T_and0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TRIGGER_T_1046
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TX_EN_REG1 : FD
+    port map (
+      C => gtx_clk,
+      D => gmii_tx_en,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TX_EN_REG1_1084
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1_0 : FD
+    port map (
+      C => gtx_clk,
+      D => gmii_txd(0),
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1(0)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1_1 : FD
+    port map (
+      C => gtx_clk,
+      D => gmii_txd(1),
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1(1)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1_2 : FD
+    port map (
+      C => gtx_clk,
+      D => gmii_txd(2),
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1(2)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1_3 : FD
+    port map (
+      C => gtx_clk,
+      D => gmii_txd(3),
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1(3)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1_4 : FD
+    port map (
+      C => gtx_clk,
+      D => gmii_txd(4),
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1(4)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1_5 : FD
+    port map (
+      C => gtx_clk,
+      D => gmii_txd(5),
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1(5)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1_6 : FD
+    port map (
+      C => gtx_clk,
+      D => gmii_txd(6),
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1(6)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1_7 : FD
+    port map (
+      C => gtx_clk,
+      D => gmii_txd(7),
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1(7)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXCHARDISPVAL : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_TXCHARDISPVAL_and0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXCHARDISPVAL_1050
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_DISPARITY : FDSE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_not0001_1022,
+      D => U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_mux0000,
+      S => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_1020
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_INSERT_IDLE : FDRS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_INSERT_IDLE_mux0007,
+      R => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_1094,
+      S => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_INSERT_IDLE_1023
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_R : FDRSE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_TRANSMITTER_R_or0000,
+      D => NlwRenamedSig_OI_status_vector_7_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      S => U0_gpcs_pma_inst_TRANSMITTER_T_1043,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_R_1034
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_V : FDRSE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_TRANSMITTER_S_inv,
+      D => NlwRenamedSig_OI_status_vector_7_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      S => U0_gpcs_pma_inst_TRANSMITTER_V_and0000,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_V_1088
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_K28p5 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_K28p5_1018,
+      R => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_inv,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_K28p5_1025
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TX_PACKET : FDRSE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_TRANSMITTER_T_1043,
+      D => NlwRenamedSig_OI_status_vector_7_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      S => U0_gpcs_pma_inst_TRANSMITTER_S_1038,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TX_PACKET_1086
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_0 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_7_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA(0)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_1 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_6_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA(1)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_2 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_5_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA(2)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_3 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_XMIT_DATA_INT_not0001_inv,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA(3)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_4 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_3_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA(4)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_5 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_2_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA(5)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_6 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_1_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA(6)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_7 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_0_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA(7)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT_0 : FDS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_Result(0),
+      S => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT_1 : FDS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_Result(1),
+      S => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_REMOTE_FAULT : FDRSE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_REMOTE_FAULT_and0001,
+      D => NlwRenamedSig_OI_status_vector_7_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_REMOTE_FAULT_and0000,
+      Q => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_REMOTE_FAULT
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_14 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_14_mux0000_515,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_14_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE : FDRSE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      D => NlwRenamedSig_OI_status_vector_7_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      S => U0_gpcs_pma_inst_RECEIVER_I_REG_789,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT_0 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT_not0001,
+      D => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(12),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT_1 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT_not0001,
+      D => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(13),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CLEAR_STATUS_REG1 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CLEAR_STATUS_REG_559,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CLEAR_STATUS_REG1_178
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_7 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT_not0001,
+      D => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(6),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_7_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_361
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_6 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT_not0001,
+      D => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(5),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_6_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_9 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT_not0001,
+      D => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(8),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT(9)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CONSISTENCY_MATCH : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CONSISTENCY_MATCH_COMB,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CONSISTENCY_MATCH_181
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_8 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT_not0001,
+      D => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(7),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT(8)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_RUDI_INVALID_DELAY_0 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_RUDI_INVALID_DELAY_0_and0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_RUDI_INVALID_DELAY(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096_and0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096_357
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_15 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT_not0001,
+      D => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(14),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_15_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_16 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT_not0001,
+      D => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(15),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_16_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_REG1 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_REG1_241
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER_REG : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER_REG_471
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_SET_REG1 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_REG_704,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_SET_REG1_259
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_COMPLETE : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_COMPLETE_mux0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_COMPLETE_237
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_INT : FDRSE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_INT_or0000,
+      D => NlwRenamedSig_OI_status_vector_7_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_INT_and0000,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_INT_256
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_IDLE : FDRSE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_IDLE_or0001,
+      D => NlwRenamedSig_OI_status_vector_7_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_IDLE_or0000,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_IDLE_530
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_SYNC_STATUS_HELD : FDRSE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_AN_SYNC_STATUS_and0000,
+      D => NlwRenamedSig_OI_status_vector_7_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      S => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_SYNC_STATUS_HELD_495
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR : FDRSE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq0000,
+      D => NlwRenamedSig_OI_status_vector_7_Q,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_and0000,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_211
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_AN_SYNC_STATUS : FDRSE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_AN_SYNC_STATUS_and0000,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_SYNC_STATUS_HELD_495,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      S => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_AN_SYNC_STATUS_173
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CLEAR_STATUS_REG2 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CLEAR_STATUS_REG1_178,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CLEAR_STATUS_REG2_179
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_RUDI_INVALID_DELAY_1 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_RUDI_INVALID_DELAY(0),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_RUDI_INVALID_DELAY(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096_MSB_REG : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(11),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096_MSB_REG_508
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_REG2 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_REG1_241,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_REG2_242
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_SET_REG2 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_SET_REG1_259,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_SET_REG2_260
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER_REG2 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER_REG_471,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER_REG2_472
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_IDLE_MATCH : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_IDLE_REG(1),
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_IDLE_MATCH_and0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_IDLE_MATCH_185
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RUDI_INVALID : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_RUDI_INVALID_DELAY(1),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RUDI_INVALID_360
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_IDLE_MATCH_2 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_RECEIVER_IDLE_REG(1),
+      D => U0_gpcs_pma_inst_RECEIVER_I_REG_789,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_IDLE_MATCH_2_186
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_SATURATED : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_SATURATED_COMB,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_SATURATED_208
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_CHANGE : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_CHANGE_xor0000,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_CHANGE_239
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096_0 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(0),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096_1 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(1),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096_2 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(2),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(2)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096_3 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(3),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(3)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096_4 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(4),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(4)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096_5 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(5),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(5)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096_6 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(6),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(6)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096_7 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(7),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(7)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096_8 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(8),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(8)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096_9 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(9),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(9)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096_10 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(10),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(10)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096_11 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(11),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(11)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut_0_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(0),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(0),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(1),
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(1),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy_0_Q : MUXCY
+    port map (
+      CI => NlwRenamedSig_OI_status_vector_11_Q,
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut(0),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut_1_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(2),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(2),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(3),
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(3),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy_1_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(0),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut(1),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut_2_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(4),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(4),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(5),
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(5),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut(2)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy_2_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(1),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut(2),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(2)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut_3_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(6),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(7),
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(7),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut(3)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy_3_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(2),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut(3),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(3)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut_4_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(8),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(8),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(9),
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(9),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut(4)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy_4_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(3),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut(4),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(4)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut_5_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(10),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(10),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(11),
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(11),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut(5)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy_5_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(4),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut(5),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(5)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut_6_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(12),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(12),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(13),
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(13),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut(6)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy_6_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(5),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_lut(6),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_lut_0_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(0),
+      I1 => link_timer_value(0),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(1),
+      I3 => link_timer_value(1),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_lut(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_cy_0_Q : MUXCY
+    port map (
+      CI => NlwRenamedSig_OI_status_vector_11_Q,
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_lut(0),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_cy(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_lut_1_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(2),
+      I1 => link_timer_value(2),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(3),
+      I3 => link_timer_value(3),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_lut(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_cy_1_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_cy(0),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_lut(1),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_cy(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_lut_2_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(4),
+      I1 => link_timer_value(4),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(5),
+      I3 => link_timer_value(5),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_lut(2)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_cy_2_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_cy(1),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_lut(2),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_cy(2)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_lut_3_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(6),
+      I1 => link_timer_value(6),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(7),
+      I3 => link_timer_value(7),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_lut(3)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_cy_3_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_cy(2),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_lut(3),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_cy(3)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_lut_4_Q : LUT2
+    generic map(
+      INIT => X"9"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(8),
+      I1 => link_timer_value(8),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_lut(4)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_cy_4_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_cy(3),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_LINK_TIMER_SATURATED_COMB_cmp_eq0000_lut(4),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_SATURATED_COMB
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut_0_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(0),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_0_Q,
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(1),
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_1_Q,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy_0_Q : MUXCY
+    port map (
+      CI => NlwRenamedSig_OI_status_vector_11_Q,
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut(0),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut_1_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(2),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_2_Q,
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(3),
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_3_Q,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy_1_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy(0),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut(1),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut_2_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(4),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_4_Q,
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(5),
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_5_Q,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut(2)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy_2_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy(1),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut(2),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy(2)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut_3_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_6_Q,
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(7),
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_7_Q,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut(3)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy_3_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy(2),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut(3),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy(3)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut_4_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(8),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_8_Q,
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(9),
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_9_Q,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut(4)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy_4_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy(3),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut(4),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy(4)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut_5_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(10),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_10_Q,
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(11),
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_11_Q,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut(5)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy_5_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy(4),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut(5),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy(5)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut_6_Q : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(12),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_12_Q,
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(13),
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_13_Q,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut(6)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy_6_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy(5),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_lut(6),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy(6)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_0_Q : MUXCY
+    port map (
+      CI => NlwRenamedSig_OI_status_vector_7_Q,
+      DI => NlwRenamedSig_OI_status_vector_11_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_lut(0),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_xor_0_Q : XORCY
+    port map (
+      CI => NlwRenamedSig_OI_status_vector_7_Q,
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_lut(0),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_0_2
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_1_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(0),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_1_rt_300,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_xor_1_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(0),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_1_rt_300,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_1_2
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_2_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(1),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_2_rt_302,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(2)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_xor_2_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(1),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_2_rt_302,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_2_2
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_3_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(2),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_3_rt_304,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(3)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_xor_3_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(2),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_3_rt_304,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_3_2
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_4_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(3),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_4_rt_306,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(4)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_xor_4_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(3),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_4_rt_306,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_4_2
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_5_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(4),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_5_rt_308,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(5)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_xor_5_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(4),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_5_rt_308,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_5_2
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_6_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(5),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_6_rt_310,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(6)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_xor_6_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(5),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_6_rt_310,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_6_2
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_7_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(6),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_7_rt_312,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(7)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_xor_7_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(6),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_7_rt_312,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_7_2
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_xor_8_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy(7),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_xor_8_rt_314,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_8_2
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_0_Q : MUXCY
+    port map (
+      CI => NlwRenamedSig_OI_status_vector_7_Q,
+      DI => NlwRenamedSig_OI_status_vector_11_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_lut(0),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_xor_0_Q : XORCY
+    port map (
+      CI => NlwRenamedSig_OI_status_vector_7_Q,
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_lut(0),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_1_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(0),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_1_rt_336,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_xor_1_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(0),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_1_rt_336,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_2_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(1),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_2_rt_338,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(2)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_xor_2_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(1),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_2_rt_338,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(2)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_3_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(2),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_3_rt_340,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(3)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_xor_3_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(2),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_3_rt_340,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(3)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_4_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(3),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_4_rt_342,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(4)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_xor_4_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(3),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_4_rt_342,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(4)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_5_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(4),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_5_rt_344,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(5)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_xor_5_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(4),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_5_rt_344,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(5)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_6_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(5),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_6_rt_346,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(6)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_xor_6_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(5),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_6_rt_346,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(6)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_7_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(6),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_7_rt_348,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(7)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_xor_7_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(6),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_7_rt_348,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(7)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_8_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(7),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_8_rt_350,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(8)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_xor_8_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(7),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_8_rt_350,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(8)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_9_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(8),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_9_rt_352,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(9)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_xor_9_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(8),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_9_rt_352,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(9)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_10_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(9),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_10_rt_334,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(10)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_xor_10_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(9),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_10_rt_334,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(10)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_xor_11_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy(10),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_xor_11_rt_354,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result(11)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_0_Q : MUXCY
+    port map (
+      CI => NlwRenamedSig_OI_status_vector_7_Q,
+      DI => NlwRenamedSig_OI_status_vector_11_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_lut(0),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_xor_0_Q : XORCY
+    port map (
+      CI => NlwRenamedSig_OI_status_vector_7_Q,
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_lut(0),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_0_1
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_1_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(0),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_1_rt_317,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_xor_1_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(0),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_1_rt_317,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_1_1
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_2_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(1),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_2_rt_319,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(2)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_xor_2_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(1),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_2_rt_319,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_2_1
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_3_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(2),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_3_rt_321,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(3)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_xor_3_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(2),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_3_rt_321,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_3_1
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_4_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(3),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_4_rt_323,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(4)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_xor_4_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(3),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_4_rt_323,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_4_1
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_5_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(4),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_5_rt_325,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(5)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_xor_5_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(4),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_5_rt_325,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_5_1
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_6_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(5),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_6_rt_327,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(6)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_xor_6_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(5),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_6_rt_327,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_6_1
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_7_Q : MUXCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(6),
+      DI => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_7_rt_329,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(7)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_xor_7_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(6),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_7_rt_329,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_7_1
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_xor_8_Q : XORCY
+    port map (
+      CI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy(7),
+      LI => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_xor_8_rt_331,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_8_1
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479
+    );
+  U0_gpcs_pma_inst_DELAY_RXNOTINTABLE : SRL16
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => NlwRenamedSig_OI_status_vector_7_Q,
+      A1 => NlwRenamedSig_OI_status_vector_7_Q,
+      A2 => NlwRenamedSig_OI_status_vector_11_Q,
+      A3 => NlwRenamedSig_OI_status_vector_7_Q,
+      CLK => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXNOTINTABLE_1320,
+      Q => U0_gpcs_pma_inst_RXNOTINTABLE_SRL
+    );
+  U0_gpcs_pma_inst_DELAY_RXDISPERR : SRL16
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => NlwRenamedSig_OI_status_vector_7_Q,
+      A1 => NlwRenamedSig_OI_status_vector_7_Q,
+      A2 => NlwRenamedSig_OI_status_vector_11_Q,
+      A3 => NlwRenamedSig_OI_status_vector_7_Q,
+      CLK => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDISPERR_1318,
+      Q => U0_gpcs_pma_inst_RXDISPERR_SRL
+    );
+  U0_gpcs_pma_inst_SYNC_SIGNAL_DETECT_data_sync : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => signal_detect,
+      Q => U0_gpcs_pma_inst_SYNC_SIGNAL_DETECT_data_sync1
+    );
+  U0_gpcs_pma_inst_SYNC_SIGNAL_DETECT_data_sync_reg : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_SYNC_SIGNAL_DETECT_data_sync1,
+      Q => U0_gpcs_pma_inst_SIGNAL_DETECT_REG
+    );
+  U0_gpcs_pma_inst_RXDISPERR_REG : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RXDISPERR_SRL,
+      Q => U0_gpcs_pma_inst_RXDISPERR_REG_910
+    );
+  U0_gpcs_pma_inst_RXNOTINTABLE_REG : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RXNOTINTABLE_SRL,
+      Q => U0_gpcs_pma_inst_RXNOTINTABLE_REG_912
+    );
+  U0_gpcs_pma_inst_STATUS_VECTOR_0 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_STATUS_VECTOR_0_PRE_918,
+      Q => U0_gpcs_pma_inst_STATUS_VECTOR_0_Q
+    );
+  U0_gpcs_pma_inst_SRESET : FDP
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_SRESET_PIPE_916,
+      PRE => U0_gpcs_pma_inst_RESET_INT,
+      Q => U0_gpcs_pma_inst_SRESET_915
+    );
+  U0_gpcs_pma_inst_SRESET_PIPE : FDP
+    port map (
+      C => gtx_clk,
+      D => NlwRenamedSig_OI_status_vector_7_Q,
+      PRE => U0_gpcs_pma_inst_RESET_INT,
+      Q => U0_gpcs_pma_inst_SRESET_PIPE_916
+    );
+  U0_gpcs_pma_inst_RESET_INT1 : LUT2
+    generic map(
+      INIT => X"E"
+    )
+    port map (
+      I0 => reset,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESET_REG_699,
+      O => U0_gpcs_pma_inst_RESET_INT
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXCHARDISPMODE_and00001 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_SYNC_DISPARITY_1039,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      O => U0_gpcs_pma_inst_TRANSMITTER_TXCHARDISPMODE_and0000
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TRIGGER_T_and00001 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_TX_EN_REG1_1084,
+      I1 => gmii_tx_en,
+      O => U0_gpcs_pma_inst_TRANSMITTER_TRIGGER_T_and0000
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux0002101 : LUT2
+    generic map(
+      INIT => X"1"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(1),
+      O => U0_gpcs_pma_inst_TRANSMITTER_XMIT_DATA_INT_not0001_inv
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_mux00001 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_1094,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_970,
+      O => U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_mux0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_EN_and00001 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => an_restart_config,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_EN_REG_702,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_EN_and0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd9_In1 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd10_670,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd9_In
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_and00001 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_REG2,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_REG3_584,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_and0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CONFIGURATION_VALID_EN_and00001 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => configuration_valid,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CONFIGURATION_VALID_EN_REG_563,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CONFIGURATION_VALID_EN_and0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_EN_and00001 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => an_adv_config_val,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_REG_535,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_EN_and0000
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096_and00001 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096_MSB_REG_508,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(11),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096_and0000
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_IDLE_MATCH_and00001 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_I_REG_789,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_IDLE_MATCH_2_186,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_IDLE_MATCH_and0000
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result_1_1 : LUT2
+    generic map(
+      INIT => X"6"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(1),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(0),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result(1)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Mxor_WR_ADDRGRAY_2_xor0000_Result1 : LUT2
+    generic map(
+      INIT => X"6"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(2),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(3),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY_2_xor0000
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Mxor_WR_ADDRGRAY_1_xor0000_Result1 : LUT2
+    generic map(
+      INIT => X"6"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(1),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(2),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRGRAY_1_xor0000
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Mcount_RD_ADDR_xor_1_11 : LUT2
+    generic map(
+      INIT => X"6"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result_1_1_1263
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_Mcount_CODE_GRP_CNT_xor_1_11 : LUT2
+    generic map(
+      INIT => X"6"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(1),
+      O => U0_gpcs_pma_inst_TRANSMITTER_Result(1)
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_Mcount_GOOD_CGS_xor_1_11 : LUT2
+    generic map(
+      INIT => X"6"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS(0),
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS(1),
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_Result(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mxor_MR_AN_ENABLE_CHANGE_xor0000_Result1 : LUT2
+    generic map(
+      INIT => X"6"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_REG2_242,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_REG1_241,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_CHANGE_xor0000
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXCHARDISPVAL_and00001 : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_SYNC_DISPARITY_1039,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_1020,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      O => U0_gpcs_pma_inst_TRANSMITTER_TXCHARDISPVAL_and0000
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux0002142 : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_970,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(1),
+      O => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_6_Q
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd11_In1 : LUT3
+    generic map(
+      INIT => X"EA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd1_669,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd11_672,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd11_In
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd10_In1 : LUT3
+    generic map(
+      INIT => X"32"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd10_670,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd11_672,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd10_In
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002_19_1 : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_1106,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(19),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(9),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(19)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002_18_1 : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_1106,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(18),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(8),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(18)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002_17_1 : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_1106,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(17),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(7),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(17)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002_16_1 : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_1106,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(16),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(6),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(16)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002_15_1 : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_1106,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(15),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(5),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(15)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002_14_1 : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_1106,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(14),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(4),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(14)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002_13_1 : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_1106,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(13),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(3),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(13)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002_12_1 : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_1106,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(12),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(2),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(12)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002_11_1 : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_1106,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(11),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(1),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(11)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002_10_1 : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_1106,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(10),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3(0),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD_mux0002(10)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux0002121 : LUT3
+    generic map(
+      INIT => X"15"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(1),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_970,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      O => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_5_Q
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_WR_SEL_8_1 : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_EN_533,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(8),
+      I2 => an_adv_config_vector(8),
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_WR_SEL_8_Q
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_WR_SEL_7_1 : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_EN_533,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(7),
+      I2 => an_adv_config_vector(7),
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_WR_SEL_7_Q
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_WR_SEL_5_1 : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_EN_533,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(5),
+      I2 => an_adv_config_vector(5),
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_WR_SEL_5_Q
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_WR_SEL_15_1 : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_EN_533,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(15),
+      I2 => an_adv_config_vector(15),
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_WR_SEL_15_Q
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Mcount_WR_ADDR_PLUS2_xor_2_11 : LUT3
+    generic map(
+      INIT => X"6A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(2),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(1),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(0),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result(2)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Mcount_RD_ADDR_xor_2_11 : LUT3
+    generic map(
+      INIT => X"6A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result_2_1
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TRIGGER_S_and00001 : LUT4
+    generic map(
+      INIT => X"1000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_TX_EN_REG1_1084,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_TX_ER_REG1_1085,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I3 => gmii_tx_en,
+      O => U0_gpcs_pma_inst_TRANSMITTER_TRIGGER_S_and0000
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_6_11 : LUT4
+    generic map(
+      INIT => X"3332"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5(1),
+      I1 => U0_gpcs_pma_inst_RECEIVER_SOP_REG3_896,
+      I2 => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG3_753,
+      I3 => U0_gpcs_pma_inst_RECEIVER_EXTEND_REG1_738,
+      O => U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_6_1
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_4_11 : LUT4
+    generic map(
+      INIT => X"3332"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5(3),
+      I1 => U0_gpcs_pma_inst_RECEIVER_SOP_REG3_896,
+      I2 => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG3_753,
+      I3 => U0_gpcs_pma_inst_RECEIVER_EXTEND_REG1_738,
+      O => U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_4_1
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_2_11 : LUT4
+    generic map(
+      INIT => X"0010"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_SOP_REG3_896,
+      I1 => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG3_753,
+      I2 => U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5(5),
+      I3 => U0_gpcs_pma_inst_RECEIVER_EXTEND_REG1_738,
+      O => U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_2_1
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_0_11 : LUT4
+    generic map(
+      INIT => X"0010"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_SOP_REG3_896,
+      I1 => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG3_753,
+      I2 => U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5(7),
+      I3 => U0_gpcs_pma_inst_RECEIVER_EXTEND_REG1_738,
+      O => U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_0_1
+    );
+  U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_and00001 : LUT4
+    generic map(
+      INIT => X"0010"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_T_902,
+      I1 => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_798,
+      I2 => U0_gpcs_pma_inst_RECEIVER_RXCHARISK_REG1_827,
+      I3 => U0_gpcs_pma_inst_RECEIVER_R_820,
+      O => U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_and0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_mux00021 : LUT4
+    generic map(
+      INIT => X"2000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd1_669,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_OPCODE(1),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_587,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_OPCODE(0),
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_mux0002
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_RD_mux00031 : LUT4
+    generic map(
+      INIT => X"2000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd1_669,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_OPCODE(0),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_OPCODE(1),
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_587,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_RD_mux0003
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux000241 : LUT4
+    generic map(
+      INIT => X"A820"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(1),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_970,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_14_Q,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_1_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux0002161 : LUT4
+    generic map(
+      INIT => X"8A02"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(1),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_970,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_8_Q,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_7_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_COMPLETE_mux00001 : LUT4
+    generic map(
+      INIT => X"C8CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_COMPLETE_237,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_COMPLETE_mux0000
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux000281 : LUT4
+    generic map(
+      INIT => X"91B3"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(1),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_12_Q,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_970,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_3_Q
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Mcount_WR_ADDR_PLUS2_xor_3_11 : LUT4
+    generic map(
+      INIT => X"6AAA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(3),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(1),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(0),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(2),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result(3)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Mcount_RD_ADDR_xor_3_11 : LUT4
+    generic map(
+      INIT => X"6AAA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result_3_1
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_T_or0000_SW0 : LUT3
+    generic map(
+      INIT => X"32"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_TX_PACKET_1086,
+      I1 => gmii_tx_en,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_S_1038,
+      O => N2
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_T_or0000 : LUT4
+    generic map(
+      INIT => X"F888"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_TRIGGER_T_1046,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_V_1088,
+      I2 => N2,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_TX_EN_REG1_1084,
+      O => U0_gpcs_pma_inst_TRANSMITTER_T_or0000_1087
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or00001 : LUT2
+    generic map(
+      INIT => X"D"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_1106,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_REMOVE_IDLE_1155,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG3_or0000
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux00021411 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(1),
+      O => U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_not0001
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_0_and00001 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_C_713,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308,
+      O => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_0_and0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or00001 : LUT2
+    generic map(
+      INIT => X"E"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_LAST_DATA_SHIFT_607,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_or0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_not00011 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd7_683,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_not0001
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_REMOTE_FAULT_and00011 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CLEAR_STATUS_REG1_178,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CLEAR_STATUS_REG2_179,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_REMOTE_FAULT_and0001
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_R_or00001 : LUT3
+    generic map(
+      INIT => X"AB"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_S_1038,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_TX_ER_REG1_1085,
+      O => U0_gpcs_pma_inst_TRANSMITTER_R_or0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_IDLE_DETECT_REG1_not00011 : LUT3
+    generic map(
+      INIT => X"0E"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_EN_533,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG3_611,
+      I2 => U0_gpcs_pma_inst_SRESET_915,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_IDLE_DETECT_REG1_not0001
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_IDLE_or00011 : LUT3
+    generic map(
+      INIT => X"15"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_IDLE_or0001
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_or00011 : LUT4
+    generic map(
+      INIT => X"5501"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_or0001
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd2_In1 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_cmp_eq0000,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd3_676,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd2_In
+    );
+  U0_gpcs_pma_inst_RECEIVER_CGBAD_or00001 : LUT3
+    generic map(
+      INIT => X"EF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDISPERR_1318,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXNOTINTABLE_1320,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      O => U0_gpcs_pma_inst_RECEIVER_CGBAD_or0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd7_In1 : LUT3
+    generic map(
+      INIT => X"AE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd8_685,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd7_683,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_cmp_eq0000,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd7_In
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd3_In1 : LUT3
+    generic map(
+      INIT => X"AE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd4_678,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd3_676,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_cmp_eq0000,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd3_In
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd6_In1 : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_cmp_eq0000,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd6_681,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd7_683,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd6_In
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_and000021 : LUT4
+    generic map(
+      INIT => X"0302"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_C_HDR_REMOVED_REG_719,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RXCHARISK_REG1_827,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308,
+      I3 => U0_gpcs_pma_inst_RECEIVER_C_REG1_720,
+      O => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_14_and0000
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_and00001 : LUT4
+    generic map(
+      INIT => X"1000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_CGBAD_or0000,
+      I1 => U0_gpcs_pma_inst_RECEIVER_CGBAD_715,
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG_14_and0000,
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      O => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_and0000
+    );
+  U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_and00001 : LUT4
+    generic map(
+      INIT => X"0010"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_R_820,
+      I1 => N285,
+      I2 => U0_gpcs_pma_inst_RECEIVER_EXTEND_REG1_738,
+      I3 => U0_gpcs_pma_inst_RECEIVER_S_893,
+      O => U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_and0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CLEAR_STATUS_REG_COMB_and00002 : LUT4
+    generic map(
+      INIT => X"2000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(0),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(2),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_N6,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_RD_625,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CLEAR_STATUS_REG_COMB
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_S_and0000 : LUT4
+    generic map(
+      INIT => X"F020"
+    )
+    port map (
+      I0 => N12,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_TX_EN_REG1_1084,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_XMIT_DATA_INT_1096,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_TRIGGER_S_1044,
+      O => U0_gpcs_pma_inst_TRANSMITTER_S_and0000_1041
+    );
+  U0_gpcs_pma_inst_RECEIVER_EOP_or00006 : LUT4
+    generic map(
+      INIT => X"F888"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_I_REG_789,
+      I1 => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_798,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_927,
+      I3 => U0_gpcs_pma_inst_RECEIVER_EOP_or00001_729,
+      O => U0_gpcs_pma_inst_RECEIVER_EOP_or00006_733
+    );
+  U0_gpcs_pma_inst_RECEIVER_K23p76 : LUT4
+    generic map(
+      INIT => X"8000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(6),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(7),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(5),
+      I3 => U0_gpcs_pma_inst_RECEIVER_K23p71_792,
+      O => U0_gpcs_pma_inst_RECEIVER_K23p76_794
+    );
+  U0_gpcs_pma_inst_RECEIVER_K23p715 : LUT4
+    generic map(
+      INIT => X"2000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(1),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(3),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(2),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(4),
+      O => U0_gpcs_pma_inst_RECEIVER_K23p715_793
+    );
+  U0_gpcs_pma_inst_RECEIVER_K23p716 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_K23p76_794,
+      I1 => U0_gpcs_pma_inst_RECEIVER_K23p715_793,
+      O => U0_gpcs_pma_inst_RECEIVER_K23p7
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq000012 : LUT4
+    generic map(
+      INIT => X"0001"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(7),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(6),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(5),
+      I3 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(4),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq000012_363
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq000025 : LUT4
+    generic map(
+      INIT => X"0001"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(3),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(2),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(1),
+      I3 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(0),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq000025_364
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq000049 : LUT4
+    generic map(
+      INIT => X"0001"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(15),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(14),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(13),
+      I3 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(12),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq000049_365
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq000062 : LUT4
+    generic map(
+      INIT => X"0001"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(11),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(10),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(9),
+      I3 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(8),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq000062_366
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq000076 : LUT4
+    generic map(
+      INIT => X"8000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq000012_363,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq000025_364,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq000049_365,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq000062_366,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_cmp_eq0000
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_and0000 : LUT4
+    generic map(
+      INIT => X"0001"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(2),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(1),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(0),
+      I3 => N14,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_and0000_1109
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_OPCODE_not0001 : LUT4
+    generic map(
+      INIT => X"0010"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(3),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(1),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(2),
+      I3 => N16,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_OPCODE_not0001_624
+    );
+  U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or0001_SW1 : LUT4
+    generic map(
+      INIT => X"FFA8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RXCHARISK_REG1_827,
+      I1 => U0_gpcs_pma_inst_RECEIVER_C_REG1_720,
+      I2 => U0_gpcs_pma_inst_RECEIVER_C_REG2_721,
+      I3 => U0_gpcs_pma_inst_RECEIVER_CGBAD_715,
+      O => N23
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_COMB16 : LUT4
+    generic map(
+      INIT => X"1000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(12),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(11),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(10),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(13),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_COMB16_1104
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_COMB41 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N7,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_COMB31_1105,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_COMB
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_6_0 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA(6),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_1094,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_6_0_999
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_6_6 : LUT4
+    generic map(
+      INIT => X"FEEE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_S_1038,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_R_1034,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_TX_PACKET_1086,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1(6),
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_6_6_1001
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_6_15 : LUT2
+    generic map(
+      INIT => X"1"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_1094,
+      I1 => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_0_21
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_and00001 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISCOMMA_1307,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_and0000
+    );
+  U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or00001 : LUT2
+    generic map(
+      INIT => X"D"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      I1 => U0_gpcs_pma_inst_SRESET_915,
+      O => U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_LAST_DATA_SHIFT_not00011 : LUT2
+    generic map(
+      INIT => X"7"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG1_609,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd1_669,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_LAST_DATA_SHIFT_not0001
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT_or00001 : LUT2
+    generic map(
+      INIT => X"D"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_ENABLE_553,
+      I1 => U0_gpcs_pma_inst_SRESET_915,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT_or0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT_and00001 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_COMPLETE_237,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_COMPLETE_REG1_549,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT_and0000
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_INT_and00001 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_SET_REG1_259,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_SET_REG2_260,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_INT_and0000
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_and00001 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_and0000
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_or00001 : LUT3
+    generic map(
+      INIT => X"F1"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_SIGNAL_DETECT_REG_937,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_LOOPBACK_REG_580,
+      I2 => U0_gpcs_pma_inst_SRESET_915,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_or0000
+    );
+  U0_gpcs_pma_inst_RECEIVER_EXTEND_and00001 : LUT3
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RECEIVE_821,
+      I1 => U0_gpcs_pma_inst_RECEIVER_R_REG1_892,
+      I2 => U0_gpcs_pma_inst_RECEIVER_R_820,
+      O => U0_gpcs_pma_inst_RECEIVER_EXTEND_and0000
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_REMOTE_FAULT_and00001 : LUT3
+    generic map(
+      INIT => X"A8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_GENERATE_REMOTE_FAULT_183,
+      I1 => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT(0),
+      I2 => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT(1),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_REMOTE_FAULT_and0000
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_or00001 : LUT3
+    generic map(
+      INIT => X"FE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_211,
+      I1 => U0_gpcs_pma_inst_RECEIVER_I_REG_789,
+      I2 => U0_gpcs_pma_inst_SRESET_915,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_or0000
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_IDLE_or00001 : LUT4
+    generic map(
+      INIT => X"4041"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_IDLE_or0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR_not00011 : LUT3
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      I1 => N295,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd6_681,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR_not0001
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_and00004 : LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_C_REG1_720,
+      I1 => U0_gpcs_pma_inst_RECEIVER_CGBAD_REG3_717,
+      I2 => U0_gpcs_pma_inst_RECEIVER_I_REG_789,
+      I3 => U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_REG2_785,
+      O => U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_and00004_879
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRPISK_mux000611 : LUT3
+    generic map(
+      INIT => X"FD"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_TX_PACKET_1086,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_R_1034,
+      I2 => N286,
+      O => U0_gpcs_pma_inst_TRANSMITTER_N12
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_K_and000021 : LUT3
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(3),
+      I2 => N290,
+      O => U0_gpcs_pma_inst_RECEIVER_N10
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_Mcount_BIT_COUNT_xor_0_11 : LUT3
+    generic map(
+      INIT => X"B1"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_LOAD_EN,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(0),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd4_678,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_Mcount_BIT_COUNT
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_Mcount_BIT_COUNT_xor_1_11 : LUT3
+    generic map(
+      INIT => X"41"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_LOAD_EN,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(0),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(1),
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_Mcount_BIT_COUNT1
+    );
+  U0_gpcs_pma_inst_RECEIVER_K29p71 : LUT4
+    generic map(
+      INIT => X"8000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_N10,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(0),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(6),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(5),
+      O => U0_gpcs_pma_inst_RECEIVER_K29p7
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_7_1 : LUT4
+    generic map(
+      INIT => X"F5E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_1094,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_N12,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA(7),
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1(7),
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_7_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_5_1 : LUT4
+    generic map(
+      INIT => X"F5E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_1094,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_N12,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA(5),
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1(5),
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_5_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_4_1 : LUT4
+    generic map(
+      INIT => X"F5E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_1094,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_N12,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA(4),
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1(4),
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_4_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRPISK_mux00061 : LUT4
+    generic map(
+      INIT => X"44E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_1094,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_N12,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(1),
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRPISK_mux0006
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_9_1 : LUT4
+    generic map(
+      INIT => X"C0AA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(8),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_REG_704,
+      I2 => N310,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_In,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(9)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_4_1 : LUT4
+    generic map(
+      INIT => X"A0CC"
+    )
+    port map (
+      I0 => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_REMOTE_FAULT,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(3),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_RD(3),
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_In,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(4)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_11_1 : LUT4
+    generic map(
+      INIT => X"A0CC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_695,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(10),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_RD_5_cmp_eq0000,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_In,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(11)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_10_1 : LUT4
+    generic map(
+      INIT => X"C0AA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(9),
+      I1 => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_RD_5_cmp_eq0000,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_In,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(10)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_mux00001 : LUT4
+    generic map(
+      INIT => X"CAAA"
+    )
+    port map (
+      I0 => configuration_vector(3),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(10),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_cmp_eq0000,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_mux0000
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_SYNC_DISPARITY_mux000111 : LUT4
+    generic map(
+      INIT => X"0001"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_TX_PACKET_1086,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_S_1038,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_V_1088,
+      I3 => N25,
+      O => U0_gpcs_pma_inst_TRANSMITTER_INSERT_IDLE_mux0007
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_and00003 : LUT4
+    generic map(
+      INIT => X"0001"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(6),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(5),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(3),
+      I3 => N29,
+      O => U0_gpcs_pma_inst_RECEIVER_N111
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_8_SW0 : LUT4
+    generic map(
+      INIT => X"E2FF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_8_Q,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      I2 => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT(9),
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      O => N37
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_8_Q : LUT4
+    generic map(
+      INIT => X"C0AA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(7),
+      I1 => N37,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_14_26_651,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_In,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(8)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_13_SW0 : LUT4
+    generic map(
+      INIT => X"A820"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_13_Q,
+      I3 => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT(1),
+      O => N39
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_13_Q : LUT4
+    generic map(
+      INIT => X"C0AA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(12),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_14_26_651,
+      I2 => N39,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_In,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(13)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_7_SW0 : LUT4
+    generic map(
+      INIT => X"DA8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      I1 => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT(8),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_7_Q,
+      O => N41
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_7_Q : LUT4
+    generic map(
+      INIT => X"C0AA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(6),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_14_26_651,
+      I2 => N41,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_In,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(7)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_1_0 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA(1),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_1094,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_1_0_989
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_1_9 : LUT4
+    generic map(
+      INIT => X"3222"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_R_1034,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_T_1043,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1(1),
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_TX_PACKET_1086,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_1_9_991
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_0_0 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA(0),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_1094,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_0_0_985
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_0_5 : LUT4
+    generic map(
+      INIT => X"FEEE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_R_1034,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_T_1043,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_TX_PACKET_1086,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1(0),
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_0_5_988
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_0_25 : LUT4
+    generic map(
+      INIT => X"F020"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_0_5_988,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_V_1088,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_0_21,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_S_1038,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_0_25_987
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_14_17 : LUT4
+    generic map(
+      INIT => X"9810"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_LOOPBACK_REG_580,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_15_Q,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_14_17_650
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_14_59 : LUT4
+    generic map(
+      INIT => X"C0AA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(13),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_14_26_651,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_14_17_650,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_In,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(14)
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_and000061 : LUT3
+    generic map(
+      INIT => X"17"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(3),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(4),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(2),
+      O => U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_and000061_760
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or000026 : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(0),
+      I1 => phyad(1),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(3),
+      I3 => phyad(4),
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or000026_591
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or000035 : LUT2
+    generic map(
+      INIT => X"9"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      I1 => phyad(0),
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or000035_592
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or000062 : LUT4
+    generic map(
+      INIT => X"9009"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      I1 => phyad(2),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(2),
+      I3 => phyad(3),
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or000062_593
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or0000106 : LUT4
+    generic map(
+      INIT => X"0010"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(0),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(3),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or0000101_589,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or0000106_590
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or0000111 : LUT4
+    generic map(
+      INIT => X"EAAA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or0000106_590,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or000026_591,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or000035_592,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or000062_593,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CONSISTENCY_MATCH_COMB_and00001 : LUT3
+    generic map(
+      INIT => X"82"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONSISTENCY_MATCH_COMB_cmp_eq0000_cy(6),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(15),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_15_Q,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CONSISTENCY_MATCH_COMB
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_or0000_SW0 : LUT3
+    generic map(
+      INIT => X"FE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_955,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_949,
+      O => N43
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_or0000_SW1 : LUT3
+    generic map(
+      INIT => X"EA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_955,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_949,
+      O => N44
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT_and00011 : LUT4
+    generic map(
+      INIT => X"0010"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(3),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(1),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(4),
+      I3 => N46,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_ENABLE_not0001
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_In1 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd6_681,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_cmp_eq0000,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_In
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_OUT_or00001 : LUT3
+    generic map(
+      INIT => X"FE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd3_676,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_679,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd4_678,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_OUT_or0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_OUT_mux00011 : LUT3
+    generic map(
+      INIT => X"EA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_TRI_mux0001_617,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_OUT_or0000,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(15),
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_OUT_mux0001
+    );
+  U0_gpcs_pma_inst_RECEIVER_SOP_and0000_SW0 : LUT2
+    generic map(
+      INIT => X"D"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_S_893,
+      I1 => U0_gpcs_pma_inst_RECEIVER_WAIT_FOR_K_905,
+      O => N48
+    );
+  U0_gpcs_pma_inst_RECEIVER_SOP_and0000 : LUT4
+    generic map(
+      INIT => X"0C08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_I_REG_789,
+      I1 => U0_gpcs_pma_inst_RECEIVER_LINK_OK,
+      I2 => N48,
+      I3 => U0_gpcs_pma_inst_RECEIVER_EXTEND_734,
+      O => U0_gpcs_pma_inst_RECEIVER_SOP_and0000_897
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_TRI_mux0001_SW0 : LUT3
+    generic map(
+      INIT => X"DF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_OPCODE(1),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_OPCODE(0),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_587,
+      O => N50
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_TRI_mux0001 : LUT4
+    generic map(
+      INIT => X"FF1B"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd6_681,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_OUT_or0000,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_cmp_eq0000,
+      I3 => N50,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_TRI_mux0001_617
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_2_0 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA(2),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_1094,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_2_0_992
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_15_47 : LUT4
+    generic map(
+      INIT => X"0A0C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_15_Q,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESET_REG_699,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(2),
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_15_47_653
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_and000052 : LUT4
+    generic map(
+      INIT => X"6880"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(2),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXRUNDISP_1321,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308,
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(0),
+      O => U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_and000052_766
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_and0000130 : LUT4
+    generic map(
+      INIT => X"0116"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(2),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXRUNDISP_1321,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308,
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(0),
+      O => U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_and0000130_765
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_not000121 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_INSERT_IDLE_1023,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      O => U0_gpcs_pma_inst_TRANSMITTER_N15
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_AN_SYNC_STATUS_and00001 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_SATURATED_208,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096_357,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_AN_SYNC_STATUS_and0000
+    );
+  U0_gpcs_pma_inst_RECEIVER_CARRIER_DETECT_or00001 : LUT3
+    generic map(
+      INIT => X"FE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_763,
+      I1 => U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_757,
+      I2 => U0_gpcs_pma_inst_RECEIVER_FALSE_K_761,
+      O => U0_gpcs_pma_inst_RECEIVER_CARRIER_DETECT_or0000
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS_or0000_SW0 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_949,
+      O => N54
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_or0000_SW0 : LUT4
+    generic map(
+      INIT => X"8001"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(3),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(2),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(1),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(0),
+      O => N56
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_not00011 : LUT3
+    generic map(
+      INIT => X"A2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_cmp_eq0000,
+      I2 => N296,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_not0001
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_15_not00011 : LUT4
+    generic map(
+      INIT => X"EAAA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_EN_533,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG3_611,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689,
+      I3 => N299,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_15_not0001
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00005 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(1),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(8),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00005_234
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00008 : LUT3
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(0),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(4),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(5),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00008_235
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq000015 : LUT4
+    generic map(
+      INIT => X"8000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00000_232,
+      I1 => N293,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00005_234,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00008_235,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_RD_2_cmp_eq00001 : LUT3
+    generic map(
+      INIT => X"20"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      I2 => N287,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_RD(3)
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_CGBAD : LUT4
+    generic map(
+      INIT => X"FFB3"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISCOMMA_1307,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_927,
+      I3 => N297,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_CGBAD_923
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_In20 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_955,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_949,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_In20_939
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_In69 : LUT3
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_949,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_955,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_In69_940
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_In16 : LUT2
+    generic map(
+      INIT => X"E"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_938,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_In16_951
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In36 : LUT4
+    generic map(
+      INIT => X"CEA2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_938,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_955,
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_949,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In36_958
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In87 : LUT2
+    generic map(
+      INIT => X"7"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_949,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In87_961
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In111 : LUT3
+    generic map(
+      INIT => X"10"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_955,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_938,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISCOMMA_1307,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In111_956
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In115 : LUT4
+    generic map(
+      INIT => X"A0E0"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In96_962,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In87_961,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In111_956,
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_CGBAD_923,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In115_957
+    );
+  U0_gpcs_pma_inst_RECEIVER_C_or0000_SW0 : LUT4
+    generic map(
+      INIT => X"FEFF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(4),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(2),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(3),
+      I3 => N289,
+      O => N60
+    );
+  U0_gpcs_pma_inst_RECEIVER_C_or0000 : LUT4
+    generic map(
+      INIT => X"0213"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(0),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308,
+      I2 => N61,
+      I3 => N60,
+      O => U0_gpcs_pma_inst_RECEIVER_C_and0000_norst
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_2_3 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_2_3_660
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_2_11 : LUT3
+    generic map(
+      INIT => X"10"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(2),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(3),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(0),
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_2_11_658
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXRUNDISP_mux00001 : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(12),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(11),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(15),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXRUNDISP_mux0000
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_mux00011 : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(12),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(9),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(14),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_mux0001
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_REG1_or00001 : LUT2
+    generic map(
+      INIT => X"E"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_1111,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_1118,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_REG1_or0000
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In5 : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_949,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_955,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In5_946
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In73 : LUT4
+    generic map(
+      INIT => X"EAC5"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_949,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_955,
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_N7,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In73_947
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In2 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_159,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In2_476
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In28 : LUT4
+    generic map(
+      INIT => X"0200"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_159,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In28_477
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In44 : LUT4
+    generic map(
+      INIT => X"5450"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_361,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In28_477,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In12_475,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In44_478
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116 : LUT4
+    generic map(
+      INIT => X"0200"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_2_160,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_159,
+      I2 => U0_gpcs_pma_inst_RECEIVER_I_REG_789,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not00016_431,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116_430
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_DISPARITY1 : LUT3
+    generic map(
+      INIT => X"B8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_TXCHARDISPVAL_1050,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_TXCHARDISPMODE_1048,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_12_Q,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_DISPARITY
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_cmp_eq00001 : LUT3
+    generic map(
+      INIT => X"10"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(0),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(2),
+      I2 => N298,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_cmp_eq0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_not0001 : LUT4
+    generic map(
+      INIT => X"CE8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CONFIGURATION_VALID_EN_562,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(11),
+      I2 => N63,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_COLL_TEST_REG_not0001,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_not0001_697
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In30 : LUT4
+    generic map(
+      INIT => X"3F1F"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_159,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In7_485,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In30_482
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In42 : LUT4
+    generic map(
+      INIT => X"D555"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_DONE_206,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_16_Q,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_15_Q,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_15_Q,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In42_483
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In103 : LUT3
+    generic map(
+      INIT => X"10"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In103_481
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In141 : LUT4
+    generic map(
+      INIT => X"00A8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_AN_SYNC_STATUS_173,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In103_481,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In79_486,
+      I3 => N300,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXRUNDISP_not00011 : LUT2
+    generic map(
+      INIT => X"D"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(13),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(12),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXRUNDISP_not0001
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_V_and00005 : LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+    port map (
+      I0 => gmii_txd(4),
+      I1 => gmii_txd(5),
+      I2 => gmii_txd(6),
+      I3 => gmii_txd(7),
+      O => U0_gpcs_pma_inst_TRANSMITTER_V_and00005_1092
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_V_and000018 : LUT4
+    generic map(
+      INIT => X"7FFF"
+    )
+    port map (
+      I0 => gmii_txd(0),
+      I1 => gmii_txd(1),
+      I2 => gmii_txd(2),
+      I3 => gmii_txd(3),
+      O => U0_gpcs_pma_inst_TRANSMITTER_V_and000018_1090
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_V_and000044 : LUT4
+    generic map(
+      INIT => X"FE0E"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_V_and000018_1090,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_V_and00005_1092,
+      I2 => gmii_tx_en,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_TX_PACKET_1086,
+      O => U0_gpcs_pma_inst_TRANSMITTER_V_and000044_1091
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_V_and000088 : LUT4
+    generic map(
+      INIT => X"AA80"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_XMIT_DATA_INT_1096,
+      I1 => gmii_tx_er,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_V_and000044_1091,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_V_and000072_1093,
+      O => U0_gpcs_pma_inst_TRANSMITTER_V_and0000
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In31 : LUT2
+    generic map(
+      INIT => X"7"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_N6
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In17 : LUT4
+    generic map(
+      INIT => X"1033"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_DONE_206,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In17_489
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In125 : LUT4
+    generic map(
+      INIT => X"22A0"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_AN_SYNC_STATUS_173,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In74_492,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_N9,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In32 : LUT2
+    generic map(
+      INIT => X"1"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_11_or0000
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_COMB11 : LUT4
+    generic map(
+      INIT => X"2000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(15),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(10),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(14),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(12),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N10
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_COMB22 : LUT4
+    generic map(
+      INIT => X"1000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(18),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(16),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(19),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(17),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N7
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_REMOVE_IDLE_or000011 : LUT4
+    generic map(
+      INIT => X"F7FF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_REG2_1117,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_REG1_1115,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_1106,
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_REMOVE_IDLE_or000011_1156
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_REMOVE_IDLE_or000020 : LUT3
+    generic map(
+      INIT => X"57"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(3),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(2),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(1),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_REMOVE_IDLE_or000020_1157
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_COMB16 : LUT4
+    generic map(
+      INIT => X"1000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(17),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(19),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(18),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(16),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_COMB16_1120
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_COMB43 : LUT4
+    generic map(
+      INIT => X"0010"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(12),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(14),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(10),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(15),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_COMB43_1121
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_COMB16 : LUT4
+    generic map(
+      INIT => X"1000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(7),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(9),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(8),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(6),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_COMB16_1113
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_COMB43 : LUT4
+    generic map(
+      INIT => X"0010"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(2),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(4),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(0),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(5),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_COMB43_1114
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_not0001_SW0 : LUT3
+    generic map(
+      INIT => X"6E"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(5),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(6),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(7),
+      O => N75
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_not0001 : LUT4
+    generic map(
+      INIT => X"FFBE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_K28p5_1025,
+      I1 => N75,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_N01,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_N15,
+      O => U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_not0001_1022
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_UNIDIRECTIONAL_ENABLE1 : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_UNIDIRECTIONAL_ENABLE_REG_708,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DUPLEX_MODE_REG_571,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550,
+      O => U0_gpcs_pma_inst_UNIDIRECTIONAL_ENABLE
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER54 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_169,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER54_469
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER110 : LUT4
+    generic map(
+      INIT => X"FFEC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_524,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER14_466,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_RUDI_INVALID_DELAY_0_and0000,
+      I3 => N304,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_NEXT_WR_ADDR_2 : FDR
+    port map (
+      C => pma_rx_clk0,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(2),
+      R => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_1287,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_NEXT_WR_ADDR(2)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_NEXT_WR_ADDR_1 : FDR
+    port map (
+      C => pma_rx_clk0,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(1),
+      R => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_1287,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_NEXT_WR_ADDR(1)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_NEXT_WR_ADDR_0 : FDS
+    port map (
+      C => pma_rx_clk0,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_RESET_1287,
+      S => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(0),
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_NEXT_WR_ADDR(0)
+    );
+  U0_gpcs_pma_inst_RECEIVER_D0p0_REG : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_D0p01,
+      R => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(0),
+      Q => U0_gpcs_pma_inst_RECEIVER_D0p0_REG_725
+    );
+  U0_gpcs_pma_inst_RECEIVER_D0p011 : LUT3
+    generic map(
+      INIT => X"10"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(2),
+      I2 => U0_gpcs_pma_inst_RECEIVER_N111,
+      O => U0_gpcs_pma_inst_RECEIVER_D0p01
+    );
+  U0_gpcs_pma_inst_RECEIVER_K28p5_REG1 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_K28p51,
+      R => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(0),
+      Q => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_798
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_0 : FDS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_0_25_987,
+      S => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_0_0_985,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(0)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_1 : FDS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_1_31,
+      S => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_1_0_989,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(1)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_2 : FDS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_2_41,
+      S => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_2_0_992,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(2)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_6 : FDS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_6_26,
+      S => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_6_0_999,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(6)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PREVIOUS_STATE_3 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_cmp_eq000311_494,
+      R => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_N6,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PREVIOUS_STATE(3)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_cmp_eq000311 : LUT2
+    generic map(
+      INIT => X"1"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      I1 => U0_gpcs_pma_inst_SRESET_915,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_cmp_eq000311_494
+    );
+  U0_gpcs_pma_inst_RECEIVER_RUDI_C : FDRS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RUDI_C_or00001,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      S => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_REG(3),
+      Q => U0_gpcs_pma_inst_RECEIVER_RUDI_C_824
+    );
+  U0_gpcs_pma_inst_RECEIVER_RUDI_C_or000011 : LUT3
+    generic map(
+      INIT => X"FE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_REG(2),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_REG(1),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_REG(0),
+      O => U0_gpcs_pma_inst_RECEIVER_RUDI_C_or00001
+    );
+  U0_gpcs_pma_inst_RECEIVER_RUDI_I : FDRS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_IDLE_REG(2),
+      R => U0_gpcs_pma_inst_SRESET_915,
+      S => U0_gpcs_pma_inst_RECEIVER_IDLE_REG(1),
+      Q => U0_gpcs_pma_inst_RECEIVER_RUDI_I_826
+    );
+  U0_gpcs_pma_inst_RECEIVER_EOP : FDRS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_EOP_or000014,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      S => U0_gpcs_pma_inst_RECEIVER_EOP_or00006_733,
+      Q => U0_gpcs_pma_inst_RECEIVER_EOP_726
+    );
+  U0_gpcs_pma_inst_RECEIVER_EOP_REG1 : FDRS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_EOP_REG1_or00001,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      S => U0_gpcs_pma_inst_RECEIVER_EOP_726,
+      Q => U0_gpcs_pma_inst_RECEIVER_EOP_REG1_727
+    );
+  U0_gpcs_pma_inst_RECEIVER_EOP_REG1_or000011 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_EXTEND_734,
+      I1 => U0_gpcs_pma_inst_RECEIVER_EXTEND_REG1_738,
+      O => U0_gpcs_pma_inst_RECEIVER_EOP_REG1_or00001
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXD_0 : FDRS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_7_11,
+      R => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG,
+      S => U0_gpcs_pma_inst_RECEIVER_SOP_REG3_896,
+      Q => U0_gpcs_pma_inst_RECEIVER_RXD(0)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_7_111 : LUT3
+    generic map(
+      INIT => X"32"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_EXTEND_REG1_738,
+      I1 => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG3_753,
+      I2 => U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5(0),
+      O => U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_7_11
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXD_2 : FDRS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_5_11,
+      R => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG,
+      S => U0_gpcs_pma_inst_RECEIVER_EXTEND_REG1_738,
+      Q => U0_gpcs_pma_inst_RECEIVER_RXD(2)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_5_111 : LUT3
+    generic map(
+      INIT => X"FE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_SOP_REG3_896,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5(2),
+      I2 => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG3_753,
+      O => U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_5_11
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXD_4 : FDRS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_3_11_847,
+      R => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG,
+      S => U0_gpcs_pma_inst_RECEIVER_SOP_REG3_896,
+      Q => U0_gpcs_pma_inst_RECEIVER_RXD(4)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXD_6 : FDRS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_1_11,
+      R => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG,
+      S => U0_gpcs_pma_inst_RECEIVER_SOP_REG3_896,
+      Q => U0_gpcs_pma_inst_RECEIVER_RXD(6)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_1_111 : LUT3
+    generic map(
+      INIT => X"10"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG3_753,
+      I1 => U0_gpcs_pma_inst_RECEIVER_EXTEND_REG1_738,
+      I2 => U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5(6),
+      O => U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_1_11
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXDATA_6 : FDRS
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_N15,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      S => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(6),
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXDATA(6)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_13 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_11_or0000,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_13_mux00001,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_13_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_13_mux000011 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_13_Q,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_13_mux00001
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_12 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_11_or0000,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_12_mux00001,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_12_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_12_mux000011 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_Q,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_12_mux00001
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_15 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_11_or0000,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_15_mux00001,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_15_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_15_mux000011 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_15_Q,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_15_mux00001
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_5 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_11_or0000,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_5_mux00001,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_5_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_5_mux000011 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_5_Q,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_5_mux00001
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_8 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_11_or0000,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_8_mux00001,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_8_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_8_mux000011 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_8_Q,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_8_mux00001
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_7 : FDRE
+    port map (
+      C => gtx_clk,
+      CE => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_11_or0000,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_7_mux00001,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_7_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_7_mux000011 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_7_Q,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_7_mux00001
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_1_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(1),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_1_rt_300
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_2_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(2),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_2_rt_302
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_3_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(3),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_3_rt_304
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_4_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(4),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_4_rt_306
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_5_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(5),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_5_rt_308
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_6_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(6),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_6_rt_310
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_7_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(7),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_cy_7_rt_312
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_1_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(1),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_1_rt_336
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_2_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(2),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_2_rt_338
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_3_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(3),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_3_rt_340
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_4_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(4),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_4_rt_342
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_5_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(5),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_5_rt_344
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_6_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(6),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_6_rt_346
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_7_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(7),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_7_rt_348
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_8_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(8),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_8_rt_350
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_9_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(9),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_9_rt_352
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_10_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(10),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_cy_10_rt_334
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_1_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(1),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_1_rt_317
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_2_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(2),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_2_rt_319
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_3_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(3),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_3_rt_321
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_4_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(4),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_4_rt_323
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_5_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(5),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_5_rt_325
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_6_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(6),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_6_rt_327
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_7_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(7),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_cy_7_rt_329
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_xor_8_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(8),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_xor_8_rt_314
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_xor_11_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(11),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_xor_11_rt_354
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_xor_8_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(8),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_xor_8_rt_331
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER37 : LUT4
+    generic map(
+      INIT => X"7F00"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_15_Q,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_15_Q,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_16_Q,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER36_467,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER37_468
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_COMB24 : LUT4
+    generic map(
+      INIT => X"0010"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(5),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(4),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(3),
+      I3 => N79,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_COMB24_1101
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_rstpot_1142,
+      R => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_or0000,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_1138
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_REMOVE_IDLE : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_REMOVE_IDLE_rstpot,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_REMOVE_IDLE_1155
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_DONE : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_DONE_rstpot_207,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_DONE_206
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Mxor_WR_ADDRBIN_1_Result1 : LUT3
+    generic map(
+      INIT => X"96"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(2),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(3),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(1),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRBIN(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_DATA1 : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_DATA_INT_528,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_6_Q,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550,
+      I3 => U0_gpcs_pma_inst_UNIDIRECTIONAL_ENABLE,
+      O => U0_gpcs_pma_inst_XMIT_DATA
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_COMB42 : LUT4
+    generic map(
+      INIT => X"F020"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N111,
+      I1 => N85,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N8,
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_COMB24_1101,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_COMB
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER58_SW0 : LUT3
+    generic map(
+      INIT => X"DF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_159,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_361,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CONSISTENCY_MATCH_181,
+      O => N87
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_DV : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RX_DV_rstpot_884,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => NlwRenamedSig_OI_U0_gpcs_pma_inst_RECEIVER_RX_DV
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CONFIG_REG_MATCH_COMB_and00001_SW0 : LUT4
+    generic map(
+      INIT => X"666F"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(15),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(15),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_N6,
+      O => N93
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_0 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_0_rstpot_401,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_0_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_1 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_1_rstpot_413,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_1_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_2 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_2_rstpot_415,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_2_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_3 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_3_rstpot_417,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_3_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_4 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_4_rstpot_419,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_4_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_5 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_5_rstpot_421,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_5_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_6 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_6_rstpot_423,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_6_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_7 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_7_rstpot_425,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_7_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_8 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_8_rstpot_427,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_8_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_9 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_9_rstpot_429,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_9_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_10 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_10_rstpot_404,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_10_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_11 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_11_rstpot_406,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_11_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_12 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_12_rstpot_408,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_12_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_13 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_13_rstpot_410,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_13_Q
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_15 : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_15_rstpot_412,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_15_Q
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_rstpot_963,
+      R => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_or0000,
+      Q => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_955
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER14 : LUT4
+    generic map(
+      INIT => X"FFEF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_CHANGE_239,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_INT_256,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_AN_SYNC_STATUS_173,
+      I3 => N305,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER14_466
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_rstpot : LUT4
+    generic map(
+      INIT => X"FEAA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_1106,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_COMB,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_COMB,
+      I3 => N97,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_rstpot_1142
+    );
+  U0_gpcs_pma_inst_STATUS_VECTOR_0_PRE : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_STATUS_VECTOR_0_PRE_rstpot,
+      Q => U0_gpcs_pma_inst_STATUS_VECTOR_0_PRE_918
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_rstpot_968,
+      Q => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_ENCOMMAALIGN : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_SYNCHRONISATION_ENCOMMAALIGN_rstpot_926,
+      Q => U0_gpcs_pma_inst_SYNCHRONISATION_ENCOMMAALIGN_925
+    );
+  U0_gpcs_pma_inst_RECEIVER_I_and0000_SW2 : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_927,
+      I1 => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_798,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308,
+      O => N99
+    );
+  U0_gpcs_pma_inst_RECEIVER_I_and0000 : LUT4
+    generic map(
+      INIT => X"00E2"
+    )
+    port map (
+      I0 => N99,
+      I1 => U0_gpcs_pma_inst_RECEIVER_LINK_OK,
+      I2 => N100,
+      I3 => U0_gpcs_pma_inst_RECEIVER_C_and0000_norst,
+      O => U0_gpcs_pma_inst_RECEIVER_I_and0000_790
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CONFIG_REG_MATCH_COMB_and00001_SW1 : LUT2
+    generic map(
+      INIT => X"D"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_2_160,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359,
+      O => N102
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_not0001_SW0_SW1 : LUT2
+    generic map(
+      INIT => X"E"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG3_611,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_EN_533,
+      O => N105
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_not0001 : LUT4
+    generic map(
+      INIT => X"D8F0"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689,
+      I1 => N105,
+      I2 => N104,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_cmp_eq0000,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_not0001_539
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_RUDI_INVALID_INT11 : LUT4
+    generic map(
+      INIT => X"4544"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_211,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_INVALID_888,
+      I2 => U0_gpcs_pma_inst_UNIDIRECTIONAL_ENABLE,
+      I3 => N107,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_RUDI_INVALID_DELAY_0_and0000
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDISPERR : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDISPERR_rstpot_1319,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDISPERR_1318
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_rstpot : LUT3
+    generic map(
+      INIT => X"E2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_695,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_not0001_697,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_mux0000,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_rstpot_698
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_rstpot_698,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_695
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESET_REG : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESET_REG_rstpot_700,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESET_REG_699
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RUNDISP_REG : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RUNDISP_REG_rstpot_1306,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RUNDISP_REG_1305
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_rstpot : LUT3
+    generic map(
+      INIT => X"CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_Q,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_mux0000,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_not0001_539,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_rstpot_540
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_rstpot_540,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_Q
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_13_rstpot : LUT3
+    generic map(
+      INIT => X"CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_13_Q,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_13_mux0000,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_not0001_539,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_13_rstpot_543
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_13 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_13_rstpot_543,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_13_Q
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_rstpot : LUT3
+    generic map(
+      INIT => X"E2"
+    )
+    port map (
+      I0 => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG,
+      I1 => N306,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_mux0000,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_rstpot_579
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG : FDS
+    generic map(
+      INIT => '1'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_rstpot_579,
+      S => U0_gpcs_pma_inst_SRESET_915,
+      Q => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_rstpot : LUT3
+    generic map(
+      INIT => X"E2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_not0001,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_mux0000,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_rstpot_552
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG : FDS
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_rstpot_552,
+      S => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_UNIDIRECTIONAL_ENABLE_REG_rstpot : LUT3
+    generic map(
+      INIT => X"E2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_UNIDIRECTIONAL_ENABLE_REG_708,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_not0001,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_UNIDIRECTIONAL_ENABLE_REG_mux0000,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_UNIDIRECTIONAL_ENABLE_REG_rstpot_710
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_UNIDIRECTIONAL_ENABLE_REG : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_UNIDIRECTIONAL_ENABLE_REG_rstpot_710,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_UNIDIRECTIONAL_ENABLE_REG_708
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_LOOPBACK_REG_rstpot : LUT3
+    generic map(
+      INIT => X"E2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_LOOPBACK_REG_580,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_not0001,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_LOOPBACK_REG_mux0000,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_LOOPBACK_REG_rstpot_582
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_LOOPBACK_REG : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_LOOPBACK_REG_rstpot_582,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_LOOPBACK_REG_580
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DUPLEX_MODE_REG : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DUPLEX_MODE_REG_rstpot_572,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DUPLEX_MODE_REG_571
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_REG : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_REG_rstpot_705,
+      R => U0_gpcs_pma_inst_SRESET_915,
+      Q => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_REG_704
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_CGBAD_SW1 : LUT4
+    generic map(
+      INIT => X"ECFF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISCOMMA_1307,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_927,
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_955,
+      O => N111
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_In13 : LUT4
+    generic map(
+      INIT => X"B0A0"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_938,
+      I1 => N58,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_In20_939,
+      I3 => N113,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_In13_950
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_0_rstpot : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_0_Q,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116_430,
+      I3 => N117,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_0_rstpot_401
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_1_rstpot : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_1_Q,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116_430,
+      I3 => N119,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_1_rstpot_413
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_2_rstpot : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_2_Q,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116_430,
+      I3 => N121,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_2_rstpot_415
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_3_rstpot : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_3_Q,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116_430,
+      I3 => N123,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_3_rstpot_417
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_4_rstpot : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_4_Q,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116_430,
+      I3 => N125,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_4_rstpot_419
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_5_rstpot : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_5_Q,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116_430,
+      I3 => N127,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_5_rstpot_421
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_6_rstpot : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_6_Q,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116_430,
+      I3 => N129,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_6_rstpot_423
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_7_rstpot : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_7_Q,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116_430,
+      I3 => N131,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_7_rstpot_425
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_8_rstpot : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_8_Q,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116_430,
+      I3 => N133,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_8_rstpot_427
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_9_rstpot : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_9_Q,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116_430,
+      I3 => N135,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_9_rstpot_429
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_10_rstpot : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_10_Q,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116_430,
+      I3 => N137,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_10_rstpot_404
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_11_rstpot : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_11_Q,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116_430,
+      I3 => N139,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_11_rstpot_406
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_12_rstpot : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_12_Q,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116_430,
+      I3 => N141,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_12_rstpot_408
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_13_rstpot : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_13_Q,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116_430,
+      I3 => N143,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_13_rstpot_410
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_15_rstpot : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_15_Q,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000116_430,
+      I3 => N145,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_15_rstpot_412
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_REMOVE_IDLE_rstpot1 : LUT4
+    generic map(
+      INIT => X"0054"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_REMOVE_IDLE_or000020_1157,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_COMB,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_COMB,
+      I3 => N147,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_REMOVE_IDLE_rstpot
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDISPERR_rstpot : LUT4
+    generic map(
+      INIT => X"BE14"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(13),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(10),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RUNDISP_REG_1305,
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDISPERR_1318,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDISPERR_rstpot_1319
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In61 : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_938,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS(1),
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS(0),
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In61_960
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RUNDISP_REG_rstpot : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(13),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(11),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RUNDISP_REG_1305,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RUNDISP_REG_rstpot_1306
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_In32 : LUT4
+    generic map(
+      INIT => X"0020"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS(1),
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS(0),
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_938,
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_In32_952
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_mux000011_SW0 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(13),
+      O => N151
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_mux000011_SW1 : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(12),
+      O => N153
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER14_SW1 : LUT4
+    generic map(
+      INIT => X"FFEF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER_REG2_472,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER_REG_471,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_AN_SYNC_STATUS_173,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N157
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_COMB42_SW0 : LUT4
+    generic map(
+      INIT => X"BAAA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_1102,
+      I1 => N85,
+      I2 => N301,
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N8,
+      O => N159
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_COMB42_SW1 : LUT2
+    generic map(
+      INIT => X"E"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_1102,
+      I1 => N302,
+      O => N160
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_COMB42_SW2 : LUT4
+    generic map(
+      INIT => X"4555"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_1102,
+      I1 => N303,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N111,
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N8,
+      O => N162
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_COMB42_SW3 : LUT2
+    generic map(
+      INIT => X"1"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_1102,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N8,
+      O => N163
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_15_97 : LUT4
+    generic map(
+      INIT => X"3A0A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(14),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(3),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_In,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_15_65_654,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(15)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_5_57 : LUT4
+    generic map(
+      INIT => X"C0AA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(4),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_14_26_651,
+      I2 => N165,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_In,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(5)
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In1151 : LUT4
+    generic map(
+      INIT => X"3320"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_938,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_CGBAD_923,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In73_947,
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In36_945,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In115
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In79 : LUT4
+    generic map(
+      INIT => X"AA80"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In42_483,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In50_484,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In30_482,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In79_486
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In64 : LUT4
+    generic map(
+      INIT => X"7000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_361,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_159,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In56_490,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In64_491
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In29_SW0 : LUT3
+    generic map(
+      INIT => X"7F"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CONSISTENCY_MATCH_181,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_169,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_159,
+      O => N169
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_and000013 : LUT4
+    generic map(
+      INIT => X"00C8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(1),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(3),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(2),
+      I3 => N171,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_and000013_1139
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_and000074_SW0 : LUT4
+    generic map(
+      INIT => X"8000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(7),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(2),
+      I2 => U0_gpcs_pma_inst_RECEIVER_N41,
+      I3 => U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_and000026_759,
+      O => N173
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_Mcount_BIT_COUNT_xor_2_11 : LUT4
+    generic map(
+      INIT => X"FAF9"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(2),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(0),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_LOAD_EN,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(1),
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_Mcount_BIT_COUNT2
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_and0000_SW0 : LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_S_893,
+      I1 => U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_763,
+      I2 => U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_757,
+      I3 => U0_gpcs_pma_inst_RECEIVER_FALSE_K_761,
+      O => N70
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_and000012 : LUT4
+    generic map(
+      INIT => X"040C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_798,
+      I1 => U0_gpcs_pma_inst_RECEIVER_T_REG2_904,
+      I2 => U0_gpcs_pma_inst_RECEIVER_R_820,
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_927,
+      O => U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_and000012_877
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_and000039_SW0 : LUT2
+    generic map(
+      INIT => X"B"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_R_REG1_892,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_and000028_878,
+      O => N175
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_Mcount_BIT_COUNT_xor_3_11_SW0 : LUT3
+    generic map(
+      INIT => X"01"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(2),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(1),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(0),
+      O => N177
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_Mcount_BIT_COUNT_xor_3_11 : LUT4
+    generic map(
+      INIT => X"BE14"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_LOAD_EN,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(3),
+      I2 => N177,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd4_678,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_Mcount_BIT_COUNT3
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_INVALID_or00001_SW0 : LUT3
+    generic map(
+      INIT => X"AE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_770,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_INVALID_888,
+      I2 => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_798,
+      O => N181
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_In721 : LUT4
+    generic map(
+      INIT => X"88A0"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_938,
+      I1 => N184,
+      I2 => N183,
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_CGBAD_923,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_In72
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_SYNC_DISPARITY_mux0001_SW0_SW0 : LUT2
+    generic map(
+      INIT => X"D"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(1),
+      O => N186
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_SYNC_DISPARITY_mux0001 : LUT4
+    generic map(
+      INIT => X"54FE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_1094,
+      I1 => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_INSERT_IDLE_mux0007,
+      I3 => N186,
+      O => U0_gpcs_pma_inst_TRANSMITTER_SYNC_DISPARITY_mux0001_1040
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_ENCOMMAALIGN_rstpot : LUT3
+    generic map(
+      INIT => X"32"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_ENCOMMAALIGN_925,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_and0000_966,
+      I2 => N288,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_ENCOMMAALIGN_rstpot_926
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_rstpot : LUT3
+    generic map(
+      INIT => X"CE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      I1 => N311,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_or0000_967,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_rstpot_968
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_cy_2_1_SW0 : LUT4
+    generic map(
+      INIT => X"7BF0"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(0),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRBIN(1),
+      I3 => N307,
+      O => N77
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_and0000167 : LUT4
+    generic map(
+      INIT => X"AA80"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXNOTINTABLE_1320,
+      I1 => U0_gpcs_pma_inst_RECEIVER_N111,
+      I2 => U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_and000052_766,
+      I3 => N188,
+      O => U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_and0000
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_DV_and00001_SW0 : LUT3
+    generic map(
+      INIT => X"10"
+    )
+    port map (
+      I0 => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_695,
+      I2 => U0_gpcs_pma_inst_RECEIVER_SOP_REG3_896,
+      O => N190
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DUPLEX_MODE_REG_mux00001_SW0 : LUT2
+    generic map(
+      INIT => X"D"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(8),
+      O => N192
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DUPLEX_MODE_REG_rstpot : LUT4
+    generic map(
+      INIT => X"CFAA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DUPLEX_MODE_REG_571,
+      I1 => N192,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_cmp_eq0000,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_not0001,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DUPLEX_MODE_REG_rstpot_572
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_not000111 : LUT4
+    generic map(
+      INIT => X"0040"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(4),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG3_611,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689,
+      I3 => N194,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_COLL_TEST_REG_not0001
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_rstpot : LUT4
+    generic map(
+      INIT => X"FFEC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In61_960,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In37_959,
+      I2 => N196,
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In115_957,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_rstpot_963
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_DONE_rstpot : LUT4
+    generic map(
+      INIT => X"0007"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_524,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_RUDI_INVALID_DELAY_0_and0000,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER80_470,
+      I3 => N198,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_DONE_rstpot_207
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In89 : LUT4
+    generic map(
+      INIT => X"00A8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_AN_SYNC_STATUS_173,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In2_476,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In44_478,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_N9,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER110_SW0_SW0 : LUT3
+    generic map(
+      INIT => X"AB"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_CHANGE_239,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_DONE_206,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_SATURATED_208,
+      O => N204
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_and000088 : LUT4
+    generic map(
+      INIT => X"1101"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXNOTINTABLE_1320,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308,
+      I2 => N206,
+      I3 => N173,
+      O => U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_and0000
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_DV_or00001_SW0 : LUT4
+    generic map(
+      INIT => X"0C08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      I1 => NlwRenamedSig_OI_U0_gpcs_pma_inst_RECEIVER_RX_DV,
+      I2 => U0_gpcs_pma_inst_RECEIVER_EOP_REG1_727,
+      I3 => U0_gpcs_pma_inst_RECEIVER_RECEIVE_821,
+      O => N208
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_DV_rstpot : LUT4
+    generic map(
+      INIT => X"F888"
+    )
+    port map (
+      I0 => N190,
+      I1 => U0_gpcs_pma_inst_RECEIVER_LINK_OK,
+      I2 => N208,
+      I3 => U0_gpcs_pma_inst_XMIT_DATA,
+      O => U0_gpcs_pma_inst_RECEIVER_RX_DV_rstpot_884
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_2_42 : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd6_681,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_cmp_eq0000,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_2_21_659,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(2)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In29_SW1 : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_361,
+      O => N210
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_rstpot_G : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_751,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_927,
+      O => N213
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_REG_rstpot : MUXF5
+    port map (
+      I0 => N214,
+      I1 => N215,
+      S => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG3_611,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_REG_rstpot_705
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_REG_rstpot_F : LUT2
+    generic map(
+      INIT => X"E"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_EN_701,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_REG_704,
+      O => N214
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_REG_rstpot_G : LUT4
+    generic map(
+      INIT => X"ECCC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(9),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESTART_AN_EN_701,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_cmp_eq0000,
+      O => N215
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_15_65_SW0 : LUT4
+    generic map(
+      INIT => X"9800"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(0),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(2),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_16_Q,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      O => N216
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_0_11 : LUT3
+    generic map(
+      INIT => X"96"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRBIN(1),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(0),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY_sub0000(0)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_3_11 : LUT4
+    generic map(
+      INIT => X"0E04"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_EXTEND_REG1_738,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5(4),
+      I2 => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG3_753,
+      I3 => U0_gpcs_pma_inst_RECEIVER_EXTEND_ERR_735,
+      O => U0_gpcs_pma_inst_RECEIVER_RXD_mux0004_3_11_847
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_COMB31 : LUT4
+    generic map(
+      INIT => X"1908"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(14),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(15),
+      I2 => N218,
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_COMB16_1104,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_COMB31_1105
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In36_SW0 : LUT3
+    generic map(
+      INIT => X"EB"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_949,
+      O => N220
+    );
+  U0_gpcs_pma_inst_RECEIVER_K27p7_inv35_SW0 : LUT3
+    generic map(
+      INIT => X"7F"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(7),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(5),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(3),
+      O => N222
+    );
+  U0_gpcs_pma_inst_RECEIVER_K27p7_inv35 : LUT4
+    generic map(
+      INIT => X"FFFB"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(2),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308,
+      I2 => N222,
+      I3 => U0_gpcs_pma_inst_RECEIVER_K27p7_inv31_796,
+      O => U0_gpcs_pma_inst_RECEIVER_K27p7_inv
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_2_23_SW0 : LUT4
+    generic map(
+      INIT => X"FFEF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_T_1043,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1(2),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_TX_PACKET_1086,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_V_1088,
+      O => N226
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_and0000158_SW0_SW0 : LUT4
+    generic map(
+      INIT => X"8000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(4),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(5),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(6),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(7),
+      O => N228
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_ER_and000030_SW0 : LUT3
+    generic map(
+      INIT => X"F2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RECEIVE_821,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_ER_and00005_887,
+      O => N230
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_ER_and000030 : LUT4
+    generic map(
+      INIT => X"1000"
+    )
+    port map (
+      I0 => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_695,
+      I2 => U0_gpcs_pma_inst_XMIT_DATA,
+      I3 => N230,
+      O => U0_gpcs_pma_inst_RECEIVER_RX_ER_and0000
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_1_311 : LUT4
+    generic map(
+      INIT => X"AAA8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_0_21,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_S_1038,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_V_1088,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_1_9_991,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_1_31
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_6_261 : LUT4
+    generic map(
+      INIT => X"AAA8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_0_21,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_V_1088,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_T_1043,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_6_6_1001,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_6_26
+    );
+  U0_gpcs_pma_inst_RECEIVER_EXTEND_or00001 : LUT3
+    generic map(
+      INIT => X"EA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_S_893,
+      I1 => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_798,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_927,
+      O => U0_gpcs_pma_inst_RECEIVER_EXTEND_or0000
+    );
+  U0_gpcs_pma_inst_RECEIVER_S_and0000_norst1 : LUT3
+    generic map(
+      INIT => X"10"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXNOTINTABLE_1320,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDISPERR_1318,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      O => U0_gpcs_pma_inst_RECEIVER_S_and0000_norst
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_6_1 : LUT3
+    generic map(
+      INIT => X"2A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(1),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_INSERT_IDLE_1023,
+      O => U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_6_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_4_1 : LUT3
+    generic map(
+      INIT => X"2A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(3),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_INSERT_IDLE_1023,
+      O => U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_4_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_2_1 : LUT3
+    generic map(
+      INIT => X"2A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(5),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_INSERT_IDLE_1023,
+      O => U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_2_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_mux00001 : LUT3
+    generic map(
+      INIT => X"15"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_1020,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_INSERT_IDLE_1023,
+      O => U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_mux0000
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_In721_SW0 : LUT4
+    generic map(
+      INIT => X"FFEF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_955,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS(0),
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS(1),
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943,
+      O => N183
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_K_and0000_SW1 : LUT4
+    generic map(
+      INIT => X"F6FF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(6),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(5),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXNOTINTABLE_1320,
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(3),
+      O => N232
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_K_and0000 : LUT4
+    generic map(
+      INIT => X"1000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(0),
+      I1 => N232,
+      I2 => U0_gpcs_pma_inst_RECEIVER_N36,
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308,
+      O => U0_gpcs_pma_inst_RECEIVER_FALSE_K_and0000_762
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq0000_inv1 : LUT4
+    generic map(
+      INIT => X"7FFF"
+    )
+    port map (
+      I0 => N292,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00001_233,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00005_234,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00008_235,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq0000_inv
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_1_11 : LUT4
+    generic map(
+      INIT => X"9655"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_lut(1),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(0),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRBIN(1),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY_sub0000(1)
+    );
+  U0_gpcs_pma_inst_RECEIVER_K28p511 : LUT4
+    generic map(
+      INIT => X"8000"
+    )
+    port map (
+      I0 => N294,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(3),
+      I3 => U0_gpcs_pma_inst_RECEIVER_N36,
+      O => U0_gpcs_pma_inst_RECEIVER_K28p51
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_INT_or00001 : LUT4
+    generic map(
+      INIT => X"5557"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_INT_or0000
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT_not00011 : LUT4
+    generic map(
+      INIT => X"8000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PREVIOUS_STATE(3),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT_not0001
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG1 : LUT4
+    generic map(
+      INIT => X"A2AA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_524,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_UNIDIRECTIONAL_ENABLE_REG_708,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DUPLEX_MODE_REG_571,
+      O => U0_gpcs_pma_inst_XMIT_CONFIG
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_7_1 : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(0),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_INSERT_IDLE_1023,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_1020,
+      O => U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_7_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_5_1 : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(2),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_INSERT_IDLE_1023,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_1020,
+      O => U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_5_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_3_1 : LUT4
+    generic map(
+      INIT => X"4CEC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(4),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_INSERT_IDLE_1023,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_1020,
+      O => U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_3_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_0_1 : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(7),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_INSERT_IDLE_1023,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_1020,
+      O => U0_gpcs_pma_inst_TRANSMITTER_TXDATA_mux0003_0_Q
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_3_1 : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd6_681,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(2),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_cmp_eq0000,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_RD(3),
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(3)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_12_42 : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd6_681,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(11),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_cmp_eq0000,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_12_23_647,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(12)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_0_SW1 : LUT4
+    generic map(
+      INIT => X"ABFF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(2),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(0),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_ENABLE_553,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(3),
+      O => N234
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_0_Q : LUT4
+    generic map(
+      INIT => X"01AA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      I2 => N234,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd5_In,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(0)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_or000032_SW0 : LUT4
+    generic map(
+      INIT => X"FCA8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_1099,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_1111,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_1118,
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_1102,
+      O => N236
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_or000032 : LUT4
+    generic map(
+      INIT => X"7333"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(3),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_or00008_1141,
+      I3 => N236,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_or0000
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In37 : LUT4
+    generic map(
+      INIT => X"F080"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISCOMMA_1307,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_927,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In36_958,
+      I3 => U0_gpcs_pma_inst_RECEIVER_CGBAD_or0000,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In37_959
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_1_Q : LUT4
+    generic map(
+      INIT => X"2A6A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(0),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd6_681,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_cmp_eq0000,
+      I3 => N242,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(1)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESET_REG_rstpot : LUT4
+    generic map(
+      INIT => X"ABAA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESET_REG_699,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(0),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(2),
+      I3 => N244,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESET_REG_rstpot_700
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_14_mux0000 : LUT4
+    generic map(
+      INIT => X"ACA8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_14_Q,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_14_mux0000_515
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_6_Q : LUT4
+    generic map(
+      INIT => X"EC4C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd6_681,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(5),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_cmp_eq0000,
+      I3 => N248,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001(6)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_2_11 : LUT4
+    generic map(
+      INIT => X"C963"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_lut(1),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(1),
+      I3 => N250,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY_sub0000(2)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_0_rstpot : LUT4
+    generic map(
+      INIT => X"00CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(0),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(0),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I3 => N284,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_0_rstpot_368
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_0 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_0_rstpot_368,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_1_rstpot : LUT4
+    generic map(
+      INIT => X"00CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(1),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(1),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_1_rstpot_382
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_1 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_1_rstpot_382,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_2_rstpot : LUT4
+    generic map(
+      INIT => X"00CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(2),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(2),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_2_rstpot_384
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_2 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_2_rstpot_384,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(2)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_3_rstpot : LUT4
+    generic map(
+      INIT => X"00CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(3),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(3),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_3_rstpot_386
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_3 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_3_rstpot_386,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(3)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_4_rstpot : LUT4
+    generic map(
+      INIT => X"00CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(4),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(4),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_4_rstpot_388
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_4 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_4_rstpot_388,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(4)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_5_rstpot : LUT4
+    generic map(
+      INIT => X"00CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(5),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(5),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_5_rstpot_390
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_5 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_5_rstpot_390,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(5)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_6_rstpot : LUT4
+    generic map(
+      INIT => X"00CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(6),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(6),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_6_rstpot_392
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_6 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_6_rstpot_392,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(6)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_7_rstpot : LUT4
+    generic map(
+      INIT => X"00CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(7),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(7),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_7_rstpot_394
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_7 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_7_rstpot_394,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(7)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_8_rstpot : LUT4
+    generic map(
+      INIT => X"00CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(8),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(8),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_8_rstpot_396
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_8 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_8_rstpot_396,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(8)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_9_rstpot : LUT4
+    generic map(
+      INIT => X"00CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(9),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(9),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_9_rstpot_398
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_9 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_9_rstpot_398,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(9)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_10_rstpot : LUT4
+    generic map(
+      INIT => X"00CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(10),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(10),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_10_rstpot_371
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_10 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_10_rstpot_371,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(10)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_11_rstpot : LUT4
+    generic map(
+      INIT => X"00CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(11),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(11),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_11_rstpot_373
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_11 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_11_rstpot_373,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(11)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_12_rstpot : LUT4
+    generic map(
+      INIT => X"00CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(12),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(12),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_12_rstpot_375
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_12 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_12_rstpot_375,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(12)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_13_rstpot : LUT4
+    generic map(
+      INIT => X"00CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(13),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(13),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_13_rstpot_377
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_13 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_13_rstpot_377,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(13)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_14_rstpot : LUT4
+    generic map(
+      INIT => X"00CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(14),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(14),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_14_rstpot_379
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_14 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_14_rstpot_379,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(14)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_15_rstpot : LUT4
+    generic map(
+      INIT => X"00CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(15),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(15),
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_15_rstpot_381
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_15 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_15_rstpot_381,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(15)
+    );
+  U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_rstpot_773,
+      Q => U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_770
+    );
+  U0_gpcs_pma_inst_RECEIVER_SYNC_STATUS_REG : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_SYNC_STATUS_REG_rstpot_900,
+      Q => U0_gpcs_pma_inst_RECEIVER_SYNC_STATUS_REG_898
+    );
+  U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_rstpot_750,
+      Q => U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_744
+    );
+  U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_rstpot_788,
+      Q => U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_782
+    );
+  U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_REG1 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_REG1_rstpot_746,
+      Q => U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_REG1_745
+    );
+  U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_REG1 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_REG1_rstpot_784,
+      Q => U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_REG1_783
+    );
+  U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_REG2 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_REG2_rstpot_748,
+      Q => U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_REG2_747
+    );
+  U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_REG2 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_REG2_rstpot_786,
+      Q => U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_REG2_785
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG3 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG3_rstpot_754,
+      Q => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG3_753
+    );
+  U0_gpcs_pma_inst_RECEIVER_EXTEND_ERR : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_EXTEND_ERR_rstpot,
+      Q => U0_gpcs_pma_inst_RECEIVER_EXTEND_ERR_735
+    );
+  U0_gpcs_pma_inst_RECEIVER_FROM_RX_K : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_FROM_RX_K_rstpot,
+      Q => U0_gpcs_pma_inst_RECEIVER_FROM_RX_K_774
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_0_rstpot : LUT4
+    generic map(
+      INIT => X"00E2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(0),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096_357,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_0_2,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_0_rstpot_189
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_0 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_0_rstpot_189,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_1_rstpot : LUT4
+    generic map(
+      INIT => X"00E2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(1),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096_357,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_1_2,
+      I3 => N309,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_1_rstpot_191
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_1 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_1_rstpot_191,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_2_rstpot : LUT4
+    generic map(
+      INIT => X"00E2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(2),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096_357,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_2_2,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_2_rstpot_193
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_2 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_2_rstpot_193,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(2)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_3_rstpot : LUT4
+    generic map(
+      INIT => X"00E2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(3),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096_357,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_3_2,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_3_rstpot_195
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_3 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_3_rstpot_195,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(3)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_4_rstpot : LUT4
+    generic map(
+      INIT => X"00E2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(4),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096_357,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_4_2,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_4_rstpot_197
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_4 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_4_rstpot_197,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(4)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_5_rstpot : LUT4
+    generic map(
+      INIT => X"00E2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(5),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096_357,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_5_2,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_5_rstpot_199
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_5 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_5_rstpot_199,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(5)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_6_rstpot : LUT4
+    generic map(
+      INIT => X"00E2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096_357,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_6_2,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_6_rstpot_201
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_6 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_6_rstpot_201,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(6)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_7_rstpot : LUT4
+    generic map(
+      INIT => X"00E2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(7),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096_357,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_7_2,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_7_rstpot_203
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_7 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_7_rstpot_203,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(7)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_8_rstpot : LUT4
+    generic map(
+      INIT => X"00E2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(8),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096_357,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_8_2,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_8_rstpot_205
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_8 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_8_rstpot_205,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(8)
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_INVALID : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RX_INVALID_rstpot1,
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_INVALID_888
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_DATA_INT : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_DATA_INT_rstpot,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_DATA_INT_528
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_rstpot : LUT4
+    generic map(
+      INIT => X"FFAC"
+    )
+    port map (
+      I0 => NlwRenamedSig_OI_status_vector_7_Q,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_524,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_or0001,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_rstpot_527
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_rstpot_527,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_524
+    );
+  U0_gpcs_pma_inst_RECEIVER_FROM_IDLE_D : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_FROM_IDLE_D_rstpot,
+      Q => U0_gpcs_pma_inst_RECEIVER_FROM_IDLE_D_767
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_rstpot,
+      Q => U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_876
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_rstpot1_756,
+      Q => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_751
+    );
+  U0_gpcs_pma_inst_RECEIVER_SYNC_STATUS_REG_rstpot : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      I1 => U0_gpcs_pma_inst_SRESET_915,
+      O => U0_gpcs_pma_inst_RECEIVER_SYNC_STATUS_REG_rstpot_900
+    );
+  U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_rstpot : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_and0000,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      I2 => U0_gpcs_pma_inst_SRESET_915,
+      O => U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_rstpot_788
+    );
+  U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_REG1_rstpot : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_744,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      I2 => U0_gpcs_pma_inst_SRESET_915,
+      O => U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_REG1_rstpot_746
+    );
+  U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_REG1_rstpot : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_782,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      I2 => U0_gpcs_pma_inst_SRESET_915,
+      O => U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_REG1_rstpot_784
+    );
+  U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_REG2_rstpot : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_REG1_745,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      I2 => U0_gpcs_pma_inst_SRESET_915,
+      O => U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_REG2_rstpot_748
+    );
+  U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_REG2_rstpot : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_REG1_783,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      I2 => U0_gpcs_pma_inst_SRESET_915,
+      O => U0_gpcs_pma_inst_RECEIVER_ILLEGAL_K_REG2_rstpot_786
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG3_rstpot : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG2_752,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      I2 => U0_gpcs_pma_inst_SRESET_915,
+      O => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG3_rstpot_754
+    );
+  U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_rstpot : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_and0000,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      I2 => U0_gpcs_pma_inst_SRESET_915,
+      O => U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_rstpot_750
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_rstpot1 : LUT4
+    generic map(
+      INIT => X"0D08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_798,
+      I1 => N213,
+      I2 => U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or0000,
+      I3 => N212,
+      O => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_rstpot1_756
+    );
+  U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_rstpot : LUT3
+    generic map(
+      INIT => X"20"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      I1 => U0_gpcs_pma_inst_SRESET_915,
+      I2 => U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or0001_772,
+      O => U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_rstpot_773
+    );
+  U0_gpcs_pma_inst_RECEIVER_EXTEND : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_EXTEND_rstpot1,
+      Q => U0_gpcs_pma_inst_RECEIVER_EXTEND_734
+    );
+  U0_gpcs_pma_inst_RECEIVER_WAIT_FOR_K : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_WAIT_FOR_K_rstpot1,
+      Q => U0_gpcs_pma_inst_RECEIVER_WAIT_FOR_K_905
+    );
+  U0_gpcs_pma_inst_RECEIVER_RECEIVE : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_RECEIVE_rstpot1,
+      Q => U0_gpcs_pma_inst_RECEIVER_RECEIVE_821
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS_0 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS_0_rstpot_931,
+      Q => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS(0)
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS_1_rstpot : LUT4
+    generic map(
+      INIT => X"00CA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS(1),
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_Result(1),
+      I2 => N308,
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS_or0000_934,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS_1_rstpot_933
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS_1 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS_1_rstpot_933,
+      Q => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_0 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_0_rstpot1_213,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_1 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_1_rstpot1_215,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(1)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_2 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_2_rstpot1_217,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(2)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_3 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_3_rstpot1_219,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(3)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_4 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_4_rstpot1_221,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(4)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_5 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_5_rstpot1_223,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(5)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_6 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_6_rstpot1_225,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(6)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_7 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_7_rstpot1_227,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(7)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_8 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_8_rstpot1_229,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(8)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_DATA_INT_rstpot1 : LUT4
+    generic map(
+      INIT => X"0006"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      I2 => U0_gpcs_pma_inst_SRESET_915,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_DATA_INT_rstpot
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS_0_rstpot : LUT3
+    generic map(
+      INIT => X"06"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_CGBAD_inv,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS(0),
+      I2 => N291,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS_0_rstpot_931
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_rstpot,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_169
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_2 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_2_rstpot,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_2_165
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_rstpot_1110,
+      Q => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CONFIG_K28p5 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_K28p5_rstpot,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_K28p5_1018
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXCHARISK : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_TRANSMITTER_TXCHARISK_rstpot_1053,
+      Q => U0_gpcs_pma_inst_TRANSMITTER_TXCHARISK_1052
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LINK_STATUS : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LINK_STATUS_rstpot,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LINK_STATUS_243
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_GENERATE_REMOTE_FAULT : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_GENERATE_REMOTE_FAULT_rstpot,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_GENERATE_REMOTE_FAULT_183
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_rstpot : LUT3
+    generic map(
+      INIT => X"32"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_In69_940,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_or0000,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_In72,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_rstpot_942
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1 : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_rstpot_942,
+      Q => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_938
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_rstpot : LUT3
+    generic map(
+      INIT => X"32"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In5_946,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_or0000,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In115,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_rstpot_948
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2 : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_rstpot_948,
+      Q => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_rstpot : LUT4
+    generic map(
+      INIT => X"0E04"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_159,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_or0000,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_mux0001,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_rstpot_164
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_rstpot_164,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_159
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_2_rstpot : LUT4
+    generic map(
+      INIT => X"0E04"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_2_160,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_or0000,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CONFIG_REG_MATCH_COMB,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_2_rstpot_161
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_2 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_2_rstpot_161,
+      Q => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_2_160
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3 : FD
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_rstpot1_954,
+      Q => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_949
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT : FDR
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT_rstpot_558,
+      R => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT_or0000,
+      Q => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT_rstpot : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_ENABLE_not0001,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT_and0000,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT_rstpot_558
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_rstpot1 : LUT4
+    generic map(
+      INIT => X"0F02"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_In45_953,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_955,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_or0000,
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_In13_950,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_rstpot1_954
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_TXCHARISK_rstpot : LUT4
+    generic map(
+      INIT => X"040C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRPISK_973,
+      I2 => U0_gpcs_pma_inst_SRESET_915,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_INSERT_IDLE_1023,
+      O => U0_gpcs_pma_inst_TRANSMITTER_TXCHARISK_rstpot_1053
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_GENERATE_REMOTE_FAULT_rstpot1 : LUT4
+    generic map(
+      INIT => X"1000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_N6,
+      I1 => U0_gpcs_pma_inst_SRESET_915,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PREVIOUS_STATE(3),
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_GENERATE_REMOTE_FAULT_rstpot
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CONFIG_K28p5_rstpot1 : LUT3
+    generic map(
+      INIT => X"01"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SRESET_915,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(1),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      O => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_K28p5_rstpot
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_rstpot : LUT4
+    generic map(
+      INIT => X"0302"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_and0000_1109,
+      I1 => U0_gpcs_pma_inst_SRESET_915,
+      I2 => N56,
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_rstpot_1110
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_lut_0_INV_0 : INV
+    port map (
+      I => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER(0),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_LINK_TIMER_lut(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_lut_0_INV_0 : INV
+    port map (
+      I => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TIMER4096(0),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_TIMER4096_lut(0)
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_lut_0_INV_0 : INV
+    port map (
+      I => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(0),
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcount_MASK_RUDI_BUFERR_TIMER_lut(0)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Mcount_WR_ADDR_PLUS2_xor_0_11_INV_0 : INV
+    port map (
+      I => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDR_PLUS2(0),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result(0)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Mcount_RD_ADDR_xor_0_11_INV_0 : INV
+    port map (
+      I => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Result_0_1
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_Mcount_CODE_GRP_CNT_xor_0_11_INV_0 : INV
+    port map (
+      I => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      O => U0_gpcs_pma_inst_TRANSMITTER_Result(0)
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_not00011_INV_0 : INV
+    port map (
+      I => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_927,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_not0001
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_inv1_INV_0 : INV
+    port map (
+      I => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_1106,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_inv
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_S_inv1_INV_0 : INV
+    port map (
+      I => U0_gpcs_pma_inst_TRANSMITTER_S_1038,
+      O => U0_gpcs_pma_inst_TRANSMITTER_S_inv
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXBUFERR1_INV_0 : INV
+    port map (
+      I => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      O => U0_gpcs_pma_inst_RXBUFSTATUS_INT(1)
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_inv1_INV_0 : INV
+    port map (
+      I => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_1094,
+      O => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_inv
+    );
+  U0_gpcs_pma_inst_RECEIVER_SYNC_STATUS_REG_inv1_INV_0 : INV
+    port map (
+      I => U0_gpcs_pma_inst_RECEIVER_SYNC_STATUS_REG_898,
+      O => U0_gpcs_pma_inst_RECEIVER_SYNC_STATUS_REG_inv
+    );
+  U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_inv1_INV_0 : INV
+    port map (
+      I => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_798,
+      O => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_inv
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_not00011 : MUXF5
+    port map (
+      I0 => N252,
+      I1 => N253,
+      S => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(0),
+      O => U0_gpcs_pma_inst_TRANSMITTER_N01
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_not00011_F : LUT4
+    generic map(
+      INIT => X"7EC8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(4),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(1),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(3),
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(2),
+      O => N252
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_DISPARITY_not00011_G : LUT4
+    generic map(
+      INIT => X"177E"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(4),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(1),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(2),
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP(3),
+      O => N253
+    );
+  U0_gpcs_pma_inst_RECEIVER_LINK_OK1 : MUXF5
+    port map (
+      I0 => N254,
+      I1 => N255,
+      S => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550,
+      O => U0_gpcs_pma_inst_RECEIVER_LINK_OK
+    );
+  U0_gpcs_pma_inst_RECEIVER_LINK_OK1_F : LUT4
+    generic map(
+      INIT => X"AA80"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_UNIDIRECTIONAL_ENABLE_REG_708,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DUPLEX_MODE_REG_571,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_DATA_INT_528,
+      O => N254
+    );
+  U0_gpcs_pma_inst_RECEIVER_LINK_OK1_G : LUT3
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_DATA_INT_528,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_6_Q,
+      O => N255
+    );
+  U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or0001 : MUXF5
+    port map (
+      I0 => N256,
+      I1 => N257,
+      S => U0_gpcs_pma_inst_RECEIVER_C_REG3_722,
+      O => U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or0001_772
+    );
+  U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or0001_F : LUT4
+    generic map(
+      INIT => X"FCA8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_C_REG1_720,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RXCHARISK_REG1_827,
+      I2 => U0_gpcs_pma_inst_RECEIVER_CGBAD_715,
+      I3 => U0_gpcs_pma_inst_RECEIVER_C_REG2_721,
+      O => N256
+    );
+  U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or0001_G : LUT3
+    generic map(
+      INIT => X"DF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_798,
+      I1 => N23,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_927,
+      O => N257
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_12_23 : MUXF5
+    port map (
+      I0 => N258,
+      I1 => N259,
+      S => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_12_23_647
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_12_23_F : LUT4
+    generic map(
+      INIT => X"A820"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_14_26_651,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_Q,
+      O => N258
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_12_23_G : LUT3
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_14_26_651,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      I2 => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_BASEX_REMOTE_FAULT(0),
+      O => N259
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_5_57_SW0 : MUXF5
+    port map (
+      I0 => N260,
+      I1 => N261,
+      S => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      O => N165
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_5_57_SW0_F : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_UNIDIRECTIONAL_ENABLE_REG_708,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_5_Q,
+      O => N260
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_5_57_SW0_G : LUT3
+    generic map(
+      INIT => X"E4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_COMPLETE_237,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_6_Q,
+      O => N261
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_COMB55 : MUXF5
+    port map (
+      I0 => N262,
+      I1 => N263,
+      S => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(11),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_COMB
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_COMB55_F : LUT3
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N10,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(13),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_COMB16_1120,
+      O => N262
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_COMB55_G : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_UPPER_COMB43_1121,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N7,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(13),
+      O => N263
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_COMB55 : MUXF5
+    port map (
+      I0 => N264,
+      I1 => N265,
+      S => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(1),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_COMB
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_COMB55_F : LUT3
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N111,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(3),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_COMB16_1113,
+      O => N264
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_COMB55_G : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_COMB43_1114,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N8,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(3),
+      O => N265
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_0_rstpot1 : MUXF5
+    port map (
+      I0 => N266,
+      I1 => N267,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq0000_inv,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_0_rstpot1_213
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_0_rstpot1_F : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(0),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N266
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_0_rstpot1_G : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_0_1,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N267
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_1_rstpot1 : MUXF5
+    port map (
+      I0 => N268,
+      I1 => N269,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq0000_inv,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_1_rstpot1_215
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_1_rstpot1_F : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(1),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N268
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_1_rstpot1_G : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_1_1,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N269
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_2_rstpot1 : MUXF5
+    port map (
+      I0 => N270,
+      I1 => N271,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq0000_inv,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_2_rstpot1_217
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_2_rstpot1_F : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(2),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N270
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_2_rstpot1_G : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_2_1,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N271
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_3_rstpot1 : MUXF5
+    port map (
+      I0 => N272,
+      I1 => N273,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq0000_inv,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_3_rstpot1_219
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_3_rstpot1_F : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(3),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N272
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_3_rstpot1_G : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_3_1,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N273
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_4_rstpot1 : MUXF5
+    port map (
+      I0 => N274,
+      I1 => N275,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq0000_inv,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_4_rstpot1_221
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_4_rstpot1_F : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(4),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N274
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_4_rstpot1_G : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_4_1,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N275
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_5_rstpot1 : MUXF5
+    port map (
+      I0 => N276,
+      I1 => N277,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq0000_inv,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_5_rstpot1_223
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_5_rstpot1_F : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(5),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N276
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_5_rstpot1_G : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_5_1,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N277
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_6_rstpot1 : MUXF5
+    port map (
+      I0 => N278,
+      I1 => N279,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq0000_inv,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_6_rstpot1_225
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_6_rstpot1_F : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(6),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N278
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_6_rstpot1_G : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_6_1,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N279
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_7_rstpot1 : MUXF5
+    port map (
+      I0 => N280,
+      I1 => N281,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq0000_inv,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_7_rstpot1_227
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_7_rstpot1_F : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(7),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N280
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_7_rstpot1_G : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_7_1,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N281
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_8_rstpot1 : MUXF5
+    port map (
+      I0 => N282,
+      I1 => N283,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq0000_inv,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_8_rstpot1_229
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_8_rstpot1_F : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(8),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N282
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER_8_rstpot1_G : LUT4
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Result_8_1,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => U0_gpcs_pma_inst_SIGNAL_DETECT_REG,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      O => N283
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE : RAMB16
+    generic map(
+      INIT_A => X"000000000",
+      INIT_B => X"000000000",
+      INITP_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INITP_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INITP_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INITP_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INITP_04 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INITP_05 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_FILE => "NONE",
+      INIT_00 => X"017411CB12CB10DB134B115B125B0394138B119B129B0354131B02D401D40274",
+      INIT_01 => X"02B401E402E410EB0364116B126B033403A411AB12AB10BB132B113B123B01B4",
+      INIT_02 => X"117901C902C900D903490159025913990389019902991359031912D911D91279",
+      INIT_03 => X"12B911E912E900E9136901690269133913A901A902A900B903290139023911B9",
+      INIT_04 => X"117501C502C500D503450155025513950385019502951355031512D511D51275",
+      INIT_05 => X"12B511E512E500E5136501650265133513A501A502A500B503250135023511B5",
+      INIT_06 => X"117301CC02CC00DC034C015C025C1393038C019C029C1353031C12D311D31273",
+      INIT_07 => X"12B311E312E300EC1363016C026C133313A301AC02AC00BC032C013C023C11B3",
+      INIT_08 => X"017211CD12CD10DD134D115D125D0392138D119D129D0352131D02D201D20272",
+      INIT_09 => X"02B201E202E210ED0362116D126D033203A211AD12AD10BD132D113D123D01B2",
+      INIT_0A => X"117A01CA02CA00DA034A015A025A139A038A019A029A135A031A12DA11DA127A",
+      INIT_0B => X"12BA11EA12EA00EA136A016A026A133A13AA01AA02AA00BA032A013A023A11BA",
+      INIT_0C => X"117601C602C600D603460156025613960386019602961356031612D611D61276",
+      INIT_0D => X"12B611E612E600E6136601660266133613A601A602A600B603260136023611B6",
+      INIT_0E => X"017111CE12CE10DE134E115E125E0391138E119E129E0351131E02D101D10271",
+      INIT_0F => X"02B101E102E110EE0361116E126E033103A111AE12AE10B7132E1137123701B1",
+      INIT_10 => X"128B01C402C400D4034401540254106B00740194029410AB0314112B122B118B",
+      INIT_11 => X"114B121B111B00E4109B0164026410CB105B01A402A400B4032401340234124B",
+      INIT_12 => X"028911C912C910D9134911591259006910791199129900A91319012902290189",
+      INIT_13 => X"01490219011910E900991169126900C9005911A912A910B91329113912390249",
+      INIT_14 => X"028511C512C510D5134511551255006510751195129500A51315012502250185",
+      INIT_15 => X"01450215011510E500951165126500C5005511A512A510B51325113512350245",
+      INIT_16 => X"028C11C312C310D3134311531253006C10731193129300AC1313012C022C018C",
+      INIT_17 => X"014C021C011C10E3009C1163126300CC005C11A312A310B3132311331233024C",
+      INIT_18 => X"128D01C202C200D2034201520252106D00720192029210AD0312112D122D118D",
+      INIT_19 => X"114D121D111D00E2109D0162026210CD105D01A202A200B2032201320232124D",
+      INIT_1A => X"028A11CA12CA10DA134A115A125A006A107A119A129A00AA131A012A022A018A",
+      INIT_1B => X"014A021A011A10EA009A116A126A00CA005A11AA12AA10BA132A113A123A024A",
+      INIT_1C => X"028611C612C610D6134611561256006610761196129600A61316012602260186",
+      INIT_1D => X"01460216011610E600961166126600C6005611A612A610B61326113612360246",
+      INIT_1E => X"128E01C802C800D1034801510251106E00710191029110AE0311112E122E118E",
+      INIT_1F => X"114E121E111E00E1109E0161026110CE105E01A102A100B1032101310231124E",
+      INIT_20 => X"017411CB12CB10DB134B115B125B0394138B119B129B0354131B02D401D40274",
+      INIT_21 => X"02B401E402E400F40364116B126B033403A411AB12AB10BB132B113B123B01B4",
+      INIT_22 => X"117901C902C900D903490159025913990389019902991359031912D911D91279",
+      INIT_23 => X"12B911E912E910F9136901690269133913A901A902A900B903290139023911B9",
+      INIT_24 => X"117501C502C500D503450155025513950385019502951355031512D511D51275",
+      INIT_25 => X"12B511E512E510F5136501650265133513A501A502A500B503250135023511B5",
+      INIT_26 => X"117301CC02CC00DC034C015C025C1393038C019C029C1353031C12D311D31273",
+      INIT_27 => X"12B311E312E310F31363016C026C133313A301AC02AC00BC032C013C023C11B3",
+      INIT_28 => X"017211CD12CD10DD134D115D125D0392138D119D129D0352131D02D201D20272",
+      INIT_29 => X"02B201E202E200F20362116D126D033203A211AD12AD10BD132D113D123D01B2",
+      INIT_2A => X"117A01CA02CA00DA034A015A025A139A038A019A029A135A031A12DA11DA127A",
+      INIT_2B => X"12BA11EA12EA10FA136A016A026A133A13AA01AA02AA00BA032A013A023A11BA",
+      INIT_2C => X"117601C602C600D603460156025613960386019602961356031612D611D61276",
+      INIT_2D => X"12B611E612E610F6136601660266133613A601A602A600B603260136023611B6",
+      INIT_2E => X"017111CE12CE10DE134E115E125E0391138E119E129E0351131E02D101D10271",
+      INIT_2F => X"02B101E802E800F80368116E126E033103A811AE12AE10B7132E1137123701B1",
+      INIT_30 => X"128B01C402C400D4034401540254106B00740194029410AB0314112B122B118B",
+      INIT_31 => X"114B121B111B130B109B0164026410CB105B01A402A400B4032401340234124B",
+      INIT_32 => X"028911C912C910D9134911591259006910791199129900A91319012902290189",
+      INIT_33 => X"014902190119030600991169126900C9005911A912A910B91329113912390249",
+      INIT_34 => X"028511C512C510D5134511551255006510751195129500A51315012502250185",
+      INIT_35 => X"014502150115030A00951165126500C5005511A512A510B51325113512350245",
+      INIT_36 => X"028C11C312C310D3134311531253006C10731193129300AC1313012C022C018C",
+      INIT_37 => X"014C021C011C030C009C1163126300CC005C11A312A310B3132311331233024C",
+      INIT_38 => X"128D01C202C200D2034201520252106D00720192029210AD0312112D122D118D",
+      INIT_39 => X"114D121D111D130D109D0162026210CD105D01A202A200B2032201320232124D",
+      INIT_3A => X"028A11CA12CA10DA134A115A125A006A107A119A129A00AA131A012A022A018A",
+      INIT_3B => X"014A021A011A0305009A116A126A00CA005A11AA12AA10BA132A113A123A024A",
+      INIT_3C => X"028611C612C610D6134611561256006610761196129600A61316012602260186",
+      INIT_3D => X"014602160116030900961166126600C6005611A612A610B61326113612360246",
+      INIT_3E => X"128E01C802C800D1034801510251106E00710191029110AE0311112E122E118E",
+      INIT_3F => X"114E12171117130710970161026110CE105701A102A100B1032101310231124E",
+      INITP_06 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INITP_07 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      WRITE_MODE_A => "NO_CHANGE",
+      WRITE_MODE_B => "NO_CHANGE",
+      DOA_REG => 0,
+      DOB_REG => 0,
+      READ_WIDTH_A => 18,
+      READ_WIDTH_B => 18,
+      WRITE_WIDTH_A => 18,
+      WRITE_WIDTH_B => 18,
+      SRVAL_A => X"000000000",
+      INVERT_CLK_DOA_REG => FALSE,
+      INVERT_CLK_DOB_REG => FALSE,
+      RAM_EXTENSION_A => "NONE",
+      RAM_EXTENSION_B => "NONE",
+      SRVAL_B => X"000000000"
+    )
+    port map (
+      CASCADEINA => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_CASCADEINA_UNCONNECTED,
+      CASCADEINB => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_CASCADEINB_UNCONNECTED,
+      CLKA => gtx_clk,
+      CLKB => gtx_clk,
+      ENA => NlwRenamedSig_OI_status_vector_11_Q,
+      REGCEA => NlwRenamedSig_OI_status_vector_7_Q,
+      REGCEB => NlwRenamedSig_OI_status_vector_7_Q,
+      ENB => NlwRenamedSig_OI_status_vector_7_Q,
+      SSRA => NlwRenamedSig_OI_status_vector_7_Q,
+      SSRB => NlwRenamedSig_OI_status_vector_7_Q,
+      CASCADEOUTA => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_CASCADEOUTA_UNCONNECTED,
+      CASCADEOUTB => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_CASCADEOUTB_UNCONNECTED,
+      ADDRA(14) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRA_14_UNCONNECTED,
+      ADDRA(13) => U0_gpcs_pma_inst_TRANSMITTER_TXCHARISK_1052,
+      ADDRA(12) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_DISPARITY,
+      ADDRA(11) => U0_gpcs_pma_inst_TRANSMITTER_TXDATA(7),
+      ADDRA(10) => U0_gpcs_pma_inst_TRANSMITTER_TXDATA(6),
+      ADDRA(9) => U0_gpcs_pma_inst_TRANSMITTER_TXDATA(5),
+      ADDRA(8) => U0_gpcs_pma_inst_TRANSMITTER_TXDATA(4),
+      ADDRA(7) => U0_gpcs_pma_inst_TRANSMITTER_TXDATA(3),
+      ADDRA(6) => U0_gpcs_pma_inst_TRANSMITTER_TXDATA(2),
+      ADDRA(5) => U0_gpcs_pma_inst_TRANSMITTER_TXDATA(1),
+      ADDRA(4) => U0_gpcs_pma_inst_TRANSMITTER_TXDATA(0),
+      ADDRA(3) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRA_3_UNCONNECTED,
+      ADDRA(2) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRA_2_UNCONNECTED,
+      ADDRA(1) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRA_1_UNCONNECTED,
+      ADDRA(0) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRA_0_UNCONNECTED,
+      ADDRB(14) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRB_14_UNCONNECTED,
+      ADDRB(13) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(12) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(11) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(10) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(9) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(8) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(7) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(6) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(5) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(4) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(3) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRB_3_UNCONNECTED,
+      ADDRB(2) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRB_2_UNCONNECTED,
+      ADDRB(1) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRB_1_UNCONNECTED,
+      ADDRB(0) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_ADDRB_0_UNCONNECTED,
+      DIA(31) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_31_UNCONNECTED,
+      DIA(30) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_30_UNCONNECTED,
+      DIA(29) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_29_UNCONNECTED,
+      DIA(28) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_28_UNCONNECTED,
+      DIA(27) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_27_UNCONNECTED,
+      DIA(26) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_26_UNCONNECTED,
+      DIA(25) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_25_UNCONNECTED,
+      DIA(24) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_24_UNCONNECTED,
+      DIA(23) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_23_UNCONNECTED,
+      DIA(22) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_22_UNCONNECTED,
+      DIA(21) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_21_UNCONNECTED,
+      DIA(20) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_20_UNCONNECTED,
+      DIA(19) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_19_UNCONNECTED,
+      DIA(18) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_18_UNCONNECTED,
+      DIA(17) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_17_UNCONNECTED,
+      DIA(16) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIA_16_UNCONNECTED,
+      DIA(15) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(14) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(13) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(12) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(11) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(10) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(9) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(8) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(7) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(6) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(5) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(4) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(3) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(2) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(1) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(0) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(31) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_31_UNCONNECTED,
+      DIB(30) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_30_UNCONNECTED,
+      DIB(29) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_29_UNCONNECTED,
+      DIB(28) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_28_UNCONNECTED,
+      DIB(27) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_27_UNCONNECTED,
+      DIB(26) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_26_UNCONNECTED,
+      DIB(25) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_25_UNCONNECTED,
+      DIB(24) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_24_UNCONNECTED,
+      DIB(23) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_23_UNCONNECTED,
+      DIB(22) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_22_UNCONNECTED,
+      DIB(21) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_21_UNCONNECTED,
+      DIB(20) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_20_UNCONNECTED,
+      DIB(19) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_19_UNCONNECTED,
+      DIB(18) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_18_UNCONNECTED,
+      DIB(17) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_17_UNCONNECTED,
+      DIB(16) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIB_16_UNCONNECTED,
+      DIB(15) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(14) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(13) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(12) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(11) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(10) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(9) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(8) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(7) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(6) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(5) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(4) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(3) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(2) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(1) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(0) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIPA(3) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIPA_3_UNCONNECTED,
+      DIPA(2) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIPA_2_UNCONNECTED,
+      DIPA(1) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIPA(0) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIPB(3) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIPB_3_UNCONNECTED,
+      DIPB(2) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DIPB_2_UNCONNECTED,
+      DIPB(1) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIPB(0) => NlwRenamedSig_OI_status_vector_7_Q,
+      WEA(3) => NlwRenamedSig_OI_status_vector_7_Q,
+      WEA(2) => NlwRenamedSig_OI_status_vector_7_Q,
+      WEA(1) => NlwRenamedSig_OI_status_vector_7_Q,
+      WEA(0) => NlwRenamedSig_OI_status_vector_7_Q,
+      WEB(3) => NlwRenamedSig_OI_status_vector_7_Q,
+      WEB(2) => NlwRenamedSig_OI_status_vector_7_Q,
+      WEB(1) => NlwRenamedSig_OI_status_vector_7_Q,
+      WEB(0) => NlwRenamedSig_OI_status_vector_7_Q,
+      DOA(31) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_31_UNCONNECTED,
+      DOA(30) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_30_UNCONNECTED,
+      DOA(29) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_29_UNCONNECTED,
+      DOA(28) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_28_UNCONNECTED,
+      DOA(27) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_27_UNCONNECTED,
+      DOA(26) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_26_UNCONNECTED,
+      DOA(25) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_25_UNCONNECTED,
+      DOA(24) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_24_UNCONNECTED,
+      DOA(23) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_23_UNCONNECTED,
+      DOA(22) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_22_UNCONNECTED,
+      DOA(21) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_21_UNCONNECTED,
+      DOA(20) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_20_UNCONNECTED,
+      DOA(19) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_19_UNCONNECTED,
+      DOA(18) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_18_UNCONNECTED,
+      DOA(17) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_17_UNCONNECTED,
+      DOA(16) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_16_UNCONNECTED,
+      DOA(15) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_15_UNCONNECTED,
+      DOA(14) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_14_UNCONNECTED,
+      DOA(13) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_13_UNCONNECTED,
+      DOA(12) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_12_Q,
+      DOA(11) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_11_UNCONNECTED,
+      DOA(10) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOA_10_UNCONNECTED,
+      DOA(9) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_9_Q,
+      DOA(8) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_8_Q,
+      DOA(7) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_7_Q,
+      DOA(6) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_6_Q,
+      DOA(5) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_5_Q,
+      DOA(4) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_4_Q,
+      DOA(3) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_3_Q,
+      DOA(2) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_2_Q,
+      DOA(1) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_1_Q,
+      DOA(0) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_ENCODER_OUTPUT_0_Q,
+      DOB(31) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_31_UNCONNECTED,
+      DOB(30) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_30_UNCONNECTED,
+      DOB(29) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_29_UNCONNECTED,
+      DOB(28) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_28_UNCONNECTED,
+      DOB(27) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_27_UNCONNECTED,
+      DOB(26) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_26_UNCONNECTED,
+      DOB(25) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_25_UNCONNECTED,
+      DOB(24) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_24_UNCONNECTED,
+      DOB(23) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_23_UNCONNECTED,
+      DOB(22) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_22_UNCONNECTED,
+      DOB(21) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_21_UNCONNECTED,
+      DOB(20) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_20_UNCONNECTED,
+      DOB(19) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_19_UNCONNECTED,
+      DOB(18) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_18_UNCONNECTED,
+      DOB(17) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_17_UNCONNECTED,
+      DOB(16) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_16_UNCONNECTED,
+      DOB(15) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_15_UNCONNECTED,
+      DOB(14) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_14_UNCONNECTED,
+      DOB(13) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_13_UNCONNECTED,
+      DOB(12) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_12_UNCONNECTED,
+      DOB(11) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_11_UNCONNECTED,
+      DOB(10) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_10_UNCONNECTED,
+      DOB(9) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_9_UNCONNECTED,
+      DOB(8) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_8_UNCONNECTED,
+      DOB(7) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_7_UNCONNECTED,
+      DOB(6) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_6_UNCONNECTED,
+      DOB(5) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_5_UNCONNECTED,
+      DOB(4) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_4_UNCONNECTED,
+      DOB(3) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_3_UNCONNECTED,
+      DOB(2) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_2_UNCONNECTED,
+      DOB(1) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_1_UNCONNECTED,
+      DOB(0) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOB_0_UNCONNECTED,
+      DOPA(3) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOPA_3_UNCONNECTED,
+      DOPA(2) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOPA_2_UNCONNECTED,
+      DOPA(1) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOPA_1_UNCONNECTED,
+      DOPA(0) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOPA_0_UNCONNECTED,
+      DOPB(3) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOPB_3_UNCONNECTED,
+      DOPB(2) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOPB_2_UNCONNECTED,
+      DOPB(1) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOPB_1_UNCONNECTED,
+      DOPB(0) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_ENCODER_LOOK_UP_TABLE_DOPB_0_UNCONNECTED
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE : RAMB16
+    generic map(
+      INIT_A => X"000000000",
+      INIT_B => X"000000000",
+      INITP_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INITP_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INITP_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INITP_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INITP_04 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INITP_05 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_FILE => "NONE",
+      INIT_00 => X"3000300030003000300030003000300030003000140030003000300030003000",
+      INIT_01 => X"3000300030003000300030003000300030003000540530003000300030003000",
+      INIT_02 => X"3000300030003000300030003000300030003000300030003000300030003000",
+      INIT_03 => X"3000300030003000300030003000300030003000300030003000300030003000",
+      INIT_04 => X"3000300030003000300030003000300030003000300030003000300030003000",
+      INIT_05 => X"30000CF70C9704770C1704B7043730000EF704D7045730003000300030003000",
+      INIT_06 => X"30000CE80C8804680C0804A804283000300004C8044830003000300030003000",
+      INIT_07 => X"300018003000300018000CA70C27300030000CC70C4704070C67048704E73000",
+      INIT_08 => X"3000300030003000300030003000300030003000300030003000300030003000",
+      INIT_09 => X"30000CFB0C9B047B0C1B04BB043B30000EFB04DB045B30003000300030003000",
+      INIT_0A => X"30000CE40C8404640C0404A404243000300004C4044430003000300030003000",
+      INIT_0B => X"3000180008940074081420B42034300008F420D4205404140C74049404F43000",
+      INIT_0C => X"30000CF80C9804780C1804B804383000300004D8045830003000300030003000",
+      INIT_0D => X"300008EC088C006C080C20AC202C3000300020CC204C040C0C6C048C04EC3000",
+      INIT_0E => X"300008FC089C007C081C20BC203C3000300020DC205C041C0C7C049C04FC3000",
+      INIT_0F => X"18001BFE300030001BFB0BBC0B3C03FC1BF70ADC0A5C021C0A7C029C30003000",
+      INIT_10 => X"300030001C00300030003000300030001C003000540514003000300014003000",
+      INIT_11 => X"30000CFD0C9D047D0C1D04BD043D30000EFD04DD045D30003000300030003000",
+      INIT_12 => X"30000CE20C8204620C0204A204223000300004C2044230003000300030003000",
+      INIT_13 => X"3000300008920072081220B22032300008F220D2205204120C72049204F23000",
+      INIT_14 => X"30000CFF0C9F047F0C1F04BF043F3000300004DF045F30003000300030003000",
+      INIT_15 => X"300008EA088A006A080A20AA202A3000300020CA204A040A0C6A048A04EA3000",
+      INIT_16 => X"300008FA089A007A081A20BA203A3000300020DA205A041A0C7A049A04FA3000",
+      INIT_17 => X"3000300030003000300008AF082F3000300008CF084F000F086F008F00EF3000",
+      INIT_18 => X"30000CE00C8004600C0004A004203000300004C0044030003000300030003000",
+      INIT_19 => X"300008E608860066080620A620263000300020C6204604060C66048604E63000",
+      INIT_1A => X"300008F608960076081620B620363000300020D6205604160C76049604F63000",
+      INIT_1B => X"3000300030003000300008B008303000300008D0085000100870009000F03000",
+      INIT_1C => X"300008EE088E006E080E20AE202E04EE300020CE204E040E0C6E048E30003000",
+      INIT_1D => X"3000300030003000300008A108213000300008C1084100010861008100E13000",
+      INIT_1E => X"3000300030003000300008BE083E02FE300008DE085E001E087E009E00FE3000",
+      INIT_1F => X"3000180030003000180058FA3000300030003000300030003000300030003000",
+      INIT_20 => X"300030001C00300030003000300030001C003000940514003000300014003000",
+      INIT_21 => X"30000CFE0C9E047E0C1E04BE043E30000EFE04DE045E30003000300030003000",
+      INIT_22 => X"30000CE10C8104610C0104A104213000300004C1044130003000300030003000",
+      INIT_23 => X"3000300008910071081120B12031300008F120D1205104110C71049104F13000",
+      INIT_24 => X"30000CF00C9004700C1004B004303000300004D0045030003000300030003000",
+      INIT_25 => X"300008E908890069080920A920293000300020C9204904090C69048904E93000",
+      INIT_26 => X"300008F908990079081920B920393000300020D9205904190C79049904F93000",
+      INIT_27 => X"3000300030003000300008A008203000300008C0084000000860008000E03000",
+      INIT_28 => X"30000CEF0C8F046F0C0F04AF042F3000300004CF044F30003000300030003000",
+      INIT_29 => X"300008E508850065080520A520253000300020C5204504050C65048504E53000",
+      INIT_2A => X"300008F508950075081520B520353000300020D5205504150C75049504F53000",
+      INIT_2B => X"3000300030003000300008BF083F3000300008DF085F001F087F009F00FF3000",
+      INIT_2C => X"300008ED088D006D080D20AD202D04ED300020CD204D040D0C6D048D30003000",
+      INIT_2D => X"3000300030003000300008A208223000300008C2084200020862008200E23000",
+      INIT_2E => X"3000300030003000300008BD083D02FD300008DD085D001D087D009D00FD3000",
+      INIT_2F => X"3000180030003000180098FA3000300030003000300030003000300030003000",
+      INIT_30 => X"1C0030000E9C067C0E1C065C06DC30000FFC073C07BCD70414003000D7011400",
+      INIT_31 => X"300008E308830063080320A3202330001C0020C3204304030C63048304E33000",
+      INIT_32 => X"300008F308930073081320B3203330001C0020D3205304130C73049304F33000",
+      INIT_33 => X"3000300030003000300008B808383000300008D8085800180878009800F83000",
+      INIT_34 => X"300008EB088B006B080B20AB202B04EB1C0020CB204B040B0C6B048B14003000",
+      INIT_35 => X"3000300030003000300008A408243000300008C4084400040864008400E43000",
+      INIT_36 => X"3000300030003000300008BB083B02FB300008DB085B001B087B009B00FB3000",
+      INIT_37 => X"3000300030003000300030003000300030003000300030003000300030003000",
+      INIT_38 => X"300008E708870067080700A7002730001C0000C7004714003000300014003000",
+      INIT_39 => X"3000300030003000300008A808283000300008C8084800080868008800E83000",
+      INIT_3A => X"3000300030003000300008B7083702F7300008D7085700170877009700F73000",
+      INIT_3B => X"3000300030003000300030003000300030003000300030003000300030003000",
+      INIT_3C => X"30003000300030003000300030003000300030001C0030003000300030003000",
+      INIT_3D => X"3000300030003000300030003000300030003000300030003000300030003000",
+      INIT_3E => X"3000300030003000300030003000300030003000300030003000300030003000",
+      INIT_3F => X"3000300030003000300018003000300030003000300030003000300030003000",
+      INITP_06 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INITP_07 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      WRITE_MODE_A => "NO_CHANGE",
+      WRITE_MODE_B => "NO_CHANGE",
+      DOA_REG => 0,
+      DOB_REG => 0,
+      READ_WIDTH_A => 18,
+      READ_WIDTH_B => 18,
+      WRITE_WIDTH_A => 18,
+      WRITE_WIDTH_B => 18,
+      SRVAL_A => X"000000000",
+      INVERT_CLK_DOA_REG => FALSE,
+      INVERT_CLK_DOB_REG => FALSE,
+      RAM_EXTENSION_A => "NONE",
+      RAM_EXTENSION_B => "NONE",
+      SRVAL_B => X"000000000"
+    )
+    port map (
+      CASCADEINA => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_CASCADEINA_UNCONNECTED,
+      CASCADEINB => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_CASCADEINB_UNCONNECTED,
+      CLKA => gtx_clk,
+      CLKB => gtx_clk,
+      ENA => NlwRenamedSig_OI_status_vector_11_Q,
+      REGCEA => NlwRenamedSig_OI_status_vector_7_Q,
+      REGCEB => NlwRenamedSig_OI_status_vector_7_Q,
+      ENB => NlwRenamedSig_OI_status_vector_7_Q,
+      SSRA => NlwRenamedSig_OI_status_vector_7_Q,
+      SSRB => NlwRenamedSig_OI_status_vector_7_Q,
+      CASCADEOUTA => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_CASCADEOUTA_UNCONNECTED,
+      CASCADEOUTB => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_CASCADEOUTB_UNCONNECTED,
+      ADDRA(14) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRA_14_UNCONNECTED,
+      ADDRA(13) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(0),
+      ADDRA(12) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(1),
+      ADDRA(11) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(2),
+      ADDRA(10) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(3),
+      ADDRA(9) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(4),
+      ADDRA(8) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(5),
+      ADDRA(7) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(6),
+      ADDRA(6) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(7),
+      ADDRA(5) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(8),
+      ADDRA(4) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_RD(9),
+      ADDRA(3) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRA_3_UNCONNECTED,
+      ADDRA(2) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRA_2_UNCONNECTED,
+      ADDRA(1) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRA_1_UNCONNECTED,
+      ADDRA(0) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRA_0_UNCONNECTED,
+      ADDRB(14) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRB_14_UNCONNECTED,
+      ADDRB(13) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(12) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(11) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(10) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(9) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(8) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(7) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(6) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(5) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(4) => NlwRenamedSig_OI_status_vector_7_Q,
+      ADDRB(3) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRB_3_UNCONNECTED,
+      ADDRB(2) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRB_2_UNCONNECTED,
+      ADDRB(1) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRB_1_UNCONNECTED,
+      ADDRB(0) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_ADDRB_0_UNCONNECTED,
+      DIA(31) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_31_UNCONNECTED,
+      DIA(30) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_30_UNCONNECTED,
+      DIA(29) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_29_UNCONNECTED,
+      DIA(28) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_28_UNCONNECTED,
+      DIA(27) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_27_UNCONNECTED,
+      DIA(26) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_26_UNCONNECTED,
+      DIA(25) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_25_UNCONNECTED,
+      DIA(24) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_24_UNCONNECTED,
+      DIA(23) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_23_UNCONNECTED,
+      DIA(22) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_22_UNCONNECTED,
+      DIA(21) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_21_UNCONNECTED,
+      DIA(20) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_20_UNCONNECTED,
+      DIA(19) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_19_UNCONNECTED,
+      DIA(18) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_18_UNCONNECTED,
+      DIA(17) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_17_UNCONNECTED,
+      DIA(16) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIA_16_UNCONNECTED,
+      DIA(15) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(14) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(13) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(12) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(11) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(10) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(9) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(8) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(7) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(6) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(5) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(4) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(3) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(2) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(1) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIA(0) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(31) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_31_UNCONNECTED,
+      DIB(30) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_30_UNCONNECTED,
+      DIB(29) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_29_UNCONNECTED,
+      DIB(28) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_28_UNCONNECTED,
+      DIB(27) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_27_UNCONNECTED,
+      DIB(26) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_26_UNCONNECTED,
+      DIB(25) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_25_UNCONNECTED,
+      DIB(24) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_24_UNCONNECTED,
+      DIB(23) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_23_UNCONNECTED,
+      DIB(22) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_22_UNCONNECTED,
+      DIB(21) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_21_UNCONNECTED,
+      DIB(20) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_20_UNCONNECTED,
+      DIB(19) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_19_UNCONNECTED,
+      DIB(18) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_18_UNCONNECTED,
+      DIB(17) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_17_UNCONNECTED,
+      DIB(16) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIB_16_UNCONNECTED,
+      DIB(15) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(14) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(13) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(12) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(11) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(10) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(9) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(8) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(7) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(6) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(5) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(4) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(3) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(2) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(1) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIB(0) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIPA(3) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIPA_3_UNCONNECTED,
+      DIPA(2) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIPA_2_UNCONNECTED,
+      DIPA(1) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIPA(0) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIPB(3) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIPB_3_UNCONNECTED,
+      DIPB(2) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DIPB_2_UNCONNECTED,
+      DIPB(1) => NlwRenamedSig_OI_status_vector_7_Q,
+      DIPB(0) => NlwRenamedSig_OI_status_vector_7_Q,
+      WEA(3) => NlwRenamedSig_OI_status_vector_7_Q,
+      WEA(2) => NlwRenamedSig_OI_status_vector_7_Q,
+      WEA(1) => NlwRenamedSig_OI_status_vector_7_Q,
+      WEA(0) => NlwRenamedSig_OI_status_vector_7_Q,
+      WEB(3) => NlwRenamedSig_OI_status_vector_7_Q,
+      WEB(2) => NlwRenamedSig_OI_status_vector_7_Q,
+      WEB(1) => NlwRenamedSig_OI_status_vector_7_Q,
+      WEB(0) => NlwRenamedSig_OI_status_vector_7_Q,
+      DOA(31) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_31_UNCONNECTED,
+      DOA(30) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_30_UNCONNECTED,
+      DOA(29) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_29_UNCONNECTED,
+      DOA(28) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_28_UNCONNECTED,
+      DOA(27) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_27_UNCONNECTED,
+      DOA(26) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_26_UNCONNECTED,
+      DOA(25) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_25_UNCONNECTED,
+      DOA(24) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_24_UNCONNECTED,
+      DOA(23) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_23_UNCONNECTED,
+      DOA(22) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_22_UNCONNECTED,
+      DOA(21) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_21_UNCONNECTED,
+      DOA(20) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_20_UNCONNECTED,
+      DOA(19) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_19_UNCONNECTED,
+      DOA(18) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_18_UNCONNECTED,
+      DOA(17) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_17_UNCONNECTED,
+      DOA(16) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOA_16_UNCONNECTED,
+      DOA(15) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(15),
+      DOA(14) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(14),
+      DOA(13) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(13),
+      DOA(12) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(12),
+      DOA(11) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(11),
+      DOA(10) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(10),
+      DOA(9) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(9),
+      DOA(8) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(8),
+      DOA(7) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(7),
+      DOA(6) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(6),
+      DOA(5) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(5),
+      DOA(4) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(4),
+      DOA(3) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(3),
+      DOA(2) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(2),
+      DOA(1) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(1),
+      DOA(0) => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_DECODER_OUTPUT(0),
+      DOB(31) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_31_UNCONNECTED,
+      DOB(30) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_30_UNCONNECTED,
+      DOB(29) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_29_UNCONNECTED,
+      DOB(28) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_28_UNCONNECTED,
+      DOB(27) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_27_UNCONNECTED,
+      DOB(26) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_26_UNCONNECTED,
+      DOB(25) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_25_UNCONNECTED,
+      DOB(24) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_24_UNCONNECTED,
+      DOB(23) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_23_UNCONNECTED,
+      DOB(22) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_22_UNCONNECTED,
+      DOB(21) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_21_UNCONNECTED,
+      DOB(20) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_20_UNCONNECTED,
+      DOB(19) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_19_UNCONNECTED,
+      DOB(18) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_18_UNCONNECTED,
+      DOB(17) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_17_UNCONNECTED,
+      DOB(16) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_16_UNCONNECTED,
+      DOB(15) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_15_UNCONNECTED,
+      DOB(14) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_14_UNCONNECTED,
+      DOB(13) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_13_UNCONNECTED,
+      DOB(12) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_12_UNCONNECTED,
+      DOB(11) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_11_UNCONNECTED,
+      DOB(10) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_10_UNCONNECTED,
+      DOB(9) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_9_UNCONNECTED,
+      DOB(8) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_8_UNCONNECTED,
+      DOB(7) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_7_UNCONNECTED,
+      DOB(6) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_6_UNCONNECTED,
+      DOB(5) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_5_UNCONNECTED,
+      DOB(4) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_4_UNCONNECTED,
+      DOB(3) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_3_UNCONNECTED,
+      DOB(2) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_2_UNCONNECTED,
+      DOB(1) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_1_UNCONNECTED,
+      DOB(0) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOB_0_UNCONNECTED,
+      DOPA(3) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOPA_3_UNCONNECTED,
+      DOPA(2) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOPA_2_UNCONNECTED,
+      DOPA(1) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOPA_1_UNCONNECTED,
+      DOPA(0) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOPA_0_UNCONNECTED,
+      DOPB(3) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOPB_3_UNCONNECTED,
+      DOPB(2) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOPB_2_UNCONNECTED,
+      DOPB(1) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOPB_1_UNCONNECTED,
+      DOPB(0) => NLW_U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_LOOK_UP_TABLE_DOPB_0_UNCONNECTED
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux000261 : LUT4
+    generic map(
+      INIT => X"B1FF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(1),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_970,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_13_Q,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      O => U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux00026
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux000262 : LUT4
+    generic map(
+      INIT => X"91B3"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(1),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_13_Q,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_970,
+      O => U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux000261_1029
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux00026_f5 : MUXF5
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux000261_1029,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux00026,
+      S => U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_5_Q,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_2_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux000221 : LUT4
+    generic map(
+      INIT => X"B1FF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(1),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_970,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_15_Q,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      O => U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux00022
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux000222 : LUT4
+    generic map(
+      INIT => X"91B3"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(1),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_15_Q,
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_C1_OR_C2_970,
+      O => U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux000221_1027
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux00022_f5 : MUXF5
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux000221_1027,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_Mmux_CONFIG_DATA_mux00022,
+      S => U0_gpcs_pma_inst_TRANSMITTER_TX_CONFIG_7_Q,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA_mux0002_0_Q
+    );
+  U0_gpcs_pma_inst_RECEIVER_EOP_or0000141 : LUT4
+    generic map(
+      INIT => X"C080"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_798,
+      I1 => U0_gpcs_pma_inst_RECEIVER_R_REG1_892,
+      I2 => U0_gpcs_pma_inst_RECEIVER_T_REG2_904,
+      I3 => U0_gpcs_pma_inst_RECEIVER_R_820,
+      O => U0_gpcs_pma_inst_RECEIVER_EOP_or0000141_731
+    );
+  U0_gpcs_pma_inst_RECEIVER_EOP_or0000142 : LUT3
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_T_REG2_904,
+      I1 => U0_gpcs_pma_inst_RECEIVER_R_REG1_892,
+      I2 => U0_gpcs_pma_inst_RECEIVER_R_820,
+      O => U0_gpcs_pma_inst_RECEIVER_EOP_or0000142_732
+    );
+  U0_gpcs_pma_inst_RECEIVER_EOP_or000014_f5 : MUXF5
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_EOP_or0000142_732,
+      I1 => U0_gpcs_pma_inst_RECEIVER_EOP_or0000141_731,
+      S => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_927,
+      O => U0_gpcs_pma_inst_RECEIVER_EOP_or000014
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_3_1 : LUT4
+    generic map(
+      INIT => X"FF31"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_TX_PACKET_1086,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_R_1034,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_TXD_REG1(3),
+      I3 => U0_gpcs_pma_inst_TRANSMITTER_N31,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_3_1_996
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_3_f5 : MUXF5
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_3_1_996,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CONFIG_DATA(3),
+      S => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_1094,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_3_Q
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_2_4111 : LUT4
+    generic map(
+      INIT => X"FF32"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_R_1034,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_S_1038,
+      I2 => N226,
+      I3 => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_2_411
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_2_411_f5 : MUXF5
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_2_411,
+      I1 => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_TRANSMITTER_XMIT_CONFIG_INT_1094,
+      O => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_mux0007_2_41
+    );
+  U0_gpcs_pma_inst_STATUS_VECTOR_0_PRE_rstpot1 : LUT4
+    generic map(
+      INIT => X"C040"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_DATA_INT_528,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_6_Q,
+      O => U0_gpcs_pma_inst_STATUS_VECTOR_0_PRE_rstpot1_920
+    );
+  U0_gpcs_pma_inst_STATUS_VECTOR_0_PRE_rstpot_f5 : MUXF5
+    port map (
+      I0 => U0_gpcs_pma_inst_STATUS_VECTOR_0_PRE_rstpot1_920,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      S => U0_gpcs_pma_inst_UNIDIRECTIONAL_ENABLE,
+      O => U0_gpcs_pma_inst_STATUS_VECTOR_0_PRE_rstpot
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_1_SW11 : LUT4
+    generic map(
+      INIT => X"FFEF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(2),
+      I2 => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_1_SW1
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_1_SW1_f5 : MUXF5
+    port map (
+      I0 => NlwRenamedSig_OI_status_vector_11_Q,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_1_SW1,
+      S => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(3),
+      O => N242
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_3_111 : LUT4
+    generic map(
+      INIT => X"C663"
+    )
+    port map (
+      I0 => N77,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(2),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_3_11
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_3_112 : LUT4
+    generic map(
+      INIT => X"C663"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(2),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(3),
+      I2 => N77,
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(2),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_3_111_1126
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_3_11_f5 : MUXF5
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_3_111_1126,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_3_11,
+      S => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(3),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY_sub0000(3)
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_2_11_SW01 : LUT4
+    generic map(
+      INIT => X"6999"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(2),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(3),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(0),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_2_11_SW0
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_2_11_SW02 : LUT4
+    generic map(
+      INIT => X"9969"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(3),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(2),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(0),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(0),
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_2_11_SW01_1124
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_2_11_SW0_f5 : MUXF5
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_2_11_SW01_1124,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_xor_2_11_SW0,
+      S => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WR_ADDRBIN(1),
+      O => N250
+    );
+  U0_gpcs_pma_inst_RECEIVER_FROM_RX_K_rstpot1 : LUT3
+    generic map(
+      INIT => X"10"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_LINK_OK,
+      I1 => U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or0000,
+      I2 => U0_gpcs_pma_inst_RECEIVER_K28p5_REG2_800,
+      O => U0_gpcs_pma_inst_RECEIVER_FROM_RX_K_rstpot1_776
+    );
+  U0_gpcs_pma_inst_RECEIVER_FROM_RX_K_rstpot2 : LUT4
+    generic map(
+      INIT => X"1000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_LINK_OK,
+      I1 => U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or0000,
+      I2 => U0_gpcs_pma_inst_RECEIVER_CGBAD_715,
+      I3 => U0_gpcs_pma_inst_RECEIVER_K28p5_REG2_800,
+      O => U0_gpcs_pma_inst_RECEIVER_FROM_RX_K_rstpot2_777
+    );
+  U0_gpcs_pma_inst_RECEIVER_FROM_RX_K_rstpot_f5 : MUXF5
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_FROM_RX_K_rstpot2_777,
+      I1 => U0_gpcs_pma_inst_RECEIVER_FROM_RX_K_rstpot1_776,
+      S => U0_gpcs_pma_inst_RECEIVER_RXCHARISK_REG1_827,
+      O => U0_gpcs_pma_inst_RECEIVER_FROM_RX_K_rstpot
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_INVALID_rstpot11 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => N181,
+      I1 => U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or0000,
+      O => U0_gpcs_pma_inst_RECEIVER_RX_INVALID_rstpot11_890
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_INVALID_rstpot12 : LUT4
+    generic map(
+      INIT => X"3332"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_FROM_IDLE_D_767,
+      I1 => U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or0000,
+      I2 => N181,
+      I3 => U0_gpcs_pma_inst_RECEIVER_FROM_RX_K_774,
+      O => U0_gpcs_pma_inst_RECEIVER_RX_INVALID_rstpot12_891
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_INVALID_rstpot1_f5 : MUXF5
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_INVALID_rstpot12_891,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_INVALID_rstpot11_890,
+      S => U0_gpcs_pma_inst_RECEIVER_LINK_OK,
+      O => U0_gpcs_pma_inst_RECEIVER_RX_INVALID_rstpot1
+    );
+  U0_gpcs_pma_inst_RECEIVER_FROM_IDLE_D_rstpot1 : LUT4
+    generic map(
+      INIT => X"0010"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_LINK_OK,
+      I1 => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_798,
+      I2 => U0_gpcs_pma_inst_RECEIVER_I_REG_789,
+      I3 => U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or0000,
+      O => U0_gpcs_pma_inst_RECEIVER_FROM_IDLE_D_rstpot1_769
+    );
+  U0_gpcs_pma_inst_RECEIVER_FROM_IDLE_D_rstpot_f5 : MUXF5
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_FROM_IDLE_D_rstpot1_769,
+      I1 => NlwRenamedSig_OI_status_vector_7_Q,
+      S => U0_gpcs_pma_inst_RECEIVER_WAIT_FOR_K_905,
+      O => U0_gpcs_pma_inst_RECEIVER_FROM_IDLE_D_rstpot
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_rstpot1 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RECEIVE_821,
+      I1 => U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or0000,
+      O => U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_rstpot1_881
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_rstpot2 : LUT4
+    generic map(
+      INIT => X"080C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_and000012_877,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RECEIVE_821,
+      I2 => U0_gpcs_pma_inst_RECEIVER_FROM_RX_CX_or0000,
+      I3 => N175,
+      O => U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_rstpot2_882
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_rstpot_f5 : MUXF5
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_rstpot2_882,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_rstpot1_881,
+      S => U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_and00004_879,
+      O => U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_rstpot
+    );
+  U0_gpcs_pma_inst_RECEIVER_EXTEND_ERR_rstpot1 : LUT4
+    generic map(
+      INIT => X"3222"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_EXT_ILLEGAL_K_REG2_747,
+      I1 => U0_gpcs_pma_inst_SRESET_915,
+      I2 => U0_gpcs_pma_inst_RECEIVER_EXTEND_REG3_739,
+      I3 => U0_gpcs_pma_inst_RECEIVER_CGBAD_REG3_717,
+      O => U0_gpcs_pma_inst_RECEIVER_EXTEND_ERR_rstpot1_737
+    );
+  U0_gpcs_pma_inst_RECEIVER_EXTEND_ERR_rstpot_f5 : MUXF5
+    port map (
+      I0 => NlwRenamedSig_OI_status_vector_7_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_EXTEND_ERR_rstpot1_737,
+      S => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      O => U0_gpcs_pma_inst_RECEIVER_EXTEND_ERR_rstpot
+    );
+  U0_gpcs_pma_inst_RECEIVER_RECEIVE_rstpot11 : LUT4
+    generic map(
+      INIT => X"0F02"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RECEIVE_821,
+      I1 => U0_gpcs_pma_inst_RECEIVER_EOP_726,
+      I2 => U0_gpcs_pma_inst_SRESET_915,
+      I3 => U0_gpcs_pma_inst_RECEIVER_SOP_REG2_895,
+      O => U0_gpcs_pma_inst_RECEIVER_RECEIVE_rstpot11_823
+    );
+  U0_gpcs_pma_inst_RECEIVER_RECEIVE_rstpot1_f5 : MUXF5
+    port map (
+      I0 => NlwRenamedSig_OI_status_vector_7_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RECEIVE_rstpot11_823,
+      S => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      O => U0_gpcs_pma_inst_RECEIVER_RECEIVE_rstpot1
+    );
+  U0_gpcs_pma_inst_RECEIVER_EXTEND_rstpot11 : LUT4
+    generic map(
+      INIT => X"0F02"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_EXTEND_734,
+      I1 => U0_gpcs_pma_inst_RECEIVER_EXTEND_or0000,
+      I2 => U0_gpcs_pma_inst_SRESET_915,
+      I3 => U0_gpcs_pma_inst_RECEIVER_EXTEND_and0000,
+      O => U0_gpcs_pma_inst_RECEIVER_EXTEND_rstpot11_743
+    );
+  U0_gpcs_pma_inst_RECEIVER_EXTEND_rstpot1_f5 : MUXF5
+    port map (
+      I0 => NlwRenamedSig_OI_status_vector_7_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_EXTEND_rstpot11_743,
+      S => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      O => U0_gpcs_pma_inst_RECEIVER_EXTEND_rstpot1
+    );
+  U0_gpcs_pma_inst_RECEIVER_WAIT_FOR_K_rstpot11 : LUT4
+    generic map(
+      INIT => X"0F02"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_WAIT_FOR_K_905,
+      I1 => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_and0001,
+      I2 => U0_gpcs_pma_inst_SRESET_915,
+      I3 => U0_gpcs_pma_inst_RECEIVER_SYNC_STATUS_REG_inv,
+      O => U0_gpcs_pma_inst_RECEIVER_WAIT_FOR_K_rstpot11_907
+    );
+  U0_gpcs_pma_inst_RECEIVER_WAIT_FOR_K_rstpot1_f5 : MUXF5
+    port map (
+      I0 => NlwRenamedSig_OI_status_vector_7_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_WAIT_FOR_K_rstpot11_907,
+      S => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      O => U0_gpcs_pma_inst_RECEIVER_WAIT_FOR_K_rstpot1
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_rstpot1 : LUT4
+    generic map(
+      INIT => X"2000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(14),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_or0000,
+      I2 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(14),
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_2_165,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_rstpot1_171
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_rstpot2 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_169,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_rstpot2_172
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_rstpot_f5 : MUXF5
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_rstpot2_172,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_rstpot1_171,
+      S => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_rstpot
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_2_rstpot1 : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(14),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(14),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_2_rstpot1_167
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_2_rstpot2 : LUT2
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_2_165,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_or0000,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_2_rstpot2_168
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_2_rstpot_f5 : MUXF5
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_2_rstpot2_168,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_2_rstpot1_167,
+      S => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_2_rstpot
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LINK_STATUS_rstpot1 : LUT4
+    generic map(
+      INIT => X"080C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_6_Q,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_DATA_INT_528,
+      I2 => U0_gpcs_pma_inst_SRESET_915,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LINK_STATUS_rstpot1_245
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LINK_STATUS_rstpot2 : LUT3
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LINK_STATUS_243,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_DATA_INT_528,
+      I2 => U0_gpcs_pma_inst_SRESET_915,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LINK_STATUS_rstpot2_246
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LINK_STATUS_rstpot_f5 : MUXF5
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LINK_STATUS_rstpot2_246,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LINK_STATUS_rstpot1_245,
+      S => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_REMOTE_FAULT_and0001,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LINK_STATUS_rstpot
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_S_and0000_SW0 : LUT3_L
+    generic map(
+      INIT => X"A2"
+    )
+    port map (
+      I0 => gmii_tx_en,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_CODE_GRP_CNT(0),
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_TX_ER_REG1_1085,
+      LO => N12
+    );
+  U0_gpcs_pma_inst_RECEIVER_EOP_or00001 : LUT2_L
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_D0p0_REG_725,
+      I1 => U0_gpcs_pma_inst_RECEIVER_C_REG1_720,
+      LO => U0_gpcs_pma_inst_RECEIVER_EOP_or00001_729
+    );
+  U0_gpcs_pma_inst_RECEIVER_K23p71 : LUT2_L
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(0),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308,
+      LO => U0_gpcs_pma_inst_RECEIVER_K23p71_792
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_and0000_SW0 : LUT2_L
+    generic map(
+      INIT => X"D"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(3),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      LO => N14
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_OPCODE_not0001_SW0 : LUT3_L
+    generic map(
+      INIT => X"DF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd7_683,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(0),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDC_RISING_REG1_585,
+      LO => N16
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or00001 : LUT2_D
+    generic map(
+      INIT => X"E"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_I_REG_789,
+      I1 => U0_gpcs_pma_inst_SRESET_915,
+      LO => N284,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG_or0000
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_and00011 : LUT2_D
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_798,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_927,
+      LO => N285,
+      O => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_and0001
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_and000028 : LUT4_L
+    generic map(
+      INIT => X"FFBA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_T_REG2_904,
+      I1 => U0_gpcs_pma_inst_RECEIVER_T_REG1_903,
+      I2 => U0_gpcs_pma_inst_RECEIVER_R_820,
+      I3 => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_798,
+      LO => U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_and000028_878
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_mux00001 : LUT3_L
+    generic map(
+      INIT => X"2A"
+    )
+    port map (
+      I0 => configuration_vector(2),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_cmp_eq0000,
+      LO => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_mux0000
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_CODE_GRPISK_mux0006121 : LUT4_D
+    generic map(
+      INIT => X"FFFE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_T_1043,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_S_1038,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_V_1088,
+      I3 => NlwRenamedSig_OI_U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG,
+      LO => N286,
+      O => U0_gpcs_pma_inst_TRANSMITTER_N31
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_UNIDIRECTIONAL_ENABLE_REG_mux00001 : LUT4_L
+    generic map(
+      INIT => X"CAAA"
+    )
+    port map (
+      I0 => configuration_vector(0),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(5),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_cmp_eq0000,
+      LO => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_UNIDIRECTIONAL_ENABLE_REG_mux0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_LOOPBACK_REG_mux00001 : LUT4_L
+    generic map(
+      INIT => X"CAAA"
+    )
+    port map (
+      I0 => configuration_vector(1),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(14),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_cmp_eq0000,
+      LO => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_LOOPBACK_REG_mux0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_mux00001 : LUT4_L
+    generic map(
+      INIT => X"CAAA"
+    )
+    port map (
+      I0 => configuration_vector(4),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(12),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_cmp_eq0000,
+      LO => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_mux0000
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_SYNC_DISPARITY_mux000111_SW0 : LUT2_L
+    generic map(
+      INIT => X"E"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_R_1034,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_T_1043,
+      LO => N25
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_and00003_SW0 : LUT3_L
+    generic map(
+      INIT => X"FE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(7),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(4),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(1),
+      LO => N29
+    );
+  U0_gpcs_pma_inst_RECEIVER_RX_ER_and00005 : LUT4_L
+    generic map(
+      INIT => X"FE00"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_RX_DATA_ERROR_876,
+      I1 => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG3_753,
+      I2 => U0_gpcs_pma_inst_RECEIVER_EXTEND_REG1_738,
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      LO => U0_gpcs_pma_inst_RECEIVER_RX_ER_and00005_887
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_14_26 : LUT3_D
+    generic map(
+      INIT => X"01"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(2),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(3),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(0),
+      LO => N287,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_14_26_651
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_and000026 : LUT4_L
+    generic map(
+      INIT => X"0524"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(1),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(4),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(0),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(3),
+      LO => U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_and000026_759
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or0000101 : LUT2_L
+    generic map(
+      INIT => X"1"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(2),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      LO => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDRESS_MATCH_COMB_or0000101_589
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_or0000 : LUT4_D
+    generic map(
+      INIT => X"B111"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_938,
+      I1 => N43,
+      I2 => N44,
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_CGBAD_923,
+      LO => N288,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_or0000_967
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_INTERRUPT_INT_and00011_SW0 : LUT4_L
+    generic map(
+      INIT => X"EFFF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(2),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(0),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG3_611,
+      LO => N46
+    );
+  U0_gpcs_pma_inst_RECEIVER_C_or0000121 : LUT4_D
+    generic map(
+      INIT => X"0020"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(1),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(7),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(6),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(5),
+      LO => N289,
+      O => U0_gpcs_pma_inst_RECEIVER_N39
+    );
+  U0_gpcs_pma_inst_RECEIVER_C_or0000111 : LUT4_D
+    generic map(
+      INIT => X"2000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(7),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(1),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(4),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(2),
+      LO => N290,
+      O => U0_gpcs_pma_inst_RECEIVER_N36
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_or00001 : LUT4_L
+    generic map(
+      INIT => X"FF20"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_TX_CONFIG_REG_INT_11_or0000,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      LO => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_or0000
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS_or0000 : LUT4_D
+    generic map(
+      INIT => X"FFA8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_955,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_938,
+      I2 => N54,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      LO => N291,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS_or0000_934
+    );
+  U0_gpcs_pma_inst_RECEIVER_K27p7_inv31 : LUT4_L
+    generic map(
+      INIT => X"7FFF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(4),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(6),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(1),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(0),
+      LO => U0_gpcs_pma_inst_RECEIVER_K27p7_inv31_796
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00000 : LUT2_D
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(6),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(7),
+      LO => N292,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00000_232
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00001 : LUT2_D
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(2),
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_TIMER(3),
+      LO => N293,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_cmp_eq00001_233
+    );
+  U0_gpcs_pma_inst_RECEIVER_C_or0000131 : LUT2_D
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(5),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(6),
+      LO => N294,
+      O => U0_gpcs_pma_inst_RECEIVER_N41
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_cmp_eq00001 : LUT4_D
+    generic map(
+      INIT => X"0001"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(2),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(0),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(3),
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT(1),
+      LO => N295,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_cmp_eq0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_LOAD_EN1 : LUT4_D
+    generic map(
+      INIT => X"FEEE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd4_678,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd8_685,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_FSM_FFd7_683,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_STATE_cmp_eq0000,
+      LO => N296,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_BIT_COUNT_LOAD_EN
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_CGBAD_SW0 : LUT2_D
+    generic map(
+      INIT => X"E"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDISPERR_1318,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXNOTINTABLE_1320,
+      LO => N297,
+      O => N58
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_In45 : LUT4_L
+    generic map(
+      INIT => X"88FA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_949,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_In16_951,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_In32_952,
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_CGBAD_923,
+      LO => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_In45_953
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In96 : LUT2_L
+    generic map(
+      INIT => X"1"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_949,
+      LO => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In96_962
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_2_21 : LUT4_L
+    generic map(
+      INIT => X"EAC0"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LINK_STATUS_243,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_2_11_658,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_2_3_660,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_RD(3),
+      LO => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_2_21_659
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_or00008 : LUT3_L
+    generic map(
+      INIT => X"7F"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(1),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(2),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_OCCUPANCY(0),
+      LO => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_or00008_1141
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In111 : LUT2_L
+    generic map(
+      INIT => X"D"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS(1),
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_GOOD_CGS(0),
+      LO => U0_gpcs_pma_inst_SYNCHRONISATION_N7
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In12 : LUT4_L
+    generic map(
+      INIT => X"FF8A"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CONSISTENCY_MATCH_181,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_169,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      LO => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_In12_475
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CONFIG_REG_MATCH_COMB_and00001 : LUT4_L
+    generic map(
+      INIT => X"0900"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(15),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(15),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6),
+      LO => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CONFIG_REG_MATCH_COMB
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not00016 : LUT2_L
+    generic map(
+      INIT => X"4"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MASK_RUDI_BUFERR_211,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_VALID_INT_870,
+      LO => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not00016_431
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CLEAR_STATUS_REG_COMB_and000011 : LUT3_D
+    generic map(
+      INIT => X"01"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(4),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(3),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(1),
+      LO => N298,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_N6
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_cmp_eq00001 : LUT3_D
+    generic map(
+      INIT => X"40"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(0),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(2),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_N6,
+      LO => N299,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_cmp_eq0000
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In7 : LUT3_L
+    generic map(
+      INIT => X"31"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ACKNOWLEDGE_MATCH_3_169,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_361,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_CONSISTENCY_MATCH_181,
+      LO => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In7_485
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In50 : LUT3_L
+    generic map(
+      INIT => X"4F"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_361,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_159,
+      LO => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_In50_484
+    );
+  U0_gpcs_pma_inst_TRANSMITTER_V_and000072 : LUT3_L
+    generic map(
+      INIT => X"08"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_TRANSMITTER_TX_EN_REG1_1084,
+      I1 => U0_gpcs_pma_inst_TRANSMITTER_TX_ER_REG1_1085,
+      I2 => U0_gpcs_pma_inst_TRANSMITTER_TX_PACKET_1086,
+      LO => U0_gpcs_pma_inst_TRANSMITTER_V_and000072_1093
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In21 : LUT4_D
+    generic map(
+      INIT => X"FEEE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_AN_ENABLE_CHANGE_239,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_INT_256,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_CONFIG_INT_524,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_RUDI_INVALID_DELAY_0_and0000,
+      LO => N300,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_N9
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In56 : LUT4_L
+    generic map(
+      INIT => X"F373"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_IDLE_MATCH_185,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_DONE_206,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      LO => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In56_490
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_LOWER_COMB11 : LUT4_D
+    generic map(
+      INIT => X"2000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(4),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(0),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(2),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(5),
+      LO => N301,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N111
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_COMB21 : LUT4_D
+    generic map(
+      INIT => X"1000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(8),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(6),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(9),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(7),
+      LO => N302,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_N8
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER36 : LUT4_L
+    generic map(
+      INIT => X"2A00"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_DONE_206,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_NULL_361,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_159,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      LO => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER36_467
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_COMB24_SW0 : LUT3_L
+    generic map(
+      INIT => X"FD"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(0),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(2),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(1),
+      LO => N79
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_COMB5_SW0 : LUT2_D
+    generic map(
+      INIT => X"D"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(1),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(3),
+      LO => N303,
+      O => N85
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER80 : LUT4_D
+    generic map(
+      INIT => X"0F02"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER54_469,
+      I1 => N87,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_N6,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER37_468,
+      LO => N304,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER80_470
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER14_SW0 : LUT4_D
+    generic map(
+      INIT => X"0010"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_487,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd2_479,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd1_473,
+      LO => N305,
+      O => N95
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_not0001_SW0 : LUT4_L
+    generic map(
+      INIT => X"1000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(0),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(2),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_N6,
+      LO => N63
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_not00011 : LUT4_D
+    generic map(
+      INIT => X"EAAA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_CONFIGURATION_VALID_EN_562,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG3_611,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_cmp_eq0000,
+      LO => N306,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_ISOLATE_REG_not0001
+    );
+  U0_gpcs_pma_inst_RECEIVER_I_and0000_SW3 : LUT4_L
+    generic map(
+      INIT => X"AA80"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_927,
+      I1 => U0_gpcs_pma_inst_RECEIVER_CARRIER_DETECT_or0000,
+      I2 => U0_gpcs_pma_inst_RECEIVER_I_REG_789,
+      I3 => U0_gpcs_pma_inst_RECEIVER_K28p5_REG1_798,
+      LO => N100
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_mux00011 : LUT4_L
+    generic map(
+      INIT => X"0900"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_REG_REG(15),
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(15),
+      I2 => N102,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_Mcompar_CONFIG_REG_MATCH_COMB_cmp_eq0000_cy(6),
+      LO => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_ABILITY_MATCH_mux0001
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_not0001_SW0_SW0 : LUT4_L
+    generic map(
+      INIT => X"AEAA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_EN_533,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG3_611,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_IDLE_DETECT_REG1_573,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_IDLE_530,
+      LO => N104
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_DATA1_SW1 : LUT4_L
+    generic map(
+      INIT => X"0075"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_XMIT_DATA_INT_528,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_6_Q,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ENABLE_REG_550,
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      LO => N107
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_CGBAD_SW2 : LUT4_L
+    generic map(
+      INIT => X"1300"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISCOMMA_1307,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISK_1308,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_927,
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      LO => N113
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000130_SW0 : LUT4_L
+    generic map(
+      INIT => X"AAAC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_0_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(0),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359,
+      I3 => N93,
+      LO => N117
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000130_SW1 : LUT4_L
+    generic map(
+      INIT => X"AAAC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_1_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(1),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359,
+      I3 => N93,
+      LO => N119
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000130_SW2 : LUT4_L
+    generic map(
+      INIT => X"AAAC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_2_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(2),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359,
+      I3 => N93,
+      LO => N121
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000130_SW3 : LUT4_L
+    generic map(
+      INIT => X"AAAC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_3_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(3),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359,
+      I3 => N93,
+      LO => N123
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000130_SW4 : LUT4_L
+    generic map(
+      INIT => X"AAAC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_4_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(4),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359,
+      I3 => N93,
+      LO => N125
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000130_SW5 : LUT4_L
+    generic map(
+      INIT => X"AAAC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_5_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(5),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359,
+      I3 => N93,
+      LO => N127
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000130_SW6 : LUT4_L
+    generic map(
+      INIT => X"AAAC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_6_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(6),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359,
+      I3 => N93,
+      LO => N129
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000130_SW7 : LUT4_L
+    generic map(
+      INIT => X"AAAC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_7_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(7),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359,
+      I3 => N93,
+      LO => N131
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000130_SW8 : LUT4_L
+    generic map(
+      INIT => X"AAAC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_8_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(8),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359,
+      I3 => N93,
+      LO => N133
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000130_SW9 : LUT4_L
+    generic map(
+      INIT => X"AAAC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_9_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(9),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359,
+      I3 => N93,
+      LO => N135
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000130_SW10 : LUT4_L
+    generic map(
+      INIT => X"AAAC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_10_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(10),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359,
+      I3 => N93,
+      LO => N137
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000130_SW11 : LUT4_L
+    generic map(
+      INIT => X"AAAC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_11_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(11),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359,
+      I3 => N93,
+      LO => N139
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000130_SW12 : LUT4_L
+    generic map(
+      INIT => X"AAAC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_12_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(12),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359,
+      I3 => N93,
+      LO => N141
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000130_SW13 : LUT4_L
+    generic map(
+      INIT => X"AAAC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_13_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(13),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359,
+      I3 => N93,
+      LO => N143
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_not000130_SW14 : LUT4_L
+    generic map(
+      INIT => X"AAAC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RX_CONFIG_SNAPSHOT_15_Q,
+      I1 => U0_gpcs_pma_inst_RECEIVER_RX_CONFIG_REG(15),
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_RECEIVED_IDLE_359,
+      I3 => N93,
+      LO => N145
+    );
+  U0_gpcs_pma_inst_RECEIVER_C_or0000_SW1 : LUT4_L
+    generic map(
+      INIT => X"EFFF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(3),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(6),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(5),
+      I3 => U0_gpcs_pma_inst_RECEIVER_N36,
+      LO => N61
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_13_mux00001 : LUT4_L
+    generic map(
+      INIT => X"B888"
+    )
+    port map (
+      I0 => an_adv_config_vector(13),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_EN_533,
+      I2 => N151,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_cmp_eq0000,
+      LO => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_13_mux0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_mux00001 : LUT4_L
+    generic map(
+      INIT => X"B888"
+    )
+    port map (
+      I0 => an_adv_config_vector(12),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_CONFIG_VAL_EN_533,
+      I2 => N153,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_cmp_eq0000,
+      LO => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_AN_ADV_REG_12_mux0000
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_rstpot_SW0 : LUT4_L
+    generic map(
+      INIT => X"D080"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_COMB24_1101,
+      I1 => N160,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_and000013_1139,
+      I3 => N159,
+      LO => N97
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_REMOVE_IDLE_or000038_SW0 : LUT4_L
+    generic map(
+      INIT => X"FBEA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_REMOVE_IDLE_or000011_1156,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_LOWER_COMB24_1101,
+      I2 => N163,
+      I3 => N162,
+      LO => N147
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ENABLE_and000013_SW0 : LUT3_L
+    generic map(
+      INIT => X"F7"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_REG1_1115,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_K28p5_REG2_1117,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_EVEN_1106,
+      LO => N171
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_lut_1_1 : LUT4_D
+    generic map(
+      INIT => X"9669"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(2),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(3),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_WA_READSYNC(1),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RD_ADDR(1),
+      LO => N307,
+      O => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_Msub_RD_OCCUPANCY_sub0000_lut(1)
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_POWERDOWN_REG_not000111_SW0 : LUT4_L
+    generic map(
+      INIT => X"FFFE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(3),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(1),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(2),
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_ADDR_WR(0),
+      LO => N194
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_In65_SW0 : LUT4_L
+    generic map(
+      INIT => X"22F2"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_949,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_955,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943,
+      I3 => U0_gpcs_pma_inst_SYNCHRONISATION_CGBAD_923,
+      LO => N196
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_DONE_or00001_SW0_SW0 : LUT4_L
+    generic map(
+      INIT => X"FFFE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_RESTART_AN_INT_256,
+      I1 => N204,
+      I2 => N95,
+      I3 => N157,
+      LO => N198
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_and000074_SW1 : LUT3_L
+    generic map(
+      INIT => X"7F"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_N39,
+      I1 => U0_gpcs_pma_inst_RECEIVER_FALSE_DATA_and000061_760,
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(0),
+      LO => N206
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In74 : LUT4_L
+    generic map(
+      INIT => X"FFAE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In17_489,
+      I1 => N210,
+      I2 => N169,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In64_491,
+      LO => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_STATE_FSM_FFd3_In74_492
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_rstpot_F : LUT4_L
+    generic map(
+      INIT => X"AEAA"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_751,
+      I1 => U0_gpcs_pma_inst_RECEIVER_I_REG_789,
+      I2 => N70,
+      I3 => U0_gpcs_pma_inst_RECEIVER_LINK_OK,
+      LO => N212
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_15_65 : LUT4_L
+    generic map(
+      INIT => X"D1C0"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(0),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      I2 => N216,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_15_47_653,
+      LO => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_15_65_654
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_In721_SW1 : LUT3_L
+    generic map(
+      INIT => X"67"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_949,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_955,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943,
+      LO => N184
+    );
+  U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_D16p2_UPPER_COMB31_SW0 : LUT4_L
+    generic map(
+      INIT => X"EFFF"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(10),
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(13),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(11),
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_RXDATA_FIFO_REG1(12),
+      LO => N218
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In36 : LUT4_L
+    generic map(
+      INIT => X"02CE"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd4_955,
+      I2 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd1_938,
+      I3 => N220,
+      LO => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_In36_945
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_and0000158_SW0 : LUT4_L
+    generic map(
+      INIT => X"8000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_RECEIVER_FALSE_NIT_and0000130_765,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(1),
+      I2 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(3),
+      I3 => N228,
+      LO => N188
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_CGBAD_inv1 : LUT4_D
+    generic map(
+      INIT => X"040C"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_EVEN_927,
+      I1 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_BASEX_RECLOCK_RX_DATA_INITIALISED_1108,
+      I2 => N58,
+      I3 => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXCHARISCOMMA_1307,
+      LO => N308,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_CGBAD_inv
+    );
+  U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_or00001 : LUT4_D
+    generic map(
+      INIT => X"FFEC"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_SATURATED_208,
+      I1 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_START_LINK_TIMER_REG_471,
+      I2 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_PULSE4096_357,
+      I3 => U0_gpcs_pma_inst_SRESET_915,
+      LO => N309,
+      O => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_LINK_TIMER_or0000
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_RD_11_mux000011 : LUT3_D
+    generic map(
+      INIT => X"10"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_14_26_651,
+      LO => N310,
+      O => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_DATA_RD_5_cmp_eq0000
+    );
+  U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_and0000 : LUT4_D
+    generic map(
+      INIT => X"0002"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd2_943,
+      I1 => U0_gpcs_pma_inst_SYNCHRONISATION_STATE_FSM_FFd3_949,
+      I2 => N111,
+      I3 => U0_gpcs_pma_inst_RECEIVER_CGBAD_or0000,
+      LO => N311,
+      O => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_and0000_966
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_RESET_REG_rstpot_SW0 : LUT4_L
+    generic map(
+      INIT => X"8000"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDC_RISING_REG3_611,
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(15),
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_WE_689,
+      I3 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_N6,
+      LO => N244
+    );
+  U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_6_SW1 : LUT4_L
+    generic map(
+      INIT => X"C444"
+    )
+    port map (
+      I0 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG(1),
+      I1 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_SHIFT_REG_mux0001_14_26_651,
+      I2 => U0_gpcs_pma_inst_HAS_MANAGEMENT_MDIO_MDIO_INTERFACE_1_MDIO_IN_REG_612,
+      I3 => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_7_Q,
+      LO => N248
+    );
+  U0_gpcs_pma_inst_RECEIVER_Mshreg_SOP_REG2 : SRL16
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => NlwRenamedSig_OI_status_vector_7_Q,
+      A1 => NlwRenamedSig_OI_status_vector_7_Q,
+      A2 => NlwRenamedSig_OI_status_vector_7_Q,
+      A3 => NlwRenamedSig_OI_status_vector_7_Q,
+      CLK => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_SOP_894,
+      Q => U0_gpcs_pma_inst_RECEIVER_Mshreg_SOP_REG2_814
+    );
+  U0_gpcs_pma_inst_RECEIVER_SOP_REG2 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_Mshreg_SOP_REG2_814,
+      Q => U0_gpcs_pma_inst_RECEIVER_SOP_REG2_895
+    );
+  U0_gpcs_pma_inst_RECEIVER_Mshreg_CGBAD_REG2 : SRL16
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => NlwRenamedSig_OI_status_vector_7_Q,
+      A1 => NlwRenamedSig_OI_status_vector_7_Q,
+      A2 => NlwRenamedSig_OI_status_vector_7_Q,
+      A3 => NlwRenamedSig_OI_status_vector_7_Q,
+      CLK => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_CGBAD_715,
+      Q => U0_gpcs_pma_inst_RECEIVER_Mshreg_CGBAD_REG2_803
+    );
+  U0_gpcs_pma_inst_RECEIVER_CGBAD_REG2 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_Mshreg_CGBAD_REG2_803,
+      Q => U0_gpcs_pma_inst_RECEIVER_CGBAD_REG2_716
+    );
+  U0_gpcs_pma_inst_RECEIVER_Mshreg_FALSE_CARRIER_REG2 : SRL16
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => NlwRenamedSig_OI_status_vector_7_Q,
+      A1 => NlwRenamedSig_OI_status_vector_7_Q,
+      A2 => NlwRenamedSig_OI_status_vector_7_Q,
+      A3 => NlwRenamedSig_OI_status_vector_7_Q,
+      CLK => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_751,
+      Q => U0_gpcs_pma_inst_RECEIVER_Mshreg_FALSE_CARRIER_REG2_805
+    );
+  U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG2 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_Mshreg_FALSE_CARRIER_REG2_805,
+      Q => U0_gpcs_pma_inst_RECEIVER_FALSE_CARRIER_REG2_752
+    );
+  U0_gpcs_pma_inst_RECEIVER_Mshreg_EXTEND_REG3 : SRL16
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => NlwRenamedSig_OI_status_vector_7_Q,
+      A1 => NlwRenamedSig_OI_status_vector_7_Q,
+      A2 => NlwRenamedSig_OI_status_vector_7_Q,
+      A3 => NlwRenamedSig_OI_status_vector_7_Q,
+      CLK => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_EXTEND_REG1_738,
+      Q => U0_gpcs_pma_inst_RECEIVER_Mshreg_EXTEND_REG3_804
+    );
+  U0_gpcs_pma_inst_RECEIVER_EXTEND_REG3 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_Mshreg_EXTEND_REG3_804,
+      Q => U0_gpcs_pma_inst_RECEIVER_EXTEND_REG3_739
+    );
+  U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_2 : SRL16
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => NlwRenamedSig_OI_status_vector_11_Q,
+      A1 => NlwRenamedSig_OI_status_vector_11_Q,
+      A2 => NlwRenamedSig_OI_status_vector_7_Q,
+      A3 => NlwRenamedSig_OI_status_vector_7_Q,
+      CLK => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(2),
+      Q => U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_2_808
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5_2 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_2_808,
+      Q => U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5(2)
+    );
+  U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_0 : SRL16
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => NlwRenamedSig_OI_status_vector_11_Q,
+      A1 => NlwRenamedSig_OI_status_vector_11_Q,
+      A2 => NlwRenamedSig_OI_status_vector_7_Q,
+      A3 => NlwRenamedSig_OI_status_vector_7_Q,
+      CLK => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(0),
+      Q => U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_0_806
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5_0 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_0_806,
+      Q => U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5(0)
+    );
+  U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_1 : SRL16
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => NlwRenamedSig_OI_status_vector_11_Q,
+      A1 => NlwRenamedSig_OI_status_vector_11_Q,
+      A2 => NlwRenamedSig_OI_status_vector_7_Q,
+      A3 => NlwRenamedSig_OI_status_vector_7_Q,
+      CLK => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(1),
+      Q => U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_1_807
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5_1 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_1_807,
+      Q => U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5(1)
+    );
+  U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_3 : SRL16
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => NlwRenamedSig_OI_status_vector_11_Q,
+      A1 => NlwRenamedSig_OI_status_vector_11_Q,
+      A2 => NlwRenamedSig_OI_status_vector_7_Q,
+      A3 => NlwRenamedSig_OI_status_vector_7_Q,
+      CLK => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(3),
+      Q => U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_3_809
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5_3 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_3_809,
+      Q => U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5(3)
+    );
+  U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_4 : SRL16
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => NlwRenamedSig_OI_status_vector_11_Q,
+      A1 => NlwRenamedSig_OI_status_vector_11_Q,
+      A2 => NlwRenamedSig_OI_status_vector_7_Q,
+      A3 => NlwRenamedSig_OI_status_vector_7_Q,
+      CLK => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(4),
+      Q => U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_4_810
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5_4 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_4_810,
+      Q => U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5(4)
+    );
+  U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_5 : SRL16
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => NlwRenamedSig_OI_status_vector_11_Q,
+      A1 => NlwRenamedSig_OI_status_vector_11_Q,
+      A2 => NlwRenamedSig_OI_status_vector_7_Q,
+      A3 => NlwRenamedSig_OI_status_vector_7_Q,
+      CLK => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(5),
+      Q => U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_5_811
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5_5 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_5_811,
+      Q => U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5(5)
+    );
+  U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_6 : SRL16
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => NlwRenamedSig_OI_status_vector_11_Q,
+      A1 => NlwRenamedSig_OI_status_vector_11_Q,
+      A2 => NlwRenamedSig_OI_status_vector_7_Q,
+      A3 => NlwRenamedSig_OI_status_vector_7_Q,
+      CLK => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(6),
+      Q => U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_6_812
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5_6 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_6_812,
+      Q => U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5(6)
+    );
+  U0_gpcs_pma_inst_Mshreg_STATUS_VECTOR_12 : SRL16
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => NlwRenamedSig_OI_status_vector_7_Q,
+      A1 => NlwRenamedSig_OI_status_vector_7_Q,
+      A2 => NlwRenamedSig_OI_status_vector_7_Q,
+      A3 => NlwRenamedSig_OI_status_vector_7_Q,
+      CLK => gtx_clk,
+      D => U0_gpcs_pma_inst_HAS_AUTO_NEG_AUTO_NEGOTIATION_MR_LP_ADV_ABILITY_INT_6_Q,
+      Q => U0_gpcs_pma_inst_Mshreg_STATUS_VECTOR_12_712
+    );
+  U0_gpcs_pma_inst_STATUS_VECTOR_12 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_Mshreg_STATUS_VECTOR_12_712,
+      Q => U0_gpcs_pma_inst_STATUS_VECTOR_12_Q
+    );
+  U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_7 : SRL16
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => NlwRenamedSig_OI_status_vector_11_Q,
+      A1 => NlwRenamedSig_OI_status_vector_11_Q,
+      A2 => NlwRenamedSig_OI_status_vector_7_Q,
+      A3 => NlwRenamedSig_OI_status_vector_7_Q,
+      CLK => gtx_clk,
+      D => U0_gpcs_pma_inst_USE_TBI_PCS_OUTPUT_DECODER_RXDATA(7),
+      Q => U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_7_813
+    );
+  U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5_7 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_RECEIVER_Mshreg_RXDATA_REG5_7_813,
+      Q => U0_gpcs_pma_inst_RECEIVER_RXDATA_REG5(7)
+    );
+  U0_gpcs_pma_inst_Mshreg_STATUS_VECTOR_1 : SRL16
+    generic map(
+      INIT => X"0000"
+    )
+    port map (
+      A0 => NlwRenamedSig_OI_status_vector_7_Q,
+      A1 => NlwRenamedSig_OI_status_vector_7_Q,
+      A2 => NlwRenamedSig_OI_status_vector_7_Q,
+      A3 => NlwRenamedSig_OI_status_vector_7_Q,
+      CLK => gtx_clk,
+      D => U0_gpcs_pma_inst_SYNCHRONISATION_SYNC_STATUS_965,
+      Q => U0_gpcs_pma_inst_Mshreg_STATUS_VECTOR_1_711
+    );
+  U0_gpcs_pma_inst_STATUS_VECTOR_1 : FD
+    port map (
+      C => gtx_clk,
+      D => U0_gpcs_pma_inst_Mshreg_STATUS_VECTOR_1_711,
+      Q => U0_gpcs_pma_inst_STATUS_VECTOR_1_Q
+    );
+
+end STRUCTURE;
+
+-- synthesis translate_on

@@ -1,0 +1,440 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.07 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.07 secs
+ 
+--> 
+Reading design: master.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "master.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "master"
+Output Format                      : NGC
+Target Device                      : xc4vsx55-12-ff1148
+
+---- Source Options
+Top Module Name                    : master
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 32
+Number of Regional Clock Buffers   : 32
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "/root/FPGA-MISC/SPI/master.vhd" in Library work.
+Architecture behavioral of Entity master is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <master> in library <work> (architecture <behavioral>) with generics.
+	ce_active_low = true
+	data_width = 8
+	sck_active_high = true
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing generic Entity <master> in library <work> (Architecture <behavioral>).
+	ce_active_low = true
+	data_width = 8
+	sck_active_high = true
+WARNING:Xst:819 - "/root/FPGA-MISC/SPI/master.vhd" line 33: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <base_state>, <we>, <data_in>
+INFO:Xst:2679 - Register <ce> in unit <master> has a constant value of 1 during circuit operation. The register is replaced by logic.
+Entity <master> analyzed. Unit <master> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <master>.
+    Related source file is "/root/FPGA-MISC/SPI/master.vhd".
+    Found finite state machine <FSM_0> for signal <sck_state>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 4                                              |
+    | Inputs             | 1                                              |
+    | Outputs            | 4                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Clock enable       | sck_state$not0000         (positive)           |
+    | Reset              | rst                       (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | sck_set_low                                    |
+    | Power Up State     | sck_set_low                                    |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 8-bit latch for signal <data_in_buffer>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <we_buffer>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 8-bit register for signal <data_out>.
+    Found 1-bit register for signal <done>.
+    Found 1-bit register for signal <sck>.
+    Found 1-bit register for signal <mosi>.
+    Found 1-bit register for signal <base_state<0>>.
+    Found 3-bit register for signal <data_pos>.
+    Found 3-bit subtractor for signal <data_pos$addsub0000> created at line 95.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  15 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <master> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 3-bit subtractor                                      : 1
+# Registers                                            : 13
+ 1-bit register                                        : 12
+ 3-bit register                                        : 1
+# Latches                                              : 2
+ 1-bit latch                                           : 1
+ 8-bit latch                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <sck_state/FSM> on signal <sck_state[1:2]> with user encoding.
+--------------------------
+ State        | Encoding
+--------------------------
+ sck_idle     | 00
+ sck_set_high | 01
+ sck_set_low  | 10
+--------------------------
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Adders/Subtractors                                   : 1
+ 3-bit subtractor                                      : 1
+# Registers                                            : 15
+ Flip-Flops                                            : 15
+# Latches                                              : 2
+ 1-bit latch                                           : 1
+ 8-bit latch                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <master> ...
+WARNING:Xst:1426 - The value init of the FF/Latch done hinder the constant cleaning in the block master.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1293 - FF/Latch <data_in_buffer_7> has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <data_in_buffer_6> has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <data_in_buffer_5> has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <data_in_buffer_4> has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <data_in_buffer_3> has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <data_in_buffer_2> has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <data_in_buffer_1> has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <data_in_buffer_0> has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sck_state_FSM_FFd2> has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <we_buffer> has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <base_state_0> has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <mosi> (without init value) has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_out_7> (without init value) has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_out_6> (without init value) has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_out_5> (without init value) has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_out_4> (without init value) has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_out_3> (without init value) has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_out_2> (without init value) has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_out_1> (without init value) has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_out_0> (without init value) has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sck> (without init value) has a constant value of 0 in block <master>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <data_pos_0> of sequential type is unconnected in block <master>.
+WARNING:Xst:2677 - Node <data_pos_1> of sequential type is unconnected in block <master>.
+WARNING:Xst:2677 - Node <data_pos_2> of sequential type is unconnected in block <master>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block master, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 2
+ Flip-Flops                                            : 2
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : master.ngr
+Top Level Output File Name         : master
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 25
+
+Cell Usage :
+# BELS                             : 3
+#      GND                         : 1
+#      LUT3                        : 1
+#      VCC                         : 1
+# FlipFlops/Latches                : 2
+#      FDC                         : 1
+#      FDPE                        : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 13
+#      IBUF                        : 1
+#      OBUF                        : 12
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 4vsx55ff1148-12 
+
+ Number of Slices:                        1  out of  24576     0%  
+ Number of Slice Flip Flops:              2  out of  49152     0%  
+ Number of 4 input LUTs:                  1  out of  49152     0%  
+ Number of IOs:                          25
+ Number of bonded IOBs:                  14  out of    640     2%  
+ Number of GCLKs:                         1  out of     32     3%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 2     |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+base_state(XST_GND:G)              | NONE(done)             | 1     |
+rst                                | IBUF                   | 1     |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -12
+
+   Minimum period: 0.872ns (Maximum Frequency: 1146.723MHz)
+   Minimum input arrival time before clock: 1.445ns
+   Maximum output required time after clock: 3.806ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 0.872ns (frequency: 1146.723MHz)
+  Total number of paths / destination ports: 2 / 1
+-------------------------------------------------------------------------
+Delay:               0.872ns (Levels of Logic = 1)
+  Source:            sck_state_FSM_FFd1 (FF)
+  Destination:       done (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: sck_state_FSM_FFd1 to done
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDPE:C->Q             1   0.272   0.436  sck_state_FSM_FFd1 (sck_state_FSM_FFd1)
+     LUT3:I1->O            1   0.147   0.000  done_rstpot (done_rstpot)
+     FDC:D                     0.017          done
+    ----------------------------------------
+    Total                      0.872ns (0.436ns logic, 0.436ns route)
+                                       (50.0% logic, 50.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              1.445ns (Levels of Logic = 2)
+  Source:            rst (PAD)
+  Destination:       done (FF)
+  Destination Clock: clk rising
+
+  Data Path: rst to done
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   0.754   0.527  rst_IBUF (rst_IBUF)
+     LUT3:I0->O            1   0.147   0.000  done_rstpot (done_rstpot)
+     FDC:D                     0.017          done
+    ----------------------------------------
+    Total                      1.445ns (0.918ns logic, 0.527ns route)
+                                       (63.5% logic, 36.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              3.806ns (Levels of Logic = 1)
+  Source:            done (FF)
+  Destination:       done (PAD)
+  Source Clock:      clk rising
+
+  Data Path: done to done
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.272   0.279  done (done_OBUF)
+     OBUF:I->O                 3.255          done_OBUF (done)
+    ----------------------------------------
+    Total                      3.806ns (3.527ns logic, 0.279ns route)
+                                       (92.7% logic, 7.3% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 6.47 secs
+ 
+--> 
+
+
+Total memory usage is 531144 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   28 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

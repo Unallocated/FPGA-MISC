@@ -1,0 +1,1 @@
+vhdtdtfi -prj FFT -o "/root/FPGA-MISC/FFT with VGA/clk_test.vhi" -module clk_test -template /opt/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work clk_test.vhd 

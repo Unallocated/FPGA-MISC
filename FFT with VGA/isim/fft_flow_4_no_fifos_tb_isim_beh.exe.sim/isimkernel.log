@@ -1,0 +1,10 @@
+Command line:
+   fft_flow_4_no_fifos_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  40070
+
+Thu Dec 12 15:20:03 2013
+
+
+ Elaboration Time: 0.39 sec

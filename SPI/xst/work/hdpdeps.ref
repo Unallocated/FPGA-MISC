@@ -1,0 +1,10 @@
+V3 6
+FL /root/FPGA-MISC/SPI/master.vhd 2013/12/17.14:37:19 P.20131013
+EN work/master 1387309103 FL /root/FPGA-MISC/SPI/master.vhd PB ieee/std_logic_1164 1381692176
+AR work/master/Behavioral 1387309104 \
+      FL /root/FPGA-MISC/SPI/master.vhd EN work/master 1387309103
+FL /root/FPGA-MISC/SPI/master_minimal.vhd 2013/12/19.22:47:11 P.20131013
+EN work/master_minimal 1387511296 FL /root/FPGA-MISC/SPI/master_minimal.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/master_minimal/Behavioral 1387511297 \
+      FL /root/FPGA-MISC/SPI/master_minimal.vhd EN work/master_minimal 1387511296

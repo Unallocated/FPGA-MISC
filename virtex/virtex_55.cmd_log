@@ -1,0 +1,27 @@
+xst -intstyle ise -ifn "/root/FPGA-MISC/virtex/virtex_55.xst" -ofn "/root/FPGA-MISC/virtex/virtex_55.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/virtex/virtex_55.xst" -ofn "/root/FPGA-MISC/virtex/virtex_55.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/virtex/virtex_55.xst" -ofn "/root/FPGA-MISC/virtex/virtex_55.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc virtex_55.ucf -p xc4vsx55-ff1148-12 virtex_55.ngc virtex_55.ngd  
+map -intstyle ise -p xc4vsx55-ff1148-12 -global_opt off -cm area -ir off -pr off -c 100 -o virtex_55_map.ncd virtex_55.ngd virtex_55.pcf 
+par -w -intstyle ise -ol high -t 1 virtex_55_map.ncd virtex_55.ncd virtex_55.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc virtex_55.ucf -p xc4vsx55-ff1148-12 virtex_55.ngc virtex_55.ngd  
+map -intstyle ise -p xc4vsx55-ff1148-12 -global_opt off -cm area -ir off -pr off -c 100 -o virtex_55_map.ncd virtex_55.ngd virtex_55.pcf 
+par -w -intstyle ise -ol high -t 1 virtex_55_map.ncd virtex_55.ncd virtex_55.pcf 
+trce -intstyle ise -v 3 -s 12 -n 3 -fastpaths -xml virtex_55.twx virtex_55.ncd -o virtex_55.twr virtex_55.pcf -ucf virtex_55.ucf 
+bitgen -intstyle ise -f virtex_55.ut virtex_55.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc virtex_55.ucf -p xc4vsx55-ff1148-12 virtex_55.ngc virtex_55.ngd  
+map -intstyle ise -p xc4vsx55-ff1148-12 -global_opt off -cm area -ir off -pr off -c 100 -o virtex_55_map.ncd virtex_55.ngd virtex_55.pcf 
+par -w -intstyle ise -ol high -t 1 virtex_55_map.ncd virtex_55.ncd virtex_55.pcf 
+trce -intstyle ise -v 3 -s 12 -n 3 -fastpaths -xml virtex_55.twx virtex_55.ncd -o virtex_55.twr virtex_55.pcf -ucf virtex_55.ucf 
+bitgen -intstyle ise -f virtex_55.ut virtex_55.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc virtex_55.ucf -p xc4vsx55-ff1148-12 virtex_55.ngc virtex_55.ngd  
+map -intstyle ise -p xc4vsx55-ff1148-12 -global_opt off -cm area -ir off -pr off -c 100 -o virtex_55_map.ncd virtex_55.ngd virtex_55.pcf 
+par -w -intstyle ise -ol high -t 1 virtex_55_map.ncd virtex_55.ncd virtex_55.pcf 
+trce -intstyle ise -v 3 -s 12 -n 3 -fastpaths -xml virtex_55.twx virtex_55.ncd -o virtex_55.twr virtex_55.pcf -ucf virtex_55.ucf 
+bitgen -intstyle ise -f virtex_55.ut virtex_55.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/virtex/virtex_55.xst" -ofn "/root/FPGA-MISC/virtex/virtex_55.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc virtex_55.ucf -p xc4vsx55-ff1148-12 virtex_55.ngc virtex_55.ngd  
+map -intstyle ise -p xc4vsx55-ff1148-12 -global_opt off -cm area -ir off -pr off -c 100 -o virtex_55_map.ncd virtex_55.ngd virtex_55.pcf 
+par -w -intstyle ise -ol high -t 1 virtex_55_map.ncd virtex_55.ncd virtex_55.pcf 
+trce -intstyle ise -v 3 -s 12 -n 3 -fastpaths -xml virtex_55.twx virtex_55.ncd -o virtex_55.twr virtex_55.pcf -ucf virtex_55.ucf 
+bitgen -intstyle ise -f virtex_55.ut virtex_55.ncd 

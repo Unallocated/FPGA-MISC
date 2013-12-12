@@ -1,2 +1,1 @@
-work	"fft_controller.vhd"
-work	"ipcore_dir/fft_burst_mode.vhd"
+work	"ipcore_dir/sqrt_core.vhd"

@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/root/FPGA-MISC/virtex/test.ncd
+OUTFILE=/root/FPGA-MISC/virtex/test.bit
+FAMILY=Spartan6
+PART=xc6slx16-3csg324
+WORKINGDIR=/root/FPGA-MISC/virtex
+LICENSE=ISE
+USER_INFO=210826213_0_0_741
