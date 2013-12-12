@@ -26,27 +26,6 @@
     <file xil_pn:fileType="FILE_VHO" xil_pn:name="vga_clock_dcm.vho" xil_pn:origination="imported"/>
   </files>
 
-  <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1386871268" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1386871268">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1386884456" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="960832340531388294" xil_pn:start_ts="1386884456">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1386884456" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="1876677890781914037" xil_pn:start_ts="1386884456">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1386884456" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1386884456">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1386884456" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-6207390306087285240" xil_pn:start_ts="1386884456">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-  </transforms>
+  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
 
 </generated_project>

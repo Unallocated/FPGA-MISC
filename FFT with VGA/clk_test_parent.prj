@@ -1,3 +1,0 @@
-vhdl work "ipcore_dir/flow_3_adc_fifo.vhd"
-vhdl work "clk_test.vhd"
-vhdl work "clk_test_parent.vhd"
