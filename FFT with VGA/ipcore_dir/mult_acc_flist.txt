@@ -1,0 +1,17 @@
+# Output products list for <mult_acc>
+_xmsgs/pn_parser.xmsgs
+core_resources.txt
+gui_latency.txt
+mult_acc/doc/xbip_multaccum_ds716.pdf
+mult_acc/doc/xbip_multaccum_v2_0_readme.txt
+mult_acc/doc/xbip_multaccum_v2_0_vinfo.html
+mult_acc.asy
+mult_acc.gise
+mult_acc.ngc
+mult_acc.sym
+mult_acc.vhd
+mult_acc.vho
+mult_acc.xco
+mult_acc.xise
+mult_acc_flist.txt
+mult_acc_xmdf.tcl

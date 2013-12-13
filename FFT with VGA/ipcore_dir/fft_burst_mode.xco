@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.7
-# Date: Fri Dec 13 02:46:37 2013
+# Date: Fri Dec 13 22:12:08 2013
 #
 ##############################################################
 #
@@ -46,7 +46,7 @@ CSET complex_mult_type=use_mults_performance
 CSET component_name=fft_burst_mode
 CSET cyclic_prefix_insertion=false
 CSET data_format=fixed_point
-CSET implementation_options=radix_4_burst_io
+CSET implementation_options=radix_2_lite_burst_io
 CSET input_data_offset=no_offset
 CSET input_width=8
 CSET memory_options_data=block_ram
@@ -69,4 +69,4 @@ CSET transform_length=256
 MISC pkg_timestamp=2012-08-28T14:48:07Z
 # END Extra information
 GENERATE
-# CRC: 81812621
+# CRC: 345902ca

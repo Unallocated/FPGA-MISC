@@ -24,7 +24,7 @@ PINATTR PinName fwd_inv_we
 PINATTR Polarity IN
 LINE Wide 0 2096 32 2096
 PIN 0 2096 LEFT 36
-PINATTR PinName scale_sch[7:0]
+PINATTR PinName scale_sch[15:0]
 PINATTR Polarity IN
 LINE Normal 0 2544 32 2544
 PIN 0 2544 LEFT 36

@@ -207,7 +207,7 @@ COMPONENT fft_burst_mode
     xn_im : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
     fwd_inv : IN STD_LOGIC;
     fwd_inv_we : IN STD_LOGIC;
-    scale_sch : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    scale_sch : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     scale_sch_we : IN STD_LOGIC;
     rfd : OUT STD_LOGIC;
     xn_index : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);

@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2013-12-13T15:58:00</DateModified>
+  <DateModified>2013-12-13T17:29:14</DateModified>
   <ModuleName>fft_flow_4_no_fifos</ModuleName>
-  <SummaryTimeStamp>2013-12-13T15:55:33</SummaryTimeStamp>
+  <SummaryTimeStamp>2013-12-13T17:26:21</SummaryTimeStamp>
   <SavedFilePath>/root/FPGA-MISC/FFT with VGA/iseconfig/fft_flow_4_no_fifos.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/root/FPGA-MISC/FFT with VGA/</ImplementationReportsDirectory>
   <DateInitialized>2014-06-19T22:49:22</DateInitialized>

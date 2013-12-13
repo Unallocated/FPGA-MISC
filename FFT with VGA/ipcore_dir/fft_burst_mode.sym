@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="fft_burst_mode">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2013-12-13T2:49:32</timestamp>
+    <timestamp>2013-12-13T22:14:55</timestamp>
     <pin polarity="Input" x="0" y="80" name="xn_re[7:0]" />
     <pin polarity="Input" x="0" y="528" name="xn_im[7:0]" />
     <pin polarity="Input" x="0" y="976" name="start" />
     <pin polarity="Input" x="0" y="1200" name="fwd_inv" />
     <pin polarity="Input" x="0" y="1648" name="fwd_inv_we" />
-    <pin polarity="Input" x="0" y="2096" name="scale_sch[7:0]" />
+    <pin polarity="Input" x="0" y="2096" name="scale_sch[15:0]" />
     <pin polarity="Input" x="0" y="2544" name="scale_sch_we" />
     <pin polarity="Input" x="0" y="2992" name="sclr" />
     <pin polarity="Input" x="0" y="3024" name="ce" />
@@ -36,7 +36,7 @@
         <line x2="32" y1="1648" y2="1648" x1="0" />
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="1648" type="pin fwd_inv_we" />
         <line x2="32" y1="2096" y2="2096" style="linewidth:W" x1="0" />
-        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="2096" type="pin scale_sch[7:0]" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="2096" type="pin scale_sch[15:0]" />
         <line x2="32" y1="2544" y2="2544" x1="0" />
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="2544" type="pin scale_sch_we" />
         <line x2="32" y1="2992" y2="2992" x1="0" />

@@ -19,6 +19,20 @@ end fft_flow_4_no_fifos;
 
 architecture Behavioral of fft_flow_4_no_fifos is
 
+	signal mult_clk, mult_ce, mult_sclr : std_logic_vector(1 downto 0) := (others => '0');
+	type mult_input_array_t is array(0 to 1) of std_logic_vector(7 downto 0);
+	signal mult_a, mult_b : mult_input_array_t := (others => (others => '0'));
+	type mult_output_array_t is array(0 to 1) of std_logic_vector(15 downto 0);
+	signal mult_p : mult_output_array_t := (others => (others => '0'));
+	
+	COMPONENT multiplier
+	  PORT (
+	    a : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+	    b : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+	    p : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+	  );
+	END COMPONENT;
+
 	signal sqrt_in : std_logic_vector(15 downto 0) := (others => '0');
 	signal sqrt_out : std_logic_vector(8 downto 0) := (others => '0');
 	signal sqrt_ce, sqrt_clk, sqrt_rdy : std_logic := '0';
@@ -49,7 +63,8 @@ architecture Behavioral of fft_flow_4_no_fifos is
 
 	signal fft_clk, fft_sclr, fft_start, fft_rfd, fft_busy, fft_edone, fft_done, fft_dv, fft_ce, fft_ovflo, fft_scale_we : std_logic := '0';
 	signal fft_xn_re, fft_xn_im, fft_xk_re, fft_xk_im : std_logic_vector(7 downto 0) := (others => '0');
-	signal fft_xn_index, fft_xk_index, fft_scale : std_logic_vector(7 downto 0) := (others => '0');
+	signal fft_xn_index, fft_xk_index : std_logic_vector(7 downto 0) := (others => '0');
+	signal fft_scale : std_logic_vector(15 downto 0) := (others => '0');
 
 	COMPONENT fft_burst_mode
 	  PORT (
@@ -60,7 +75,7 @@ architecture Behavioral of fft_flow_4_no_fifos is
 	    xn_im : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 	    fwd_inv : IN STD_LOGIC;
 	    fwd_inv_we : IN STD_LOGIC;
-	    scale_sch : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+	    scale_sch : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 	    scale_sch_we : IN STD_LOGIC;
 	    rfd : OUT STD_LOGIC;
 	    xn_index : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
@@ -125,7 +140,7 @@ architecture Behavioral of fft_flow_4_no_fifos is
 	signal vga_ram : vga_ram_t := (others => (others => '0'));
 	signal vga_ram_pos : unsigned(adc_ram(0)'high-1 downto 0) := (others => '0');
 	
-	type mag_state_t is (MAG_1, MAG_2);
+	type mag_state_t is (MAG_1, MAG_2, MAG_3, MAG_4);
 	signal mag_state : mag_state_t := MAG_1;
 	
 	type master_state_t is (STARTUP, SAMPLE, FFT, MAG);
@@ -243,12 +258,11 @@ begin
 							end if;
 							
 							fft_out_ram(to_integer(unsigned(fft_xk_index(6 downto 0)))) <= re & im;
-							--vga_ram(to_integer(unsigned(fft_xk_index(6 downto 0)))) <= fft_xk_re;
---							fft_out_ram(to_integer(unsigned(fft_xk_index(6 downto 0)))) <= "0000000000000000";
 						end if;
 					else
 						fft_start <= '0';
 						master_state <= MAG;
+						mult_ce <= (others => '1');
 						mag_state <= MAG_1;
 						fft_state <= FFT_WAIT_FOR_RFD;
 						iteration := 0;
@@ -257,18 +271,31 @@ begin
 			when MAG =>
 				case mag_state is
 				when MAG_1 =>
+--					mult_a(0) <= fft_out_ram(to_integer(unsigned(fft_ram_pos)))(15 downto 8);
+--					mult_a(1) <= fft_out_ram(to_integer(unsigned(fft_ram_pos)))(7 downto 0);
+--				
+--					mult_b(0) <= fft_out_ram(to_integer(unsigned(fft_ram_pos)))(15 downto 8);
+--					mult_b(1) <= fft_out_ram(to_integer(unsigned(fft_ram_pos)))(7 downto 0);
+					
+				
 					a := (unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(15 downto 8)) * unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(15 downto 8))) + 
 						 (unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(7 downto 0)) * unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(7 downto 0)));
 					sqrt_ce <= '1';
 					sqrt_in <= std_logic_vector(a);
-					mag_state <= MAG_2;
+					mag_state <= MAG_4;
 				when MAG_2 =>
-					--if(sqrt_clk = '1') then
+					mag_state <= MAG_3;
+				when MAG_3 =>
+					sqrt_in <= std_logic_vector(unsigned(mult_p(0)) + unsigned(mult_p(1)));
+					sqrt_ce <= '1';
+					mag_state <= MAG_3;
+				when MAG_4 =>
 						if(sqrt_rdy = '1') then
 							vga_ram(to_integer(fft_ram_pos)) <= sqrt_out(7 downto 0);
 							if(fft_ram_pos = (fft_ram_pos'range => '1')) then
 								master_state <= SAMPLE;
 								sqrt_ce <= '0';
+								mult_ce <= (others => '0');
 								fft_ram_pos <= (fft_ram_pos'range => '0');
 							else
 								fft_ram_pos <= fft_ram_pos + 1;
@@ -276,45 +303,6 @@ begin
 							
 							mag_state <= MAG_1;
 						end if;
-					--end if;
-					--vga_ram(to_integer(fft_ram_pos)) <= std_logic_vector(sqrt(a));
---					if(fft_ram_pos = (fft_ram_pos'range => '1')) then
---						master_state <= SAMPLE;
---						fft_ram_pos <= (fft_ram_pos'range => '0');
---					else
---						fft_ram_pos <= fft_ram_pos + 1;
---					end if;
-					
-					--mag_state <= MAG_1;
---					right(0):='1';
---					right(1):=r(17);
---					right(17 downto 2):=q;
---					left(1 downto 0):=a(31 downto 30);
---					left(17 downto 2):=r(15 downto 0);
---					a(31 downto 2):=a(29 downto 0);  --shifting by 2 bit.
---					if ( r(17) = '1') then
---						r := left + right;
---					else
---						r := left - right;
---					end if;
---					q(15 downto 1) := q(14 downto 0);
---					q(0) := not r(17);
---					
---					if(iteration = 15) then
---						iteration := 0;
---						vga_ram(to_integer(fft_ram_pos)) <= std_logic_vector(q(7 downto 0));
---						--vga_ram(to_integer(fft_ram_pos)) <= fft_out_ram(to_integer(fft_ram_pos))(7 downto 0);
---						if(fft_ram_pos = (fft_ram_pos'range => '1')) then
---							master_state <= SAMPLE;
---							fft_ram_pos <= (others => '0');
---							mag_state <= MAG_1;
---						else
---							mag_state <= MAG_1;
---							fft_ram_pos <= fft_ram_pos + 1;
---						end if;
---					else
---						iteration := iteration + 1;
---					end if;
 				end case;
 			end case;
 		end if;
@@ -388,7 +376,7 @@ begin
 		elsif(rising_edge(original_clk)) then
 			if(last_switches /= switches) then
 				last_switches := switches;
-				fft_scale <= switches;
+				fft_scale <= switches & switches;
 				toggle := '0';
 			end if;
 			
@@ -450,6 +438,20 @@ begin
 	    rdy => dds_rdy,
 	    sine => dds_sine
 	  );
+	  
+	mult_1_inst : multiplier
+  PORT MAP (
+    a => mult_a(0),
+    b => mult_b(0),
+    p => mult_p(0)
+  );
+
+	mult_2_inst : multiplier
+  PORT MAP (
+    a => mult_a(1),
+    b => mult_b(1),
+    p => mult_p(1)
+  );
 
 end Behavioral;
 

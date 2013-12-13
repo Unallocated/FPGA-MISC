@@ -44,7 +44,7 @@ ARCHITECTURE behavior OF fft_flow_4_no_fifos_tb IS
          clk : IN  std_logic;
          rst : IN  std_logic;
          leds : OUT  std_logic_vector(7 downto 0);
-         adc_in : IN  std_logic_vector(7 downto 0);
+         adc_in : IN  std_logic_vector(11 downto 0);
          adc_clk : OUT  std_logic;
          switches : IN  std_logic_vector(7 downto 0);
          hs : OUT  std_logic;
@@ -59,7 +59,7 @@ ARCHITECTURE behavior OF fft_flow_4_no_fifos_tb IS
    --Inputs
    signal clk : std_logic := '0';
    signal rst : std_logic := '0';
-   signal adc_in : std_logic_vector(7 downto 0) := (others => '0');
+   signal adc_in : std_logic_vector(11 downto 0) := (others => '0');
    signal switches : std_logic_vector(7 downto 0) := (others => '0');
 
  	--Outputs
