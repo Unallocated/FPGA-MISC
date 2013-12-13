@@ -1,0 +1,25 @@
+SET_PARAMETER pipelining_mode No_Pipelining
+SET_PARAMETER ce true
+SET_PARAMETER x_out true
+SET_PARAMETER iterations 0
+SET_PARAMETER functional_selection Square_Root
+SET_PARAMETER coarse_rotation false
+SET_PARAMETER register_outputs true
+SET_PARAMETER nd false
+SET_PARAMETER phase_format Radians
+SET_PARAMETER y_out false
+SET_PARAMETER round_mode Truncate
+SET_PARAMETER architectural_configuration Parallel
+SET_PARAMETER data_format UnsignedInteger
+SET_PARAMETER output_width 9
+SET_PARAMETER component_name sqrt_core
+SET_PARAMETER precision 0
+SET_PARAMETER sclr false
+SET_PARAMETER phase_output false
+SET_PARAMETER register_inputs true
+SET_PARAMETER input_width 16
+SET_PARAMETER compensation_scaling No_Scale_Compensation
+SET_PARAMETER rdy true
+SET_ERROR_CODE 2
+SET_ERROR_MSG  CANCEL: Customization cancelled.
+SET_ERROR_TEXT Finished initializing IP model.	

@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.7
-# Date: Thu Dec 12 19:13:21 2013
+# Date: Fri Dec 13 15:01:30 2013
 #
 ##############################################################
 #
@@ -40,7 +40,7 @@ SELECT CORDIC xilinx.com:ip:cordic:4.0
 # END Select
 # BEGIN Parameters
 CSET architectural_configuration=Parallel
-CSET ce=false
+CSET ce=true
 CSET coarse_rotation=false
 CSET compensation_scaling=No_Scale_Compensation
 CSET component_name=sqrt_core
@@ -66,4 +66,4 @@ CSET y_out=false
 MISC pkg_timestamp=2013-10-13T18:14:49Z
 # END Extra information
 GENERATE
-# CRC: 6521a910
+# CRC: e824b81f

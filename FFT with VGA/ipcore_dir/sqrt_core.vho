@@ -48,7 +48,8 @@ COMPONENT sqrt_core
     x_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     x_out : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
     rdy : OUT STD_LOGIC;
-    clk : IN STD_LOGIC
+    clk : IN STD_LOGIC;
+    ce : IN STD_LOGIC
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------
@@ -62,7 +63,8 @@ your_instance_name : sqrt_core
     x_in => x_in,
     x_out => x_out,
     rdy => rdy,
-    clk => clk
+    clk => clk,
+    ce => ce
   );
 -- INST_TAG_END ------ End INSTANTIATION Template ------------
 

@@ -19,6 +19,20 @@ end fft_flow_4_no_fifos;
 
 architecture Behavioral of fft_flow_4_no_fifos is
 
+	signal sqrt_in : std_logic_vector(15 downto 0) := (others => '0');
+	signal sqrt_out : std_logic_vector(8 downto 0) := (others => '0');
+	signal sqrt_ce, sqrt_clk, sqrt_rdy : std_logic := '0';
+
+	COMPONENT sqrt_core
+	  PORT (
+	    x_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+	    x_out : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
+	    rdy : OUT STD_LOGIC;
+	    clk : IN STD_LOGIC;
+	    ce : in std_logic
+	  );
+	END COMPONENT;
+
 	signal dds_we, dds_rdy, dds_clk : std_logic := '0';
 	signal dds_sine : std_logic_vector(7 downto 0) := (others => '0');
 	signal dds_data : std_logic_vector(11 downto 0) := (others => '0');
@@ -147,7 +161,7 @@ begin
 	sine_out <= std_logic_vector(unsigned(dds_sine) + 127);
 
 	process(dds_clk, rst)
-		variable a : unsigned(31 downto 0);  --original input.
+		variable a : unsigned(15 downto 0);  --original input.
 		variable q : unsigned(15 downto 0):=(others => '0');  --result.
 		variable left,right,r : unsigned(17 downto 0):=(others => '0');  --input to adder/sub.r-remainder.
 		variable i : integer:=0;
@@ -179,6 +193,7 @@ begin
 				when ADC_CLK_LOW =>
 					adc_clk <= '0';
 					adc_ram(to_integer(adc_ram_pos)) <= std_logic_vector(unsigned(dds_sine) + 127);
+					--adc_ram(to_integer(adc_ram_pos)) <= adc_in;
 					if(adc_ram_pos = (adc_ram_pos'range => '1')) then
 						master_state <= FFT;
 						fft_state <= FFT_WAIT_FOR_RFD;
@@ -242,22 +257,35 @@ begin
 			when MAG =>
 				case mag_state is
 				when MAG_1 =>
-					a := x"0000" &
-						(unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(15 downto 8)) * unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(15 downto 8))) + 
-						(unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(7 downto 0)) * unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(7 downto 0)));
-						
+					a := (unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(15 downto 8)) * unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(15 downto 8))) + 
+						 (unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(7 downto 0)) * unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(7 downto 0)));
+					sqrt_ce <= '1';
+					sqrt_in <= std_logic_vector(a);
 					mag_state <= MAG_2;
 				when MAG_2 =>
-					vga_ram(to_integer(fft_ram_pos)) <= std_logic_vector(sqrt(a));
+					--if(sqrt_clk = '1') then
+						if(sqrt_rdy = '1') then
+							vga_ram(to_integer(fft_ram_pos)) <= sqrt_out(7 downto 0);
+							if(fft_ram_pos = (fft_ram_pos'range => '1')) then
+								master_state <= SAMPLE;
+								sqrt_ce <= '0';
+								fft_ram_pos <= (fft_ram_pos'range => '0');
+							else
+								fft_ram_pos <= fft_ram_pos + 1;
+							end if;
+							
+							mag_state <= MAG_1;
+						end if;
+					--end if;
+					--vga_ram(to_integer(fft_ram_pos)) <= std_logic_vector(sqrt(a));
+--					if(fft_ram_pos = (fft_ram_pos'range => '1')) then
+--						master_state <= SAMPLE;
+--						fft_ram_pos <= (fft_ram_pos'range => '0');
+--					else
+--						fft_ram_pos <= fft_ram_pos + 1;
+--					end if;
 					
-					if(fft_ram_pos = (fft_ram_pos'range => '1')) then
-						master_state <= SAMPLE;
-						fft_ram_pos <= (fft_ram_pos'range => '0');
-					else
-						fft_ram_pos <= fft_ram_pos + 1;
-					end if;
-					
-					mag_state <= MAG_1;
+					--mag_state <= MAG_1;
 --					right(0):='1';
 --					right(1):=r(17);
 --					right(17 downto 2):=q;
@@ -372,7 +400,7 @@ begin
 			end if;
 		end if;
 	end process;
-	
+--	
 	dds_changer_process : process(original_clk, rst)
 		variable last_input : std_logic_vector(dds_data'range) := (others => '0');
 		variable toggle : std_logic := '0';
@@ -397,6 +425,14 @@ begin
 		end if;
 	end process;
 	
+	sqrt_inst : sqrt_core
+	  PORT MAP (
+	    x_in => sqrt_in,
+	    x_out => sqrt_out,
+	    rdy => sqrt_rdy,
+	    clk => dds_clk,
+	    ce => sqrt_ce
+	  );
 	
 	dcm_instance : fft_flow_4_no_fifos_dcm
 	  port map(

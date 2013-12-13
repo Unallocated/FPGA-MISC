@@ -45,7 +45,8 @@ ENTITY sqrt_core IS
     x_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     x_out : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
     rdy : OUT STD_LOGIC;
-    clk : IN STD_LOGIC
+    clk : IN STD_LOGIC;
+    ce : IN STD_LOGIC
   );
 END sqrt_core;
 
@@ -56,7 +57,8 @@ COMPONENT wrapped_sqrt_core
     x_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     x_out : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
     rdy : OUT STD_LOGIC;
-    clk : IN STD_LOGIC
+    clk : IN STD_LOGIC;
+    ce : IN STD_LOGIC
   );
 END COMPONENT;
 
@@ -68,7 +70,7 @@ END COMPONENT;
       c_cordic_function => 6,
       c_data_format => 2,
       c_family => "spartan6",
-      c_has_ce => 0,
+      c_has_ce => 1,
       c_has_clk => 1,
       c_has_nd => 0,
       c_has_phase_in => 0,
@@ -100,7 +102,8 @@ U0 : wrapped_sqrt_core
     x_in => x_in,
     x_out => x_out,
     rdy => rdy,
-    clk => clk
+    clk => clk,
+    ce => ce
   );
 -- synthesis translate_on
 

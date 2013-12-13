@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2013-12-12T18:37:38</DateModified>
+  <DateModified>2013-12-13T15:58:00</DateModified>
   <ModuleName>fft_flow_4_no_fifos</ModuleName>
-  <SummaryTimeStamp>2013-12-12T18:25:20</SummaryTimeStamp>
+  <SummaryTimeStamp>2013-12-13T15:55:33</SummaryTimeStamp>
   <SavedFilePath>/root/FPGA-MISC/FFT with VGA/iseconfig/fft_flow_4_no_fifos.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/root/FPGA-MISC/FFT with VGA/</ImplementationReportsDirectory>
   <DateInitialized>2014-06-19T22:49:22</DateInitialized>
@@ -11,7 +11,7 @@
  </header>
  <body>
   <viewgroup label="Design Overview" >
-   <view inputState="Unknown" program="implementation" ShowPartitionData="false" type="FPGASummary" file="fft_flow_4_no_fifos_summary.html" label="Summary" >
+   <view inputState="Unknown" program="implementation" ShowPartitionData="false" ExpandConstraints="true" type="FPGASummary" file="fft_flow_4_no_fifos_summary.html" label="Summary" ExpandClockNets="true" >
     <toc-item title="Design Overview" target="Design Overview" />
     <toc-item title="Design Utilization Summary" target="Design Utilization Summary" />
     <toc-item title="Performance Summary" target="Performance Summary" />
