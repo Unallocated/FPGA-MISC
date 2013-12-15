@@ -1,0 +1,2 @@
+vhdl work "ipcore_dir/vga_dcm.vhd"
+vhdl work "vga_solid.vhd"

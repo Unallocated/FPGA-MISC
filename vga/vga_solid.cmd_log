@@ -1,0 +1,41 @@
+xst -intstyle ise -ifn "/root/FPGA-MISC/vga/vga_solid.xst" -ofn "/root/FPGA-MISC/vga/vga_solid.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc6slx16-csg324-3 vga_solid.ngc vga_solid.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_solid_map.ncd vga_solid.ngd vga_solid.pcf 
+par -w -intstyle ise -ol high -mt off vga_solid_map.ncd vga_solid.ncd vga_solid.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga_solid.twx vga_solid.ncd -o vga_solid.twr vga_solid.pcf 
+bitgen -intstyle ise -f vga_solid.ut vga_solid.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/vga/vga_solid.xst" -ofn "/root/FPGA-MISC/vga/vga_solid.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc vga_solid.ucf -p xc6slx16-csg324-3 vga_solid.ngc vga_solid.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_solid_map.ncd vga_solid.ngd vga_solid.pcf 
+par -w -intstyle ise -ol high -mt off vga_solid_map.ncd vga_solid.ncd vga_solid.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga_solid.twx vga_solid.ncd -o vga_solid.twr vga_solid.pcf -ucf vga_solid.ucf 
+bitgen -intstyle ise -f vga_solid.ut vga_solid.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/vga/vga_solid.xst" -ofn "/root/FPGA-MISC/vga/vga_solid.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc vga_solid.ucf -p xc6slx16-csg324-3 vga_solid.ngc vga_solid.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_solid_map.ncd vga_solid.ngd vga_solid.pcf 
+par -w -intstyle ise -ol high -mt off vga_solid_map.ncd vga_solid.ncd vga_solid.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga_solid.twx vga_solid.ncd -o vga_solid.twr vga_solid.pcf -ucf vga_solid.ucf 
+bitgen -intstyle ise -f vga_solid.ut vga_solid.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/vga/vga_solid.xst" -ofn "/root/FPGA-MISC/vga/vga_solid.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc vga_solid.ucf -p xc6slx16-csg324-3 vga_solid.ngc vga_solid.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_solid_map.ncd vga_solid.ngd vga_solid.pcf 
+par -w -intstyle ise -ol high -mt off vga_solid_map.ncd vga_solid.ncd vga_solid.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga_solid.twx vga_solid.ncd -o vga_solid.twr vga_solid.pcf -ucf vga_solid.ucf 
+bitgen -intstyle ise -f vga_solid.ut vga_solid.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/vga/vga_solid.xst" -ofn "/root/FPGA-MISC/vga/vga_solid.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc vga_solid.ucf -p xc6slx16-csg324-3 vga_solid.ngc vga_solid.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_solid_map.ncd vga_solid.ngd vga_solid.pcf 
+par -w -intstyle ise -ol high -mt off vga_solid_map.ncd vga_solid.ncd vga_solid.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga_solid.twx vga_solid.ncd -o vga_solid.twr vga_solid.pcf -ucf vga_solid.ucf 
+bitgen -intstyle ise -f vga_solid.ut vga_solid.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/vga/vga_solid.xst" -ofn "/root/FPGA-MISC/vga/vga_solid.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc vga_solid.ucf -p xc6slx16-csg324-3 vga_solid.ngc vga_solid.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_solid_map.ncd vga_solid.ngd vga_solid.pcf 
+xst -intstyle ise -ifn "/root/FPGA-MISC/vga/vga_solid.xst" -ofn "/root/FPGA-MISC/vga/vga_solid.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/vga/vga_solid.xst" -ofn "/root/FPGA-MISC/vga/vga_solid.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/vga/vga_solid.xst" -ofn "/root/FPGA-MISC/vga/vga_solid.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc vga_solid.ucf -p xc6slx16-csg324-3 vga_solid.ngc vga_solid.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_solid_map.ncd vga_solid.ngd vga_solid.pcf 
+par -w -intstyle ise -ol high -mt off vga_solid_map.ncd vga_solid.ncd vga_solid.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga_solid.twx vga_solid.ncd -o vga_solid.twr vga_solid.pcf -ucf vga_solid.ucf 
+bitgen -intstyle ise -f vga_solid.ut vga_solid.ncd 

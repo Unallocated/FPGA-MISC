@@ -1,0 +1,8 @@
+xst -intstyle ise -ifn "/root/FPGA-MISC/vga/draw_checkers.xst" -ofn "/root/FPGA-MISC/vga/draw_checkers.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/vga/draw_checkers.xst" -ofn "/root/FPGA-MISC/vga/draw_checkers.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/vga/draw_checkers.xst" -ofn "/root/FPGA-MISC/vga/draw_checkers.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc vga_solid.ucf -p xc6slx16-csg324-3 draw_checkers.ngc draw_checkers.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o draw_checkers_map.ncd draw_checkers.ngd draw_checkers.pcf 
+par -w -intstyle ise -ol high -mt off draw_checkers_map.ncd draw_checkers.ncd draw_checkers.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml draw_checkers.twx draw_checkers.ncd -o draw_checkers.twr draw_checkers.pcf -ucf vga_solid.ucf 
+bitgen -intstyle ise -f draw_checkers.ut draw_checkers.ncd 

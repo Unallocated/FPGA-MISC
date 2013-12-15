@@ -1,0 +1,4 @@
+vhdl work "lib.vhd"
+vhdl work "vga_configurable.vhd"
+vhdl work "clock.vhd"
+vhdl work "checker.vhd"

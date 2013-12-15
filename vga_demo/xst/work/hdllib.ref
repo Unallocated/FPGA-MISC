@@ -1,0 +1,10 @@
+EN clock NULL /root/FPGA-MISC/vga_demo/clock.vhd sub00/vhpl08 1387147659
+PH uas NULL /root/FPGA-MISC/vga_demo/lib.vhd sub00/vhpl00 1387147657
+AR clock behavioral /root/FPGA-MISC/vga_demo/clock.vhd sub00/vhpl09 1387147660
+EN draw_checkers NULL /root/FPGA-MISC/vga_demo/checker.vhd sub00/vhpl06 1387147663
+PB uas uas /root/FPGA-MISC/vga_demo/lib.vhd sub00/vhpl01 1387147658
+AR nexys3_clock xilinx /root/FPGA-MISC/vga_demo/ipcore_dir/nexys3_clock.vhd sub00/vhpl03 1387147490
+EN vga_configurable NULL /root/FPGA-MISC/vga_demo/vga_configurable.vhd sub00/vhpl04 1387147661
+AR vga_configurable behavioral /root/FPGA-MISC/vga_demo/vga_configurable.vhd sub00/vhpl05 1387147662
+EN nexys3_clock NULL /root/FPGA-MISC/vga_demo/ipcore_dir/nexys3_clock.vhd sub00/vhpl02 1387147489
+AR draw_checkers behavioral /root/FPGA-MISC/vga_demo/checker.vhd sub00/vhpl07 1387147664

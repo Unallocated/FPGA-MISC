@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "/root/FPGA-MISC/vga/draw_boxes.xst" -ofn "/root/FPGA-MISC/vga/draw_boxes.syr" 

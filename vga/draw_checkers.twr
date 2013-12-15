@@ -1,0 +1,600 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -s 3 -n
+3 -fastpaths -xml draw_checkers.twx draw_checkers.ncd -o draw_checkers.twr
+draw_checkers.pcf -ucf vga_solid.ucf
+
+Design file:              draw_checkers.ncd
+Physical constraint file: draw_checkers.pcf
+Device,package,speed:     xc6slx16,csg324,C,-3 (PRODUCTION 1.23 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 
+50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   3.334ns.
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 2.630ns (max period limit - period)
+  Period: 50.000ns
+  Max period limit: 52.630ns (19.001MHz) (Tpllper_CLKFB)
+  Physical resource: Inst_clock/pll_base_inst/PLL_ADV/CLKFBOUT
+  Logical resource: Inst_clock/pll_base_inst/PLL_ADV/CLKFBOUT
+  Location pin: PLL_ADV_X0Y0.CLKFBOUT
+  Clock network: Inst_clock/clkfbout
+--------------------------------------------------------------------------------
+Slack: 6.666ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 10.000ns
+  Low pulse: 5.000ns
+  Low pulse limit: 1.667ns (Tdcmpw_CLKIN_100_150)
+  Physical resource: Inst_clock/pll_base_inst/PLL_ADV/CLKIN1
+  Logical resource: Inst_clock/pll_base_inst/PLL_ADV/CLKIN1
+  Location pin: PLL_ADV_X0Y0.CLKIN1
+  Clock network: Inst_clock/pll_base_inst/PLL_ADV_ML_NEW_DIVCLK
+--------------------------------------------------------------------------------
+Slack: 6.666ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 10.000ns
+  High pulse: 5.000ns
+  High pulse limit: 1.667ns (Tdcmpw_CLKIN_100_150)
+  Physical resource: Inst_clock/pll_base_inst/PLL_ADV/CLKIN1
+  Logical resource: Inst_clock/pll_base_inst/PLL_ADV/CLKIN1
+  Location pin: PLL_ADV_X0Y0.CLKIN1
+  Clock network: Inst_clock/pll_base_inst/PLL_ADV_ML_NEW_DIVCLK
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_Inst_clock_clkout0 = PERIOD TIMEGRP "Inst_clock_clkout0" 
+TS_sys_clk_pin *         0.251851852 HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 2203 paths analyzed, 350 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   3.934ns.
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_vga_configurable/y_pos_9 (SLICE_X10Y26.B2), 33 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     35.771ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_vga_configurable/v_counter_4 (FF)
+  Destination:          Inst_vga_configurable/y_pos_9 (FF)
+  Requirement:          39.705ns
+  Data Path Delay:      3.726ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.038ns (0.252 - 0.290)
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 39.705ns
+  Clock Uncertainty:    0.170ns
+
+  Clock Uncertainty:          0.170ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.332ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_vga_configurable/v_counter_4 to Inst_vga_configurable/y_pos_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y28.AQ       Tcko                  0.447   Inst_vga_configurable/v_counter<7>
+                                                       Inst_vga_configurable/v_counter_4
+    SLICE_X9Y27.B2       net (fanout=5)        1.026   Inst_vga_configurable/v_counter<4>
+    SLICE_X9Y27.B        Tilo                  0.259   Inst_vga_configurable/PWR_10_o_v_counter[9]_equal_17_o_inv
+                                                       Inst_vga_configurable/PWR_10_o_v_counter[9]_equal_17_o<9>21
+    SLICE_X9Y27.A5       net (fanout=10)       0.205   Inst_vga_configurable/PWR_10_o_v_counter[9]_equal_17_o<9>2
+    SLICE_X9Y27.A        Tilo                  0.259   Inst_vga_configurable/PWR_10_o_v_counter[9]_equal_17_o_inv
+                                                       Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o6
+    SLICE_X8Y26.D5       net (fanout=18)       0.392   Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o6
+    SLICE_X8Y26.D        Tilo                  0.205   Inst_vga_configurable/y_pos<7>
+                                                       Inst_vga_configurable/_n00791
+    SLICE_X10Y26.B2      net (fanout=3)        0.644   Inst_vga_configurable/_n0079
+    SLICE_X10Y26.CLK     Tas                   0.289   Inst_vga_configurable/y_pos<9>
+                                                       Inst_vga_configurable/y_pos_9_rstpot
+                                                       Inst_vga_configurable/y_pos_9
+    -------------------------------------------------  ---------------------------
+    Total                                      3.726ns (1.459ns logic, 2.267ns route)
+                                                       (39.2% logic, 60.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     35.862ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_vga_configurable/v_counter_7 (FF)
+  Destination:          Inst_vga_configurable/y_pos_9 (FF)
+  Requirement:          39.705ns
+  Data Path Delay:      3.635ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.038ns (0.252 - 0.290)
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 39.705ns
+  Clock Uncertainty:    0.170ns
+
+  Clock Uncertainty:          0.170ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.332ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_vga_configurable/v_counter_7 to Inst_vga_configurable/y_pos_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y28.DQ       Tcko                  0.447   Inst_vga_configurable/v_counter<7>
+                                                       Inst_vga_configurable/v_counter_7
+    SLICE_X7Y27.C2       net (fanout=5)        0.603   Inst_vga_configurable/v_counter<7>
+    SLICE_X7Y27.C        Tilo                  0.259   Inst_vga_configurable/vs
+                                                       Inst_vga_configurable/v_counter[9]_INV_9_o111
+    SLICE_X7Y27.B4       net (fanout=2)        0.333   Inst_vga_configurable/v_counter[9]_INV_9_o11
+    SLICE_X7Y27.B        Tilo                  0.259   Inst_vga_configurable/vs
+                                                       Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o5
+    SLICE_X8Y26.D6       net (fanout=18)       0.596   Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o5
+    SLICE_X8Y26.D        Tilo                  0.205   Inst_vga_configurable/y_pos<7>
+                                                       Inst_vga_configurable/_n00791
+    SLICE_X10Y26.B2      net (fanout=3)        0.644   Inst_vga_configurable/_n0079
+    SLICE_X10Y26.CLK     Tas                   0.289   Inst_vga_configurable/y_pos<9>
+                                                       Inst_vga_configurable/y_pos_9_rstpot
+                                                       Inst_vga_configurable/y_pos_9
+    -------------------------------------------------  ---------------------------
+    Total                                      3.635ns (1.459ns logic, 2.176ns route)
+                                                       (40.1% logic, 59.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     35.866ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_vga_configurable/v_counter_6 (FF)
+  Destination:          Inst_vga_configurable/y_pos_9 (FF)
+  Requirement:          39.705ns
+  Data Path Delay:      3.631ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.038ns (0.252 - 0.290)
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 39.705ns
+  Clock Uncertainty:    0.170ns
+
+  Clock Uncertainty:          0.170ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.332ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_vga_configurable/v_counter_6 to Inst_vga_configurable/y_pos_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y28.CQ       Tcko                  0.447   Inst_vga_configurable/v_counter<7>
+                                                       Inst_vga_configurable/v_counter_6
+    SLICE_X7Y27.C1       net (fanout=7)        0.599   Inst_vga_configurable/v_counter<6>
+    SLICE_X7Y27.C        Tilo                  0.259   Inst_vga_configurable/vs
+                                                       Inst_vga_configurable/v_counter[9]_INV_9_o111
+    SLICE_X7Y27.B4       net (fanout=2)        0.333   Inst_vga_configurable/v_counter[9]_INV_9_o11
+    SLICE_X7Y27.B        Tilo                  0.259   Inst_vga_configurable/vs
+                                                       Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o5
+    SLICE_X8Y26.D6       net (fanout=18)       0.596   Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o5
+    SLICE_X8Y26.D        Tilo                  0.205   Inst_vga_configurable/y_pos<7>
+                                                       Inst_vga_configurable/_n00791
+    SLICE_X10Y26.B2      net (fanout=3)        0.644   Inst_vga_configurable/_n0079
+    SLICE_X10Y26.CLK     Tas                   0.289   Inst_vga_configurable/y_pos<9>
+                                                       Inst_vga_configurable/y_pos_9_rstpot
+                                                       Inst_vga_configurable/y_pos_9
+    -------------------------------------------------  ---------------------------
+    Total                                      3.631ns (1.459ns logic, 2.172ns route)
+                                                       (40.2% logic, 59.8% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_vga_configurable/x_pos_0 (SLICE_X8Y32.A2), 10 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     35.789ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_vga_configurable/h_counter_8 (FF)
+  Destination:          Inst_vga_configurable/x_pos_0 (FF)
+  Requirement:          39.705ns
+  Data Path Delay:      3.721ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.025ns (0.443 - 0.468)
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 39.705ns
+  Clock Uncertainty:    0.170ns
+
+  Clock Uncertainty:          0.170ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.332ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_vga_configurable/h_counter_8 to Inst_vga_configurable/x_pos_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y31.AQ       Tcko                  0.408   Inst_vga_configurable/h_counter<9>
+                                                       Inst_vga_configurable/h_counter_8
+    SLICE_X10Y30.A1      net (fanout=9)        0.891   Inst_vga_configurable/h_counter<8>
+    SLICE_X10Y30.A       Tilo                  0.203   N22
+                                                       Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o1
+    SLICE_X9Y32.C1       net (fanout=19)       0.908   Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o1
+    SLICE_X9Y32.C        Tilo                  0.259   N76
+                                                       Inst_vga_configurable/_n00791_SW32
+    SLICE_X8Y32.A2       net (fanout=1)        0.711   N76
+    SLICE_X8Y32.CLK      Tas                   0.341   Inst_vga_configurable/x_pos<1>
+                                                       Inst_vga_configurable/x_pos_0_rstpot
+                                                       Inst_vga_configurable/x_pos_0
+    -------------------------------------------------  ---------------------------
+    Total                                      3.721ns (1.211ns logic, 2.510ns route)
+                                                       (32.5% logic, 67.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     35.836ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_vga_configurable/h_counter_5 (FF)
+  Destination:          Inst_vga_configurable/x_pos_0 (FF)
+  Requirement:          39.705ns
+  Data Path Delay:      3.675ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.024ns (0.443 - 0.467)
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 39.705ns
+  Clock Uncertainty:    0.170ns
+
+  Clock Uncertainty:          0.170ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.332ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_vga_configurable/h_counter_5 to Inst_vga_configurable/x_pos_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y30.BQ       Tcko                  0.408   Inst_vga_configurable/h_counter<7>
+                                                       Inst_vga_configurable/h_counter_5
+    SLICE_X10Y30.A2      net (fanout=22)       0.845   Inst_vga_configurable/h_counter<5>
+    SLICE_X10Y30.A       Tilo                  0.203   N22
+                                                       Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o1
+    SLICE_X9Y32.C1       net (fanout=19)       0.908   Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o1
+    SLICE_X9Y32.C        Tilo                  0.259   N76
+                                                       Inst_vga_configurable/_n00791_SW32
+    SLICE_X8Y32.A2       net (fanout=1)        0.711   N76
+    SLICE_X8Y32.CLK      Tas                   0.341   Inst_vga_configurable/x_pos<1>
+                                                       Inst_vga_configurable/x_pos_0_rstpot
+                                                       Inst_vga_configurable/x_pos_0
+    -------------------------------------------------  ---------------------------
+    Total                                      3.675ns (1.211ns logic, 2.464ns route)
+                                                       (33.0% logic, 67.0% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     36.142ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_vga_configurable/h_counter_9 (FF)
+  Destination:          Inst_vga_configurable/x_pos_0 (FF)
+  Requirement:          39.705ns
+  Data Path Delay:      3.368ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.025ns (0.443 - 0.468)
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 39.705ns
+  Clock Uncertainty:    0.170ns
+
+  Clock Uncertainty:          0.170ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.332ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_vga_configurable/h_counter_9 to Inst_vga_configurable/x_pos_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y31.BQ       Tcko                  0.408   Inst_vga_configurable/h_counter<9>
+                                                       Inst_vga_configurable/h_counter_9
+    SLICE_X10Y30.A3      net (fanout=20)       0.538   Inst_vga_configurable/h_counter<9>
+    SLICE_X10Y30.A       Tilo                  0.203   N22
+                                                       Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o1
+    SLICE_X9Y32.C1       net (fanout=19)       0.908   Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o1
+    SLICE_X9Y32.C        Tilo                  0.259   N76
+                                                       Inst_vga_configurable/_n00791_SW32
+    SLICE_X8Y32.A2       net (fanout=1)        0.711   N76
+    SLICE_X8Y32.CLK      Tas                   0.341   Inst_vga_configurable/x_pos<1>
+                                                       Inst_vga_configurable/x_pos_0_rstpot
+                                                       Inst_vga_configurable/x_pos_0
+    -------------------------------------------------  ---------------------------
+    Total                                      3.368ns (1.211ns logic, 2.157ns route)
+                                                       (36.0% logic, 64.0% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_vga_configurable/y_pos_8 (SLICE_X10Y26.A2), 33 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     35.794ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_vga_configurable/v_counter_4 (FF)
+  Destination:          Inst_vga_configurable/y_pos_8 (FF)
+  Requirement:          39.705ns
+  Data Path Delay:      3.703ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.038ns (0.252 - 0.290)
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 39.705ns
+  Clock Uncertainty:    0.170ns
+
+  Clock Uncertainty:          0.170ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.332ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_vga_configurable/v_counter_4 to Inst_vga_configurable/y_pos_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y28.AQ       Tcko                  0.447   Inst_vga_configurable/v_counter<7>
+                                                       Inst_vga_configurable/v_counter_4
+    SLICE_X9Y27.B2       net (fanout=5)        1.026   Inst_vga_configurable/v_counter<4>
+    SLICE_X9Y27.B        Tilo                  0.259   Inst_vga_configurable/PWR_10_o_v_counter[9]_equal_17_o_inv
+                                                       Inst_vga_configurable/PWR_10_o_v_counter[9]_equal_17_o<9>21
+    SLICE_X9Y27.A5       net (fanout=10)       0.205   Inst_vga_configurable/PWR_10_o_v_counter[9]_equal_17_o<9>2
+    SLICE_X9Y27.A        Tilo                  0.259   Inst_vga_configurable/PWR_10_o_v_counter[9]_equal_17_o_inv
+                                                       Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o6
+    SLICE_X8Y26.D5       net (fanout=18)       0.392   Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o6
+    SLICE_X8Y26.D        Tilo                  0.205   Inst_vga_configurable/y_pos<7>
+                                                       Inst_vga_configurable/_n00791
+    SLICE_X10Y26.A2      net (fanout=3)        0.621   Inst_vga_configurable/_n0079
+    SLICE_X10Y26.CLK     Tas                   0.289   Inst_vga_configurable/y_pos<9>
+                                                       Inst_vga_configurable/y_pos_8_rstpot
+                                                       Inst_vga_configurable/y_pos_8
+    -------------------------------------------------  ---------------------------
+    Total                                      3.703ns (1.459ns logic, 2.244ns route)
+                                                       (39.4% logic, 60.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     35.885ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_vga_configurable/v_counter_7 (FF)
+  Destination:          Inst_vga_configurable/y_pos_8 (FF)
+  Requirement:          39.705ns
+  Data Path Delay:      3.612ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.038ns (0.252 - 0.290)
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 39.705ns
+  Clock Uncertainty:    0.170ns
+
+  Clock Uncertainty:          0.170ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.332ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_vga_configurable/v_counter_7 to Inst_vga_configurable/y_pos_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y28.DQ       Tcko                  0.447   Inst_vga_configurable/v_counter<7>
+                                                       Inst_vga_configurable/v_counter_7
+    SLICE_X7Y27.C2       net (fanout=5)        0.603   Inst_vga_configurable/v_counter<7>
+    SLICE_X7Y27.C        Tilo                  0.259   Inst_vga_configurable/vs
+                                                       Inst_vga_configurable/v_counter[9]_INV_9_o111
+    SLICE_X7Y27.B4       net (fanout=2)        0.333   Inst_vga_configurable/v_counter[9]_INV_9_o11
+    SLICE_X7Y27.B        Tilo                  0.259   Inst_vga_configurable/vs
+                                                       Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o5
+    SLICE_X8Y26.D6       net (fanout=18)       0.596   Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o5
+    SLICE_X8Y26.D        Tilo                  0.205   Inst_vga_configurable/y_pos<7>
+                                                       Inst_vga_configurable/_n00791
+    SLICE_X10Y26.A2      net (fanout=3)        0.621   Inst_vga_configurable/_n0079
+    SLICE_X10Y26.CLK     Tas                   0.289   Inst_vga_configurable/y_pos<9>
+                                                       Inst_vga_configurable/y_pos_8_rstpot
+                                                       Inst_vga_configurable/y_pos_8
+    -------------------------------------------------  ---------------------------
+    Total                                      3.612ns (1.459ns logic, 2.153ns route)
+                                                       (40.4% logic, 59.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     35.889ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_vga_configurable/v_counter_6 (FF)
+  Destination:          Inst_vga_configurable/y_pos_8 (FF)
+  Requirement:          39.705ns
+  Data Path Delay:      3.608ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.038ns (0.252 - 0.290)
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 39.705ns
+  Clock Uncertainty:    0.170ns
+
+  Clock Uncertainty:          0.170ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.332ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_vga_configurable/v_counter_6 to Inst_vga_configurable/y_pos_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y28.CQ       Tcko                  0.447   Inst_vga_configurable/v_counter<7>
+                                                       Inst_vga_configurable/v_counter_6
+    SLICE_X7Y27.C1       net (fanout=7)        0.599   Inst_vga_configurable/v_counter<6>
+    SLICE_X7Y27.C        Tilo                  0.259   Inst_vga_configurable/vs
+                                                       Inst_vga_configurable/v_counter[9]_INV_9_o111
+    SLICE_X7Y27.B4       net (fanout=2)        0.333   Inst_vga_configurable/v_counter[9]_INV_9_o11
+    SLICE_X7Y27.B        Tilo                  0.259   Inst_vga_configurable/vs
+                                                       Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o5
+    SLICE_X8Y26.D6       net (fanout=18)       0.596   Inst_vga_configurable/GND_10_o_v_counter[9]_AND_8_o5
+    SLICE_X8Y26.D        Tilo                  0.205   Inst_vga_configurable/y_pos<7>
+                                                       Inst_vga_configurable/_n00791
+    SLICE_X10Y26.A2      net (fanout=3)        0.621   Inst_vga_configurable/_n0079
+    SLICE_X10Y26.CLK     Tas                   0.289   Inst_vga_configurable/y_pos<9>
+                                                       Inst_vga_configurable/y_pos_8_rstpot
+                                                       Inst_vga_configurable/y_pos_8
+    -------------------------------------------------  ---------------------------
+    Total                                      3.608ns (1.459ns logic, 2.149ns route)
+                                                       (40.4% logic, 59.6% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_Inst_clock_clkout0 = PERIOD TIMEGRP "Inst_clock_clkout0" TS_sys_clk_pin *
+        0.251851852 HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_vga_configurable/y_pos_7 (SLICE_X8Y26.C5), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.456ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Inst_vga_configurable/y_pos_7 (FF)
+  Destination:          Inst_vga_configurable/y_pos_7 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.456ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 0.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: Inst_vga_configurable/y_pos_7 to Inst_vga_configurable/y_pos_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y26.CQ       Tcko                  0.200   Inst_vga_configurable/y_pos<7>
+                                                       Inst_vga_configurable/y_pos_7
+    SLICE_X8Y26.C5       net (fanout=4)        0.066   Inst_vga_configurable/y_pos<7>
+    SLICE_X8Y26.CLK      Tah         (-Th)    -0.190   Inst_vga_configurable/y_pos<7>
+                                                       Inst_vga_configurable/y_pos_7_rstpot
+                                                       Inst_vga_configurable/y_pos_7
+    -------------------------------------------------  ---------------------------
+    Total                                      0.456ns (0.390ns logic, 0.066ns route)
+                                                       (85.5% logic, 14.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_vga_configurable/h_counter_4 (SLICE_X8Y30.A6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.487ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Inst_vga_configurable/h_counter_4 (FF)
+  Destination:          Inst_vga_configurable/h_counter_4 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.487ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 0.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: Inst_vga_configurable/h_counter_4 to Inst_vga_configurable/h_counter_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y30.AQ       Tcko                  0.200   Inst_vga_configurable/h_counter<7>
+                                                       Inst_vga_configurable/h_counter_4
+    SLICE_X8Y30.A6       net (fanout=22)       0.049   Inst_vga_configurable/h_counter<4>
+    SLICE_X8Y30.CLK      Tah         (-Th)    -0.238   Inst_vga_configurable/h_counter<7>
+                                                       Inst_vga_configurable/Mcount_h_counter_lut<4>
+                                                       Inst_vga_configurable/Mcount_h_counter_cy<7>
+                                                       Inst_vga_configurable/h_counter_4
+    -------------------------------------------------  ---------------------------
+    Total                                      0.487ns (0.438ns logic, 0.049ns route)
+                                                       (89.9% logic, 10.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_vga_configurable/h_counter_8 (SLICE_X8Y31.A6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.491ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Inst_vga_configurable/h_counter_8 (FF)
+  Destination:          Inst_vga_configurable/h_counter_8 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.491ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 0.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: Inst_vga_configurable/h_counter_8 to Inst_vga_configurable/h_counter_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y31.AQ       Tcko                  0.200   Inst_vga_configurable/h_counter<9>
+                                                       Inst_vga_configurable/h_counter_8
+    SLICE_X8Y31.A6       net (fanout=9)        0.053   Inst_vga_configurable/h_counter<8>
+    SLICE_X8Y31.CLK      Tah         (-Th)    -0.238   Inst_vga_configurable/h_counter<9>
+                                                       Inst_vga_configurable/Mcount_h_counter_lut<8>
+                                                       Inst_vga_configurable/Mcount_h_counter_xor<9>
+                                                       Inst_vga_configurable/h_counter_8
+    -------------------------------------------------  ---------------------------
+    Total                                      0.491ns (0.438ns logic, 0.053ns route)
+                                                       (89.2% logic, 10.8% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_Inst_clock_clkout0 = PERIOD TIMEGRP "Inst_clock_clkout0" TS_sys_clk_pin *
+        0.251851852 HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 37.975ns (period - min period limit)
+  Period: 39.705ns
+  Min period limit: 1.730ns (578.035MHz) (Tbcper_I)
+  Physical resource: Inst_clock/clkout1_buf/I0
+  Logical resource: Inst_clock/clkout1_buf/I0
+  Location pin: BUFGMUX_X3Y13.I0
+  Clock network: Inst_clock/clkout0
+--------------------------------------------------------------------------------
+Slack: 39.275ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 39.705ns
+  High pulse: 19.852ns
+  High pulse limit: 0.215ns (Trpw)
+  Physical resource: Inst_vga_configurable/h_counter<3>/SR
+  Logical resource: Inst_vga_configurable/h_counter_0/SR
+  Location pin: SLICE_X8Y29.SR
+  Clock network: rst_IBUF
+--------------------------------------------------------------------------------
+Slack: 39.275ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 39.705ns
+  High pulse: 19.852ns
+  High pulse limit: 0.215ns (Trpw)
+  Physical resource: Inst_vga_configurable/h_counter<3>/SR
+  Logical resource: Inst_vga_configurable/h_counter_1/SR
+  Location pin: SLICE_X8Y29.SR
+  Clock network: rst_IBUF
+--------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Derived Constraints for TS_sys_clk_pin
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_sys_clk_pin                 |     10.000ns|      3.334ns|      0.991ns|            0|            0|            0|         2203|
+| TS_Inst_clock_clkout0         |     39.706ns|      3.934ns|          N/A|            0|            0|         2203|            0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    3.934|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 2203 paths, 0 nets, and 562 connections
+
+Design statistics:
+   Minimum period:   3.934ns{1}   (Maximum frequency: 254.194MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Sun Dec 15 17:37:28 2013 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 401 MB
+
+
+

@@ -1,0 +1,4 @@
+vhdl work "ipcore_dir/vga_dcm.vhd"
+vhdl work "lib.vhd"
+vhdl work "vga_configurable.vhd"
+vhdl work "draw_boxes.vhd"

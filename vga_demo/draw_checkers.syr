@@ -1,0 +1,524 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> 
+Reading design: draw_checkers.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "draw_checkers.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "draw_checkers"
+Output Format                      : NGC
+Target Device                      : xc3s100e-4-cp132
+
+---- Source Options
+Top Module Name                    : draw_checkers
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "/root/FPGA-MISC/vga_demo/lib.vhd" in Library work.
+Architecture uas of Entity uas is up to date.
+Compiling vhdl file "/root/FPGA-MISC/vga_demo/clock.vhd" in Library work.
+Entity <clock> compiled.
+Entity <clock> (Architecture <BEHAVIORAL>) compiled.
+Compiling vhdl file "/root/FPGA-MISC/vga_demo/vga_configurable.vhd" in Library work.
+Architecture behavioral of Entity vga_configurable is up to date.
+Compiling vhdl file "/root/FPGA-MISC/vga_demo/checker.vhd" in Library work.
+Entity <draw_checkers> compiled.
+Entity <draw_checkers> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <draw_checkers> in library <work> (architecture <behavioral>) with generics.
+	blue_width = 2
+	green_width = 3
+	red_width = 3
+
+Analyzing hierarchy for entity <clock> in library <work> (architecture <BEHAVIORAL>).
+
+Analyzing hierarchy for entity <vga_configurable> in library <work> (architecture <behavioral>) with generics.
+	blue_width = 2
+	config = (horizontal_sync => 96
+	          horizontal_front_porch => 16
+	          horizontal_back_porch => 48
+	          horizontal_video => 640
+	          horizontal_polarity => '0'
+	          vertical_sync => 2
+	          vertical_front_porch => 10
+	          vertical_back_porch => 33
+	          vertical_video => 480
+	          vertical_polarity => '0')
+	green_width = 3
+	red_width = 3
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing generic Entity <draw_checkers> in library <work> (Architecture <behavioral>).
+	blue_width = 2
+	green_width = 3
+	red_width = 3
+WARNING:Xst:753 - "/root/FPGA-MISC/vga_demo/checker.vhd" line 98: Unconnected output port 'CLKIN_IBUFG_OUT' of component 'clock'.
+WARNING:Xst:753 - "/root/FPGA-MISC/vga_demo/checker.vhd" line 98: Unconnected output port 'CLK0_OUT' of component 'clock'.
+Entity <draw_checkers> analyzed. Unit <draw_checkers> generated.
+
+Analyzing Entity <clock> in library <work> (Architecture <BEHAVIORAL>).
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <CLKIN_IBUFG_INST> in unit <clock>.
+    Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <CLKIN_IBUFG_INST> in unit <clock>.
+    Set user-defined property "IBUF_LOW_PWR =  TRUE" for instance <CLKIN_IBUFG_INST> in unit <clock>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <CLKIN_IBUFG_INST> in unit <clock>.
+    Set user-defined property "CLKDV_DIVIDE =  2.0000000000000000" for instance <DCM_SP_INST> in unit <clock>.
+    Set user-defined property "CLKFX_DIVIDE =  4" for instance <DCM_SP_INST> in unit <clock>.
+    Set user-defined property "CLKFX_MULTIPLY =  2" for instance <DCM_SP_INST> in unit <clock>.
+    Set user-defined property "CLKIN_DIVIDE_BY_2 =  FALSE" for instance <DCM_SP_INST> in unit <clock>.
+    Set user-defined property "CLKIN_PERIOD =  20.0000000000000000" for instance <DCM_SP_INST> in unit <clock>.
+    Set user-defined property "CLKOUT_PHASE_SHIFT =  NONE" for instance <DCM_SP_INST> in unit <clock>.
+    Set user-defined property "CLK_FEEDBACK =  1X" for instance <DCM_SP_INST> in unit <clock>.
+    Set user-defined property "DESKEW_ADJUST =  SYSTEM_SYNCHRONOUS" for instance <DCM_SP_INST> in unit <clock>.
+    Set user-defined property "DFS_FREQUENCY_MODE =  LOW" for instance <DCM_SP_INST> in unit <clock>.
+    Set user-defined property "DLL_FREQUENCY_MODE =  LOW" for instance <DCM_SP_INST> in unit <clock>.
+    Set user-defined property "DSS_MODE =  NONE" for instance <DCM_SP_INST> in unit <clock>.
+    Set user-defined property "DUTY_CYCLE_CORRECTION =  TRUE" for instance <DCM_SP_INST> in unit <clock>.
+    Set user-defined property "FACTORY_JF =  C080" for instance <DCM_SP_INST> in unit <clock>.
+    Set user-defined property "PHASE_SHIFT =  0" for instance <DCM_SP_INST> in unit <clock>.
+    Set user-defined property "STARTUP_WAIT =  FALSE" for instance <DCM_SP_INST> in unit <clock>.
+Entity <clock> analyzed. Unit <clock> generated.
+
+Analyzing generic Entity <vga_configurable> in library <work> (Architecture <behavioral>).
+	blue_width = 2
+	config = (horizontal_sync => 96
+	          horizontal_front_porch => 16
+	          horizontal_back_porch => 48
+	          horizontal_video => 640
+	          horizontal_polarity => '0'
+	          vertical_sync => 2
+	          vertical_front_porch => 10
+	          vertical_back_porch => 33
+	          vertical_video => 480
+	          vertical_polarity => '0')
+	green_width = 3
+	red_width = 3
+Entity <vga_configurable> analyzed. Unit <vga_configurable> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <vga_configurable>.
+    Related source file is "/root/FPGA-MISC/vga_demo/vga_configurable.vhd".
+    Found 1-bit register for signal <hs>.
+    Found 11-bit register for signal <x_pos>.
+    Found 10-bit register for signal <y_pos>.
+    Found 1-bit register for signal <vs>.
+    Found 1-bit register for signal <color_valid>.
+    Found 10-bit up counter for signal <h_counter>.
+    Found 10-bit comparator less for signal <hs$cmp_lt0000> created at line 66.
+    Found 10-bit up counter for signal <v_counter>.
+    Found 10-bit comparator less for signal <vs$cmp_lt0000> created at line 73.
+    Found 11-bit subtractor for signal <x_pos$addsub0000> created at line 88.
+    Found 11-bit subtractor for signal <x_pos$addsub0001> created at line 88.
+    Found 10-bit comparator greater for signal <x_pos$cmp_gt0000> created at line 80.
+    Found 10-bit comparator greater for signal <x_pos$cmp_gt0001> created at line 80.
+    Found 10-bit comparator less for signal <x_pos$cmp_lt0000> created at line 80.
+    Found 10-bit comparator less for signal <x_pos$cmp_lt0001> created at line 80.
+    Found 10-bit subtractor for signal <y_pos$addsub0000> created at line 89.
+    Found 10-bit subtractor for signal <y_pos$addsub0001> created at line 89.
+    Summary:
+	inferred   2 Counter(s).
+	inferred  24 D-type flip-flop(s).
+	inferred   4 Adder/Subtractor(s).
+	inferred   6 Comparator(s).
+Unit <vga_configurable> synthesized.
+
+
+Synthesizing Unit <clock>.
+    Related source file is "/root/FPGA-MISC/vga_demo/clock.vhd".
+Unit <clock> synthesized.
+
+
+Synthesizing Unit <draw_checkers>.
+    Related source file is "/root/FPGA-MISC/vga_demo/checker.vhd".
+WARNING:Xst:653 - Signal <green_buf> is used but never assigned. This sourceless signal will be automatically connected to value 000.
+WARNING:Xst:653 - Signal <blue_buf> is used but never assigned. This sourceless signal will be automatically connected to value 00.
+    Found 3-bit register for signal <red_buf>.
+    Found 11-bit comparator greater for signal <red_buf$cmp_gt0000> created at line 81.
+    Found 10-bit comparator greater for signal <red_buf$cmp_gt0001> created at line 81.
+    Found 7-bit comparator greater for signal <red_buf$cmp_gt0002> created at line 82.
+    Found 7-bit comparator greater for signal <red_buf$cmp_gt0003> created at line 82.
+    Found 7-bit comparator less for signal <red_buf$cmp_lt0000> created at line 82.
+    Found 7-bit comparator less for signal <red_buf$cmp_lt0001> created at line 82.
+    Summary:
+	inferred   3 D-type flip-flop(s).
+	inferred   6 Comparator(s).
+Unit <draw_checkers> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 4
+ 10-bit subtractor                                     : 2
+ 11-bit subtractor                                     : 2
+# Counters                                             : 2
+ 10-bit up counter                                     : 2
+# Registers                                            : 6
+ 1-bit register                                        : 3
+ 10-bit register                                       : 1
+ 11-bit register                                       : 1
+ 3-bit register                                        : 1
+# Comparators                                          : 12
+ 10-bit comparator greater                             : 3
+ 10-bit comparator less                                : 4
+ 11-bit comparator greater                             : 1
+ 7-bit comparator greater                              : 2
+ 7-bit comparator less                                 : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 4
+ 10-bit subtractor                                     : 2
+ 11-bit subtractor                                     : 2
+# Counters                                             : 2
+ 10-bit up counter                                     : 2
+# Registers                                            : 27
+ Flip-Flops                                            : 27
+# Comparators                                          : 12
+ 10-bit comparator greater                             : 3
+ 10-bit comparator less                                : 4
+ 11-bit comparator greater                             : 1
+ 7-bit comparator greater                              : 2
+ 7-bit comparator less                                 : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <red_buf_0> in Unit <draw_checkers> is equivalent to the following 2 FFs/Latches, which will be removed : <red_buf_1> <red_buf_2> 
+
+Optimizing unit <draw_checkers> ...
+
+Optimizing unit <vga_configurable> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block draw_checkers, actual ratio is 7.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 45
+ Flip-Flops                                            : 45
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : draw_checkers.ngr
+Top Level Output File Name         : draw_checkers
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 12
+
+Cell Usage :
+# BELS                             : 203
+#      GND                         : 1
+#      INV                         : 20
+#      LUT1                        : 21
+#      LUT2                        : 21
+#      LUT2_D                      : 1
+#      LUT2_L                      : 1
+#      LUT3                        : 7
+#      LUT3_D                      : 3
+#      LUT4                        : 43
+#      LUT4_D                      : 4
+#      LUT4_L                      : 2
+#      MUXCY                       : 39
+#      VCC                         : 1
+#      XORCY                       : 39
+# FlipFlops/Latches                : 45
+#      FDC                         : 10
+#      FDCE                        : 10
+#      FDE                         : 25
+# Clock Buffers                    : 2
+#      BUFG                        : 2
+# IO Buffers                       : 12
+#      IBUF                        : 1
+#      IBUFG                       : 1
+#      OBUF                        : 10
+# DCMs                             : 1
+#      DCM_SP                      : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s100ecp132-4 
+
+ Number of Slices:                       65  out of    960     6%  
+ Number of Slice Flip Flops:             45  out of   1920     2%  
+ Number of 4 input LUTs:                123  out of   1920     6%  
+ Number of IOs:                          12
+ Number of bonded IOBs:                  12  out of     83    14%  
+ Number of GCLKs:                         2  out of     24     8%  
+ Number of DCMs:                          1  out of      2    50%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+-----------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)       | Load  |
+-----------------------------------+-----------------------------+-------+
+clk                                | Inst_clock/DCM_SP_INST:CLKFX| 45    |
+-----------------------------------+-----------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+rst                                | IBUF                   | 20    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 3.949ns (Maximum Frequency: 253.197MHz)
+   Minimum input arrival time before clock: 4.857ns
+   Maximum output required time after clock: 5.693ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 3.949ns (frequency: 253.197MHz)
+  Total number of paths / destination ports: 1431 / 56
+-------------------------------------------------------------------------
+Delay:               7.899ns (Levels of Logic = 13)
+  Source:            Inst_vga_configurable/v_counter_1 (FF)
+  Destination:       Inst_vga_configurable/y_pos_9 (FF)
+  Source Clock:      clk rising 0.5X
+  Destination Clock: clk rising 0.5X
+
+  Data Path: Inst_vga_configurable/v_counter_1 to Inst_vga_configurable/y_pos_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             5   0.591   0.808  Inst_vga_configurable/v_counter_1 (Inst_vga_configurable/v_counter_1)
+     LUT1:I0->O            1   0.704   0.000  Inst_vga_configurable/Msub_y_pos_addsub0000_cy<1>_rt (Inst_vga_configurable/Msub_y_pos_addsub0000_cy<1>_rt)
+     MUXCY:S->O            1   0.464   0.000  Inst_vga_configurable/Msub_y_pos_addsub0000_cy<1> (Inst_vga_configurable/Msub_y_pos_addsub0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  Inst_vga_configurable/Msub_y_pos_addsub0000_cy<2> (Inst_vga_configurable/Msub_y_pos_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  Inst_vga_configurable/Msub_y_pos_addsub0000_cy<3> (Inst_vga_configurable/Msub_y_pos_addsub0000_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  Inst_vga_configurable/Msub_y_pos_addsub0000_cy<4> (Inst_vga_configurable/Msub_y_pos_addsub0000_cy<4>)
+     XORCY:CI->O           1   0.804   0.595  Inst_vga_configurable/Msub_y_pos_addsub0000_xor<5> (Inst_vga_configurable/y_pos_addsub0000<5>)
+     LUT1:I0->O            1   0.704   0.000  Inst_vga_configurable/Msub_y_pos_addsub0001_cy<5>_rt (Inst_vga_configurable/Msub_y_pos_addsub0001_cy<5>_rt)
+     MUXCY:S->O            1   0.464   0.000  Inst_vga_configurable/Msub_y_pos_addsub0001_cy<5> (Inst_vga_configurable/Msub_y_pos_addsub0001_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  Inst_vga_configurable/Msub_y_pos_addsub0001_cy<6> (Inst_vga_configurable/Msub_y_pos_addsub0001_cy<6>)
+     MUXCY:CI->O           1   0.059   0.000  Inst_vga_configurable/Msub_y_pos_addsub0001_cy<7> (Inst_vga_configurable/Msub_y_pos_addsub0001_cy<7>)
+     MUXCY:CI->O           0   0.059   0.000  Inst_vga_configurable/Msub_y_pos_addsub0001_cy<8> (Inst_vga_configurable/Msub_y_pos_addsub0001_cy<8>)
+     XORCY:CI->O           1   0.804   0.595  Inst_vga_configurable/Msub_y_pos_addsub0001_xor<9> (Inst_vga_configurable/y_pos_addsub0001<9>)
+     LUT2:I0->O            1   0.704   0.000  Inst_vga_configurable/y_pos_mux0001<9>1 (Inst_vga_configurable/y_pos_mux0001<9>)
+     FDE:D                     0.308          Inst_vga_configurable/y_pos_9
+    ----------------------------------------
+    Total                      7.899ns (5.901ns logic, 1.998ns route)
+                                       (74.7% logic, 25.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 24 / 24
+-------------------------------------------------------------------------
+Offset:              4.857ns (Levels of Logic = 2)
+  Source:            rst (PAD)
+  Destination:       Inst_vga_configurable/color_valid (FF)
+  Destination Clock: clk rising 0.5X
+
+  Data Path: rst to Inst_vga_configurable/color_valid
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            21   1.218   1.128  rst_IBUF (rst_IBUF)
+     INV:I->O             24   0.704   1.252  Inst_vga_configurable/rst_inv1_INV_0 (Inst_vga_configurable/rst_inv)
+     FDE:CE                    0.555          Inst_vga_configurable/hs
+    ----------------------------------------
+    Total                      4.857ns (2.477ns logic, 2.380ns route)
+                                       (51.0% logic, 49.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 8 / 5
+-------------------------------------------------------------------------
+Offset:              5.693ns (Levels of Logic = 2)
+  Source:            Inst_vga_configurable/color_valid (FF)
+  Destination:       red<2> (PAD)
+  Source Clock:      clk rising 0.5X
+
+  Data Path: Inst_vga_configurable/color_valid to red<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.591   0.595  Inst_vga_configurable/color_valid (Inst_vga_configurable/color_valid)
+     LUT2:I0->O            3   0.704   0.531  Inst_vga_configurable/red<1>1 (red_0_OBUF)
+     OBUF:I->O                 3.272          red_2_OBUF (red<2>)
+    ----------------------------------------
+    Total                      5.693ns (4.567ns logic, 1.126ns route)
+                                       (80.2% logic, 19.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.06 secs
+ 
+--> 
+
+
+Total memory usage is 529288 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    4 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

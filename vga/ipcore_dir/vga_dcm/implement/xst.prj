@@ -1,0 +1,2 @@
+vhdl work ../../vga_dcm.vhd
+vhdl work ../example_design/vga_dcm_exdes.vhd

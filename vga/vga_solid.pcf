@@ -1,0 +1,37 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Sun Dec 15 17:27:31 2013
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "red<1>" LOCATE = SITE "V7" LEVEL 1;
+COMP "red<2>" LOCATE = SITE "N7" LEVEL 1;
+COMP "clk" LOCATE = SITE "V10" LEVEL 1;
+COMP "vs" LOCATE = SITE "P7" LEVEL 1;
+COMP "green<0>" LOCATE = SITE "P8" LEVEL 1;
+COMP "green<1>" LOCATE = SITE "T6" LEVEL 1;
+COMP "green<2>" LOCATE = SITE "V6" LEVEL 1;
+COMP "blue<0>" LOCATE = SITE "R7" LEVEL 1;
+COMP "blue<1>" LOCATE = SITE "T7" LEVEL 1;
+COMP "hs" LOCATE = SITE "N6" LEVEL 1;
+COMP "rst" LOCATE = SITE "B8" LEVEL 1;
+PIN rst_pin<0> = BEL "rst" PINNAME PAD;
+PIN "rst_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "red<0>" LOCATE = SITE "U7" LEVEL 1;
+TIMEGRP your_instance_name_clkout0 = BEL "hs" BEL "vs" BEL "h_counter_0" BEL
+        "h_counter_1" BEL "h_counter_2" BEL "h_counter_3" BEL "h_counter_4"
+        BEL "h_counter_5" BEL "h_counter_6" BEL "h_counter_7" BEL
+        "h_counter_8" BEL "h_counter_9" BEL "v_counter_0" BEL "v_counter_1"
+        BEL "v_counter_2" BEL "v_counter_3" BEL "v_counter_4" BEL
+        "v_counter_5" BEL "v_counter_6" BEL "v_counter_7" BEL "v_counter_8"
+        BEL "v_counter_9" BEL "your_instance_name/clkout1_buf";
+PIN SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0_pins<0> = BEL
+        "SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0" PINNAME DIVCLK;
+PIN your_instance_name/pll_base_inst/PLL_ADV_pins<2> = BEL
+        "your_instance_name/pll_base_inst/PLL_ADV" PINNAME CLKIN1;
+TIMEGRP sys_clk_pin = PIN "SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0_pins<0>" PIN
+        "your_instance_name/pll_base_inst/PLL_ADV_pins<2>";
+TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
+TS_your_instance_name_clkout0 = PERIOD TIMEGRP "your_instance_name_clkout0"
+        TS_sys_clk_pin * 0.251851852 HIGH 50%;
+SCHEMATIC END;
+
