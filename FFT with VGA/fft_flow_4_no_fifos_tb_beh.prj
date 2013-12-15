@@ -1,0 +1,8 @@
+vhdl work "ipcore_dir/fft_flow_dds.vhd"
+vhdl work "ipcore_dir/fft_burst_mode.vhd"
+vhdl work "ipcore_dir/sqrt_core.vhd"
+vhdl work "ipcore_dir/fft_flow_4_no_fifos_dcm.vhd"
+vhdl work "lib.vhd"
+vhdl work "vga_configurable.vhd"
+vhdl work "fft_flow_4_no_fifos.vhd"
+vhdl work "fft_flow_4_no_fifos_tb.vhd"

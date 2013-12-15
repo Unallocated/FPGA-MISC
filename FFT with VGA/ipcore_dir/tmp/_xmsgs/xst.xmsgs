@@ -11,25 +11,25 @@
 <msg type="warning" file="HDLCompiler" num="443" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/c_shift_ram_v11_0/c_shift_ram_v11_0_legacy.vhd" Line 424: Function <arg fmt="%s" index="1">get_init</arg> does not always return a value.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="321" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1836: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+<msg type="warning" file="HDLCompiler" num="321" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1836: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="321" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1842: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+<msg type="warning" file="HDLCompiler" num="321" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1842: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="321" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1848: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+<msg type="warning" file="HDLCompiler" num="321" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1848: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="321" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1849: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+<msg type="warning" file="HDLCompiler" num="321" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1849: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="321" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1850: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+<msg type="warning" file="HDLCompiler" num="321" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1850: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="321" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1851: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+<msg type="warning" file="HDLCompiler" num="321" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1851: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="321" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1852: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+<msg type="warning" file="HDLCompiler" num="321" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1852: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="634" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/xfft_v7_1/shift_ram.vhd" Line 149: Net &lt;<arg fmt="%s" index="1">address[3]</arg>&gt; does not have a driver.
@@ -68,10 +68,10 @@
 <msg type="warning" file="HDLCompiler" num="746" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/c_addsub_v11_0/c_addsub_v11_0_legacy.vhd" Line 314: Range is empty (null range)
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="634" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/c_addsub_v11_0/c_addsub_v11_0_legacy.vhd" Line 282: Net &lt;<arg fmt="%s" index="1">c_in_i</arg>&gt; does not have a driver.
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/c_addsub_v11_0/c_addsub_v11_0_legacy.vhd" Line 282: Net &lt;<arg fmt="%s" index="1">c_in_i</arg>&gt; does not have a driver.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="634" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/c_addsub_v11_0/c_addsub_v11_0_xst.vhd" Line 244: Net &lt;<arg fmt="%s" index="1">i_baseblox.i_b_in</arg>&gt; does not have a driver.
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/c_addsub_v11_0/c_addsub_v11_0_xst.vhd" Line 244: Net &lt;<arg fmt="%s" index="1">i_baseblox.i_b_in</arg>&gt; does not have a driver.
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/xfft_v7_1/so_run_addr_gen.vhd" Line 256: Assignment to <arg fmt="%s" index="1">nfft_int</arg> ignored, since the identifier is never used
@@ -92,49 +92,49 @@
 <msg type="warning" file="HDLCompiler" num="746" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6054: Range is empty (null range)
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="220" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6054: Assignment ignored
+<msg type="warning" file="HDLCompiler" num="220" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6054: Assignment ignored
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="746" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6056: Range is empty (null range)
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="220" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6056: Assignment ignored
+<msg type="warning" file="HDLCompiler" num="220" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6056: Assignment ignored
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="746" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6058: Range is empty (null range)
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="220" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6058: Assignment ignored
+<msg type="warning" file="HDLCompiler" num="220" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6058: Assignment ignored
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="746" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6060: Range is empty (null range)
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="220" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6060: Assignment ignored
+<msg type="warning" file="HDLCompiler" num="220" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6060: Assignment ignored
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="746" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6162: Range is empty (null range)
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="220" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6162: Assignment ignored
+<msg type="warning" file="HDLCompiler" num="220" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6162: Assignment ignored
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="746" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6164: Range is empty (null range)
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="220" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6164: Assignment ignored
+<msg type="warning" file="HDLCompiler" num="220" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6164: Assignment ignored
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="746" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6166: Range is empty (null range)
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="220" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6166: Assignment ignored
+<msg type="warning" file="HDLCompiler" num="220" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6166: Assignment ignored
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="746" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6168: Range is empty (null range)
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="220" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6168: Assignment ignored
+<msg type="warning" file="HDLCompiler" num="220" delta="old" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6168: Assignment ignored
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="871" delta="new" >"/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/cmpy_v3_0/cmpy_4_dsp48_mult.vhd" Line 6192: Using initial value <arg fmt="%s" index="1">&apos;0&apos;</arg> for <arg fmt="%s" index="2">ced_0</arg> since it is never assigned
@@ -770,7 +770,7 @@
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">nfft_minus_one</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">sclr</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">sclr</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/root/FPGA-MISC/FFT with VGA/ipcore_dir/tmp/_cg/_dbg/xfft_v7_1/so_n_counter.vhd</arg>&quot; line <arg fmt="%s" index="2">191</arg>: Output port &lt;<arg fmt="%s" index="3">C_OUT</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">n_counter_addsub</arg>&gt; is unconnected or connected to loadless signal.
@@ -812,7 +812,7 @@
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">D1</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">COMBI_SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -1019,13 +1019,13 @@
 <msg type="warning" file="Xst" num="2935" delta="new" >Signal &apos;<arg fmt="%s" index="1">Q1</arg>&apos;, unconnected in block &apos;<arg fmt="%s" index="2">shift_ram_10</arg>&apos;, is tied to its initial value (<arg fmt="%s" index="3">0</arg>).
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">CLK</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">CLK</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">CE</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">CE</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">wea</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -1034,13 +1034,13 @@
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">D1</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">CLK</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">CLK</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">CE</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">CE</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">COMBI_SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -1055,7 +1055,7 @@
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">round_cy</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">ROUND_CY</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -1094,22 +1094,22 @@
 <msg type="warning" file="Xst" num="2935" delta="new" >Signal &apos;<arg fmt="%s" index="1">use_DSP48a.appDSP48A[0].bppDSP48A[0].sclr_carryin_0</arg>&apos;, unconnected in block &apos;<arg fmt="%s" index="2">cmpy_4_dsp48_mult</arg>&apos;, is tied to its initial value (<arg fmt="%s" index="3">0</arg>).
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">CLK</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">CLK</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">CLK</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">CLK</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">SCLR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">D1</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -1249,7 +1249,7 @@
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/i_synth/non_floating_point.arch_e.xfft_inst/control/addr_gen/run_addr_gen/done_int2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">fft_burst_mode</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;U0/i_synth/non_floating_point.arch_e.xfft_inst/control/edone_i_reg&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2169" delta="new" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+<msg type="info" file="Xst" num="2169" delta="old" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 </msg>
 
 </messages>

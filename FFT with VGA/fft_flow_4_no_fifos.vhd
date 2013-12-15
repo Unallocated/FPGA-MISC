@@ -1,6 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
+use WORK.uas.ALL;
 
 entity fft_flow_4_no_fifos is
     Port ( clk : in  STD_LOGIC;
@@ -19,28 +20,28 @@ end fft_flow_4_no_fifos;
 
 architecture Behavioral of fft_flow_4_no_fifos is
 
-	signal mult_clk, mult_ce, mult_sclr : std_logic_vector(1 downto 0) := (others => '0');
-	type mult_input_array_t is array(0 to 1) of std_logic_vector(7 downto 0);
-	signal mult_a, mult_b : mult_input_array_t := (others => (others => '0'));
-	type mult_output_array_t is array(0 to 1) of std_logic_vector(15 downto 0);
-	signal mult_p : mult_output_array_t := (others => (others => '0'));
-	
-	COMPONENT multiplier
-	  PORT (
-	    a : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-	    b : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-	    p : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
-	  );
-	END COMPONENT;
+--	signal mult_clk, mult_ce, mult_sclr : std_logic_vector(1 downto 0) := (others => '0');
+--	type mult_input_array_t is array(0 to 1) of std_logic_vector(7 downto 0);
+--	signal mult_a, mult_b : mult_input_array_t := (others => (others => '0'));
+--	type mult_output_array_t is array(0 to 1) of std_logic_vector(15 downto 0);
+--	signal mult_p : mult_output_array_t := (others => (others => '0'));
+--	
+--	COMPONENT multiplier
+--	  PORT (
+--	    a : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+--	    b : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+--	    p : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+--	  );
+--	END COMPONENT;
 
-	signal sqrt_in : std_logic_vector(15 downto 0) := (others => '0');
-	signal sqrt_out : std_logic_vector(8 downto 0) := (others => '0');
+	signal sqrt_in : std_logic_vector(13 downto 0) := (others => '0');
+	signal sqrt_out : std_logic_vector(7 downto 0) := (others => '0');
 	signal sqrt_ce, sqrt_clk, sqrt_rdy : std_logic := '0';
 
 	COMPONENT sqrt_core
 	  PORT (
-	    x_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-	    x_out : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
+	    x_in : IN STD_LOGIC_VECTOR(13 DOWNTO 0);
+	    x_out : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 	    rdy : OUT STD_LOGIC;
 	    clk : IN STD_LOGIC;
 	    ce : in std_logic
@@ -96,6 +97,12 @@ architecture Behavioral of fft_flow_4_no_fifos is
 	signal x_pos, y_pos : integer := 0;
 	
 	COMPONENT vga_configurable
+		Generic ( 
+				  config      : vga_timing := vga_25mhz_640x480; -- Allow the user to specify custom VGA timings.  Default to 25MHz at 640x480
+				  red_width   : positive    := 3;                 -- Let the user change the number of red color bits
+				  green_width : positive    := 3;                 -- Let the user change the number of green color bits
+				  blue_width  : positive    := 2                  -- Let the user change the number of blue color bits
+				);
 		PORT(
 			clk : IN std_logic;
 			rst : IN std_logic;
@@ -107,8 +114,8 @@ architecture Behavioral of fft_flow_4_no_fifos is
 			green : OUT std_logic_vector(2 downto 0);
 			red : OUT std_logic_vector(2 downto 0);
 			blue : OUT std_logic_vector(1 downto 0);
-			x_pos : OUT integer;
-			y_pos : OUT integer
+			x_pos : OUT integer range -1 to vga_25mhz_640x480.horizontal_video - 1;
+			y_pos : OUT integer range -1 to vga_25mhz_640x480.vertical_video - 1
 			);
 	END COMPONENT;
 	
@@ -126,75 +133,48 @@ architecture Behavioral of fft_flow_4_no_fifos is
 
 	type adc_ram_t is array(0 to 255) of std_logic_vector(7 downto 0);
 	signal adc_ram : adc_ram_t := (others => (others => '0'));
-	signal adc_ram_pos : unsigned(adc_ram(0)'range) := (others => '0');
+	signal adc_ram_pos : unsigned(8 downto 0) := (others => '0');
 	type adc_state_t is (ADC_CLK_HIGH, ADC_CLK_LOW);
 	signal adc_state : adc_state_t := ADC_CLK_HIGH;
 	
-	type fft_out_ram_t is array(0 to 127) of std_logic_vector(15 downto 0);
+	type fft_out_ram_t is array(0 to 127) of std_logic_vector(13 downto 0);
 	signal fft_out_ram : fft_out_ram_t := (others => (others => '0'));
-	signal fft_ram_pos : unsigned(adc_ram(0)'high-1 downto 0) := (others => '0');
+	signal fft_ram_pos : unsigned(6 downto 0) := (others => '0');
 	type fft_state_t is (FFT_WAIT_FOR_RFD, FFT_LOAD, FFT_STALL, FFT_WAIT_FOR_DV, FFT_UNLOAD);
 	signal fft_state : fft_state_t := FFT_WAIT_FOR_RFD;
 	
 	type vga_ram_t is array(0 to 127) of std_logic_vector(7 downto 0);
 	signal vga_ram : vga_ram_t := (others => (others => '0'));
-	signal vga_ram_pos : unsigned(adc_ram(0)'high-1 downto 0) := (others => '0');
 	
 	type mag_state_t is (MAG_1, MAG_2, MAG_3, MAG_4);
 	signal mag_state : mag_state_t := MAG_1;
 	
 	type master_state_t is (STARTUP, SAMPLE, FFT, MAG);
 	signal master_state : master_state_t := STARTUP;
-	
-	function  sqrt  ( d : UNSIGNED ) return UNSIGNED is
-		variable a : unsigned(31 downto 0):=d;  --original input.
-		variable q : unsigned(15 downto 0):=(others => '0');  --result.
-		variable left,right,r : unsigned(17 downto 0):=(others => '0');  --input to adder/sub.r-remainder.
-		variable i : integer:=0;
-
-	begin
-		for i in 0 to 15 loop
-			right(0):='1';
-			right(1):=r(17);
-			right(17 downto 2):=q;
-			left(1 downto 0):=a(31 downto 30);
-			left(17 downto 2):=r(15 downto 0);
-			a(31 downto 2):=a(29 downto 0);  --shifting by 2 bit.
-			if ( r(17) = '1') then
-				r := left + right;
-			else
-				r := left - right;
-			end if;
-			q(15 downto 1) := q(14 downto 0);
-			q(0) := not r(17);
-		end loop; 
-		return q(7 downto 0);
-
-	end sqrt;
 begin
-
+	fft_xn_im <= (others => '0');
+	fft_sclr <= '0';
+	red_in <= (others => '0');
+	green_in <= (others => '0');
+	
 	sine_out <= std_logic_vector(unsigned(dds_sine) + 127);
 
 	process(dds_clk, rst)
-		variable a : unsigned(15 downto 0);  --original input.
-		variable q : unsigned(15 downto 0):=(others => '0');  --result.
-		variable left,right,r : unsigned(17 downto 0):=(others => '0');  --input to adder/sub.r-remainder.
-		variable i : integer:=0;
-		variable iteration : integer range 0 to 15 := 0;
-		variable im, re : std_logic_vector(7 downto 0);
+		variable re, im : std_logic_vector(7 downto 0);
 	begin
 		if(rst = '1') then
 			vga_ram <= (others => (others => '0'));
 			fft_out_ram <= (others => (others => '0'));
 			adc_ram <= (others => (others => '0'));
 			
-			vga_ram_pos <= (others => '0');
 			fft_ram_pos <= (others => '0');
 			adc_ram_pos <= (others => '0');
 			
 			fft_start <= '0';
 			master_state <= STARTUP;
-		elsif(rising_edge(original_clk)) then
+			
+			
+		elsif(rising_edge(dds_clk)) then
 			case master_state is
 			when STARTUP =>
 				master_state <= SAMPLE;
@@ -257,15 +237,15 @@ begin
 								im := fft_xk_im;
 							end if;
 							
-							fft_out_ram(to_integer(unsigned(fft_xk_index(6 downto 0)))) <= re & im;
+							fft_out_ram(to_integer(unsigned(fft_xk_index(6 downto 0)))) <= re(6 downto 0) & im(6 downto 0);
 						end if;
 					else
 						fft_start <= '0';
 						master_state <= MAG;
-						mult_ce <= (others => '1');
+--						mult_ce <= (others => '1');
 						mag_state <= MAG_1;
 						fft_state <= FFT_WAIT_FOR_RFD;
-						iteration := 0;
+--						iteration := 0;
 					end if;
 				end case;
 			when MAG =>
@@ -278,24 +258,27 @@ begin
 --					mult_b(1) <= fft_out_ram(to_integer(unsigned(fft_ram_pos)))(7 downto 0);
 					
 				
-					a := (unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(15 downto 8)) * unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(15 downto 8))) + 
-						 (unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(7 downto 0)) * unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(7 downto 0)));
+--					a := (unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(15 downto 8)) * unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(15 downto 8))) + 
+--						 (unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(7 downto 0)) * unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(7 downto 0)));
 					sqrt_ce <= '1';
-					sqrt_in <= std_logic_vector(a);
+					sqrt_in <= std_logic_vector((unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(13 downto 7)) * unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(13 downto 7))) + 
+						 (unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(6 downto 0)) * unsigned(fft_out_ram(to_integer(unsigned(fft_ram_pos)))(6 downto 0))));
 					mag_state <= MAG_4;
 				when MAG_2 =>
-					mag_state <= MAG_3;
+--					mag_state <= MAG_3;
+					null;
 				when MAG_3 =>
-					sqrt_in <= std_logic_vector(unsigned(mult_p(0)) + unsigned(mult_p(1)));
-					sqrt_ce <= '1';
-					mag_state <= MAG_3;
+--					sqrt_in <= std_logic_vector(unsigned(mult_p(0)) + unsigned(mult_p(1)));
+--					sqrt_ce <= '1';
+--					mag_state <= MAG_3;
+					null;
 				when MAG_4 =>
 						if(sqrt_rdy = '1') then
 							vga_ram(to_integer(fft_ram_pos)) <= sqrt_out(7 downto 0);
 							if(fft_ram_pos = (fft_ram_pos'range => '1')) then
 								master_state <= SAMPLE;
 								sqrt_ce <= '0';
-								mult_ce <= (others => '0');
+--								mult_ce <= (others => '0');
 								fft_ram_pos <= (fft_ram_pos'range => '0');
 							else
 								fft_ram_pos <= fft_ram_pos + 1;
@@ -336,13 +319,9 @@ begin
 	begin
 		if(rst = '1') then
 			blue_in <= (others => '0');
-			red_in <= (others => '0');
-			green_in <= (others => '0');
 		elsif(rising_edge(vga_clk)) then
 			blue_in <= (others => '0');
-			red_in <= (others => '0');
-			green_in <= (others => '0');
-			if(x_pos > -1 and y_pos > -1 and x_pos < vga_ram'length) then
+			if(x_pos > -1 and y_pos > -1 and x_pos < vga_ram'length and y_pos < 256) then
 				if(vga_ram(x_pos) <= std_logic_vector(to_unsigned(y_pos, vga_ram(0)'length))) then
 					blue_in <= (others => '1');
 				end if;
@@ -350,7 +329,12 @@ begin
 		end if;
 	end process;
 	    
-	vga_instance : vga_configurable PORT MAP(
+	
+	vga_instance : vga_configurable 
+		GENERIC MAP(
+			config => vga_25mhz_640x480
+		)
+		PORT MAP(
 		clk => vga_clk,
 		rst => rst,
 		hs => hs,
@@ -439,19 +423,19 @@ begin
 	    sine => dds_sine
 	  );
 	  
-	mult_1_inst : multiplier
-  PORT MAP (
-    a => mult_a(0),
-    b => mult_b(0),
-    p => mult_p(0)
-  );
-
-	mult_2_inst : multiplier
-  PORT MAP (
-    a => mult_a(1),
-    b => mult_b(1),
-    p => mult_p(1)
-  );
+--	mult_1_inst : multiplier
+--  PORT MAP (
+--    a => mult_a(0),
+--    b => mult_b(0),
+--    p => mult_p(0)
+--  );
+--
+--	mult_2_inst : multiplier
+--  PORT MAP (
+--    a => mult_a(1),
+--    b => mult_b(1),
+--    p => mult_p(1)
+--  );
 
 end Behavioral;
 

@@ -42,8 +42,8 @@ LIBRARY XilinxCoreLib;
 -- synthesis translate_on
 ENTITY sqrt_core IS
   PORT (
-    x_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    x_out : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
+    x_in : IN STD_LOGIC_VECTOR(13 DOWNTO 0);
+    x_out : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     rdy : OUT STD_LOGIC;
     clk : IN STD_LOGIC;
     ce : IN STD_LOGIC
@@ -54,8 +54,8 @@ ARCHITECTURE sqrt_core_a OF sqrt_core IS
 -- synthesis translate_off
 COMPONENT wrapped_sqrt_core
   PORT (
-    x_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    x_out : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
+    x_in : IN STD_LOGIC_VECTOR(13 DOWNTO 0);
+    x_out : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     rdy : OUT STD_LOGIC;
     clk : IN STD_LOGIC;
     ce : IN STD_LOGIC
@@ -82,9 +82,9 @@ END COMPONENT;
       c_has_x_out => 1,
       c_has_y_in => 0,
       c_has_y_out => 0,
-      c_input_width => 16,
+      c_input_width => 14,
       c_iterations => 0,
-      c_output_width => 9,
+      c_output_width => 8,
       c_phase_format => 0,
       c_pipeline_mode => 0,
       c_precision => 0,

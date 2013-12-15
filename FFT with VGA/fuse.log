@@ -7,15 +7,14 @@ Parsing VHDL file "/root/FPGA-MISC/FFT with VGA/ipcore_dir/fft_flow_dds.vhd" int
 Parsing VHDL file "/root/FPGA-MISC/FFT with VGA/ipcore_dir/fft_burst_mode.vhd" into library work
 Parsing VHDL file "/root/FPGA-MISC/FFT with VGA/ipcore_dir/sqrt_core.vhd" into library work
 Parsing VHDL file "/root/FPGA-MISC/FFT with VGA/ipcore_dir/fft_flow_4_no_fifos_dcm.vhd" into library work
-Parsing VHDL file "/root/FPGA-MISC/FFT with VGA/ipcore_dir/multiplier.vhd" into library work
 Parsing VHDL file "/root/FPGA-MISC/FFT with VGA/lib.vhd" into library work
 Parsing VHDL file "/root/FPGA-MISC/FFT with VGA/vga_configurable.vhd" into library work
 Parsing VHDL file "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.vhd" into library work
 Parsing VHDL file "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos_tb.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 169720 KB
-Fuse CPU Usage: 2860 ms
+Fuse Memory Usage: 153784 KB
+Fuse CPU Usage: 2340 ms
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package numeric_std
@@ -31,28 +30,29 @@ Compiling package std_logic_signed
 Compiling package std_logic_textio
 Compiling architecture vcc_v of entity VCC [vcc_default]
 Compiling architecture gnd_v of entity GND [gnd_default]
-Compiling architecture lut6_v of entity LUT6 [\LUT6("1111111100000000111100001...]
+Compiling architecture dsp48a1_v of entity DSP48A1 [\DSP48A1(0,1,0,1,0,"OPMODE5",0,1...]
 Compiling architecture fdre_v of entity FDRE [\FDRE('0')\]
-Compiling architecture fde_v of entity FDE [\FDE('1')\]
+Compiling architecture fde_v of entity FDE [\FDE('0')\]
 Compiling architecture fdse_v of entity FDSE [\FDSE('1')\]
 Compiling architecture srl16e_v of entity SRL16E [\SRL16E("0000000000000000")(0,15...]
 Compiling architecture dsp48a1_v of entity DSP48A1 [\DSP48A1(0,1,0,1,1,"OPMODE5",0,0...]
 Compiling architecture dsp48a1_v of entity DSP48A1 [\DSP48A1(1,1,1,1,0,"OPMODE5",0,0...]
-Compiling architecture dsp48a1_v of entity DSP48A1 [\DSP48A1(0,1,0,1,0,"OPMODE5",0,1...]
-Compiling architecture muxf7_v of entity MUXF7 [muxf7_default]
 Compiling architecture lut3_v of entity LUT3 [\LUT3("11001010")(0,7)\]
+Compiling architecture lut6_v of entity LUT6 [\LUT6("1111111100000000111100001...]
+Compiling architecture lut1_v of entity LUT1 [\LUT1("0001")(0,3)\]
+Compiling architecture lut2_v of entity LUT2 [\LUT2("1000")(0,3)\]
+Compiling architecture lut4_v of entity LUT4 [\LUT4("0010111000100010")(0,15)\]
 Compiling architecture muxcy_v of entity MUXCY [muxcy_default]
 Compiling architecture xorcy_v of entity XORCY [xorcy_default]
-Compiling architecture lut4_v of entity LUT4 [\LUT4("0000000011001010")(0,15)\]
-Compiling architecture lut2_v of entity LUT2 [\LUT2("0110")(0,3)\]
-Compiling architecture lut5_v of entity LUT5 [\LUT5("1111111111111111011111111...]
 Compiling architecture fd_v of entity FD [\FD('0')\]
+Compiling architecture muxf8_v of entity MUXF8 [muxf8_default]
+Compiling architecture muxf7_v of entity MUXF7 [muxf7_default]
+Compiling architecture fds_v of entity FDS [\FDS('1')\]
+Compiling architecture lut5_v of entity LUT5 [\LUT5("1110111011111111101010101...]
 Compiling architecture inv_v of entity INV [inv_default]
-Compiling architecture ramb8bwer_v of entity RAMB8BWER [\RAMB8BWER(9,9,1,1,true,true,"11...]
-Compiling architecture srlc32e_v of entity SRLC32E [\SRLC32E("0000000000000000000000...]
+Compiling architecture ramb8bwer_v of entity RAMB8BWER [\RAMB8BWER(9,9,1,1,true,true,"00...]
 Compiling architecture srlc16e_v of entity SRLC16E [\SRLC16E("0000000000000000")(0,1...]
-Compiling architecture ramb8bwer_v of entity RAMB8BWER [\RAMB8BWER(36,36,0,1,false,false...]
-Compiling architecture lut1_v of entity LUT1 [\LUT1("0010")(0,3)\]
+Compiling architecture ramb8bwer_v of entity RAMB8BWER [\RAMB8BWER(18,18,0,1,false,false...]
 Compiling architecture structure of entity fft_burst_mode [fft_burst_mode_default]
 Compiling architecture behavioral of entity vga_configurable [\vga_configurable((96,16,48,640,...]
 Compiling package math_real
@@ -84,9 +84,6 @@ Compiling architecture behavioral of entity xbip_pipe_v2_0 [\xbip_pipe_v2_0(1,0,
 Compiling architecture behavioral of entity xbip_pipe_v2_0_xst [\xbip_pipe_v2_0_xst(1,0,0,0,0,0,...]
 Compiling architecture behavioral of entity dds_compiler_v4_0 [\dds_compiler_v4_0("spartan6",12...]
 Compiling architecture fft_flow_dds_a of entity fft_flow_dds [fft_flow_dds_default]
-Compiling package mult_gen_pkg_v11_2
-Compiling architecture behavioral of entity mult_gen_v11_2 [\mult_gen_v11_2(0,0,"spartan6",8...]
-Compiling architecture multiplier_a of entity multiplier [multiplier_default]
 Compiling architecture behavioral of entity fft_flow_4_no_fifos [fft_flow_4_no_fifos_default]
 Compiling architecture behavior of entity fft_flow_4_no_fifos_tb
 Time Resolution for simulation is 1ps.

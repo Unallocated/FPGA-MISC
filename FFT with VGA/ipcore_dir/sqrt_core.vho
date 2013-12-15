@@ -45,8 +45,8 @@
 ------------- Begin Cut here for COMPONENT Declaration ------ COMP_TAG
 COMPONENT sqrt_core
   PORT (
-    x_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    x_out : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
+    x_in : IN STD_LOGIC_VECTOR(13 DOWNTO 0);
+    x_out : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     rdy : OUT STD_LOGIC;
     clk : IN STD_LOGIC;
     ce : IN STD_LOGIC

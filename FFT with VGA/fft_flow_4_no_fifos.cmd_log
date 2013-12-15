@@ -1,0 +1,56 @@
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 "fft_flow_4_no_fifos.ngc" fft_flow_4_no_fifos.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt 2 -detail -ir off -pr off -lc off -power off -o fft_flow_4_no_fifos_map.ncd fft_flow_4_no_fifos.ngd fft_flow_4_no_fifos.pcf 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 "fft_flow_4_no_fifos.ngc" fft_flow_4_no_fifos.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt 2 -detail -ir off -pr off -lc off -power off -o fft_flow_4_no_fifos_map.ncd fft_flow_4_no_fifos.ngd fft_flow_4_no_fifos.pcf 
+par -w -intstyle ise -ol high -mt 4 fft_flow_4_no_fifos_map.ncd fft_flow_4_no_fifos.ncd fft_flow_4_no_fifos.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_flow_4_no_fifos.twx fft_flow_4_no_fifos.ncd -o fft_flow_4_no_fifos.twr fft_flow_4_no_fifos.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_flow_4_no_fifos.ut fft_flow_4_no_fifos.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 "fft_flow_4_no_fifos.ngc" fft_flow_4_no_fifos.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt 2 -detail -ir off -pr off -lc off -power off -o fft_flow_4_no_fifos_map.ncd fft_flow_4_no_fifos.ngd fft_flow_4_no_fifos.pcf 
+par -w -intstyle ise -ol high -mt 4 fft_flow_4_no_fifos_map.ncd fft_flow_4_no_fifos.ncd fft_flow_4_no_fifos.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_flow_4_no_fifos.twx fft_flow_4_no_fifos.ncd -o fft_flow_4_no_fifos.twr fft_flow_4_no_fifos.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_flow_4_no_fifos.ut fft_flow_4_no_fifos.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 "fft_flow_4_no_fifos.ngc" fft_flow_4_no_fifos.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt 2 -detail -ir off -pr off -lc off -power off -o fft_flow_4_no_fifos_map.ncd fft_flow_4_no_fifos.ngd fft_flow_4_no_fifos.pcf 
+par -w -intstyle ise -ol high -mt 4 fft_flow_4_no_fifos_map.ncd fft_flow_4_no_fifos.ncd fft_flow_4_no_fifos.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_flow_4_no_fifos.twx fft_flow_4_no_fifos.ncd -o fft_flow_4_no_fifos.twr fft_flow_4_no_fifos.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_flow_4_no_fifos.ut fft_flow_4_no_fifos.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 "fft_flow_4_no_fifos.ngc" fft_flow_4_no_fifos.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt 2 -detail -ir off -pr off -lc off -power off -o fft_flow_4_no_fifos_map.ncd fft_flow_4_no_fifos.ngd fft_flow_4_no_fifos.pcf 
+par -w -intstyle ise -ol high -mt 4 fft_flow_4_no_fifos_map.ncd fft_flow_4_no_fifos.ncd fft_flow_4_no_fifos.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_flow_4_no_fifos.twx fft_flow_4_no_fifos.ncd -o fft_flow_4_no_fifos.twr fft_flow_4_no_fifos.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_flow_4_no_fifos.ut fft_flow_4_no_fifos.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 "fft_flow_4_no_fifos.ngc" fft_flow_4_no_fifos.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt 2 -detail -ir off -pr off -lc off -power off -o fft_flow_4_no_fifos_map.ncd fft_flow_4_no_fifos.ngd fft_flow_4_no_fifos.pcf 
+par -w -intstyle ise -ol high -mt 4 fft_flow_4_no_fifos_map.ncd fft_flow_4_no_fifos.ncd fft_flow_4_no_fifos.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_flow_4_no_fifos.twx fft_flow_4_no_fifos.ncd -o fft_flow_4_no_fifos.twr fft_flow_4_no_fifos.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_flow_4_no_fifos.ut fft_flow_4_no_fifos.ncd 
+xst -intstyle ise -ifn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.xst" -ofn "/root/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc fft_flow.ucf -p xc6slx16-csg324-3 "fft_flow_4_no_fifos.ngc" fft_flow_4_no_fifos.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt 2 -detail -ir off -pr off -lc off -power off -o fft_flow_4_no_fifos_map.ncd fft_flow_4_no_fifos.ngd fft_flow_4_no_fifos.pcf 
+par -w -intstyle ise -ol high -mt 4 fft_flow_4_no_fifos_map.ncd fft_flow_4_no_fifos.ncd fft_flow_4_no_fifos.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml fft_flow_4_no_fifos.twx fft_flow_4_no_fifos.ncd -o fft_flow_4_no_fifos.twr fft_flow_4_no_fifos.pcf -ucf fft_flow.ucf 
+bitgen -intstyle ise -f fft_flow_4_no_fifos.ut fft_flow_4_no_fifos.ncd 

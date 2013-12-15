@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.7
-# Date: Fri Dec 13 15:01:30 2013
+# Date: Fri Dec 13 23:24:11 2013
 #
 ##############################################################
 #
@@ -46,10 +46,10 @@ CSET compensation_scaling=No_Scale_Compensation
 CSET component_name=sqrt_core
 CSET data_format=UnsignedInteger
 CSET functional_selection=Square_Root
-CSET input_width=16
+CSET input_width=14
 CSET iterations=0
 CSET nd=false
-CSET output_width=9
+CSET output_width=8
 CSET phase_format=Radians
 CSET phase_output=false
 CSET pipelining_mode=No_Pipelining
@@ -66,4 +66,4 @@ CSET y_out=false
 MISC pkg_timestamp=2013-10-13T18:14:49Z
 # END Extra information
 GENERATE
-# CRC: e824b81f
+# CRC: cd176323

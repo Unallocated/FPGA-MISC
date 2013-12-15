@@ -105,10 +105,3 @@ extern void unisim_a_0350208134_1521797606_init()
 	xsi_register_didat("unisim_a_0350208134_1521797606", "isim/fft_flow_4_no_fifos_tb_isim_beh.exe.sim/unisim/a_0350208134_1521797606.didat");
 	xsi_register_executes(pe);
 }
-
-extern void unisim_a_2892212195_1521797606_init()
-{
-	static char *pe[] = {(void *)unisim_a_0350208134_1521797606_p_0,(void *)unisim_a_0350208134_1521797606_p_1};
-	xsi_register_didat("unisim_a_2892212195_1521797606", "isim/fft_flow_4_no_fifos_tb_isim_beh.exe.sim/unisim/a_2892212195_1521797606.didat");
-	xsi_register_executes(pe);
-}
