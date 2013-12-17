@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "/root/FPGA-MISC/Serial_SRAM/test_isim_beh.exe" -prj "/root/FPGA-MISC/Serial_SRAM/test_beh.prj" "work.test" 
+-intstyle "ise" -incremental -lib "secureip" -o "/home/main/git/FPGA-MISC/Serial_SRAM/sram_test_isim_beh.exe" -prj "/home/main/git/FPGA-MISC/Serial_SRAM/sram_test_beh.prj" "work.sram_test" 
