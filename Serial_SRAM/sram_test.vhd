@@ -53,9 +53,9 @@ begin
 					data_in <= x"7e";
 				end if;
 			elsif(state = 1) then
-				start <= '0';
 				if(done = '0') then
 					state <= 2;
+					start <= '0';
 				end if;
 			elsif(state = 2) then
 				if(done = '1') then
@@ -68,6 +68,7 @@ begin
 			elsif(state = 4) then
 				if(done = '0') then
 					state <= 5;
+					start <= '0';
 				end if;
 			elsif(state = 5) then
 				if(done = '1') then
@@ -84,7 +85,7 @@ begin
 		if(rst = '1') then
 			counter := 0;
 		elsif(rising_edge(clk)) then
-			if(counter = 50/2) then
+			if(counter = 500000/2) then
 				counter := 0;
 				slow_clk <= not slow_clk;
 			else

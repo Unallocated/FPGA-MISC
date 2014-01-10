@@ -30,6 +30,8 @@ architecture Behavioral of sram is
 
 	signal pos : integer range 0 to 16 := 0;
 	signal toggle : integer range 0 to 2 := 0;
+	
+	signal last_start : std_logic := '0';
 begin
 
 	process(clk, rst)
@@ -55,7 +57,7 @@ begin
 						toggle <= 0;
 						
 						
-						if(start = '1') then
+						if(start = '1' and last_start = '0') then
 							state <= INSTR;
 							we_buffer <= we;
 							data_buffer <= data_in;
@@ -63,6 +65,8 @@ begin
 							done <= '0';
 							cs <= '0';
 						end if;
+						
+						last_start <= start;
 					when INSTR =>
 						if(we_buffer = '1') then
 							so <= WRITE_INSTR(pos);

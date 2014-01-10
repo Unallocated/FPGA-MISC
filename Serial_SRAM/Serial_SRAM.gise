@@ -28,11 +28,6 @@
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="the_hard_way_guide.ncd" xil_pn:origination="imported"/>
   </files>
 
-  <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1389236635" xil_pn:in_ck="-4445204603407465942" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1389236635">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-  </transforms>
+  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
 
 </generated_project>
