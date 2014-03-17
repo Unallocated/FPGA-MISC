@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2013-11-16T01:18:30</DateModified>
+  <DateModified>2014-03-16T20:56:56</DateModified>
   <ModuleName>sync_sram_wrapper</ModuleName>
-  <SummaryTimeStamp>2013-11-18T16:51:02</SummaryTimeStamp>
-  <SavedFilePath>/home/main/FPGA-MISC/Nexys3-RAM-Test/iseconfig/sync_sram_wrapper.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/main/FPGA-MISC/Nexys3-RAM-Test/</ImplementationReportsDirectory>
+  <SummaryTimeStamp>2014-03-16T20:55:54</SummaryTimeStamp>
+  <SavedFilePath>/home/main/git/FPGA-MISC/Nexys3-RAM-Test/iseconfig/sync_sram_wrapper.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/main/git/FPGA-MISC/Nexys3-RAM-Test/</ImplementationReportsDirectory>
   <DateInitialized>2013-11-18T16:51:36</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

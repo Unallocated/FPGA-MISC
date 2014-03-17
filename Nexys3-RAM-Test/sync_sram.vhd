@@ -30,6 +30,7 @@ architecture Behavioral of sync_sram is
 
 	type state_type is (IDLE, SET_MODE, TRIGGER, STALL);
 	signal state : state_type := IDLE;
+	signal last_start_value : std_logic := '0';
 begin
 	
 	ram_adv <= '0';
@@ -37,26 +38,39 @@ begin
 	ram_cre <= '0';
 
 	process(clk, rst, start)
-		variable last_start_value : std_logic := '0';
 	begin
 		if(rst = '1') then
 			state <= IDLE;
 		elsif(rising_edge(clk)) then
 			case state is
 				when IDLE =>
+					done <= '1';
+					ram_ce <= '1';
+					ram_lb <= '1';
+					ram_ub <= '1';
+					ram_we <= '1';
+					
 					if(start = '1' and last_start_value = '0') then
+						done <= '0';
 						state <= SET_MODE;
 						we_buffer <= we;
 						
 						ram_addr <= addr;
+						ram_ce <= '0';
 						
 						if(we = '1') then	
 							ram_data <= data_in;
 						else
 							ram_data <= (others => 'Z');
 						end if;
+						
 					end if;
+					
+					last_start_value <= start;
+					
 				when SET_MODE =>
+					ram_ub <= '0';
+					ram_lb <= '0';
 					if(we_buffer = '1') then
 						ram_oe <= '1';
 					else
@@ -79,7 +93,6 @@ begin
 					state <= IDLE;
 			end case;
 		end if;
-		last_start_value := start;
 	end process;
 					
 end Behavioral;

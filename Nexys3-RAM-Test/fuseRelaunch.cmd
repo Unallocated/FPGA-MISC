@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "/home/main/FPGA-MISC/Nexys3-RAM-Test/sync_sram_tb_isim_beh.exe" -prj "/home/main/FPGA-MISC/Nexys3-RAM-Test/sync_sram_tb_beh.prj" "work.sync_sram_tb" 
+-intstyle "ise" -incremental -lib "secureip" -o "/home/main/git/FPGA-MISC/Nexys3-RAM-Test/sync_sram_wrapper_isim_beh.exe" -prj "/home/main/git/FPGA-MISC/Nexys3-RAM-Test/sync_sram_wrapper_beh.prj" "work.sync_sram_wrapper" 

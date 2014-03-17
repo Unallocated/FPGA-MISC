@@ -1,5 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 entity sync_sram_wrapper is
 	Port(clk      : in    STD_LOGIC;
@@ -58,48 +59,100 @@ architecture Behavioral of sync_sram_wrapper is
 begin
 
 	process(slow_clk, rst)
+		variable data_pos : integer := 0;
+		variable writing : std_logic := '1';
 		variable state : integer := 0;
+		variable delay : integer := 0;
 	begin
+		leds(7) <= writing;
 		if(rst = '1') then
+			data_pos := 0;
+			writing := '1';
 			state := 0;
-		elsif(rising_edge(slow_clk)) then
-			case state is
-				when 0 =>
-					leds <= x"11";
-					addr <= "00" & x"0000f";
-					data_in <= x"7e7e";
-					we <= '1';
-					state := 1;
-				when 1 =>
-					leds <= x"22";
-					start <= '1';
-					state := 2;
-				when 2 =>
-					if(done = '0') then
-						state := 3;
-					end if;
-				when 3 =>
-					leds <= x"33";
-					if(done = '1') then
-						state := 4;
-						start <= '0';
-						we <= '0';
-					end if;
-				when 4 =>
-					leds <= x"44";
-					start <= '1';
-					state := 5;
-				when 5 =>
-					leds <= x"55";
-					if(done = '1') then
-						leds <= x"66";
---						leds <= data_out(7 downto 0);
-					end if;
-				when others =>
-					null;
-			end case;
+		elsif(rising_edge(clk)) then
+			if(delay < 100) then
+				delay := delay + 1;
+			else
+				case state is
+					when 0 =>
+						if(writing = '1') then
+							we <= '1';
+							data_in <= std_logic_vector(to_unsigned(data_pos, 16));
+						else
+							we <= '0';
+						end if;
+						
+						addr <= std_logic_vector(to_unsigned(data_pos, 22));
+						state := 1;
+					when 1 =>
+						start <= '1';
+						if(done = '0') then
+							start <= '0';
+							state := 2;
+						end if;
+					when 2 =>
+						if(done = '1') then
+							if(writing = '0') then
+								leds(6 downto 0) <= data_out(6 downto 0);
+							end if;
+							
+							if(data_pos = 255) then
+								data_pos := 0;
+								writing := not writing;
+							else
+								data_pos := data_pos + 1;
+							end if;
+							
+							state := 0;
+						end if;
+					when others =>
+						writing := '1';
+						data_pos := 0;
+						state := 0;
+				end case;
+			end if;
 		end if;
 	end process;
+
+--	process(slow_clk, rst)
+--		variable state : integer := 0;
+--	begin
+--		if(rst = '1') then
+--			state := 0;
+--		elsif(rising_edge(slow_clk)) then
+--			case state is
+--				when 0 =>
+--					addr <= "00" & x"0000f";
+--					data_in <= x"7e7e";
+--					we <= '1';
+--					state := 1;
+--				when 1 =>
+--					start <= '1';
+--					if(done = '0') then
+--						start <= '0';
+--						state := 2;
+--					end if;
+--				when 2 =>
+--					if(done = '1') then
+--						we <= '0';
+--						state := 3;
+--					end if;
+--				when 3 =>
+--					start <= '1';
+--					if(done = '0') then
+--						start <= '0';
+--						state := 4;
+--					end if;
+--				when 4 =>
+--					if(done = '1') then
+--						leds <= data_out(7 downto 0);
+--						state := 0;
+--					end if;
+--				when others =>
+--					null;
+--			end case;
+--		end if;
+--	end process;
 			
 
 	Inst_sync_sram: sync_sram PORT MAP(
@@ -124,7 +177,7 @@ begin
 	);
 	
 	clock_div : clock_divider
-		Generic Map(divide_by => 1000000)
+		Generic Map(divide_by => 2500000)
 		PORT MAP(
 			clk      => clk,
 			rst      => rst,
