@@ -177,7 +177,7 @@ begin
 	);
 	
 	clock_div : clock_divider
-		Generic Map(divide_by => 2500000)
+		Generic Map(divide_by => 500000)
 		PORT MAP(
 			clk      => clk,
 			rst      => rst,
