@@ -1,0 +1,2 @@
+vhdl work ../../vga_clock_dcm.vhd
+vhdl work ../example_design/vga_clock_dcm_exdes.vhd

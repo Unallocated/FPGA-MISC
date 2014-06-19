@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/root/FFT/fft_flow_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="bip_usecase_utils_pkg_v2_0" />
+            <top_module name="bip_utils_pkg_v2_0" />
+            <top_module name="dds_compiler_v4_0_sim_comps" />
+            <top_module name="fft_flow_tb" />
+            <top_module name="math_real" />
+            <top_module name="numeric_std" />
+            <top_module name="pkg_dds_compiler_v4_0" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_signed" />
+            <top_module name="std_logic_textio" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="textio" />
+            <top_module name="uas" />
+            <top_module name="vcomponents" />
+            <top_module name="vital_primitives" />
+            <top_module name="vital_timing" />
+            <top_module name="vpkg" />
+            <top_module name="xbip_pipe_v2_0_comp" />
+            <top_module name="xbip_pipe_v2_0_xst_comp" />
+            <top_module name="xcc_utils_v2_0" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="75" />
+   <wvobject fp_name="/fft_flow_tb/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/phase_angle_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">phase_angle_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">phase_angle_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/phase_angle_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">phase_angle_clk</obj_property>
+      <obj_property name="ObjectShortName">phase_angle_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/adc_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">adc_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">adc_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/phase_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">phase_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">phase_out[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/leds" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">leds[7:0]</obj_property>
+      <obj_property name="ObjectShortName">leds[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/adc_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">adc_clk</obj_property>
+      <obj_property name="ObjectShortName">adc_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/hs" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">hs</obj_property>
+      <obj_property name="ObjectShortName">hs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/vs" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">vs</obj_property>
+      <obj_property name="ObjectShortName">vs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/red" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">red[2:0]</obj_property>
+      <obj_property name="ObjectShortName">red[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/blue" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">blue[1:0]</obj_property>
+      <obj_property name="ObjectShortName">blue[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/green" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">green[2:0]</obj_property>
+      <obj_property name="ObjectShortName">green[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/phase_angle_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">phase_angle_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">phase_angle_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/phase_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">phase_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">phase_out[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/leds" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">leds[7:0]</obj_property>
+      <obj_property name="ObjectShortName">leds[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/adc_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">adc_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">adc_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/adc_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">adc_clk</obj_property>
+      <obj_property name="ObjectShortName">adc_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/hs" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">hs</obj_property>
+      <obj_property name="ObjectShortName">hs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vs" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">vs</obj_property>
+      <obj_property name="ObjectShortName">vs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/red" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">red[2:0]</obj_property>
+      <obj_property name="ObjectShortName">red[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/blue" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">blue[1:0]</obj_property>
+      <obj_property name="ObjectShortName">blue[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/green" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">green[2:0]</obj_property>
+      <obj_property name="ObjectShortName">green[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/dds_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dds_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dds_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/dds_we" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dds_we</obj_property>
+      <obj_property name="ObjectShortName">dds_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/phase_angle_last_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">phase_angle_last_clk</obj_property>
+      <obj_property name="ObjectShortName">phase_angle_last_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/dds_rdy" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dds_rdy</obj_property>
+      <obj_property name="ObjectShortName">dds_rdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/dds_writer_clk_en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dds_writer_clk_en</obj_property>
+      <obj_property name="ObjectShortName">dds_writer_clk_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/dds_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dds_clk</obj_property>
+      <obj_property name="ObjectShortName">dds_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/phase_buffer" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">phase_buffer[7:0]</obj_property>
+      <obj_property name="ObjectShortName">phase_buffer[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/phase_state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">phase_state</obj_property>
+      <obj_property name="ObjectShortName">phase_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/fft_start" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fft_start</obj_property>
+      <obj_property name="ObjectShortName">fft_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/fft_rfd" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fft_rfd</obj_property>
+      <obj_property name="ObjectShortName">fft_rfd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/fft_busy" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fft_busy</obj_property>
+      <obj_property name="ObjectShortName">fft_busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/fft_edone" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fft_edone</obj_property>
+      <obj_property name="ObjectShortName">fft_edone</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/fft_done" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fft_done</obj_property>
+      <obj_property name="ObjectShortName">fft_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/fft_dv" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fft_dv</obj_property>
+      <obj_property name="ObjectShortName">fft_dv</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/fft_ce" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fft_ce</obj_property>
+      <obj_property name="ObjectShortName">fft_ce</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/fft_xn_re" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">fft_xn_re[7:0]</obj_property>
+      <obj_property name="ObjectShortName">fft_xn_re[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/fft_xn_im" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">fft_xn_im[7:0]</obj_property>
+      <obj_property name="ObjectShortName">fft_xn_im[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/fft_xk_re" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">fft_xk_re[7:0]</obj_property>
+      <obj_property name="ObjectShortName">fft_xk_re[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/fft_xk_im" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">fft_xk_im[7:0]</obj_property>
+      <obj_property name="ObjectShortName">fft_xk_im[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/fft_xn_index" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">fft_xn_index[8:0]</obj_property>
+      <obj_property name="ObjectShortName">fft_xn_index[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/fft_xk_index" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">fft_xk_index[8:0]</obj_property>
+      <obj_property name="ObjectShortName">fft_xk_index[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga_ram" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">vga_ram[0:511]</obj_property>
+      <obj_property name="ObjectShortName">vga_ram[0:511]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/adc_ram" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">adc_ram[0:511]</obj_property>
+      <obj_property name="ObjectShortName">adc_ram[0:511]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/adc_ram_pos" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">adc_ram_pos</obj_property>
+      <obj_property name="ObjectShortName">adc_ram_pos</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/fft_state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">fft_state</obj_property>
+      <obj_property name="ObjectShortName">fft_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/adc_state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">adc_state</obj_property>
+      <obj_property name="ObjectShortName">adc_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">vga_clk</obj_property>
+      <obj_property name="ObjectShortName">vga_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/x" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">x</obj_property>
+      <obj_property name="ObjectShortName">x</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/y" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">y</obj_property>
+      <obj_property name="ObjectShortName">y</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/blue_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">blue_in[1:0]</obj_property>
+      <obj_property name="ObjectShortName">blue_in[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/red_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">red_in[2:0]</obj_property>
+      <obj_property name="ObjectShortName">red_in[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/green_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">green_in[2:0]</obj_property>
+      <obj_property name="ObjectShortName">green_in[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/original_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">original_clk</obj_property>
+      <obj_property name="ObjectShortName">original_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga/hs" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">hs</obj_property>
+      <obj_property name="ObjectShortName">hs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga/vs" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">vs</obj_property>
+      <obj_property name="ObjectShortName">vs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga/green" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">green[2:0]</obj_property>
+      <obj_property name="ObjectShortName">green[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga/red" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">red[2:0]</obj_property>
+      <obj_property name="ObjectShortName">red[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga/blue" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">blue[1:0]</obj_property>
+      <obj_property name="ObjectShortName">blue[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga/x_pos" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">x_pos</obj_property>
+      <obj_property name="ObjectShortName">x_pos</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga/y_pos" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">y_pos</obj_property>
+      <obj_property name="ObjectShortName">y_pos</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga/blue_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">blue_in[1:0]</obj_property>
+      <obj_property name="ObjectShortName">blue_in[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga/red_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">red_in[2:0]</obj_property>
+      <obj_property name="ObjectShortName">red_in[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga/green_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">green_in[2:0]</obj_property>
+      <obj_property name="ObjectShortName">green_in[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga/color_valid" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">color_valid</obj_property>
+      <obj_property name="ObjectShortName">color_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga/red_width" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">red_width</obj_property>
+      <obj_property name="ObjectShortName">red_width</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga/green_width" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">green_width</obj_property>
+      <obj_property name="ObjectShortName">green_width</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_flow_tb/uut/vga/blue_width" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">blue_width</obj_property>
+      <obj_property name="ObjectShortName">blue_width</obj_property>
+   </wvobject>
+</wave_config>

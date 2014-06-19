@@ -1,0 +1,370 @@
+#:C169   
+#Xilinx FPGA Editor Command Log File
+#Editor Version:
+#:V   NT M2.1 P.68d
+#Current Working Directory:
+#:D   C:\Users\main-local\Desktop\FFT
+#Date/Time:
+#:T   Sat Jun 14 14:15:25 2014
+#------------------------------
+	#Reading fft_flow.ncd...
+	#Loading device for application Rf_Device from file '6slx16.nph' in environment C:\Xilinx\14.6\ISE_DS\ISE\.
+	#   "fft_flow" is an NCD, version 3.2, device xc6slx16, package csg324, speed -3
+	#Design creation date: 2014.06.14.18.14.20
+	#Building chip graphics...
+	#Loading speed info...
+	#1
+setattr main edit-mode no-logic-changes
+	#2
+select -k comp 'clk'
+	#3
+select -k comp 'clk_dds_ce_AND_1_o'
+	#4
+select -k comp 'clk_IBUF_BUFG'
+	#5
+select -k comp 'dds_ce'
+	#6
+select -k comp 'dds_data<3>'
+	#7
+select -k comp 'dds_data<7>'
+	#8
+select -k comp 'dds_divider.counter<3>'
+	#9
+select -k comp 'dds_divider.counter<7>'
+	#10
+select -k comp 'dds_divider.counter<10>'
+	#11
+select -k comp 'dds_divider.counter<14>'
+	#12
+select -k comp 'dds_divider.counter<18>'
+	#13
+select -k comp 'dds_divider.counter<22>'
+	#14
+select -k comp 'dds_divider.counter<24>'
+	#15
+select -k comp 'dds_divider.counter[31]_GND_4_o_equal_1_o<31>11'
+	#16
+select -k comp 'dds_divider.counter[31]_GND_4_o_equal_1_o<31>21'
+	#17
+select -k comp 'dds_divider.counter[31]_GND_4_o_equal_1_o<31>31'
+	#18
+select -k comp 'dds_divider.counter_23_1'
+	#19
+select -k comp 'dds_we'
+	#20
+select -k comp 'Mcount_dds_divider.counter_cy<3>'
+	#21
+select -k comp 'Mcount_dds_divider.counter_cy<7>'
+	#22
+select -k comp 'Mcount_dds_divider.counter_cy<11>'
+	#23
+select -k comp 'Mcount_dds_divider.counter_cy<15>'
+	#24
+select -k comp 'Mcount_dds_divider.counter_cy<19>'
+	#25
+select -k comp 'Mcount_dds_divider.counter_cy<23>'
+	#26
+select -k comp 'phase_angle_clk'
+	#27
+select -k comp 'phase_angle_in<0>'
+	#28
+select -k comp 'phase_angle_in<1>'
+	#29
+select -k comp 'phase_angle_in<2>'
+	#30
+select -k comp 'phase_angle_in<3>'
+	#31
+select -k comp 'phase_angle_in<4>'
+	#32
+select -k comp 'phase_angle_in<5>'
+	#33
+select -k comp 'phase_angle_in<6>'
+	#34
+select -k comp 'phase_angle_in<7>'
+	#35
+select -k comp 'phase_angle_last_clk'
+	#36
+select -k comp 'phase_out<0>'
+	#37
+select -k comp 'phase_out<1>'
+	#38
+select -k comp 'phase_out<2>'
+	#39
+select -k comp 'phase_out<3>'
+	#40
+select -k comp 'phase_out<4>'
+	#41
+select -k comp 'phase_out<5>'
+	#42
+select -k comp 'phase_out<6>'
+	#43
+select -k comp 'phase_out<7>'
+	#44
+select -k comp 'phase_state'
+	#45
+select -k comp 'Result<24>'
+	#46
+select -k comp 'rst'
+	#47
+select -k comp 'rst_inv'
+	#48
+select -k comp 'your_instance_name/blk00000003'
+	#49
+select -k comp 'your_instance_name/blk00000004'
+	#50
+select -k comp 'your_instance_name/sig0000000a'
+	#51
+select -k comp 'your_instance_name/sig0000001a'
+	#52
+select -k comp 'your_instance_name/sig00000006'
+	#53
+select -k comp 'your_instance_name/sig00000009'
+	#54
+select -k comp 'your_instance_name/sig00000017'
+	#55
+select -k comp 'your_instance_name/sig00000019'
+	#56
+unselect -all
+	#57
+select -k comp 'phase_out<5>'
+	#58
+unselect comp 'phase_out<5>'
+	#59
+select -k comp 'Mcount_dds_divider.counter_cy<19>'
+	#60
+unselect comp 'Mcount_dds_divider.counter_cy<19>'
+	#61
+select -k comp 'clk'
+	#62
+select -k comp 'clk_dds_ce_AND_1_o'
+	#63
+select -k comp 'clk_IBUF_BUFG'
+	#64
+select -k comp 'dds_ce'
+	#65
+select -k comp 'dds_data<3>'
+	#66
+select -k comp 'dds_data<7>'
+	#67
+select -k comp 'dds_divider.counter<3>'
+	#68
+select -k comp 'dds_divider.counter<7>'
+	#69
+select -k comp 'dds_divider.counter<10>'
+	#70
+select -k comp 'dds_divider.counter<14>'
+	#71
+select -k comp 'dds_divider.counter<18>'
+	#72
+select -k comp 'dds_divider.counter<22>'
+	#73
+select -k comp 'dds_divider.counter<24>'
+	#74
+select -k comp 'dds_divider.counter[31]_GND_4_o_equal_1_o<31>11'
+	#75
+select -k comp 'dds_divider.counter[31]_GND_4_o_equal_1_o<31>21'
+	#76
+select -k comp 'dds_divider.counter[31]_GND_4_o_equal_1_o<31>31'
+	#77
+select -k comp 'dds_divider.counter_23_1'
+	#78
+select -k comp 'dds_we'
+	#79
+select -k comp 'Mcount_dds_divider.counter_cy<3>'
+	#80
+select -k comp 'Mcount_dds_divider.counter_cy<7>'
+	#81
+select -k comp 'Mcount_dds_divider.counter_cy<11>'
+	#82
+select -k comp 'Mcount_dds_divider.counter_cy<15>'
+	#83
+select -k comp 'Mcount_dds_divider.counter_cy<19>'
+	#84
+select -k comp 'Mcount_dds_divider.counter_cy<23>'
+	#85
+select -k comp 'phase_angle_clk'
+	#86
+select -k comp 'phase_angle_in<0>'
+	#87
+select -k comp 'phase_angle_in<1>'
+	#88
+select -k comp 'phase_angle_in<2>'
+	#89
+select -k comp 'phase_angle_in<3>'
+	#90
+select -k comp 'phase_angle_in<4>'
+	#91
+select -k comp 'phase_angle_in<5>'
+	#92
+select -k comp 'phase_angle_in<6>'
+	#93
+select -k comp 'phase_angle_in<7>'
+	#94
+select -k comp 'phase_angle_last_clk'
+	#95
+select -k comp 'phase_out<0>'
+	#96
+select -k comp 'phase_out<1>'
+	#97
+select -k comp 'phase_out<2>'
+	#98
+select -k comp 'phase_out<3>'
+	#99
+select -k comp 'phase_out<4>'
+	#100
+select -k comp 'phase_out<5>'
+	#101
+select -k comp 'phase_out<6>'
+	#102
+select -k comp 'phase_out<7>'
+	#103
+select -k comp 'phase_state'
+	#104
+select -k comp 'Result<24>'
+	#105
+select -k comp 'rst'
+	#106
+select -k comp 'rst_inv'
+	#107
+select -k comp 'your_instance_name/blk00000003'
+	#108
+select -k comp 'your_instance_name/blk00000004'
+	#109
+select -k comp 'your_instance_name/sig0000000a'
+	#110
+select -k comp 'your_instance_name/sig0000001a'
+	#111
+select -k comp 'your_instance_name/sig00000006'
+	#112
+select -k comp 'your_instance_name/sig00000009'
+	#113
+select -k comp 'your_instance_name/sig00000017'
+	#114
+select -k comp 'your_instance_name/sig00000019'
+	#115
+setattr main disable_draw on
+	#116
+setattr layer routes view on
+	#117
+setattr main disable_draw off
+	#Hint: change the visibility of more than one layer at a time by clicking on the apply button, clicking two or more layer buttons, and then clicking on the apply button again.
+	#118
+setattr main disable_draw on
+	#119
+setattr layer ratsnests view on
+	#120
+setattr main disable_draw off
+	#121
+setattr main disable_draw on
+	#122
+setattr layer clock_regions view on
+	#123
+setattr main disable_draw off
+	#124
+setattr main disable_draw on
+	#125
+setattr layer clock_regions view off
+	#126
+setattr main disable_draw off
+	#127
+setattr main disable_draw on
+	#128
+setattr layer user_rpms view on
+	#129
+setattr main disable_draw off
+	#130
+setattr main disable_draw on
+	#131
+setattr layer tool_rpms view on
+	#132
+setattr main disable_draw off
+	#133
+setattr main disable_draw on
+	#134
+setattr layer hard_macros view off
+	#135
+setattr main disable_draw off
+	#136
+setattr main disable_draw on
+	#137
+setattr layer hard_macros view on
+	#138
+setattr main disable_draw off
+	#139
+setattr main disable_draw on
+	#140
+setattr layer ratsnests view off
+	#141
+setattr main disable_draw off
+	#142
+setattr main disable_draw on
+	#143
+setattr layer ratsnests view on
+	#144
+setattr main disable_draw off
+	#145
+setattr main disable_draw on
+	#146
+setattr layer ratsnests view off
+	#147
+setattr main disable_draw off
+	#148
+setattr main disable_draw on
+	#149
+setattr layer routes view off
+	#150
+setattr main disable_draw off
+	#151
+setattr main disable_draw on
+	#152
+setattr layer ratsnests view on
+	#153
+setattr main disable_draw off
+	#154
+setattr main disable_draw on
+	#155
+setattr layer ratsnests view off
+	#156
+setattr main disable_draw off
+	#157
+setattr main disable_draw on
+	#158
+setattr layer switch_boxes view on
+	#159
+setattr main disable_draw off
+	#160
+setattr main disable_draw on
+	#161
+setattr layer switch_boxes view off
+	#162
+setattr main disable_draw off
+	#163
+setattr main disable_draw on
+	#164
+setattr layer sites view off
+	#165
+setattr main disable_draw off
+	#166
+setattr main disable_draw on
+	#167
+setattr layer sites view on
+	#168
+setattr main disable_draw off
+	#169
+setattr main disable_draw on
+	#170
+setattr layer pips view on
+	#171
+setattr main disable_draw off
+	#172
+setattr main disable_draw on
+	#173
+setattr layer pinwires view on
+	#174
+setattr main disable_draw off
+	#175
+setattr main disable_draw on
+	#176
+setattr layer long_lines view on
+	#177
+setattr main disable_draw off

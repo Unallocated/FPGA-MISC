@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/main/FPGA/FFT/testbench_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="bip_usecase_utils_pkg_v2_0" />
+            <top_module name="bip_utils_pkg_v2_0" />
+            <top_module name="dds_compiler_v4_0_sim_comps" />
+            <top_module name="math_real" />
+            <top_module name="numeric_std" />
+            <top_module name="pkg_dds_compiler_v4_0" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_signed" />
+            <top_module name="std_logic_textio" />
+            <top_module name="testbench" />
+            <top_module name="textio" />
+            <top_module name="vcomponents" />
+            <top_module name="vital_primitives" />
+            <top_module name="vital_timing" />
+            <top_module name="vpkg" />
+            <top_module name="xbip_pipe_v2_0_comp" />
+            <top_module name="xbip_pipe_v2_0_xst_comp" />
+            <top_module name="xcc_utils_v2_0" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="20" />
+   <wvobject fp_name="/testbench/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/start" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/rfd" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rfd</obj_property>
+      <obj_property name="ObjectShortName">rfd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/busy" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/edone" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">edone</obj_property>
+      <obj_property name="ObjectShortName">edone</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/done" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/dv" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dv</obj_property>
+      <obj_property name="ObjectShortName">dv</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/xn_re" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">xn_re[7:0]</obj_property>
+      <obj_property name="ObjectShortName">xn_re[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/xn_im" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">xn_im[7:0]</obj_property>
+      <obj_property name="ObjectShortName">xn_im[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/xn_index" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">xn_index[7:0]</obj_property>
+      <obj_property name="ObjectShortName">xn_index[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/xk_index" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">xk_index[7:0]</obj_property>
+      <obj_property name="ObjectShortName">xk_index[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/xk_re" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">xk_re[7:0]</obj_property>
+      <obj_property name="ObjectShortName">xk_re[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/xk_im" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">xk_im[7:0]</obj_property>
+      <obj_property name="ObjectShortName">xk_im[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">period</obj_property>
+      <obj_property name="ObjectShortName">period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/dds_we" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dds_we</obj_property>
+      <obj_property name="ObjectShortName">dds_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/dds_rdy" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dds_rdy</obj_property>
+      <obj_property name="ObjectShortName">dds_rdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/dds_rfd" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dds_rfd</obj_property>
+      <obj_property name="ObjectShortName">dds_rfd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/dds_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dds_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dds_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/dds_sine" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dds_sine[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dds_sine[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/moo" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">moo</obj_property>
+      <obj_property name="ObjectShortName">moo</obj_property>
+   </wvobject>
+</wave_config>

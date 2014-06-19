@@ -1,0 +1,4 @@
+work	"adc_sampler.vhd"
+work	"fft_flow_3.vhd"
+work	"ipcore_dir/flow_3_adc_fifo.vhd"
+work	"ipcore_dir/flow_3_dcm.vhd"

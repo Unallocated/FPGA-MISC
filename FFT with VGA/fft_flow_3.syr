@@ -1,0 +1,699 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> 
+Reading design: fft_flow_3.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "fft_flow_3.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "fft_flow_3"
+Output Format                      : NGC
+Target Device                      : xc6slx16-3-csg324
+
+---- Source Options
+Top Module Name                    : fft_flow_3
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/root/FFT/ipcore_dir/flow_3_adc_fifo.vhd" into library work
+Parsing entity <flow_3_adc_fifo>.
+Parsing architecture <flow_3_adc_fifo_a> of entity <flow_3_adc_fifo>.
+Parsing VHDL file "/root/FFT/ipcore_dir/flow_3_dcm.vhd" into library work
+Parsing entity <flow_3_dcm>.
+Parsing architecture <xilinx> of entity <flow_3_dcm>.
+Parsing VHDL file "/root/FFT/adc_sampler.vhd" into library work
+Parsing entity <adc_sampler>.
+Parsing architecture <Behavioral> of entity <adc_sampler>.
+Parsing VHDL file "/root/FFT/fft_flow_3.vhd" into library work
+Parsing entity <fft_flow_3>.
+Parsing architecture <Behavioral> of entity <fft_flow_3>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <fft_flow_3> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:871 - "/root/FFT/fft_flow_3.vhd" Line 26: Using initial value '0' for adc_fifo_rd_en since it is never assigned
+
+Elaborating entity <flow_3_adc_fifo> (architecture <flow_3_adc_fifo_a>) from library <work>.
+
+Elaborating entity <flow_3_dcm> (architecture <xilinx>) from library <work>.
+
+Elaborating entity <adc_sampler> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:92 - "/root/FFT/adc_sampler.vhd" Line 25: en should be on the sensitivity list of the process
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <fft_flow_3>.
+    Related source file is "/root/FFT/fft_flow_3.vhd".
+WARNING:Xst:647 - Input <switches> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "/root/FFT/fft_flow_3.vhd" line 131: Output port <dout> of the instance <adc_fifo_inst> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/root/FFT/fft_flow_3.vhd" line 144: Output port <VGA_CLK> of the instance <dcm_instance> is unconnected or connected to loadless signal.
+    Found 32-bit register for signal <adc_clk_gen_proc.counter>.
+    Found 32-bit register for signal <adc_fifo_rd_clk_gen_proc.counter>.
+    Found 2-bit register for signal <master_state>.
+    Found 1-bit register for signal <adc_sampler_en>.
+    Found 1-bit register for signal <adc_sampler_clk>.
+    Found 1-bit register for signal <adc_fifo_rd_clk>.
+INFO:Xst:1799 - State mag is never reached in FSM <master_state>.
+    Found finite state machine <FSM_0> for signal <master_state>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 5                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 2                                              |
+    | Clock              | original_clk (rising_edge)                     |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | init                                           |
+    | Power Up State     | init                                           |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 32-bit adder for signal <adc_clk_gen_proc.counter[31]_GND_4_o_add_6_OUT> created at line 1241.
+    Found 32-bit adder for signal <adc_fifo_rd_clk_gen_proc.counter[31]_GND_4_o_add_10_OUT> created at line 1241.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  67 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <fft_flow_3> synthesized.
+
+Synthesizing Unit <flow_3_dcm>.
+    Related source file is "/root/FFT/ipcore_dir/flow_3_dcm.vhd".
+    Summary:
+	no macro.
+Unit <flow_3_dcm> synthesized.
+
+Synthesizing Unit <adc_sampler>.
+    Related source file is "/root/FFT/adc_sampler.vhd".
+    Found 2-bit register for signal <state>.
+    Found 1-bit register for signal <clk_out>.
+    Found 1-bit register for signal <adc_clk>.
+    Found 8-bit register for signal <data_out>.
+    Found finite state machine <FSM_1> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 6                                              |
+    | Inputs             | 1                                              |
+    | Outputs            | 4                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | adc_clk_high                                   |
+    | Power Up State     | adc_clk_high                                   |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Summary:
+	inferred  10 D-type flip-flop(s).
+	inferred   1 Finite State Machine(s).
+Unit <adc_sampler> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 32-bit adder                                          : 2
+# Registers                                            : 8
+ 1-bit register                                        : 5
+ 32-bit register                                       : 2
+ 8-bit register                                        : 1
+# Multiplexers                                         : 2
+ 32-bit 2-to-1 multiplexer                             : 2
+# FSMs                                                 : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <ipcore_dir/flow_3_adc_fifo.ngc>.
+Loading core <flow_3_adc_fifo> for timing and area information for instance <adc_fifo_inst>.
+
+Synthesizing (advanced) Unit <fft_flow_3>.
+The following registers are absorbed into counter <adc_clk_gen_proc.counter>: 1 register on signal <adc_clk_gen_proc.counter>.
+The following registers are absorbed into counter <adc_fifo_rd_clk_gen_proc.counter>: 1 register on signal <adc_fifo_rd_clk_gen_proc.counter>.
+Unit <fft_flow_3> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 2
+ 32-bit up counter                                     : 2
+# Registers                                            : 13
+ Flip-Flops                                            : 13
+# FSMs                                                 : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_0> on signal <master_state[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ init  | 00
+ adc   | 01
+ fft   | 10
+ mag   | unreached
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <Inst_adc_sampler/FSM_1> on signal <state[1:2]> with user encoding.
+---------------------------
+ State         | Encoding
+---------------------------
+ adc_clk_high  | 00
+ adc_clk_low   | 01
+ data_clk_high | 10
+---------------------------
+INFO:Xst:1901 - Instance dcm_instance/pll_base_inst in unit dcm_instance/pll_base_inst of type PLL_BASE has been replaced by PLL_ADV
+
+Optimizing unit <fft_flow_3> ...
+
+Optimizing unit <adc_sampler> ...
+WARNING:Xst:1293 - FF/Latch <adc_clk_gen_proc.counter_31> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_clk_gen_proc.counter_30> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_clk_gen_proc.counter_29> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_clk_gen_proc.counter_28> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_clk_gen_proc.counter_27> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_clk_gen_proc.counter_26> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_clk_gen_proc.counter_25> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_clk_gen_proc.counter_24> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_clk_gen_proc.counter_23> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_clk_gen_proc.counter_22> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_clk_gen_proc.counter_21> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_fifo_rd_clk_gen_proc.counter_31> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_fifo_rd_clk_gen_proc.counter_30> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_fifo_rd_clk_gen_proc.counter_29> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_fifo_rd_clk_gen_proc.counter_28> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_fifo_rd_clk_gen_proc.counter_27> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_fifo_rd_clk_gen_proc.counter_26> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_fifo_rd_clk_gen_proc.counter_25> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_fifo_rd_clk_gen_proc.counter_24> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_fifo_rd_clk_gen_proc.counter_23> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_fifo_rd_clk_gen_proc.counter_22> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_fifo_rd_clk_gen_proc.counter_21> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <adc_fifo_rd_clk_gen_proc.counter_20> has a constant value of 0 in block <fft_flow_3>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block fft_flow_3, actual ratio is 2.
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.rfwft/empty_fwft_i> in Unit <adc_fifo_inst> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.rfwft/empty_fwft_fb> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_1> in Unit <adc_fifo_inst> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_0> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_2> in Unit <adc_fifo_inst> is equivalent to the following 2 FFs/Latches : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_1> <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_0> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i> in Unit <adc_fifo_inst> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_fb_i> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.rfwft/empty_fwft_i> in Unit <adc_fifo_inst> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.rfwft/empty_fwft_fb> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_1> in Unit <adc_fifo_inst> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_0> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_2> in Unit <adc_fifo_inst> is equivalent to the following 2 FFs/Latches : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_1> <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_0> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i> in Unit <adc_fifo_inst> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_fb_i> 
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 58
+ Flip-Flops                                            : 58
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : fft_flow_3.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 263
+#      GND                         : 3
+#      INV                         : 5
+#      LUT1                        : 39
+#      LUT2                        : 45
+#      LUT3                        : 15
+#      LUT4                        : 12
+#      LUT5                        : 10
+#      LUT6                        : 53
+#      MUXCY                       : 39
+#      VCC                         : 1
+#      XORCY                       : 41
+# FlipFlops/Latches                : 188
+#      FD                          : 8
+#      FDC                         : 113
+#      FDCE                        : 33
+#      FDE                         : 8
+#      FDP                         : 15
+#      FDPE                        : 3
+#      FDRE                        : 8
+# RAMS                             : 1
+#      RAMB8BWER                   : 1
+# Clock Buffers                    : 5
+#      BUFG                        : 5
+# IO Buffers                       : 11
+#      IBUF                        : 9
+#      IBUFG                       : 1
+#      OBUF                        : 1
+# Others                           : 1
+#      PLL_ADV                     : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx16csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             188  out of  18224     1%  
+ Number of Slice LUTs:                  179  out of   9112     1%  
+    Number used as Logic:               179  out of   9112     1%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    268
+   Number with an unused Flip Flop:      80  out of    268    29%  
+   Number with an unused LUT:            89  out of    268    33%  
+   Number of fully used LUT-FF pairs:    99  out of    268    36%  
+   Number of unique control sets:        18
+
+IO Utilization: 
+ Number of IOs:                          37
+ Number of bonded IOBs:                  11  out of    232     4%  
+
+Specific Feature Utilization:
+ Number of Block RAM/FIFO:                1  out of     32     3%  
+    Number using Block RAM only:          1
+ Number of BUFG/BUFGCTRLs:                5  out of     16    31%  
+ Number of PLL_ADVs:                      1  out of      2    50%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+--------------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)                | Load  |
+-----------------------------------+--------------------------------------+-------+
+dcm_instance/pll_base_inst/CLKOUT1 | BUFG                                 | 46    |
+adc_sampler_clk                    | NONE(Inst_adc_sampler/state_FSM_FFd1)| 12    |
+adc_fifo_rd_clk                    | BUFG                                 | 67    |
+Inst_adc_sampler/clk_out           | BUFG                                 | 65    |
+-----------------------------------+--------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 3.906ns (Maximum Frequency: 256.029MHz)
+   Minimum input arrival time before clock: 4.250ns
+   Maximum output required time after clock: 3.634ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'dcm_instance/pll_base_inst/CLKOUT1'
+  Clock period: 3.906ns (frequency: 256.029MHz)
+  Total number of paths / destination ports: 1332 / 46
+-------------------------------------------------------------------------
+Delay:               3.906ns (Levels of Logic = 3)
+  Source:            adc_clk_gen_proc.counter_1 (FF)
+  Destination:       adc_clk_gen_proc.counter_0 (FF)
+  Source Clock:      dcm_instance/pll_base_inst/CLKOUT1 rising
+  Destination Clock: dcm_instance/pll_base_inst/CLKOUT1 rising
+
+  Data Path: adc_clk_gen_proc.counter_1 to adc_clk_gen_proc.counter_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.447   0.981  adc_clk_gen_proc.counter_1 (adc_clk_gen_proc.counter_1)
+     LUT6:I0->O            3   0.203   0.879  adc_clk_gen_proc.counter[31]_GND_4_o_equal_6_o<31>3 (adc_clk_gen_proc.counter[31]_GND_4_o_equal_6_o<31>2)
+     LUT6:I3->O           11   0.205   0.883  adc_clk_gen_proc.counter[31]_GND_4_o_equal_6_o<31>4 (adc_clk_gen_proc.counter[31]_GND_4_o_equal_6_o)
+     LUT2:I1->O            1   0.205   0.000  Mcount_adc_clk_gen_proc.counter_eqn_01 (Mcount_adc_clk_gen_proc.counter_eqn_0)
+     FDC:D                     0.102          adc_clk_gen_proc.counter_0
+    ----------------------------------------
+    Total                      3.906ns (1.162ns logic, 2.744ns route)
+                                       (29.8% logic, 70.2% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'adc_sampler_clk'
+  Clock period: 2.736ns (frequency: 365.557MHz)
+  Total number of paths / destination ports: 26 / 12
+-------------------------------------------------------------------------
+Delay:               2.736ns (Levels of Logic = 1)
+  Source:            Inst_adc_sampler/state_FSM_FFd2 (FF)
+  Destination:       Inst_adc_sampler/data_out_7 (FF)
+  Source Clock:      adc_sampler_clk rising
+  Destination Clock: adc_sampler_clk rising
+
+  Data Path: Inst_adc_sampler/state_FSM_FFd2 to Inst_adc_sampler/data_out_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              5   0.447   0.962  Inst_adc_sampler/state_FSM_FFd2 (Inst_adc_sampler/state_FSM_FFd2)
+     LUT4:I0->O            8   0.203   0.802  Inst_adc_sampler/_n0072_inv2 (Inst_adc_sampler/_n0072_inv)
+     FDE:CE                    0.322          Inst_adc_sampler/data_out_0
+    ----------------------------------------
+    Total                      2.736ns (0.972ns logic, 1.764ns route)
+                                       (35.5% logic, 64.5% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'adc_fifo_rd_clk'
+  Clock period: 3.628ns (frequency: 275.638MHz)
+  Total number of paths / destination ports: 304 / 151
+-------------------------------------------------------------------------
+Delay:               3.628ns (Levels of Logic = 3)
+  Source:            adc_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i (FF)
+  Destination:       adc_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i (FF)
+  Source Clock:      adc_fifo_rd_clk rising
+  Destination Clock: adc_fifo_rd_clk rising
+
+  Data Path: adc_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i to adc_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDP:C->Q              3   0.447   0.879  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i)
+     LUT4:I1->O           16   0.205   1.005  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.rfwft/Mmux_RAM_RD_EN_FWFT11 (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/ram_rd_en)
+     LUT6:I5->O            1   0.205   0.580  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/comp0_comp1_OR_6_o4 (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/comp0_comp1_OR_6_o4)
+     LUT6:I5->O            1   0.205   0.000  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/comp0_comp1_OR_6_o8 (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/comp0_comp1_OR_6_o)
+     FDP:D                     0.102          U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i
+    ----------------------------------------
+    Total                      3.628ns (1.164ns logic, 2.464ns route)
+                                       (32.1% logic, 67.9% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Inst_adc_sampler/clk_out'
+  Clock period: 3.485ns (frequency: 286.932MHz)
+  Total number of paths / destination ports: 285 / 144
+-------------------------------------------------------------------------
+Delay:               3.485ns (Levels of Logic = 3)
+  Source:            adc_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_1 (FF)
+  Destination:       adc_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i (FF)
+  Source Clock:      Inst_adc_sampler/clk_out rising
+  Destination Clock: Inst_adc_sampler/clk_out rising
+
+  Data Path: adc_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_1 to adc_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDPE:C->Q            13   0.447   0.933  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_1 (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count<1>)
+     LUT5:I4->O            1   0.205   0.808  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/Mmux_comp1_GND_176_o_MUX_17_o14 (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/Mmux_comp1_GND_176_o_MUX_17_o13)
+     LUT6:I3->O            1   0.205   0.580  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/Mmux_comp1_GND_176_o_MUX_17_o15 (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/Mmux_comp1_GND_176_o_MUX_17_o14)
+     LUT5:I4->O            2   0.205   0.000  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/Mmux_comp1_GND_176_o_MUX_17_o19 (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/comp1_GND_176_o_MUX_17_o)
+     FDP:D                     0.102          U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_fb_i
+    ----------------------------------------
+    Total                      3.485ns (1.164ns logic, 2.321ns route)
+                                       (33.4% logic, 66.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'dcm_instance/pll_base_inst/CLKOUT1'
+  Total number of paths / destination ports: 46 / 46
+-------------------------------------------------------------------------
+Offset:              4.250ns (Levels of Logic = 3)
+  Source:            rst (PAD)
+  Destination:       adc_sampler_clk (FF)
+  Destination Clock: dcm_instance/pll_base_inst/CLKOUT1 rising
+
+  Data Path: rst to adc_sampler_clk
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            57   1.222   1.594  rst_IBUF (rst_IBUF)
+     LUT2:I1->O            1   0.205   0.924  _n0056_inv1_SW0 (N8)
+     LUT6:I1->O            1   0.203   0.000  adc_fifo_rd_clk_rstpot (adc_fifo_rd_clk_rstpot)
+     FD:D                      0.102          adc_fifo_rd_clk
+    ----------------------------------------
+    Total                      4.250ns (1.732ns logic, 2.518ns route)
+                                       (40.8% logic, 59.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'adc_sampler_clk'
+  Total number of paths / destination ports: 20 / 20
+-------------------------------------------------------------------------
+Offset:              4.247ns (Levels of Logic = 2)
+  Source:            rst (PAD)
+  Destination:       Inst_adc_sampler/data_out_7 (FF)
+  Destination Clock: adc_sampler_clk rising
+
+  Data Path: rst to Inst_adc_sampler/data_out_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            57   1.222   1.698  rst_IBUF (rst_IBUF)
+     LUT4:I2->O            8   0.203   0.802  Inst_adc_sampler/_n0072_inv2 (Inst_adc_sampler/_n0072_inv)
+     FDE:CE                    0.322          Inst_adc_sampler/data_out_0
+    ----------------------------------------
+    Total                      4.247ns (1.747ns logic, 2.500ns route)
+                                       (41.1% logic, 58.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Inst_adc_sampler/clk_out'
+  Total number of paths / destination ports: 5 / 5
+-------------------------------------------------------------------------
+Offset:              3.245ns (Levels of Logic = 2)
+  Source:            rst (PAD)
+  Destination:       adc_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/RST_FULL_GEN (FF)
+  Destination Clock: Inst_adc_sampler/clk_out rising
+
+  Data Path: rst to adc_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/RST_FULL_GEN
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            57   1.222   1.593  rst_IBUF (rst_IBUF)
+     begin scope: 'adc_fifo_inst:rst'
+     FDP:PRE                   0.430          U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.rst_d1
+    ----------------------------------------
+    Total                      3.245ns (1.652ns logic, 1.593ns route)
+                                       (50.9% logic, 49.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'adc_fifo_rd_clk'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              3.245ns (Levels of Logic = 2)
+  Source:            rst (PAD)
+  Destination:       adc_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_asreg (FF)
+  Destination Clock: adc_fifo_rd_clk rising
+
+  Data Path: rst to adc_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_asreg
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            57   1.222   1.593  rst_IBUF (rst_IBUF)
+     begin scope: 'adc_fifo_inst:rst'
+     FDP:PRE                   0.430          U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_asreg
+    ----------------------------------------
+    Total                      3.245ns (1.652ns logic, 1.593ns route)
+                                       (50.9% logic, 49.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'adc_sampler_clk'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              3.634ns (Levels of Logic = 1)
+  Source:            Inst_adc_sampler/adc_clk (FF)
+  Destination:       adc_clk (PAD)
+  Source Clock:      adc_sampler_clk rising
+
+  Data Path: Inst_adc_sampler/adc_clk to adc_clk
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.447   0.616  Inst_adc_sampler/adc_clk (Inst_adc_sampler/adc_clk)
+     OBUF:I->O                 2.571          adc_clk_OBUF (adc_clk)
+    ----------------------------------------
+    Total                      3.634ns (3.018ns logic, 0.616ns route)
+                                       (83.0% logic, 17.0% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock Inst_adc_sampler/clk_out
+------------------------+---------+---------+---------+---------+
+                        | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock            |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+------------------------+---------+---------+---------+---------+
+Inst_adc_sampler/clk_out|    3.485|         |         |         |
+adc_fifo_rd_clk         |    1.128|         |         |         |
+adc_sampler_clk         |    1.326|         |         |         |
+------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock adc_fifo_rd_clk
+------------------------+---------+---------+---------+---------+
+                        | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock            |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+------------------------+---------+---------+---------+---------+
+Inst_adc_sampler/clk_out|    1.128|         |         |         |
+adc_fifo_rd_clk         |    3.628|         |         |         |
+------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock adc_sampler_clk
+----------------------------------+---------+---------+---------+---------+
+                                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                      |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+----------------------------------+---------+---------+---------+---------+
+adc_sampler_clk                   |    2.736|         |         |         |
+dcm_instance/pll_base_inst/CLKOUT1|    2.520|         |         |         |
+----------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock dcm_instance/pll_base_inst/CLKOUT1
+----------------------------------+---------+---------+---------+---------+
+                                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                      |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+----------------------------------+---------+---------+---------+---------+
+Inst_adc_sampler/clk_out          |    1.633|         |         |         |
+adc_fifo_rd_clk                   |    1.562|         |         |         |
+dcm_instance/pll_base_inst/CLKOUT1|    3.906|         |         |         |
+----------------------------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 9.49 secs
+ 
+--> 
+
+
+Total memory usage is 401992 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   26 (   0 filtered)
+Number of infos    :   13 (   0 filtered)
+

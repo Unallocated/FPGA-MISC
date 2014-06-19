@@ -1,0 +1,3 @@
+vhdl work "ipcore_dir/fft.vhd"
+vhdl work "main.vhd"
+vhdl work "main_tv.vhd"

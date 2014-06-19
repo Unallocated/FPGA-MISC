@@ -1,0 +1,4 @@
+vhdl work "ipcore_dir/flow_3_adc_fifo.vhd"
+vhdl work "ipcore_dir/flow_3_dcm.vhd"
+vhdl work "adc_sampler.vhd"
+vhdl work "fft_flow_3.vhd"

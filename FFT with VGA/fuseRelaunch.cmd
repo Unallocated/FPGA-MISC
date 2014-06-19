@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/root/FFT/burst_fft_tb_isim_beh.exe" -prj "/root/FFT/burst_fft_tb_beh.prj" "work.burst_fft_tb" 

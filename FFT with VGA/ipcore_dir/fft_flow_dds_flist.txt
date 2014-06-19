@@ -1,0 +1,15 @@
+# Output products list for <fft_flow_dds>
+_xmsgs/pn_parser.xmsgs
+fft_flow_dds/doc/dds_compiler_v4_0_vinfo.html
+fft_flow_dds/doc/dds_ds558.pdf
+fft_flow_dds.asy
+fft_flow_dds.gise
+fft_flow_dds.ngc
+fft_flow_dds.sym
+fft_flow_dds.vhd
+fft_flow_dds.vho
+fft_flow_dds.xco
+fft_flow_dds.xise
+fft_flow_dds_flist.txt
+fft_flow_dds_readme.txt
+fft_flow_dds_xmdf.tcl

@@ -1,0 +1,7 @@
+vhdl work "ipcore_dir/fft_flow_dds.vhd"
+vhdl work "ipcore_dir/fft_flow_fft.vhd"
+vhdl work "ipcore_dir/vga_clock_dcm.vhd"
+vhdl work "lib.vhd"
+vhdl work "vga_configurable.vhd"
+vhdl work "fft_flow.vhd"
+vhdl work "fft_flow_tb.vhd"
