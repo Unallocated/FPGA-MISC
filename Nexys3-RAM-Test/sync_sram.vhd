@@ -76,7 +76,7 @@ begin
 	-- To take full advantage of the RAM, these would actually get used.
 	ram_adv <= '0';
 	ram_clk <= '0';
-	ram_cre <= '0';
+	ram_cre <= '0';	
 
 	-- Process that drives the state machine
 	-- Sensitive to changes in clk, rst, and start
@@ -171,6 +171,9 @@ begin
 					-- we being '0' means that this was a read, so the data
 					-- from ram_data needs to be output on data_out.  Otherwise
 					-- this was a write and there is no need to do anything else
+					
+					
+					
 					if(we_buffer = '0') then
 						data_out <= ram_data;
 					end if;

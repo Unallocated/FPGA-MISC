@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "/root/FFT/burst_fft_tb_isim_beh.exe" -prj "/root/FFT/burst_fft_tb_beh.prj" "work.burst_fft_tb" 
+-intstyle "ise" -incremental -lib "secureip" -o "/home/main/git/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos_isim_beh.exe" -prj "/home/main/git/FPGA-MISC/FFT with VGA/fft_flow_4_no_fifos_beh.prj" "work.fft_flow_4_no_fifos" 

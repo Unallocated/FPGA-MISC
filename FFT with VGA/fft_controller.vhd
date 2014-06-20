@@ -6,7 +6,7 @@ entity fft_controller is
     Port ( clk : in  STD_LOGIC;
            rst : in  STD_LOGIC;
            data_in : in  STD_LOGIC_VECTOR (7 downto 0);
-           data_in_clk : in  STD_LOGIC;
+           data_in_clk : out  STD_LOGIC;
            data_out : out  STD_LOGIC_VECTOR (15 downto 0);
            data_out_clk : out  STD_LOGIC;
            scale_in : in STD_LOGIC_VECTOR(7 downto 0);
@@ -46,34 +46,86 @@ architecture Behavioral of fft_controller is
 	  );
 	END COMPONENT;
 	
-	type state_t is (IDLE, PROCESSING);
+	type state_t is (IDLE, WAIT_FOR_RFD, LOAD, STALL, UNLOAD);
 	signal state : state_t := IDLE;
 	
 	signal last_start_value : std_logic := '0';
 	signal start_buffer : std_logic := '0';
+	
+	constant max : unsigned(31 downto 0) := to_unsigned(1, 32);
+	signal counter : unsigned(max'range) := (others => '0');
 begin
+
+	fft_ce <= '1';
+
+	process(clk, rst)
+	begin
+		if(rst = '1') then
+			counter <= (others => '0');
+			fft_clk <= '0';
+		elsif(rising_edge(clk)) then
+			if(counter = max) then
+				fft_clk <= '1';
+				counter <= (others => '0');
+			else
+				fft_clk <= '0';
+				counter <= counter + 1;
+			end if;
+		end if;
+	end process;
 
 	process(clk, rst)
 	begin
 		if(rst = '1') then
 			done <= '1';
-			fft_ce <= '0';
 			fft_start <= '0';
 			data_out_clk <= '0';
 		elsif(rising_edge(clk)) then
 			case state is 
 				when IDLE =>
 					fft_start <= '0';
-					fft_ce <= '0';
 					done <= '1';
 					data_out_clk <= '0';
 					if(start = '1' and last_start_value = '0') then
 						done <= '0';
-						state <= PROCESSING;
+						fft_start <= '1';
+						state <= WAIT_FOR_RFD;
 					end if;
-				when PROCESSING =>
-					null;
+				when WAIT_FOR_RFD =>
+					if(fft_rfd = '1') then
+						state <= LOAD;
+					end if;
+				when LOAD =>
+					if(fft_rfd = '1') then
+						fft_xn_re <= data_in;
+						if(fft_clk = '1') then
+							data_in_clk <= '1';
+						else
+							data_in_clk <= '0';
+						end if;
+					else
+						state <= STALL;
+					end if;
+				when STALL =>
+					if(fft_dv = '1') then
+						state <= UNLOAD;
+						data_out <= fft_xk_re & fft_xk_im;
+						
+					end if;
+				when UNLOAD =>
+					if(fft_dv = '1') then
+						data_out <= fft_xk_re & fft_xk_im;
+						if(fft_clk = '0') then
+							data_out_clk <= '1';
+						else
+							data_out_clk <= '0';
+						end if;
+					else
+						state <= IDLE;
+					end if;
 			end case;
+			
+			last_start_value <= start;
 		end if;
 	end process;
 
