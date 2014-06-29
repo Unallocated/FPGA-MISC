@@ -1,0 +1,15 @@
+# Output products list for <fft_core>
+_xmsgs/pn_parser.xmsgs
+fft_core/doc/xfft_ds260.pdf
+fft_core/doc/xfft_v7_1_readme.txt
+fft_core/doc/xfft_v7_1_vinfo.html
+fft_core.asy
+fft_core.gise
+fft_core.ngc
+fft_core.sym
+fft_core.vhd
+fft_core.vho
+fft_core.xco
+fft_core.xise
+fft_core_flist.txt
+fft_core_xmdf.tcl

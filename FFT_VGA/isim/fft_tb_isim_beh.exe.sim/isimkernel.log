@@ -1,0 +1,10 @@
+Command line:
+   fft_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  59935
+
+Sun Jun 29 16:04:56 2014
+
+
+ Elaboration Time: 0.11 sec
