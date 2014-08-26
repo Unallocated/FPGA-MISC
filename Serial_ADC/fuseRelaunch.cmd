@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/main/git/FPGA-MISC/Serial_ADC/adc_tb_isim_beh.exe" -prj "/home/main/git/FPGA-MISC/Serial_ADC/adc_tb_beh.prj" "work.adc_tb" 

@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/main/git/FPGA-MISC/Serial_ADC/adc.ncd
+OUTFILE=/home/main/git/FPGA-MISC/Serial_ADC/adc.bit
+FAMILY=Spartan6
+PART=xc6slx16-3csg324
+WORKINGDIR=/home/main/git/FPGA-MISC/Serial_ADC
+LICENSE=WebPack
+USER_INFO=210861346_0_0_275
