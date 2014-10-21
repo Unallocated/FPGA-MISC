@@ -1,0 +1,178 @@
+--------------------------------------------------------------------------------
+-- Company: 
+-- Engineer:
+--
+-- Create Date:   11:17:55 10/19/2014
+-- Design Name:   
+-- Module Name:   C:/Users/main-local/Documents/GitHub/FPGA-MISC/serial/serial_master_fifo_tb.vhd
+-- Project Name:  serial
+-- Target Device:  
+-- Tool versions:  
+-- Description:   
+-- 
+-- VHDL Test Bench Created by ISE for module: serial_master_fifo
+-- 
+-- Dependencies:
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+--
+-- Notes: 
+-- This testbench has been automatically generated using types std_logic and
+-- std_logic_vector for the ports of the unit under test.  Xilinx recommends
+-- that these types always be used for the top-level I/O of a design in order
+-- to guarantee that the testbench will bind correctly to the post-implementation 
+-- simulation model.
+--------------------------------------------------------------------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+ 
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--USE ieee.numeric_std.ALL;
+ 
+ENTITY serial_master_fifo_tb IS
+END serial_master_fifo_tb;
+ 
+ARCHITECTURE behavior OF serial_master_fifo_tb IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT serial_master_fifo
+    PORT(
+         ser_clk : IN  std_logic;
+         rst : IN  std_logic;
+         rx : IN  std_logic;
+         tx : OUT  std_logic;
+         rx_full : OUT  std_logic;
+         tx_full : OUT  std_logic;
+         rx_empty : OUT  std_logic;
+         tx_empty : OUT  std_logic;
+         data_in : IN  std_logic_vector(7 downto 0);
+         data_out : OUT  std_logic_vector(7 downto 0);
+         rd_clk : IN  std_logic;
+         rd_en : IN  std_logic;
+         wr_clk : IN  std_logic;
+         wr_en : IN  std_logic
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal ser_clk : std_logic := '0';
+   signal rst : std_logic := '0';
+   signal rx : std_logic;
+   signal data_in : std_logic_vector(7 downto 0) := (others => '0');
+   signal rd_clk : std_logic := '0';
+   signal rd_en : std_logic := '0';
+   signal wr_clk : std_logic := '0';
+   signal wr_en : std_logic := '0';
+
+ 	--Outputs
+   signal tx : std_logic := '1';
+   signal rx_full : std_logic;
+   signal tx_full : std_logic;
+   signal rx_empty : std_logic;
+   signal tx_empty : std_logic;
+   signal data_out : std_logic_vector(7 downto 0);
+
+   -- Clock period definitions
+   constant ser_clk_period : time := 10 ns;
+   constant rd_clk_period : time := 10 ns;
+   constant wr_clk_period : time := 5 ns;
+
+	
+	 procedure send_data (
+		data : std_logic_vector(7 downto 0);
+		signal wr_en : out std_logic;
+	  signal data_in : out std_logic_vector(7 downto 0)
+	) is
+
+	begin
+		data_in <= data;
+		wait for wr_clk_period;
+		wr_en <= '1';
+		wait for wr_clk_period;
+		wr_en <= '0';
+	end send_data;
+
+	procedure read_data (
+		signal rd_en : out std_logic;
+	) is
+	begin
+		rd_en <= '1';
+		wait for rd_clk_period;
+		rd_en <= '0';
+	end read_data;
+ 
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: serial_master_fifo PORT MAP (
+          ser_clk => ser_clk,
+          rst => rst,
+          rx => rx,
+          tx => rx,
+          rx_full => rx_full,
+          tx_full => tx_full,
+          rx_empty => rx_empty,
+          tx_empty => tx_empty,
+          data_in => data_in,
+          data_out => data_out,
+          rd_clk => rd_clk,
+          rd_en => rd_en,
+          wr_clk => wr_clk,
+          wr_en => wr_en
+        );
+
+   -- Clock process definitions
+   ser_clk_process :process
+   begin
+		ser_clk <= '0';
+		wait for ser_clk_period/2;
+		ser_clk <= '1';
+		wait for ser_clk_period/2;
+   end process;
+ 
+   rd_clk_process :process
+   begin
+		rd_clk <= '0';
+		wait for rd_clk_period/2;
+		rd_clk <= '1';
+		wait for rd_clk_period/2;
+   end process;
+ 
+   wr_clk_process :process
+   begin
+		wr_clk <= '0';
+		wait for wr_clk_period/2;
+		wr_clk <= '1';
+		wait for wr_clk_period/2;
+   end process;
+ 
+
+   -- Stimulus process
+   stim_proc: process
+   begin		
+      -- hold reset state for 100 ns.
+      wait for 100 ns;	
+
+      wait for ser_clk_period*10;
+
+      -- insert stimulus here 
+			
+			send_data(x"55", wr_en, data_in);
+			send_data(x"11", wr_en, data_in);
+
+			wait for 300 us;
+			wait for ser_clk_period * 100;
+
+			read_data(rd_en);
+			wait for 100 us;
+			read_data(rd_en);
+
+      wait;
+   end process;
+
+END;

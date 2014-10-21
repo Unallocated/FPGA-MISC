@@ -1,0 +1,2 @@
+work	"ipcore_dir/fifo.vhd"
+work	"serial_tx_fifo.vhd"

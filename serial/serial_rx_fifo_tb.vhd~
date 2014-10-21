@@ -1,0 +1,182 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+USE ieee.math_real.all;
+
+ENTITY serial_rx_fifo_tb IS
+	END serial_rx_fifo_tb;
+
+ARCHITECTURE behavior OF serial_rx_fifo_tb IS 
+
+    -- Component Declaration for the Unit Under Test (UUT)
+
+	COMPONENT serial_rx_fifo
+		PORT(
+			    clk : IN  std_logic;
+			    rst : IN  std_logic;
+			    rx : IN  std_logic;
+			    data : OUT  std_logic_vector(7 downto 0);
+			    full : OUT  std_logic;
+			    empty : OUT  std_logic;
+			    rd_clk : IN  std_logic;
+			    rd_en : IN  std_logic
+		    );
+	END COMPONENT;
+
+
+   --Inputs
+	signal clk : std_logic := '0';
+	signal rst : std_logic := '0';
+	signal rx : std_logic := '1';
+	signal rd_en : std_logic := '0';
+	signal rd_clk : std_logic := '0';
+
+   --Outputs
+	signal data : std_logic_vector(7 downto 0);
+	signal full : std_logic;
+	signal empty : std_logic;
+
+   -- Clock period definitions
+	constant clk_period : time := 10 ns;
+	constant a : real := 1.0 / 115200.0;
+	constant serial_rate : time := a * 1 sec;
+
+	procedure removeFromFifo(expectedValue : std_logic_vector(7 downto 0); signal fifo_rd_en : out std_logic; signal fifo_data : in std_logic_vector(7 downto 0)) is
+	begin
+		fifo_rd_en <= '1';
+		wait for clk_period * 1;
+		fifo_rd_en <= '0';
+		wait for clk_period * 10;
+		assert fifo_data = expectedValue;
+	end removeFromFifo;
+
+
+	procedure sendSerial(data : std_logic_vector(7 downto 0); signal output : out std_logic) is
+	begin
+		output <= '0';
+		wait for serial_rate ;
+		output <= data(0);
+		wait for serial_rate ;
+		output <= data(1);
+		wait for serial_rate ;
+		output <= data(2);
+		wait for serial_rate ;
+		output <= data(3);
+		wait for serial_rate ;
+		output <= data(4);
+		wait for serial_rate ;
+		output <=data(5);
+		wait for serial_rate ;
+		output <=data(6);
+		wait for serial_rate ;
+		output <= data(7);
+		wait for serial_rate ;
+		output <= '1';
+		wait for serial_rate ;
+
+	end sendSerial;
+
+BEGIN
+
+	-- Instantiate the Unit Under Test (UUT)
+	uut: serial_rx_fifo PORT MAP (
+		clk => clk,
+		rst => rst,
+		rx => rx,
+		data => data,
+		full => full,
+		empty => empty,
+		rd_clk => clk,
+		rd_en => rd_en
+	);
+
+	-- Clock process definitions
+	clk_process :process
+	begin
+		clk <= '0';
+		wait for clk_period/2;
+		clk <= '1';
+		wait for clk_period/2;
+	end process;
+
+
+	-- Stimulus process
+	stim_proc: process
+	begin		
+		rx <= '1';
+		-- hold reset state for 100 ns.
+		wait for 100 ns;	
+		rst <= '1';
+		wait for clk_period*100;
+		rst <= '0';
+		wait for 10 us;
+		sendSerial(x"55", rx);
+		sendSerial(x"56", rx);
+		sendSerial(x"57", rx);
+		sendSerial(x"58", rx);
+		sendSerial(x"59", rx);
+		sendSerial(x"5a", rx);
+		sendSerial(x"5b", rx);
+		sendSerial(x"5c", rx);
+		sendSerial(x"5d", rx);
+		sendSerial(x"5e", rx);
+		sendSerial(x"5f", rx);
+		sendSerial(x"60", rx);
+		sendSerial(x"61", rx);
+		sendSerial(x"62", rx);
+		sendSerial(x"63", rx);
+		sendSerial(x"64", rx);
+
+		removeFromFifo(x"55", rd_en, data);
+		removeFromFifo(x"56", rd_en, data);
+		removeFromFifo(x"57", rd_en, data);
+		removeFromFifo(x"58", rd_en, data);
+		removeFromFifo(x"59", rd_en, data);
+		removeFromFifo(x"5a", rd_en, data);
+		removeFromFifo(x"5b", rd_en, data);
+		removeFromFifo(x"5c", rd_en, data);
+		removeFromFifo(x"5d", rd_en, data);
+		removeFromFifo(x"5e", rd_en, data);
+		removeFromFifo(x"5f", rd_en, data);
+		removeFromFifo(x"60", rd_en, data);
+		removeFromFifo(x"61", rd_en, data);
+		removeFromFifo(x"62", rd_en, data);
+		removeFromFifo(x"63", rd_en, data);
+
+		sendSerial(x"55", rx);
+		sendSerial(x"56", rx);
+		sendSerial(x"57", rx);
+		sendSerial(x"58", rx);
+		sendSerial(x"59", rx);
+		sendSerial(x"5a", rx);
+		sendSerial(x"5b", rx);
+		sendSerial(x"5c", rx);
+		sendSerial(x"5d", rx);
+		sendSerial(x"5e", rx);
+		sendSerial(x"5f", rx);
+		sendSerial(x"60", rx);
+		sendSerial(x"61", rx);
+		sendSerial(x"62", rx);
+		sendSerial(x"63", rx);
+
+		removeFromFifo(x"55", rd_en, data);
+		removeFromFifo(x"56", rd_en, data);
+		removeFromFifo(x"57", rd_en, data);
+		removeFromFifo(x"58", rd_en, data);
+		removeFromFifo(x"59", rd_en, data);
+		removeFromFifo(x"5a", rd_en, data);
+		removeFromFifo(x"5b", rd_en, data);
+		removeFromFifo(x"5c", rd_en, data);
+		removeFromFifo(x"5d", rd_en, data);
+		removeFromFifo(x"5e", rd_en, data);
+		removeFromFifo(x"5f", rd_en, data);
+		removeFromFifo(x"60", rd_en, data);
+		removeFromFifo(x"61", rd_en, data);
+		removeFromFifo(x"62", rd_en, data);
+		removeFromFifo(x"63", rd_en, data);
+		-- insert stimulus here 
+
+		wait;
+	end process;
+
+END;

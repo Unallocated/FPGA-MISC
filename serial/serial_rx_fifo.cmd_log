@@ -1,0 +1,1 @@
+vhdtdtfi -prj serial -o C:/Users/main-local/Documents/GitHub/FPGA-MISC/serial/serial_rx_fifo.vhi -module serial_rx_fifo -template C:/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/fifo.vhd -lib work serial_rx_fifo.vhd 

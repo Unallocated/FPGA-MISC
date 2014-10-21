@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "C:/Users/main-local/Documents/GitHub/FPGA-MISC/serial/serial_tx_fifo_tb_isim_beh.exe" -prj "C:/Users/main-local/Documents/GitHub/FPGA-MISC/serial/serial_tx_fifo_tb_beh.prj" "work.serial_tx_fifo_tb" 
