@@ -1,0 +1,1 @@
+vhdtdtfi -prj Serial_ADC -o /home/main/git/FPGA-MISC/Serial_ADC/vga_solid.vhi -module vga_solid -template /opt/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work vga.vhd -lib work vga_solid.vhd 
