@@ -1,0 +1,10 @@
+Command line:
+   serial_tx_fifo_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  1
+     -socket  15089
+
+Mon Oct 20 23:30:29 2014
+
+
+ Elaboration Time: 0.046875 sec
