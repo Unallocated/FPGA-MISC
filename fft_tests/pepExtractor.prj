@@ -1,0 +1,4 @@
+work	"frame_types.vhd"
+work	"ipcore_dir/fifo.vhd"
+work	"serial_rx_fifo.vhd"
+work	"uart_comms.vhd"

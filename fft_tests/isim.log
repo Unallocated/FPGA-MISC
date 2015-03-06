@@ -1,0 +1,55 @@
+ISim log file
+Running: /home/main/git/FPGA-MISC/fft_tests/unscaled_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/main/git/FPGA-MISC/fft_tests/unscaled_tb_isim_beh.wdb 
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+at 0 ps: Note: WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information. (/unscaled_tb/uut/Inst_uart_comms/Inst_serial_rx_fifo/fifo_inst/U0/gconvfifo/inst_conv_fifo/).
+Finished circuit initialization process.
+at 0 ps, Instance /unscaled_tb/uut/scaler_inst/your_instance_name/U0/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# run 18.00ms
+at 81855 ns(4): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/unscaled_tb/uut/averaging_inst/avg_ram_inst/U0/native_mem_module/mem_module/).
+at 387735 ns(4): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/).
+at 390335 ns(3), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+at 390615 ns(3), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+at 390635 ns(3), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+at 390795 ns(3), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+at 390815 ns(3), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+at 390935 ns(3), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+at 390955 ns(3), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+at 391155 ns(4), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+at 391335 ns(3), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+at 391375 ns(3), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+at 391475 ns(4), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+at 391595 ns(3), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+at 391655 ns(3), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+at 391755 ns(3), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+at 391835 ns(3), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+at 391855 ns(3), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+at 391895 ns(3), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+at 392255 ns(3), Instance /unscaled_tb/uut/vga_ram_inst/U0/native_mem_module/mem_module/ : Warning: blk_mem_gen_v7_3 WARNING: collision detected: A write address: 000000001, B read address: 000000001
+
+Stopped at time : 650905 ns : File "/home/main/git/FPGA-MISC/fft_tests/unscaled.vhd" Line 210
