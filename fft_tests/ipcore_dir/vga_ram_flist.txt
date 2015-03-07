@@ -1,5 +1,4 @@
 # Output products list for <vga_ram>
-_xmsgs/pn_parser.xmsgs
 summary.log
 vga_ram/blk_mem_gen_v7_3_readme.txt
 vga_ram/doc/blk_mem_gen_v7_3_vinfo.html

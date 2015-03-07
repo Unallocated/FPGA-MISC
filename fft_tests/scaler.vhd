@@ -6,10 +6,9 @@ entity scaler is
     Port ( clk : in  STD_LOGIC;
            rst : in  STD_LOGIC;
            input_val : in  STD_LOGIC_VECTOR (18 downto 0);
-           output_val : out  STD_LOGIC_VECTOR (7 downto 0);
+           output_val : out  STD_LOGIC_VECTOR (20 downto 0);
            output_dv : out  STD_LOGIC;
            output_index : out STD_LOGIC_VECTOR(8 downto 0);
-           output_ovflo : out STD_LOGIC;
            input_dv : in  STD_LOGIC;
            input_index : in STD_LOGIC_VECTOR(8 downto 0);
            scale_factor : in  STD_LOGIC_VECTOR (9 downto 0));
@@ -58,7 +57,6 @@ begin
       output_val <= (others => '0');
       output_index <= (others => '0');
 
-      output_ovflo <= '0';
     elsif(rising_edge(clk)) then
       input_dv_buf <= input_dv;
       input_val_buf <= input_val;
@@ -69,14 +67,8 @@ begin
       index_pipeline <= input_index_buf & index_pipeline(0 to index_pipeline'length - 2);
       
       output_dv <= dv_pipeline(dv_pipeline'length - 1);
-      output_val <= output_val_buf(15 downto 8);
+      output_val <= output_val_buf(28 downto 8);
       output_index <= index_pipeline(index_pipeline'length - 1);
-      if(output_val_buf(28 downto 16) = (28 downto 16 => '0')) then
-        output_ovflo <= '0';
-      else
-        output_ovflo <= '1';
-      end if;
-      --output_ovflo <= '0' when (output_val_buf and "11111111111110000000000000000") = "00000000000000000000000000000" else '1';
     end if;
   end process;
 
