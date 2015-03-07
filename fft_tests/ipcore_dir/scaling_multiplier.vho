@@ -53,7 +53,7 @@ COMPONENT scaling_multiplier
     clk : IN STD_LOGIC;
     a : IN STD_LOGIC_VECTOR(18 DOWNTO 0);
     b : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-    p : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+    p : OUT STD_LOGIC_VECTOR(28 DOWNTO 0)
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------

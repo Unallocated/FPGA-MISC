@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.7
-# Date: Thu Mar  5 19:22:56 2015
+# Date: Fri Mar  6 15:45:27 2015
 #
 ##############################################################
 #
@@ -47,8 +47,8 @@ CSET internaluser=0
 CSET multiplier_construction=Use_Mults
 CSET multtype=Parallel_Multiplier
 CSET optgoal=Area
-CSET outputwidthhigh=15
-CSET outputwidthlow=8
+CSET outputwidthhigh=28
+CSET outputwidthlow=0
 CSET pipestages=3
 CSET portatype=Unsigned
 CSET portawidth=19
@@ -57,7 +57,7 @@ CSET portbwidth=10
 CSET roundpoint=0
 CSET sclrcepriority=SCLR_Overrides_CE
 CSET syncclear=false
-CSET use_custom_output_width=true
+CSET use_custom_output_width=false
 CSET userounding=false
 CSET zerodetect=false
 # END Parameters
@@ -65,4 +65,4 @@ CSET zerodetect=false
 MISC pkg_timestamp=2013-07-22T11:36:26Z
 # END Extra information
 GENERATE
-# CRC: 3569fc88
+# CRC: 7953a408

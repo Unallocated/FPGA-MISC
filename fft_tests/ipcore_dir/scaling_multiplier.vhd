@@ -45,7 +45,7 @@ ENTITY scaling_multiplier IS
     clk : IN STD_LOGIC;
     a : IN STD_LOGIC_VECTOR(18 DOWNTO 0);
     b : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-    p : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+    p : OUT STD_LOGIC_VECTOR(28 DOWNTO 0)
   );
 END scaling_multiplier;
 
@@ -56,7 +56,7 @@ COMPONENT wrapped_scaling_multiplier
     clk : IN STD_LOGIC;
     a : IN STD_LOGIC_VECTOR(18 DOWNTO 0);
     b : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-    p : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+    p : OUT STD_LOGIC_VECTOR(28 DOWNTO 0)
   );
 END COMPONENT;
 
@@ -77,8 +77,8 @@ END COMPONENT;
       c_model_type => 0,
       c_mult_type => 1,
       c_optimize_goal => 0,
-      c_out_high => 15,
-      c_out_low => 8,
+      c_out_high => 28,
+      c_out_low => 0,
       c_round_output => 0,
       c_round_pt => 0,
       c_verbosity => 0,

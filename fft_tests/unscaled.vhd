@@ -107,7 +107,7 @@ architecture behave of unscaled is
 
   signal scaler_factor : std_logic_vector(9 downto 0);
   signal scaler_out : std_logic_vector(7 downto 0);
-  signal scaler_dv : std_logic;
+  signal scaler_dv, scaler_output_ovflo : std_logic;
   signal scaler_output_index : std_logic_vector(8 downto 0);
   COMPONENT scaler
     PORT(
@@ -119,6 +119,7 @@ architecture behave of unscaled is
       scale_factor : IN std_logic_vector(9 downto 0);          
       output_val : OUT std_logic_vector(7 downto 0);
       output_index : OUT std_logic_vector(8 downto 0);
+      output_ovflo : OUT std_logic;
       output_dv : OUT std_logic
     );
   END COMPONENT;
@@ -126,7 +127,7 @@ architecture behave of unscaled is
   signal avg_factor : std_logic_vector(7 downto 0);
   signal avg_out : std_logic_vector(7 downto 0);
   signal avg_idx : std_logic_vector(8 downto 0);
-  signal avg_dv : std_logic;
+  signal avg_dv, avg_ovflo : std_logic;
   COMPONENT averaging
     PORT(
       clk : IN std_logic;
@@ -137,21 +138,22 @@ architecture behave of unscaled is
       mag_valid : IN std_logic;          
       avg_out : OUT std_logic_vector(7 downto 0);
       avg_idx : OUT std_logic_vector(8 downto 0);
+      avg_ovflo : OUT std_logic;
       avg_valid : OUT std_logic
       );
   END COMPONENT;
   
-  signal result_fifo_din, result_fifo_dout : std_logic_vector(16 downto 0);
+  signal result_fifo_din, result_fifo_dout : std_logic_vector(17 downto 0);
   signal result_fifo_full, result_fifo_empty, result_fifo_rd_en : std_logic;
   signal result_fifo_data_count : std_logic_vector(8 downto 0);
   COMPONENT result_fifo
     PORT (
       clk : IN STD_LOGIC;
       rst : IN STD_LOGIC;
-      din : IN STD_LOGIC_VECTOR(16 DOWNTO 0);
+      din : IN STD_LOGIC_VECTOR(17 DOWNTO 0);
       wr_en : IN STD_LOGIC;
       rd_en : IN STD_LOGIC;
-      dout : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);
+      dout : OUT STD_LOGIC_VECTOR(17 DOWNTO 0);
       full : OUT STD_LOGIC;
       empty : OUT STD_LOGIC;
       data_count : OUT STD_LOGIC_VECTOR(8 downto 0)
@@ -159,17 +161,17 @@ architecture behave of unscaled is
   END COMPONENT;
 
   signal vga_ram_addra, vga_ram_addrb : std_logic_vector(8 downto 0);
-  signal vga_ram_dina, vga_ram_doutb : std_logic_vector(7 downto 0);
+  signal vga_ram_dina, vga_ram_doutb : std_logic_vector(8 downto 0);
   signal vga_ram_wea : std_logic_vector(0 downto 0);
   COMPONENT vga_ram
     PORT (
       clka : IN STD_LOGIC;
       wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
       addra : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
-      dina : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      dina : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
       clkb : IN STD_LOGIC;
       addrb : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
-      doutb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+      doutb : OUT STD_LOGIC_VECTOR(8 DOWNTO 0)
     );
   END COMPONENT;
 
@@ -203,7 +205,7 @@ begin
   fft_re_in <= adc_in;
   adc_clk <= fft_clk;
   vga_ram_addra <= result_fifo_dout(8 downto 0);
-  vga_ram_dina <= result_fifo_dout(16 downto 9);
+  vga_ram_dina <= result_fifo_dout(17 downto 9);
 
   process(buffered_clk, rst)
   begin
@@ -245,8 +247,7 @@ begin
 
       if(vga_v_blanking = '0' and vga_h_blanking = '0' and vga_y_pos < 256 and vga_x_pos < 512) then
         vga_ram_addrb <= std_logic_vector(to_unsigned(vga_x_pos, 9));
-        
-        if(255 - unsigned(vga_ram_doutb) <= to_unsigned(vga_y_pos, 8)) then
+        if(vga_ram_doutb(8) = '1' or 255 - unsigned(vga_ram_doutb) <= to_unsigned(vga_y_pos, 8)) then
           vga_blue_in <= (others => '1');
         end if;
       end if;
@@ -303,7 +304,7 @@ begin
       else
         fft_unload <= '0';
         last_vga_v_blanking <= vga_v_blanking;
-        result_fifo_din <= avg_out & avg_idx;
+        result_fifo_din <= avg_ovflo & avg_out & avg_idx;
 
         adc_in_buffer <= std_logic_vector(unsigned(adc_in) + adc_in_offset);
 
@@ -362,6 +363,7 @@ begin
       mag_valid => scaler_dv,
       avg_out => avg_out,
       avg_idx => avg_idx,
+      avg_ovflo => avg_ovflo,
       avg_valid => avg_dv
     );
 
@@ -374,6 +376,7 @@ begin
       output_val => scaler_out,
       output_dv => scaler_dv,
       output_index => scaler_output_index,
+      output_ovflo => scaler_output_ovflo,
       input_dv => mag_dv,
       scale_factor => scaler_factor
     );

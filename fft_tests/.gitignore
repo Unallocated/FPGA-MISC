@@ -1,1 +1,5 @@
-**/*.log
+ipcore_dir/*.log
+ipcore_dir/tmp
+**/*.tcl
+**/*.html
+ipcore_dir/_xmsgs/*
