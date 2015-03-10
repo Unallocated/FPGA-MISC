@@ -14,7 +14,7 @@ ARCHITECTURE behavior OF scaler_tb IS
          clk : IN  std_logic;
          rst : IN  std_logic;
          input_val : IN  std_logic_vector(18 downto 0);
-         output_val : OUT  std_logic_vector(7 downto 0);
+         output_val : OUT  std_logic_vector(20 downto 0);
          output_dv : OUT  std_logic;
          output_index : OUT std_logic_vector(8 downto 0);
          input_dv : IN  std_logic;

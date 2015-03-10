@@ -66,7 +66,7 @@ begin
 
 			avg_idx <= mag_idx_buffered;
 
-      if(arith_temp(arith_temp'high downto 21 + 8) = (arith_temp'high downto 21 => '0')) then
+      if(arith_temp(arith_temp'high downto 21 + 8) = (arith_temp'high downto 21 + 8 => '0')) then
         avg_out <= arith_temp(28 downto 21);
       else
         avg_out <= (others => '1');

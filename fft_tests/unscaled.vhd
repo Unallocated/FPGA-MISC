@@ -208,7 +208,7 @@ begin
   begin
     if(rst = '1') then
       last_uart_frame_valid <= '0';
-      scaler_factor <= "0010000000";
+      scaler_factor <= "0000000001";
       avg_factor <= "1" & (avg_factor'high - 1 downto 0 => '0');
       adc_in_offset <= (others => '0');
       sine_pinc <= x"00FF";
