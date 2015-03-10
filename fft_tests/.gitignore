@@ -3,3 +3,6 @@ ipcore_dir/tmp
 **/*.tcl
 **/*.html
 ipcore_dir/_xmsgs/*
+*.lso
+_xmsgs/
+**/*.xreport
