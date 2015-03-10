@@ -2,6 +2,25 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
+
+-- Uses block RAM to average FFT samples.  Uses the equation:
+--    Vn = (A * Vc) + ((1 - A) * Vp)
+-- Where:
+--    Vn = The new value
+--    A = The averaging factor (must be less than 1)
+--    Vc = The current value
+--    Vp = The previous value
+--
+-- Vc ends up being the value coming into the block (mag_in). 
+-- Vp is retrieved from memory using mag_idx as the address.
+-- A is a value that will never actually get to 1.0.  It is entirely
+-- fraction.  A value of all ones would be as close to 1.0 as you 
+-- could get.
+--
+-- This version of the averaging module will generate timing
+-- errors because of the time it takes to multiply the two
+-- 21 bit numbers.  This will be fixed later by using actual
+-- hardware multipliers
 entity averaging is
     Port ( clk : in  STD_LOGIC;
            rst : in  STD_LOGIC;
