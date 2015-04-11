@@ -1,1 +1,3 @@
-work	"smi.vhd"
+work	"eth.vhd"
+work	"ipcore_dir/clock_mgr.vhd"
+work	"smi_ramlike.vhd"

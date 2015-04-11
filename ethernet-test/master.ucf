@@ -174,7 +174,7 @@ Net "sw<3>" LOC = M8 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L40P, Sch
 
 ## Buttons
 Net "rst" LOC = B8 | IOSTANDARD = LVCMOS33 | CLOCK_DEDICATED_ROUTE = FALSE; #Bank = 0, pin name = IO_L33P, Sch name = BTNS
-#Net "btnu" LOC = A8 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L33N, Sch name = BTNU
+Net "byte_select" LOC = A8 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L33N, Sch name = BTNU
 #Net "btnl" LOC = C4 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L1N_VREF, Sch name = BTNL
 #Net "btnd" LOC = C9 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L34N_GCLK18, Sch name = BTND
 #Net "btnr" LOC = D9 | IOSTANDARD = LVCMOS33; # Bank = 0, pin name = IO_L34P_GCLK19, Sch name = BTNR
@@ -195,8 +195,8 @@ Net "rst" LOC = B8 | IOSTANDARD = LVCMOS33 | CLOCK_DEDICATED_ROUTE = FALSE; #Ban
 ## 12 pin connectors
 
 ##JA
-#Net "JA<0>" LOC = T12 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L19P, Sch name = JA1
-#Net "JA<1>" LOC = V12 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L19N, Sch name = JA2  
+Net "mdio_ext" LOC = T12 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L19P, Sch name = JA1
+Net "mdc_ext" LOC = V12 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L19N, Sch name = JA2  
 #Net "JA<2>" LOC = N10 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L20P, Sch name = JA3
 #Net "JA<3>" LOC = P11 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L20N, Sch name = JA4
 #Net "JA<4>" LOC = M10 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L22P, Sch name = JA7
@@ -235,9 +235,9 @@ Net "rst" LOC = B8 | IOSTANDARD = LVCMOS33 | CLOCK_DEDICATED_ROUTE = FALSE; #Ban
 #Net "JD<7>" LOC = E12 | IOSTANDARD = LVCMOS33; #Bank = 3, pin name = IO_L51N, Sch name = JD10
 
 ## VHDCI Connector
-Net "ext_mdio" LOC = B2 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L2P, Sch name = EXP_IO1_P
+#Net "ext_mdio" LOC = B2 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L2P, Sch name = EXP_IO1_P
 #Net "EXP-IO_N<0>" LOC = A2 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L2N, Sch name = EXP_IO1_N
-Net "ext_mdc" LOC = D6 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L3P, Sch name = EXP_IO2_P
+#Net "ext_mdc" LOC = D6 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L3P, Sch name = EXP_IO2_P
 #Net "EXP-IO_N<1>" LOC = C6 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L3N, Sch name = EXP_IO2_N
 #Net "EXP-IO_P<2>" LOC = B3 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L4P, Sch name = EXP_IO3_P
 #Net "EXP-IO_N<2>" LOC = A3 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L4N, Sch name = EXP_IO3_N
@@ -275,3 +275,5 @@ Net "ext_mdc" LOC = D6 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L3P, Sc
 #Net "EXP-IO_N<18>" LOC = C14 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L65N_SCP2, Sch name = EXP_IO19_N
 #Net "EXP-IO_P<19>" LOC = B16 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L66P_SCP1, Sch name = EXP_IO20_P
 #Net "EXP-IO_N<19>" LOC = A16 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L66N_SCP0, Sch name = EXP_IO20_N
+
+PIN "clk_mgr_inst/clkout2_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
