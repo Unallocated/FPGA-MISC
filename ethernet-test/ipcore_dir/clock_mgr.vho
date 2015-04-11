@@ -68,11 +68,11 @@
 component clock_mgr
 port
  (-- Clock in ports
-  clk_100mhz           : in     std_logic;
+  base_clk           : in     std_logic;
   -- Clock out ports
-  orig_clk          : out    std_logic;
-  clk_10mhz_CE       : in     std_logic;
-  clk_10mhz          : out    std_logic
+  base_clk_copy          : out    std_logic;
+  smi_clk_CE       : in     std_logic;
+  smi_clk          : out    std_logic
  );
 end component;
 
@@ -83,9 +83,9 @@ end component;
 your_instance_name : clock_mgr
   port map
    (-- Clock in ports
-    clk_100mhz => clk_100mhz,
+    base_clk => base_clk,
     -- Clock out ports
-    orig_clk => orig_clk,
-    clk_10mhz_CE => clk_10mhz_CE,
-    clk_10mhz => clk_10mhz);
+    base_clk_copy => base_clk_copy,
+    smi_clk_CE => smi_clk_CE,
+    smi_clk => smi_clk);
 -- INST_TAG_END ------ End INSTANTIATION Template ------------

@@ -75,11 +75,11 @@ use unisim.vcomponents.all;
 entity clock_mgr is
 port
  (-- Clock in ports
-  clk_100mhz           : in     std_logic;
+  base_clk           : in     std_logic;
   -- Clock out ports
-  orig_clk          : out    std_logic;
-  clk_10mhz_CE       : in     std_logic;
-  clk_10mhz          : out    std_logic
+  base_clk_copy          : out    std_logic;
+  smi_clk_CE       : in     std_logic;
+  smi_clk          : out    std_logic
  );
 end clock_mgr;
 
@@ -108,7 +108,7 @@ begin
   clkin1_buf : IBUFG
   port map
    (O => clkin1,
-    I => clk_100mhz);
+    I => base_clk);
 
 
   -- Clocking primitive
@@ -158,15 +158,15 @@ begin
 
   clkout1_buf : BUFG
   port map
-   (O   => orig_clk,
+   (O   => base_clk_copy,
     I   => clkout0);
 
 
 
   clkout2_buf : BUFGCE
   port map
-   (O   => clk_10mhz,
-    CE  => clk_10mhz_CE,
+   (O   => smi_clk,
+    CE  => smi_clk_CE,
     I   => clkout1);
 
 end xilinx;

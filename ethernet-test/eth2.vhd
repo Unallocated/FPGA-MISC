@@ -5,7 +5,7 @@ use IEEE.NUMERIC_STD.ALL;
 library unisim;
 use unisim.vcomponents.all;
 
-entity eth is
+entity eth2 is
   port ( clk : in std_logic;
          rst : in std_logic;
          mdio : inout std_logic;
@@ -15,15 +15,11 @@ entity eth is
          tx_er : out std_logic;
          tx_en : out std_logic;
          tx_data : out std_logic_vector(3 downto 0);
-         mdc_ext : out std_logic;
-         mdio_ext : inout std_logic;
-         leds : out std_logic_vector(7 downto 0);
-         byte_select : in std_logic;
-         sw : in std_logic_vector(3 downto 0)
+         leds : out std_logic_vector(7 downto 0)
   );
-end eth;
+end eth2;
 
-architecture Behavioral of eth is
+architecture Behavioral of eth2 is
   
   signal smi_rd_en, smi_wr_en, smi_done, smi_working, smi_rdy : std_logic;
   signal smi_addr : std_logic_vector(3 downto 0);
@@ -60,28 +56,25 @@ architecture Behavioral of eth is
   type smi_state_t is (IDLE, START_READ, END_READ, WAIT_FOR_DONE);
   signal smi_state : smi_state_t;
   signal smi_counter : integer;
-  signal mdio_buffered : std_logic;
-  signal leds_buffer : std_logic_vector(leds'range);
+
+  signal link_detected : std_logic;
 begin
 
-  leds <= leds_buffer;
   tx_data <= (others => '0');
   tx_er <= '1';
   tx_en <= '0';
   mdc <= smi_clk;
-  mdc_ext <= smi_clk;
-  mdio_ext <= mdio_buffered;
-  mdio <= mdio_buffered;
-  smi_addr <= sw;
+  smi_addr <= "0001";
 
   process(smi_clk, rst)
   begin
     if(rst = '1') then
+      link_detected <= '0';
       smi_rd_en <= '0';
       smi_state <= IDLE;
       smi_counter <= 0;
-      leds_buffer <= x"7e";
       smi_wr_en <= '0';
+      leds <= "00011110";
     elsif(rising_edge(smi_clk)) then
       case smi_state is
         when IDLE =>
@@ -104,13 +97,8 @@ begin
 
         when WAIT_FOR_DONE =>
           if(smi_done = '1') then
-            --leds <= smi_data_out(15 downto 8);
-            if(byte_select = '0') then
-              leds_buffer <= smi_data_out(7 downto 0);
-            else
-              leds_buffer <= smi_data_out(15 downto 8);
-            end if;
             smi_state <= IDLE;
+            leds <= (others => smi_data_out(2));
           end if;
 
       end case;
@@ -144,7 +132,7 @@ begin
   Inst_smi_ramlike: smi_ramlike PORT MAP(
     clk => smi_clk,
     rst => rst,
-    mdio => mdio_buffered,
+    mdio => mdio,
     rd_en => smi_rd_en,
     wr_en => smi_wr_en,
     addr => smi_addr,

@@ -106,11 +106,11 @@ architecture xilinx of clock_mgr_exdes is
 component clock_mgr is
 port
  (-- Clock in ports
-  clk_100mhz           : in     std_logic;
+  base_clk           : in     std_logic;
   -- Clock out ports
-  orig_clk          : out    std_logic;
-  clk_10mhz_CE       : in     std_logic;
-  clk_10mhz          : out    std_logic
+  base_clk_copy          : out    std_logic;
+  smi_clk_CE       : in     std_logic;
+  smi_clk          : out    std_logic
  );
 end component;
 
@@ -141,11 +141,11 @@ end generate counters_1;
   clknetwork : clock_mgr
   port map
    (-- Clock in ports
-    clk_100mhz            => CLK_IN1,
+    base_clk            => CLK_IN1,
     -- Clock out ports
-    orig_clk           => clk_int(1),
-    clk_10mhz_CE        => '1',
-    clk_10mhz           => clk_int(2));
+    base_clk_copy           => clk_int(1),
+    smi_clk_CE        => '1',
+    smi_clk           => clk_int(2));
 
   gen_outclk_oddr: 
   for clk_out_pins in 1 to NUM_C generate 

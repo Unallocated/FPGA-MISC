@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="clock_mgr">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2015-4-11T18:56:55</timestamp>
+    <timestamp>2015-4-11T21:29:55</timestamp>
     <pin polarity="Input" x="0" y="80" name="clk_in1" />
     <pin polarity="Output" x="608" y="80" name="clk_out1" />
     <pin polarity="Output" x="608" y="176" name="clk_out2" />

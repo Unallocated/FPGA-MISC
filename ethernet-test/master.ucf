@@ -163,10 +163,10 @@ Net "Leds<6>" LOC = R11 |  IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L16P,
 Net "Leds<7>" LOC = T11 |  IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L16N_VREF, Sch name = LD7
 
 ## Switches
-Net "sw<0>" LOC = T10 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L29N_GCLK2, Sch name = SW0
-Net "sw<1>" LOC = T9 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L32P_GCLK29, Sch name = SW1
-Net "sw<2>" LOC = V9 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L32N_GCLK28, Sch name = SW2
-Net "sw<3>" LOC = M8 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L40P, Sch name = SW3
+#Net "sw<0>" LOC = T10 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L29N_GCLK2, Sch name = SW0
+#Net "sw<1>" LOC = T9 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L32P_GCLK29, Sch name = SW1
+#Net "sw<2>" LOC = V9 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L32N_GCLK28, Sch name = SW2
+#Net "sw<3>" LOC = M8 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L40P, Sch name = SW3
 #Net "sw<4>" LOC = N8 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L40N, Sch name = SW4
 #Net "sw<5>" LOC = U8 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L41P, Sch name = SW5
 #Net "sw<6>" LOC = V8 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L41N_VREF, Sch name = SW6
@@ -174,7 +174,7 @@ Net "sw<3>" LOC = M8 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L40P, Sch
 
 ## Buttons
 Net "rst" LOC = B8 | IOSTANDARD = LVCMOS33 | CLOCK_DEDICATED_ROUTE = FALSE; #Bank = 0, pin name = IO_L33P, Sch name = BTNS
-Net "byte_select" LOC = A8 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L33N, Sch name = BTNU
+#Net "byte_select" LOC = A8 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L33N, Sch name = BTNU
 #Net "btnl" LOC = C4 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L1N_VREF, Sch name = BTNL
 #Net "btnd" LOC = C9 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L34N_GCLK18, Sch name = BTND
 #Net "btnr" LOC = D9 | IOSTANDARD = LVCMOS33; # Bank = 0, pin name = IO_L34P_GCLK19, Sch name = BTNR
@@ -195,8 +195,8 @@ Net "byte_select" LOC = A8 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L33
 ## 12 pin connectors
 
 ##JA
-Net "mdio_ext" LOC = T12 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L19P, Sch name = JA1
-Net "mdc_ext" LOC = V12 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L19N, Sch name = JA2  
+#Net "mdio_ext" LOC = T12 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L19P, Sch name = JA1
+#Net "mdc_ext" LOC = V12 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L19N, Sch name = JA2  
 #Net "JA<2>" LOC = N10 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L20P, Sch name = JA3
 #Net "JA<3>" LOC = P11 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L20N, Sch name = JA4
 #Net "JA<4>" LOC = M10 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L22P, Sch name = JA7
