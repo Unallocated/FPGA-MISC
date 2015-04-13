@@ -1,1 +1,4 @@
-work	"crc.vhd"
+work	"../../../../../opt/FPGA_Night_Final_Project/frame_types.vhd"
+work	"../../../../../opt/FPGA_Night_Final_Project/serial_rx_fifo.vhd"
+work	"../../../../../opt/FPGA_Night_Final_Project/uart_comms.vhd"
+work	"ipcore_dir/fifo.vhd"

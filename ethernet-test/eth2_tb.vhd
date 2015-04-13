@@ -2,15 +2,15 @@
 -- Company: 
 -- Engineer:
 --
--- Create Date:   17:43:54 04/11/2015
+-- Create Date:   18:25:36 04/11/2015
 -- Design Name:   
--- Module Name:   /home/main/git/FPGA-MISC/ethernet-test/crc_tb.vhd
+-- Module Name:   /home/main/git/FPGA-MISC/ethernet-test/eth2_tb.vhd
 -- Project Name:  ethernet-test
 -- Target Device:  
 -- Tool versions:  
 -- Description:   
 -- 
--- VHDL Test Bench Created by ISE for module: crc
+-- VHDL Test Bench Created by ISE for module: eth2
 -- 
 -- Dependencies:
 -- 
@@ -32,45 +32,63 @@ USE ieee.std_logic_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY crc_tb IS
-END crc_tb;
+ENTITY eth2_tb IS
+END eth2_tb;
  
-ARCHITECTURE behavior OF crc_tb IS 
+ARCHITECTURE behavior OF eth2_tb IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT crc
+    COMPONENT eth2
     PORT(
-         data_in : IN  std_logic_vector(143 downto 0);
-         crc_en : IN  std_logic;
-         rst : IN  std_logic;
          clk : IN  std_logic;
-         crc_out : OUT  std_logic_vector(31 downto 0)
+         rst : IN  std_logic;
+         mdio : INOUT  std_logic;
+         mdc : OUT  std_logic;
+         eth_rst : OUT  std_logic;
+         tx_clk : IN  std_logic;
+         tx_er : OUT  std_logic;
+         tx_en : OUT  std_logic;
+         tx_data : OUT  std_logic_vector(3 downto 0);
+         leds : OUT  std_logic_vector(7 downto 0)
         );
     END COMPONENT;
     
 
    --Inputs
-   signal data_in : std_logic_vector(143 downto 0) := (others => '0');
-   signal crc_en : std_logic := '0';
-   signal rst : std_logic := '0';
    signal clk : std_logic := '0';
+   signal rst : std_logic := '0';
+   signal tx_clk : std_logic := '0';
+
+	--BiDirs
+   signal mdio : std_logic;
 
  	--Outputs
-   signal crc_out : std_logic_vector(31 downto 0);
+   signal mdc : std_logic;
+   signal eth_rst : std_logic;
+   signal tx_er : std_logic;
+   signal tx_en : std_logic;
+   signal tx_data : std_logic_vector(3 downto 0);
+   signal leds : std_logic_vector(7 downto 0);
 
    -- Clock period definitions
    constant clk_period : time := 10 ns;
+   constant tx_clk_period : time := 10 ns;
  
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: crc PORT MAP (
-          data_in => data_in,
-          crc_en => crc_en,
-          rst => rst,
+   uut: eth2 PORT MAP (
           clk => clk,
-          crc_out => crc_out
+          rst => rst,
+          mdio => mdio,
+          mdc => mdc,
+          eth_rst => eth_rst,
+          tx_clk => tx_clk,
+          tx_er => tx_er,
+          tx_en => tx_en,
+          tx_data => tx_data,
+          leds => leds
         );
 
    -- Clock process definitions
@@ -82,6 +100,14 @@ BEGIN
 		wait for clk_period/2;
    end process;
  
+   tx_clk_process :process
+   begin
+		tx_clk <= '0';
+		wait for tx_clk_period/2;
+		tx_clk <= '1';
+		wait for tx_clk_period/2;
+   end process;
+ 
 
    -- Stimulus process
    stim_proc: process
@@ -90,14 +116,9 @@ BEGIN
 		rst <= '1';
       wait for 100 ns;	
 		rst <= '0';
-
       wait for clk_period*10;
-		
-		data_in <= x"ffffffffffff010203040506FFFFAABBCCDD";
-		crc_en <= '1';
-		wait for clk_period;
-		crc_en <= '0';
-		-- insert stimulus here 
+
+      -- insert stimulus here 
 
       wait;
    end process;
