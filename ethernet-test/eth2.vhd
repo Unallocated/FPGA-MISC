@@ -78,11 +78,10 @@ architecture Behavioral of eth2 is
 
   signal link_detected : std_logic;
 
-  constant payload : std_logic_vector(0 to (72 * 8) - 1) := x"555555555555555dffffffffffff007f28c9a48608010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001020304";
+  constant payload : std_logic_vector(0 to (72 * 8) - 1) := x"55555555555555d5ffffffffffff007f28c9a48608010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001020304";
   signal payload_pos : integer range 0 to payload'high;
-  type tx_state_t is (WAIT_FOR_LINK, SEND_PAYLOAD, STALL);
+  type tx_state_t is (WAIT_FOR_LINK, SEND_PAYLOAD_LOW, SEND_PAYLOAD_HIGH, STALL);
   signal byte_pos, nibble_pos : integer;
---  type tx_state_t is (WAIT_FOR_LINK, WAIT_FOR_DATA, SEND_PAYLOAD, STALL);
   signal tx_state : tx_state_t;
   signal stall_counter : integer;
   signal frame_data : frame_t;
@@ -100,82 +99,36 @@ begin
     frame_valid => frame_valid
   );
 
---  process(tx_clk, rst)
---  begin
---    if(rst = '1') then
---      tx_state <= WAIT_FOR_LINK;
---      frame_data <= (others => (others => '0'));
---      leds <= "01010101";
---    elsif(rising_edge(tx_clk)) then
---      last_frame_valid <= frame_valid;
---      case tx_state is
---        when WAIT_FOR_LINK =>
---          if(link_detected = '1') then
---            tx_state <= WAIT_FOR_DATA;
---          end if;
---
---        when WAIT_FOR_DATA =>
---          leds <= "01111110";
---          tx_en <= '0';
---          if(frame_valid = '1') then
---            frame_data <= current_frame;
---            tx_state <= SEND_PAYLOAD;
---            byte_pos <= 0;
---            nibble_pos <= 0;
---            leds <= "10000001";
---          end if;
---        when SEND_PAYLOAD =>
---          tx_en <= '1';
---          if(nibble_pos = 0) then
---            nibble_pos <= nibble_pos + 1;
---            tx_data <= frame_data(byte_pos + 3)(7 downto 4);
---          else
---            nibble_pos <= 0;
---            byte_pos <= byte_pos + 1;
---            tx_data <= frame_data(byte_pos + 3)(3 downto 0);
---          end if;
---
---          if(byte_pos = to_integer(unsigned(frame_data(2))) and nibble_pos = 1) then
---            nibble_pos <= 0;
---            byte_pos <= 0;
---            tx_state <= STALL;
---            stall_counter <= 0;
---          end if;
---
---        when STALL =>
---          tx_en <= '0';
---          
---          if(stall_counter = 1_000_000) then
---            tx_state <= WAIT_FOR_DATA;
---          end if;
---      end case;
---    end if;
---  end process;
-
   process(tx_clk, rst)
   begin
     if(rst = '1') then
       payload_pos <= 0;
       tx_state <= WAIT_FOR_LINK;
       stall_counter <= 0;
-		leds <= "00001111";
+		  leds <= "00001111";
     elsif(rising_edge(tx_clk)) then
       case tx_state is
         when WAIT_FOR_LINK =>
           if(link_detected = '1') then
-            tx_state <= SEND_PAYLOAD;
+            tx_state <= SEND_PAYLOAD_LOW;
+            byte_pos <= 0;
+            leds <= "01111110";
           end if;
         
-        when SEND_PAYLOAD =>
-			 leds <= "01111110";
+        when SEND_PAYLOAD_LOW =>
           tx_en <= '1';
-          payload_pos <= payload_pos + 4;
-          tx_data <= payload(payload_pos to payload_pos + 3);
 
-          if(payload_pos = payload'high - 3) then
-            payload_pos <= 0;
+          tx_data <= payload((byte_pos * 8) + 4 to (byte_pos * 8) + 7);
+          tx_state <= SEND_PAYLOAD_HIGH;
+
+        when SEND_PAYLOAD_HIGH =>
+          byte_pos <= byte_pos + 1;
+          tx_data <= payload((byte_pos * 8) to (byte_pos * 8) + 3);
+          tx_state <= SEND_PAYLOAD_LOW;
+
+          if(byte_pos = (payload'length - 8) / 8) then
+            byte_pos <= 0;
             tx_state <= STALL;
-            stall_counter <= 0;
           end if;
 
         when STALL =>
@@ -184,7 +137,7 @@ begin
 
           if(stall_counter = 1_000_000 - 1) then
             stall_counter <= 0;
-            tx_state <= SEND_PAYLOAD;
+            tx_state <= SEND_PAYLOAD_LOW;
           end if;
 
 
