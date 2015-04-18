@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "/home/main/git/FPGA-MISC/ethernet-test/crc_tb_isim_beh.exe" -prj "/home/main/git/FPGA-MISC/ethernet-test/crc_tb_beh.prj" "work.crc_tb" 
+-intstyle "ise" -incremental -lib "secureip" -o "/home/main/git/FPGA-MISC/ethernet-test/packet_capture_tb_isim_beh.exe" -prj "/home/main/git/FPGA-MISC/ethernet-test/packet_capture_tb_beh.prj" "work.packet_capture_tb" 

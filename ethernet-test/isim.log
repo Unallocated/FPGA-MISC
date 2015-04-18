@@ -1,0 +1,98 @@
+ISim log file
+Running: /home/main/git/FPGA-MISC/ethernet-test/packet_capture_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/main/git/FPGA-MISC/ethernet-test/packet_capture_tb_isim_beh.wdb 
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+at 0 ps: Note: WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information. (/packet_capture_tb/uut/fifo_inst/U0/gconvfifo/inst_conv_fifo/).
+Finished circuit initialization process.
+# restart
+# restart
+# run 1.00us
+Simulator is doing circuit initialization process.
+at 0 ps: Note: WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information. (/packet_capture_tb/uut/fifo_inst/U0/gconvfifo/inst_conv_fifo/).
+Finished circuit initialization process.
+# run 100.00us
+# run 100.00us
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+at 0 ps: Note: WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information. (/packet_capture_tb/uut/fifo_inst/U0/gconvfifo/inst_conv_fifo/).
+Finished circuit initialization process.
+# run 100.00us
+# isim force add /packet_capture_tb/uut/eth_link_established 1 -radix bin
+# run 100.00us
+# run 100.00us
+# run 10000.00us
+Stopped at time : 807645 ns : File "/home/main/git/FPGA-MISC/ethernet-test/packet_capture_tb.vhd" Line 106
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+at 0 ps: Note: WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information. (/packet_capture_tb/uut/fifo_inst/U0/gconvfifo/inst_conv_fifo/).
+Finished circuit initialization process.
+
+** Failure:arguments of overloaded 'or' operator are not of the same length
+User(VHDL) Code Called Simulation Stop
+In process packet_capture.vhd:100 
+ 
+INFO: Simulator is stopped.
+# run 10000.00us
+INFO: Simulator is stopped.
+# run 10000.00us
+INFO: Simulator is stopped.
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+at 0 ps: Note: WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information. (/packet_capture_tb/uut/fifo_inst/U0/gconvfifo/inst_conv_fifo/).
+Finished circuit initialization process.
+# run 10000.00us
+Stopped at time : 627310 ns : File "/home/main/git/FPGA-MISC/ethernet-test/packet_capture.vhd" Line 96
+# isim force add /packet_capture_tb/uut/eth_link_established 1 -radix bin
+# run 10000.00us
+Stopped at time : 1924685 ns : File "/home/main/git/FPGA-MISC/ethernet-test/packet_capture_tb.vhd" Line 106
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+at 0 ps: Note: WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information. (/packet_capture_tb/uut/fifo_inst/U0/gconvfifo/inst_conv_fifo/).
+Finished circuit initialization process.
+# isim force add /packet_capture_tb/uut/eth_link_established 1 -radix bin
+# run 10000.00us
+Stopped at time : 151145 ns : File "/home/main/git/FPGA-MISC/ethernet-test/packet_capture_tb.vhd" Line 106
+# run 10000.00us
+Stopped at time : 1641865 ns : File "/home/main/git/FPGA-MISC/ethernet-test/packet_capture_tb.vhd" Line 106
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+at 0 ps: Note: WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information. (/packet_capture_tb/uut/fifo_inst/U0/gconvfifo/inst_conv_fifo/).
+Finished circuit initialization process.
+# run 10000.00us
+Stopped at time : 134135 ns : File "/home/main/git/FPGA-MISC/ethernet-test/packet_capture.vhd" Line 113
+# isim force add /packet_capture_tb/uut/eth_link_established 1 -radix bin
+# run 10000.00us
+Stopped at time : 708990 ns : File "/home/main/git/FPGA-MISC/ethernet-test/packet_capture_tb.vhd" Line 104

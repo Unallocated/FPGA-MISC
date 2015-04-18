@@ -135,7 +135,7 @@ begin
           tx_en <= '0';
           stall_counter <= stall_counter + 1;
 
-          if(stall_counter = 1_000_000 - 1) then
+          if(stall_counter = 16 - 1) then
             stall_counter <= 0;
             tx_state <= SEND_PAYLOAD_LOW;
           end if;
@@ -204,7 +204,7 @@ begin
     base_clk => clk,
     base_clk_copy => clk_100mhz,
     smi_clk => smi_clk,
-    smi_clk_ce => eth_rdy
+    smi_clk_ce => eth_reset_complete
   ); 
 
   Inst_smi_ramlike: smi_ramlike PORT MAP(

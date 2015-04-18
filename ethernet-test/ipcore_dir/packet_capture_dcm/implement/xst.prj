@@ -1,0 +1,2 @@
+vhdl work ../../packet_capture_dcm.vhd
+vhdl work ../example_design/packet_capture_dcm_exdes.vhd
