@@ -77,8 +77,7 @@ ARCHITECTURE behavior OF packet_capture_tb IS
 
    -- Clock period definitions
    constant clk_period : time := 10 ns;
-   constant tx_clk_period : time := 10 ns;
-   constant adc_clk_period : time := 10 ns;
+   constant tx_clk_period : time := 40 ns;
  
 BEGIN
  

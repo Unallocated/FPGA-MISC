@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="packet_capture_fifo">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2015-4-15T3:9:6</timestamp>
+    <timestamp>2015-4-18T23:43:40</timestamp>
     <pin polarity="Input" x="0" y="112" name="rst" />
     <pin polarity="Input" x="0" y="208" name="wr_clk" />
     <pin polarity="Input" x="0" y="240" name="din[7:0]" />
