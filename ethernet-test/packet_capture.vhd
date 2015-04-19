@@ -16,7 +16,9 @@ entity packet_capture is
          mdc : out std_logic;
          adc_clk : out std_logic;
          adc_data : in std_logic_vector(7 downto 0);
-         leds : out std_logic_vector(7 downto 0)
+         leds : out std_logic_vector(7 downto 0);
+         sine_out : out std_logic_vector(7 downto 0);
+         sine_inc : in std_logic_vector(7 downto 0)
   );
 end packet_capture;
 
@@ -81,7 +83,15 @@ architecture behave of packet_capture is
     );
   END COMPONENT;
 
-  type eth_tx_state_t is (WAIT_FOR_FIFO_FULL, SEND_PREAMBLE, SEND_HEADER, SEND_DATA, PACKET_GAP);
+  COMPONENT sine_gen
+    PORT (
+      clk : IN STD_LOGIC;
+      pinc_in : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      sine : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+    );
+  END COMPONENT;
+
+  type eth_tx_state_t is (WAIT_FOR_FIFO_FULL, SEND_PREAMBLE, SEND_HEADER, SEND_DATA, SEND_CRC, PACKET_GAP);
   signal eth_tx_state : eth_tx_state_t;
   constant eth_source_mac : std_logic_vector(0 to (6 * 8) - 1) := x"000102030405";
   constant eth_dest_mac : std_logic_vector(0 to (6 * 8) - 1) := x"ffffffffffff";
@@ -90,7 +100,7 @@ architecture behave of packet_capture is
   constant eth_preamble : std_logic_vector(0 to (9 * 8) - 1) := x"55_55_55_55_55_55_55_55_5D";
   --constant eth_header : std_logic_vector(0 to (14 * 8) - 1) := x"ff_ff_ff_ff_ff_ff_00_01_02_03_04_05_08_00";
   constant eth_header : std_logic_vector(0 to (14 * 8) - 1) := eth_dest_mac & eth_source_mac & eth_protocol_id;
-  constant eth_payload_size_bytes : positive := 100;
+  constant eth_payload_size_bytes : positive := 60;
   signal eth_tx_counter : integer range 0 to (eth_payload_size_bytes * 2);
   signal pattern : std_logic_vector(31 downto 0);
   function reverse_any_vector (a: in std_logic_vector) return std_logic_vector is
@@ -102,6 +112,43 @@ architecture behave of packet_capture is
     end loop;
     return result;
   end; -- function reverse_any_vector
+
+  function crc32(initial_value : std_logic_vector(31 downto 0); data : std_logic_vector(7 downto 0); is_last : std_logic) return std_logic_vector is
+    variable crc : std_logic_vector(31 downto 0) := x"FFFFFFFF";
+    variable temp : std_logic_vector(31 downto 0) := x"00000000";
+  begin
+    for i in 0 to 7 loop
+      temp(31-i) := data(i);
+    end loop;
+
+    crc := initial_value;
+
+    for i in 0 to 7 loop
+
+      if(((temp xor crc) and x"80000000") = x"80000000") then
+        crc := (crc(30 downto 0) & '0') xor x"04C11DB7";
+      else
+        crc := crc(30 downto 0) & '0';
+      end if;
+
+      temp := temp(30 downto 0) & '0';
+
+    end loop;
+
+    if(is_last = '1') then
+      for i in 31 downto 0 loop
+        temp(i) := not crc(31 - i);
+      end loop;
+
+      return temp;
+    else
+      return crc;
+    end if;
+  end crc32;
+
+  signal crc : std_logic_vector(31 downto 0);
+  signal is_first_nibble : std_logic;
+  signal last_nibble : std_logic_vector(3 downto 0);
 begin
 
 
@@ -121,23 +168,11 @@ begin
       nibble := '0';
       pattern <= x"11223344";
     elsif(rising_edge(adc_clk_b)) then
-      --if(nibble = '0') then
-      --  --fifo_din <= std_logic_vector(counter(3 downto 0) & counter(7 downto 4));
-      --  fifo_din <= (std_logic_vector(counter(7 downto 0)));
-      --else
-      --  --fifo_din <= std_logic_vector(counter(11 downto 8) & counter(15 downto 12));
-      --  fifo_din <= (std_logic_vector(counter(15 downto 8)));
-      --  counter := counter + 1;
-      --end if;
-      --
-      --nibble := not nibble;
-      --fifo_din <= adc_data(3 downto 0) & adc_data(7 downto 4);
-      
       if(fifo_empty = '1' and fifo_full = '1') then
         null;
       else
-        fifo_din <= pattern(pattern'high downto pattern'high - 7);
-        pattern <= pattern(pattern'high - 8 downto 0) & pattern(pattern'high downto pattern'high - 7);
+        --fifo_din <= adc_data(3 downto 0) & adc_data(7 downto 4);
+        fifo_din <= x"a6";
         --fifo_din <= std_logic_vector(counter(3 downto 0)) & std_logic_vector(counter(7 downto 4));
         counter := counter + 1;
       end if;
@@ -152,6 +187,9 @@ begin
       tx_en <= '0';
       tx_data <= (others => '0');
       fifo_rd_en <= '0';
+      crc <= (others => '1');
+      is_first_nibble <= '1';
+      last_nibble <= (others => '0');
     elsif(rising_edge(tx_clk)) then
       case eth_tx_state is
         when WAIT_FOR_FIFO_FULL =>
@@ -169,11 +207,20 @@ begin
           if(eth_tx_counter = eth_preamble'high - 3) then
             eth_tx_state <= SEND_HEADER;
             eth_tx_counter <= 0;
+            crc <= (others => '1');
+            is_first_nibble <= '1';
           end if;
         when SEND_HEADER =>
+          is_first_nibble <= not is_first_nibble;
           eth_tx_counter <= eth_tx_counter + 4;
           tx_data <= eth_header((eth_tx_counter) to (eth_tx_counter) + 3);
-
+  
+          if(is_first_nibble = '1') then
+            last_nibble <= eth_header((eth_tx_counter) to (eth_tx_counter) + 3);
+          else
+            crc <= crc32(crc, eth_header((eth_tx_counter) to (eth_tx_counter) + 3) & last_nibble, '0');
+          end if;
+           
           if(eth_tx_counter = eth_header'high - 3) then
             eth_tx_state <= SEND_DATA;
             eth_tx_counter <= 0;
@@ -181,18 +228,64 @@ begin
           end if;
         when SEND_DATA =>
           --fifo_rd_en <= '1';
+          is_first_nibble <= not is_first_nibble;       
           tx_data <= fifo_dout;
           eth_tx_counter <= eth_tx_counter + 1;
           
           if(eth_tx_counter = (eth_payload_size_bytes * 2) - 1) then
             fifo_rd_en <= '0';
+            crc <= crc32(crc, fifo_dout & last_nibble, '1');
+          --elsif(eth_tx_counter = (eth_payload_size_bytes * 2)) then
+          --  fifo_rd_en <= '0';
+            eth_tx_state <= SEND_CRC;
+            eth_tx_counter <= 0;
+          else
+            if(is_first_nibble = '1') then
+              last_nibble <= fifo_dout;
+            else
+              crc <= crc32(crc, fifo_dout & last_nibble, '0');
+            end if;
           end if;
 
-          if(eth_tx_counter = (eth_payload_size_bytes * 2)) then
-            fifo_rd_en <= '0';
-            eth_tx_state <= PACKET_GAP;
-            eth_tx_counter <= 0;
-          end if;
+        when SEND_CRC =>
+          eth_tx_counter <= eth_tx_counter + 1;
+          
+          case eth_tx_counter is
+            when 7 =>
+              tx_data <= crc(31 downto 28);
+              eth_tx_state <= PACKET_GAP;
+            when 6 =>
+              tx_data <= crc(27 downto 24);
+            when 5 =>
+              tx_data <= crc(23 downto 20);
+            when 4 =>
+              tx_data <= crc(19 downto 16);
+            when 3 =>
+              tx_data <= crc(15 downto 12);
+            when 2 =>
+              tx_data <= crc(11 downto 8);
+            when 1 =>
+              tx_data <= crc(7 downto 4);
+            when 0 =>
+              tx_data <= crc(3 downto 0);
+            when others =>
+              eth_tx_state <= PACKET_GAP;
+          end case;
+              --tx_data <= crc(31 downto 28);
+              --tx_data <= crc(27 downto 24);
+              --tx_data <= crc(23 downto 20);
+              --tx_data <= crc(19 downto 16);
+              --tx_data <= crc(15 downto 12);
+              --tx_data <= crc(11 downto 8);
+              --tx_data <= crc(7 downto 4);
+              --tx_data <= crc(3 downto 0);
+              
+
+
+          --tx_data <= crc(31 - eth_tx_counter downto 31 - eth_tx_counter - 3);
+          --if(eth_tx_counter = 28) then
+          --  eth_tx_state <= PACKET_GAP;
+          --end if;
         when PACKET_GAP =>
           tx_en <= '0';
           eth_tx_counter <= eth_tx_counter + 1;
@@ -297,5 +390,12 @@ begin
     smi_clk => smi_clk,
     adc_clk_CE => eth_link_established,
     adc_clk => adc_clk_b);
+
+  sine_gen_inst : sine_gen
+    PORT MAP (
+      clk => adc_clk_b,
+      pinc_in => sine_inc,
+      sine => sine_out
+    );
 
 end behave;

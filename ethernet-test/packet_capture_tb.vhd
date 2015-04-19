@@ -52,7 +52,9 @@ ARCHITECTURE behavior OF packet_capture_tb IS
          mdc : OUT  std_logic;
          adc_clk : OUT  std_logic;
          adc_data : IN  std_logic_vector(7 downto 0);
-         leds : OUT  std_logic_vector(7 downto 0)
+         leds : OUT  std_logic_vector(7 downto 0);
+			sine_out : out std_logic_vector(7 downto 0);
+			sine_inc : in std_logic_vector(7 downto 0)
         );
     END COMPONENT;
     
@@ -62,6 +64,7 @@ ARCHITECTURE behavior OF packet_capture_tb IS
    signal rst : std_logic := '0';
    signal tx_clk : std_logic := '0';
    signal adc_data : std_logic_vector(7 downto 0) := (others => '0');
+	signal sine_inc : std_logic_vector(7 downto 0) := x"02";
 
 	--BiDirs
    signal mdio : std_logic;
@@ -74,6 +77,7 @@ ARCHITECTURE behavior OF packet_capture_tb IS
    signal mdc : std_logic;
    signal adc_clk : std_logic;
    signal leds : std_logic_vector(7 downto 0);
+	signal sine_out : std_logic_vector(7 downto 0);
 
    -- Clock period definitions
    constant clk_period : time := 10 ns;
@@ -93,8 +97,10 @@ BEGIN
           mdio => mdio,
           mdc => mdc,
           adc_clk => adc_clk,
-          adc_data => adc_data,
-          leds => leds
+          adc_data => sine_out,
+          leds => leds,
+			 sine_out => sine_out,
+			 sine_inc => sine_inc
         );
 
    -- Clock process definitions
