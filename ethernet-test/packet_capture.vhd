@@ -83,6 +83,7 @@ architecture behave of packet_capture is
     );
   END COMPONENT;
 
+  signal sine_out_buffer : std_logic_vector(7 downto 0);
   COMPONENT sine_gen
     PORT (
       clk : IN STD_LOGIC;
@@ -93,26 +94,18 @@ architecture behave of packet_capture is
 
   type eth_tx_state_t is (WAIT_FOR_FIFO_FULL, SEND_PREAMBLE, SEND_HEADER, SEND_DATA, SEND_CRC, PACKET_GAP);
   signal eth_tx_state : eth_tx_state_t;
+  
   constant eth_source_mac : std_logic_vector(0 to (6 * 8) - 1) := x"000102030405";
   constant eth_dest_mac : std_logic_vector(0 to (6 * 8) - 1) := x"ffffffffffff";
   constant eth_protocol_id : std_logic_vector(0 to (2 * 8) - 1) := x"0800";
 
   constant eth_preamble : std_logic_vector(0 to (9 * 8) - 1) := x"55_55_55_55_55_55_55_55_5D";
-  --constant eth_header : std_logic_vector(0 to (14 * 8) - 1) := x"ff_ff_ff_ff_ff_ff_00_01_02_03_04_05_08_00";
   constant eth_header : std_logic_vector(0 to (14 * 8) - 1) := eth_dest_mac & eth_source_mac & eth_protocol_id;
   constant eth_payload_size_bytes : positive := 60;
+  
   signal eth_tx_counter : integer range 0 to (eth_payload_size_bytes * 2);
   signal pattern : std_logic_vector(31 downto 0);
-  function reverse_any_vector (a: in std_logic_vector) return std_logic_vector is
-    variable result: std_logic_vector(a'RANGE);
-    alias aa: std_logic_vector(a'REVERSE_RANGE) is a;
-  begin
-    for i in aa'RANGE loop
-      result(i) := aa(i);
-    end loop;
-    return result;
-  end; -- function reverse_any_vector
-
+  
   function crc32(initial_value : std_logic_vector(31 downto 0); data : std_logic_vector(7 downto 0); is_last : std_logic) return std_logic_vector is
     variable crc : std_logic_vector(31 downto 0) := x"FFFFFFFF";
     variable temp : std_logic_vector(31 downto 0) := x"00000000";
@@ -168,11 +161,12 @@ begin
       nibble := '0';
       pattern <= x"11223344";
     elsif(rising_edge(adc_clk_b)) then
+      sine_out <= std_logic_vector(unsigned(sine_out_buffer) + 128);
       if(fifo_empty = '1' and fifo_full = '1') then
         null;
       else
-        --fifo_din <= adc_data(3 downto 0) & adc_data(7 downto 4);
-        fifo_din <= x"a6";
+        fifo_din <= adc_data(3 downto 0) & adc_data(7 downto 4);
+        --fifo_din <= x"a6";
         --fifo_din <= std_logic_vector(counter(3 downto 0)) & std_logic_vector(counter(7 downto 4));
         counter := counter + 1;
       end if;
@@ -395,7 +389,7 @@ begin
     PORT MAP (
       clk => adc_clk_b,
       pinc_in => sine_inc,
-      sine => sine_out
+      sine => sine_out_buffer
     );
 
 end behave;
