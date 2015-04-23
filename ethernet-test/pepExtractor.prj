@@ -1,4 +1,1 @@
-work	"ipcore_dir/packet_capture_dcm.vhd"
-work	"ipcore_dir/packet_capture_fifo.vhd"
-work	"packet_capture.vhd"
-work	"smi_ramlike.vhd"
+work	"usrp_like.vhd"

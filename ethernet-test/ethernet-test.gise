@@ -31,6 +31,11 @@
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="test_guide.ncd" xil_pn:origination="imported"/>
   </files>
 
-  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1429752758" xil_pn:in_ck="-3893583440785408745" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1429752758">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+  </transforms>
 
 </generated_project>
