@@ -1,0 +1,2 @@
+vhdl work ../../usrp_like_dcm.vhd
+vhdl work ../example_design/usrp_like_dcm_exdes.vhd

@@ -1,0 +1,1 @@
+vhdtdtfi -prj ethernet-test -o /home/main/git/FPGA-MISC/ethernet-test/smi_ramlike.vhi -module smi_ramlike -template /opt/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work smi_ramlike.vhd 
