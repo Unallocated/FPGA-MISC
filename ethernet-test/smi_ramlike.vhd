@@ -43,7 +43,9 @@ begin
       working <= '0';
       done <= '0';
       rdy <= '0';
+      mdio <= '1';
       data_out_buffer <= (others => '0');
+      data_out <= (others => '0');
       data_in_buffer <= (others => '0');
       currently_writing <= '0';
       last_rd_en <= '1';

@@ -8,19 +8,25 @@
 <msg type="info" file="sim" num="172" delta="old" >Generating IP...
 </msg>
 
-<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">A core named &apos;usrp_like_dcm&apos; already exists in the project. Output products for this core may be overwritten.</arg>
+<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">A core named &apos;usrp_like_buffer&apos; already exists in the project. Output products for this core may be overwritten.</arg>
 </msg>
 
-<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">A core named &apos;usrp_like_dcm&apos; already exists in the project. Output products for this core may be overwritten.</arg>
+<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">A core named &apos;usrp_like_buffer&apos; already exists in the project. Output products for this core may be overwritten.</arg>
 </msg>
 
-<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">Component clk_wiz_v3_6 does not have a valid model name for VHDL synthesis</arg>
+<msg type="info" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">Pre-processing HDL files for &apos;usrp_like_buffer&apos;...</arg>
 </msg>
 
-<msg type="info" file="sim" num="949" delta="old" >Finished generation of ASY schematic symbol.
+<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">BlackBox generator run option &apos;-ifmt&apos; found multiple times. Only the first occurence is considered.</arg>
 </msg>
 
-<msg type="info" file="sim" num="948" delta="old" >Finished FLIST file generation.
+<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">Overwriting existing file /home/main/git/FPGA-MISC/ethernet-test/ipcore_dir/tmp/_cg/usrp_like_buffer/doc/fifo_generator_v9_3_vinfo.html with file from view xilinx_documentation</arg>
+</msg>
+
+<msg type="info" file="sim" num="949" delta="new" >Finished generation of ASY schematic symbol.
+</msg>
+
+<msg type="info" file="sim" num="948" delta="new" >Finished FLIST file generation.
 </msg>
 
 </messages>

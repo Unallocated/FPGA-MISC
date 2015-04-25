@@ -12,25 +12,59 @@ entity usrp_like is
             ip_dest : std_logic_vector((4 * 8) - 1 downto 0) := x"FFFFFFFF";
             udp_source : std_logic_vector((2 * 8) - 1 downto 0) := x"1F98";
             udp_dest : std_logic_vector((2 * 8) - 1 downto 0) := x"1F98";
-            payload_size : positive range 40 to 1400 := 600;
+            payload_size : positive range 1 to 1400 := 600;
             reset_pause_cycles : positive := 100_000_000);
   port ( clk : in std_logic;
          rst : in std_logic;
          eth_rst_n : out std_logic;
          eth_tx_data : out std_logic_vector(eth_width-1 downto 0);
+         eth_tx_en : out std_logic;
          eth_tx_er : out std_logic;
          eth_tx_clk : in std_logic;
          eth_smi_mdio : inout std_logic;
          eth_smi_clk : out std_logic;
-         debugging : out std_logic_vector(7 downto 0);
          data_in : in std_logic_vector(7 downto 0);
          wr_en : in std_logic;
          wr_clk : in std_logic;
          buffer_full : out std_logic;
-         buffer_empty : out std_logic );
+         buffer_empty : out std_logic;
+         eth_link_established : out std_logic);
 end usrp_like;
 
 architecture behave of usrp_like is
+
+  function crc32(initial_value : std_logic_vector(31 downto 0); data : std_logic_vector(7 downto 0); is_last : std_logic) return std_logic_vector is
+    variable crc : std_logic_vector(31 downto 0) := x"FFFFFFFF";
+    variable temp : std_logic_vector(31 downto 0) := x"00000000";
+  begin
+    for i in 0 to 7 loop
+      temp(31-i) := data(i);
+    end loop;
+
+    crc := initial_value;
+
+    for i in 0 to 7 loop
+
+      if(((temp xor crc) and x"80000000") = x"80000000") then
+        crc := (crc(30 downto 0) & '0') xor x"04C11DB7";
+      else
+        crc := crc(30 downto 0) & '0';
+      end if;
+
+      temp := temp(30 downto 0) & '0';
+
+    end loop;
+
+    if(is_last = '1') then
+      for i in 31 downto 0 loop
+        temp(i) := not crc(31 - i);
+      end loop;
+
+      return temp;
+    else
+      return crc;
+    end if;
+  end crc32;
 
   function nibbleReverse(data : in std_logic_vector((50 * 8) - 1 downto 0)) return std_logic_vector is
     variable temp : std_logic_vector(data'range) := (others => '0');
@@ -88,7 +122,7 @@ architecture behave of usrp_like is
   constant udp_header          : std_logic_vector((8 * 8) - 1 downto 0) := udp_source & udp_dest & std_logic_vector(to_unsigned(payload_size + 8, 16)) & x"0000";
   constant packet_header       : std_logic_vector((eth_header'length + ip_header'length + udp_header'length) - 1 downto 0) := nibbleReverse(eth_header & ip_header & udp_header);
 
-  signal orig_clk, smi_clk, smi_clk_ce : std_logic;
+  signal orig_clk, smi_clk : std_logic;
   COMPONENT usrp_like_dcm
     PORT (
       clk_100mhz : IN STD_LOGIC;
@@ -101,7 +135,7 @@ architecture behave of usrp_like is
 
   signal smi_working, smi_done, smi_rdy, smi_rd_en : std_logic;
   signal smi_dout : std_logic_vector(15 downto 0);
-  signal eth_link_established : std_logic;
+  signal eth_link_established_buffer : std_logic;
   type smi_state_t is (SMI_IDLE, SMI_WAIT_FOR_READY, SMI_START_READ, SMI_WAIT_BUSY, SMI_WAIT_DONE);
   signal smi_state : smi_state_t;
   COMPONENT smi_ramlike
@@ -144,19 +178,130 @@ architecture behave of usrp_like is
   signal reset_counter : unsigned(neededBits(reset_pause_cycles-1) - 1 downto 0);
   signal eth_reset_complete : std_logic;
 
-  type eth_transmit_state_t is (WAIT_FOR_DATA, SEND_ETH_PREAMBLE, SEND_ETH_HEADER, SEND_IP_HEADER, SEND_UDP_HEADER, SEND_PAYLOAD, SEND_ETH_CRC, PACKET_GAP);
+  signal packet_header_data_position : unsigned(neededBits(packet_header'length) - 1 downto 0);
+  signal payload_data_position : unsigned(neededBits(payload_size * 2) - 1 downto 0);
+  
+  type eth_transmit_state_t is (WAIT_FOR_DATA, SEND_HEADERS, SEND_PAYLOAD, SEND_ETH_CRC, PACKET_GAP);
   signal eth_transmit_state : eth_transmit_state_t;
 
+  signal eth_crc : std_logic_vector(31 downto 0);
+  signal eth_crc_is_first_nibble : std_logic;
+  signal eth_crc_position : unsigned(neededBits(eth_crc'length/4) - 1 downto 0);
+  signal eth_crc_last_nibble : std_logic_vector(3 downto 0);
+
+  signal eth_packet_gap_counter : unsigned(neededBits(100) - 1 downto 0);
 begin
+
+  eth_smi_clk <= smi_clk;
 
   process(eth_tx_clk, rst)
   begin
     if(rst = '1') then
       eth_transmit_state <= WAIT_FOR_DATA;
+      eth_tx_data <= (others => '0');
+      eth_tx_en <= '0';
+      eth_tx_er <= '0';
+      buffer_rd_en <= '0';
+      packet_header_data_position <= (others => '0');
+      eth_crc_is_first_nibble <= '1';
+      eth_crc <=  (others => '1');
+      eth_crc_last_nibble <= (others => '0');
+      eth_crc_position <= (others => '0');
+      eth_packet_gap_counter <= (others => '0');
     elsif(rising_edge(eth_tx_clk)) then
-      if(eth_reset_complete = '1' and eth_link_established = '1') then
-        --case eth_transmit_state is
-          --when WAIT_FOR_DATA =>
+      if(eth_reset_complete = '1' and eth_link_established_buffer = '1') then
+        case eth_transmit_state is
+          when WAIT_FOR_DATA =>
+            eth_tx_en <= '0';
+            eth_tx_data <= (others => '0');
+
+            if(buffer_prog_full = '1') then
+              eth_transmit_state <= SEND_HEADERS;
+              packet_header_data_position <= to_unsigned(packet_header'high, packet_header_data_position'length);
+              eth_crc <= (others => '1');              
+            end if;
+          
+          when SEND_HEADERS =>
+            eth_tx_en <= '1';
+            packet_header_data_position <= packet_header_data_position - 4;
+            eth_tx_data <= packet_header(to_integer(packet_header_data_position) downto to_integer(packet_header_data_position - 3));
+
+            if(packet_header_data_position < packet_header'length - eth_header_preamble'high) then
+              if(eth_crc_is_first_nibble = '1') then
+                eth_crc_last_nibble <= packet_header(to_integer(packet_header_data_position) downto to_integer(packet_header_data_position - 3));
+              else
+                eth_crc <= crc32(eth_crc, packet_header(to_integer(packet_header_data_position) downto to_integer(packet_header_data_position - 3)) & eth_crc_last_nibble, '0');
+              end if;
+
+              eth_crc_is_first_nibble <= not eth_crc_is_first_nibble;
+            end if;
+
+            if(packet_header_data_position = 7) then
+              buffer_rd_en <= '1';
+            end if;
+
+            if(packet_header_data_position = 3) then
+              eth_transmit_state <= SEND_PAYLOAD;
+              packet_header_data_position <= (others => '0');
+              payload_data_position <= (others => '0');
+            end if;
+          when SEND_PAYLOAD =>
+            eth_crc_is_first_nibble <= not eth_crc_is_first_nibble;
+            payload_data_position <= payload_data_position + 1;
+            eth_tx_data <= buffer_dout;
+
+            if(payload_data_position = (payload_size * 2) - 1) then
+              buffer_rd_en <= '0';
+              eth_transmit_state <= SEND_ETH_CRC;
+              payload_data_position <= (others => '0');
+              eth_crc <= crc32(eth_crc, buffer_dout & eth_crc_last_nibble, '1');
+              eth_crc_position <= (others => '0');
+            else
+              if(eth_crc_is_first_nibble = '1') then
+                eth_crc_last_nibble <= buffer_dout;
+              else
+                eth_crc <= crc32(eth_crc, buffer_dout & eth_crc_last_nibble, '0');
+              end if;
+            end if;
+
+          when SEND_ETH_CRC =>
+            eth_crc_position <= eth_crc_position + 1;
+            
+            case to_integer(eth_crc_position) is
+              when 7 =>
+                eth_tx_data <= eth_crc(31 downto 28);
+                eth_transmit_state <= PACKET_GAP;
+                eth_crc_position <= (others => '0');
+                eth_packet_gap_counter <= (others => '0');
+              when 6 =>
+                eth_tx_data <= eth_crc(27 downto 24);
+              when 5 =>
+                eth_tx_data <= eth_crc(23 downto 20);
+              when 4 =>
+                eth_tx_data <= eth_crc(19 downto 16);
+              when 3 =>
+                eth_tx_data <= eth_crc(15 downto 12);
+              when 2 =>
+                eth_tx_data <= eth_crc(11 downto 8);
+              when 1 =>
+                eth_tx_data <= eth_crc(7 downto 4);
+              when 0 =>
+                eth_tx_data <= eth_crc(3 downto 0);
+              when others =>
+                eth_transmit_state <= PACKET_GAP;
+            end case;
+
+
+          when PACKET_GAP =>
+            eth_tx_en <= '0';
+            eth_packet_gap_counter <= eth_packet_gap_counter + 1;
+
+            if(eth_packet_gap_counter = 100) then
+              eth_packet_gap_counter <= (others => '0');
+              eth_transmit_state <= WAIT_FOR_DATA;
+            end if;
+
+        end case;
             
       end if;
     end if;
@@ -172,7 +317,9 @@ begin
   begin
     if(rst = '1') then
       eth_link_established <= '0';
+      eth_link_established_buffer <= '0';
       smi_state <= SMI_IDLE;
+      smi_rd_en <= '0';
     elsif(rising_edge(smi_clk)) then
       case smi_state is
         when SMI_IDLE =>
@@ -192,6 +339,7 @@ begin
         when SMI_WAIT_DONE =>
           if(smi_done = '1') then
             eth_link_established <= smi_dout(2);
+            eth_link_established_buffer <= smi_dout(2);
             smi_state <= SMI_IDLE;
           end if;
       end case;

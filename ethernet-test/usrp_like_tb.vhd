@@ -2,7 +2,7 @@
 -- Company: 
 -- Engineer:
 --
--- Create Date:   22:29:45 04/22/2015
+-- Create Date:   09:02:01 04/25/2015
 -- Design Name:   
 -- Module Name:   /home/main/git/FPGA-MISC/ethernet-test/usrp_like_tb.vhd
 -- Project Name:  ethernet-test
@@ -30,7 +30,7 @@ USE ieee.std_logic_1164.ALL;
  
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
+USE ieee.numeric_std.ALL;
  
 ENTITY usrp_like_tb IS
 END usrp_like_tb;
@@ -40,18 +40,26 @@ ARCHITECTURE behavior OF usrp_like_tb IS
     -- Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT usrp_like
+	 GENERIC(
+			payload_size : positive range 1 to 1400 := 6;
+			reset_pause_cycles : positive := 100
+	 );
     PORT(
          clk : IN  std_logic;
          rst : IN  std_logic;
+         eth_rst_n : OUT  std_logic;
          eth_tx_data : OUT  std_logic_vector(3 downto 0);
          eth_tx_er : OUT  std_logic;
          eth_tx_clk : IN  std_logic;
+			eth_tx_en : OUT std_logic;
          eth_smi_mdio : INOUT  std_logic;
          eth_smi_clk : OUT  std_logic;
-         leds : OUT  std_logic_vector(7 downto 0);
-         sine_out : OUT  std_logic_vector(7 downto 0);
-         adc_clk : OUT  std_logic;
-         adc_data : IN  std_logic_vector(7 downto 0)
+         data_in : IN  std_logic_vector(7 downto 0);
+         wr_en : IN  std_logic;
+         wr_clk : IN  std_logic;
+         buffer_full : OUT  std_logic;
+         buffer_empty : OUT  std_logic;
+			eth_link_established : OUT std_logic
         );
     END COMPONENT;
     
@@ -60,24 +68,31 @@ ARCHITECTURE behavior OF usrp_like_tb IS
    signal clk : std_logic := '0';
    signal rst : std_logic := '0';
    signal eth_tx_clk : std_logic := '0';
-   signal adc_data : std_logic_vector(7 downto 0) := (others => '0');
+   signal data_in : std_logic_vector(7 downto 0) := (others => '0');
+   signal wr_en : std_logic := '0';
+   signal wr_clk : std_logic := '0';
 
 	--BiDirs
    signal eth_smi_mdio : std_logic;
 
  	--Outputs
+   signal eth_rst_n : std_logic;
    signal eth_tx_data : std_logic_vector(3 downto 0);
    signal eth_tx_er : std_logic;
    signal eth_smi_clk : std_logic;
-   signal leds : std_logic_vector(7 downto 0);
-   signal sine_out : std_logic_vector(7 downto 0);
-   signal adc_clk : std_logic;
+   signal buffer_full : std_logic;
+   signal buffer_empty : std_logic;
+	signal eth_link_established : std_logic;
+	signal eth_tx_en : std_logic;
 
    -- Clock period definitions
    constant clk_period : time := 10 ns;
    constant eth_tx_clk_period : time := 10 ns;
    constant eth_smi_clk_period : time := 10 ns;
-   constant adc_clk_period : time := 10 ns;
+   constant wr_clk_period : time := 10 ns;
+ 
+	signal samps : std_logic_vector(32 + 2 + 2 + 5 + 5 + 1 - 1 downto 0) := (others => '0');
+	signal data : std_logic_vector(15 downto 0) := "0000000000001000";
  
 BEGIN
  
@@ -85,15 +100,17 @@ BEGIN
    uut: usrp_like PORT MAP (
           clk => clk,
           rst => rst,
+          eth_rst_n => eth_rst_n,
           eth_tx_data => eth_tx_data,
           eth_tx_er => eth_tx_er,
           eth_tx_clk => eth_tx_clk,
           eth_smi_mdio => eth_smi_mdio,
           eth_smi_clk => eth_smi_clk,
-          leds => leds,
-          sine_out => sine_out,
-          adc_clk => adc_clk,
-          adc_data => adc_data
+          data_in => data_in,
+          wr_en => wr_en,
+          wr_clk => wr_clk,
+          buffer_full => buffer_full,
+          buffer_empty => buffer_empty
         );
 
    -- Clock process definitions
@@ -113,33 +130,50 @@ BEGIN
 		wait for eth_tx_clk_period/2;
    end process;
  
-   eth_smi_clk_process :process
+ 
+   wr_clk_process :process
    begin
-		eth_smi_clk <= '0';
-		wait for eth_smi_clk_period/2;
-		eth_smi_clk <= '1';
-		wait for eth_smi_clk_period/2;
+		wr_clk <= '0';
+		wait for wr_clk_period/2;
+		wr_clk <= '1';
+		wait for wr_clk_period/2;
    end process;
  
-   adc_clk_process :process
-   begin
-		adc_clk <= '0';
-		wait for adc_clk_period/2;
-		adc_clk <= '1';
-		wait for adc_clk_period/2;
-   end process;
- 
+	smi_proc : process
+		
+	begin
+			wait until rising_edge(eth_smi_clk);
+			eth_smi_mdio <= 'Z';
+			if(eth_smi_mdio = 'Z') then
+				for i in data'range loop
+					wait until rising_edge(eth_smi_clk);
+					eth_smi_mdio <= data(i);
+				end loop;
+				eth_smi_mdio <= 'Z';
+			end if;
+	end process;
 
    -- Stimulus process
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
+		
 		rst <= '1';
       wait for 100 ns;	
 		rst <= '0';
 
-      wait for clk_period*10;
-
+      wait for clk_period*10000;
+		
+		
+		--wait until eth_link_established = '1';
+		--rst <= '1';
+		for i in 0 to 5 loop
+			wr_en <= '1';
+      data_in <= x"7e";
+			--data_in <= std_logic_vector(to_unsigned(i, 8));
+			wait for clk_period;
+		end loop;
+		wr_en <= '0';
       -- insert stimulus here 
 
       wait;

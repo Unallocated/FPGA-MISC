@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="usrp_like_buffer">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2015-4-24T0:49:40</timestamp>
+    <timestamp>2015-4-25T17:57:22</timestamp>
     <pin polarity="Input" x="0" y="112" name="rst" />
     <pin polarity="Input" x="0" y="208" name="wr_clk" />
     <pin polarity="Input" x="0" y="240" name="din[7:0]" />
