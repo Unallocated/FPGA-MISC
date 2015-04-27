@@ -40,10 +40,15 @@ ARCHITECTURE behavior OF usrp_like_tb IS
     -- Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT usrp_like
-	 GENERIC(
-			payload_size : positive range 1 to 1400 := 6;
-			reset_pause_cycles : positive := 100
-	 );
+	 generic ( eth_width : positive := 4;
+            eth_source : std_logic_vector((6 * 8) - 1 downto 0) := x"010203040506";
+            eth_dest : std_logic_vector((6 * 8) - 1 downto 0) := x"00252235FA3B";
+            ip_source : std_logic_vector((4 * 8) - 1 downto 0) := x"0A010101";
+            ip_dest : std_logic_vector((4 * 8) - 1 downto 0) := x"0A010102";
+            udp_source : std_logic_vector((2 * 8) - 1 downto 0) := x"1F98";
+            udp_dest : std_logic_vector((2 * 8) - 1 downto 0) := x"1F98";
+            payload_size : positive range 1 to 1400 := 5;
+            reset_pause_cycles : positive := 100);
     PORT(
          clk : IN  std_logic;
          rst : IN  std_logic;

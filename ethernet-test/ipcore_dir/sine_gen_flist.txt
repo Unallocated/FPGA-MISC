@@ -1,5 +1,4 @@
 # Output products list for <sine_gen>
-_xmsgs/pn_parser.xmsgs
 sine_gen/doc/dds_compiler_v4_0_vinfo.html
 sine_gen/doc/dds_ds558.pdf
 sine_gen.asy

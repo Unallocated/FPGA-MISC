@@ -107,7 +107,7 @@ begin
 
   -- Input buffering
   --------------------------------------
-  clkin1_buf : IBUFG
+  clkin1_buf : BUFG
   port map
    (O => clkin1,
     I => clk_100mhz);

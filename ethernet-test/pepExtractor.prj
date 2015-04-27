@@ -1,4 +1,6 @@
+work	"ipcore_dir/sine_gen.vhd"
 work	"ipcore_dir/usrp_like_buffer.vhd"
-work	"ipcore_dir/usrp_like_dcm.vhd"
+work	"ipcore_dir/usrp_like_master_dcm.vhd"
 work	"smi_ramlike.vhd"
 work	"usrp_like.vhd"
+work	"usrp_like_master.vhd"
