@@ -24,7 +24,6 @@ ARCHITECTURE behavior OF udp_wrapper_tb IS
          buffer_prog_full : OUT  std_logic;
          buffer_prog_full_val : IN  std_logic_vector(10 downto 0);
          data_out : OUT  std_logic_vector(7 downto 0);
-         data_idx : OUT  std_logic_vector(10 downto 0);
          data_valid : OUT  std_logic;
 			dropped_frame : OUT std_logic
         );
@@ -36,7 +35,7 @@ ARCHITECTURE behavior OF udp_wrapper_tb IS
    signal rst : std_logic := '0';
    signal data_in : std_logic_vector(7 downto 0) := (others => '0');
    signal wr_en : std_logic := '0';
-   signal buffer_prog_full_val : std_logic_vector(10 downto 0) := (others => '0');
+   signal buffer_prog_full_val : std_logic_vector(10 downto 0) := std_logic_vector(to_unsigned(8, 11));
 
  	--Outputs
    signal busy : std_logic;
@@ -44,7 +43,6 @@ ARCHITECTURE behavior OF udp_wrapper_tb IS
    signal buffer_empty : std_logic;
    signal buffer_prog_full : std_logic;
    signal data_out : std_logic_vector(7 downto 0);
-   signal data_idx : std_logic_vector(10 downto 0);
    signal data_valid : std_logic;
 	signal dropped_frame : std_logic;
 
@@ -65,7 +63,6 @@ BEGIN
           buffer_prog_full => buffer_prog_full,
           buffer_prog_full_val => buffer_prog_full_val,
           data_out => data_out,
-          data_idx => data_idx,
           data_valid => data_valid,
 			 dropped_frame => dropped_frame
         );
@@ -83,13 +80,16 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
-		rst <= '1';
+		rst <= '1';	
       wait for 100 ns;	
 		rst <= '0';
 
+data_in <= x"01";
       wait for clk_period*10;
 		
-		for i in 0 to 7 loop
+		wait until rising_edge(clk);
+		
+		for i in 1 to 8 loop
 			wr_en <= '1';
 			data_in <= std_logic_vector(to_unsigned(i, 8));
 			wait for clk_period;
@@ -97,15 +97,27 @@ BEGIN
 		
 		
 		wr_en <= '0';
+		wait until busy = '0';
 		wait for clk_period;
 		
-		for i in 8 to 15 loop
+		for i in 8 to 14 loop
 			wr_en <= '1';
 			data_in <= std_logic_vector(to_unsigned(i, 8));
 			wait for clk_period;
 		end loop;
 		
 		wr_en <= '0';
+		wait until busy = '0';
+		wait for clk_period;
+		
+		for i in 9 to 16 loop
+			wr_en <= '1';
+			data_in <= std_logic_vector(to_unsigned(i, 8));
+			wait for clk_period;
+		end loop;
+		
+		wr_en <= '0';
+		wait until busy = '0';
 		wait for clk_period;
 		
 		wr_en <= '1';
