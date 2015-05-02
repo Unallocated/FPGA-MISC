@@ -175,16 +175,20 @@ begin
       if(wr_en = '1') then
         running_crc <= crc32(running_crc, data_in, '0');
       elsif(wr_en = '0' and last_wr_en_val = '1') then
-        latched_crc <= reverse_any_vector(not running_crc);
-				running_crc <= starting_crc;
-        state <= SEND_HEADER;
-				payload_pos <= unsigned('0' & buffer_data_count) + 1;
+        if(state /= WAIT_FOR_SEND) then
+          dropped_frame <= '1';
+        else
+          latched_crc <= reverse_any_vector(not running_crc);
+          running_crc <= starting_crc;
+          state <= SEND_HEADER;
+          busy <= '1';
+          payload_pos <= unsigned('0' & buffer_data_count) + 1;
+        end if;
       end if;
 
       case state is
         when WAIT_FOR_SEND =>
-          busy <= '0';
-
+          null;
         
         when SEND_HEADER =>
 					data_valid <= '1';
@@ -255,6 +259,7 @@ begin
 							header_pos <= 0;
 							data_out <= (others => '0');
 							state <= WAIT_FOR_SEND;
+
 						when others => 
 							null;
 					end case;
