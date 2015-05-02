@@ -28,7 +28,7 @@ architecture behave of ethernet_wrapper is
   signal buffer_rd_en : std_logic;
   signal buffer_data_count : std_logic_vector(10 downto 0);
   signal buffer_data_out : std_logic_vector(data_out'range);
-  COMPONENT udp_buffer
+  COMPONENT ethernet_buffer
     PORT (
       rst : IN STD_LOGIC;
       clk : IN STD_LOGIC;
@@ -44,16 +44,14 @@ architecture behave of ethernet_wrapper is
     );
   END COMPONENT;
 
-  signal d_pos_buffer : std_logic_vector(10 downto 0);
-  signal payload_pos : unsigned(d_pos_buffer'length downto 0);
+  signal payload_pos : unsigned(11 downto 0);
   signal header_pos : integer range 0 to 13;
   signal last_wr_en_val : std_logic;
 
 
-  type state_t is (WAIT_FOR_SEND, SEND_HEADER, SEND_PAYLOAD);
+  type state_t is (WAIT_FOR_SEND, SEND_HEADER, SEND_PAYLOAD, SEND_CRC);
   signal state : state_t;
 
-  signal is_first_byte : std_logic;
   signal last_data_in_val : std_logic_vector(data_in'range);
 
   function crc32(initial_value : std_logic_vector(31 downto 0); data : std_logic_vector; is_last : std_logic) return std_logic_vector is
@@ -141,6 +139,17 @@ architecture behave of ethernet_wrapper is
 
   constant starting_crc : std_logic_vector(31 downto 0) := calculate_starting_crc(src_mac, dest_mac, protocol);
   signal latched_crc, running_crc : std_logic_vector(starting_crc'range);
+
+	function reverse_any_vector (a: in std_logic_vector)
+	return std_logic_vector is
+		variable result: std_logic_vector(a'RANGE);
+		alias aa: std_logic_vector(a'REVERSE_RANGE) is a;
+	begin
+		for i in aa'RANGE loop
+			result(i) := aa(i);
+		end loop;
+		return result;
+	end; -- function reverse_any_vector
 begin
 
   process(clk, rst)
@@ -148,6 +157,15 @@ begin
     if(rst = '1') then
       latched_crc <= starting_crc;
       running_crc <= starting_crc;
+			payload_pos <= (others => '0');
+			state <= WAIT_FOR_SEND;
+			dropped_frame <= '0';
+			last_wr_en_val <= '0';
+			buffer_rd_en <= '0';
+			data_valid <= '0';
+			last_data_in_val <= (others => '0');
+			busy <= '0';
+			data_out <= (others => '0');
     elsif(rising_edge(clk)) then
       
       last_wr_en_val <= wr_en;
@@ -157,9 +175,10 @@ begin
       if(wr_en = '1') then
         running_crc <= crc32(running_crc, data_in, '0');
       elsif(wr_en = '0' and last_wr_en_val = '1') then
-        latched_crc <= crc32(running_crc, data_in, '1');
-        running_crc <= starting_crc;
+        latched_crc <= reverse_any_vector(not running_crc);
+				running_crc <= starting_crc;
         state <= SEND_HEADER;
+				payload_pos <= unsigned('0' & buffer_data_count) + 1;
       end if;
 
       case state is
@@ -168,6 +187,8 @@ begin
 
         
         when SEND_HEADER =>
+					data_valid <= '1';
+					header_pos <= header_pos + 1;
           case header_pos is
             when 0 =>
               data_out <= dest_mac(47 downto 40);
@@ -197,10 +218,11 @@ begin
 
             when 12 =>
               data_out <= protocol(15 downto 8);
+							buffer_rd_en <= '1';
             when 13 =>
               data_out <= protocol(7 downto 0);
               state <= SEND_PAYLOAD;
-            
+							header_pos <= 0;
             when others =>
               null;
           end case;
@@ -209,19 +231,38 @@ begin
           payload_pos <= payload_pos - 1;
           data_out <= buffer_data_out;
 
-          if(payload_pos = 0) then
+          if(payload_pos = 1) then
             payload_pos <= (others => '0');
-            state <= WAIT_FOR_SEND;
+            state <= SEND_CRC;
             buffer_rd_en <= '0';
-            busy <= '0';
-            data_valid <= '0';
-            data_out <= (others => '0');
           end if;
+
+				when SEND_CRC =>
+					header_pos <= header_pos + 1;
+
+					case header_pos is
+						when 0 =>
+							data_out <= latched_crc(31 downto 24);
+						when 1 =>
+							data_out <= latched_crc(23 downto 16);
+						when 2 =>
+							data_out <= latched_crc(15 downto 8);
+						when 3 =>
+							data_out <= latched_crc(7 downto 0);
+						when 4 =>
+							data_valid <= '0';
+							busy <= '0';
+							header_pos <= 0;
+							data_out <= (others => '0');
+							state <= WAIT_FOR_SEND;
+						when others => 
+							null;
+					end case;
       end case;
     end if;
   end process;
 
-  buffer_inst : udp_buffer
+  buffer_inst : ethernet_buffer
     PORT MAP (
       rst => rst,
       clk => clk,
