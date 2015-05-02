@@ -179,7 +179,11 @@ begin
           payload_pos <= payload_pos - 1;
           data_out <= buffer_data_out;
 
-          if(payload_pos = 0) then
+          if(payload_pos = 3) then
+            buffer_rd_en <= '0';
+          end if;
+
+          if(payload_pos = 1) then
             payload_pos <= (others => '0');
             state <= WAIT_FOR_SEND;
             buffer_rd_en <= '0';

@@ -234,8 +234,13 @@ begin
         when SEND_PAYLOAD =>
           payload_pos <= payload_pos - 1;
           data_out <= buffer_data_out;
+  
+          if(payload_pos = 3) then
+            buffer_rd_en <= '0';
+          end if;
 
-          if(payload_pos = 1) then
+
+          if(payload_pos = 2) then
             payload_pos <= (others => '0');
             state <= SEND_CRC;
             buffer_rd_en <= '0';

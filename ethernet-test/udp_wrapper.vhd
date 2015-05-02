@@ -4,8 +4,8 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity udp_wrapper is
-  generic ( dest_port : std_logic_vector(15 downto 0);
-            src_port : std_logic_vector(15 downto 0)
+  generic ( dest_port : std_logic_vector(15 downto 0) := x"8000";
+            src_port : std_logic_vector(15 downto 0) := x"8000"
   );
   port ( clk : in std_logic;
          rst : in std_logic;
@@ -152,6 +152,10 @@ begin
         when SEND_PAYLOAD =>
           payload_pos <= payload_pos - 1;
           data_out <= buffer_data_out;
+
+          if(payload_pos = 2) then
+            buffer_rd_en <= '0';
+          end if;
 
           if(payload_pos = 0) then
             payload_pos <= (others => '0');
