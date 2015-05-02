@@ -1,0 +1,1 @@
+vhdtdtfi -prj ethernet-test -o /home/main/git/FPGA-MISC/ethernet-test/ethernet_tx.vhi -module ethernet_tx -template /opt/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ethernet_tx.vhd 

@@ -1,0 +1,1 @@
+vhdtdtfi -prj ethernet-test -o /home/main/git/FPGA-MISC/ethernet-test/ethernet_wrapper_with_preamble.vhi -module ethernet_wrapper_with_preamble -template /opt/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/ethernet_buffer.vhd -lib work ethernet_wrapper_with_preamble.vhd 

@@ -48,7 +48,7 @@ ARCHITECTURE behavior OF udp_test IS
 
     signal ethernet_busy, ethernet_full, ethernet_prog_full, ethernet_empty, ethernet_dv, ethernet_dropped, ethernet_wr_en : std_logic := '0';
     signal ethernet_data_in, ethernet_data_out : std_logic_vector(7 downto 0) := (others => '0');
-    COMPONENT ethernet_wrapper
+    COMPONENT ethernet_wrapper_with_preamble
     PORT(
       clk : IN std_logic;
       rst : IN std_logic;
@@ -112,7 +112,7 @@ BEGIN
       dropped_frame => udp_dropped
     );
 
-    Inst_ethernet_wrapper: ethernet_wrapper PORT MAP(
+    Inst_ethernet_wrapper: ethernet_wrapper_with_preamble PORT MAP(
       clk => clk,
       rst => rst,
       data_in => ethernet_data_in,
@@ -158,7 +158,7 @@ BEGIN
       udp_wr_en <= '0';
       -- insert stimulus here 
       
-      wait for clk_period * 50;
+      wait for clk_period * 60;
 
       for i in 1 to 9 loop
         udp_wr_en <= '1';

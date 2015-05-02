@@ -6,7 +6,7 @@ use ieee.numeric_std.all;
 entity ethernet_wrapper is
   generic ( dest_mac : std_logic_vector(47 downto 0) := x"ffffffffffff";
             src_mac : std_logic_vector(47 downto 0) := x"010203040506";
-            protocol : std_logic_vector(15 downto 0) := x"0800"
+            protocol : std_logic_vector(15 downto 0) := x"7e7e"
   );
   port ( clk : in std_logic;
          rst : in std_logic;

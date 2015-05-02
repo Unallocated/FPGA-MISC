@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
+#include <string.h>
 
 using std::cout;
 using std::endl;
@@ -71,7 +72,12 @@ unsigned int crc32a(unsigned char *message) {
 }
 
 int main(int argc, char ** argv){
-  printf("%08x\n", crc32a(argv[1]));
+  char * buffer = new char[strlen(argv[1])];
+  
+  for(int a = 0; a < strlen(argv[1]); a++){
+    buffer[a] = itoa(argv[1][a], buffer[a], 16);
+  }
+  printf("%08x\n", crc32a(buffer[1]));
 
   return 0;
 }
