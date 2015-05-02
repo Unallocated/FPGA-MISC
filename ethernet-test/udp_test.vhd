@@ -148,7 +148,7 @@ BEGIN
       wait for clk_period*10;
       wait until rising_edge(clk);
 
-      for i in 1 to 8 loop
+      for i in 1 to 9 loop
         udp_wr_en <= '1';
         udp_data_in <= std_logic_vector(to_unsigned(i, 8));
         wait for clk_period;
@@ -158,9 +158,9 @@ BEGIN
       udp_wr_en <= '0';
       -- insert stimulus here 
       
-      wait for clk_period * 52;
+      wait for clk_period * 50;
 
-      for i in 1 to 8 loop
+      for i in 1 to 9 loop
         udp_wr_en <= '1';
         udp_data_in <= std_logic_vector(to_unsigned(i, 8));
         wait for clk_period;
@@ -172,7 +172,7 @@ BEGIN
 
       wait for clk_period * 100;
 
-      for i in 1 to 8 loop
+      for i in 1 to 9 loop
         udp_wr_en <= '1';
         udp_data_in <= std_logic_vector(to_unsigned(i, 8));
         wait for clk_period;

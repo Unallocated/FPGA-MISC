@@ -100,7 +100,8 @@ begin
         running_checksum <= (others => '0');
         
         if(is_first_byte = '0') then
-          latched_checksum <= checksum_calc(running_checksum, x"00" & data_in);
+          --latched_checksum <= running_checksum;
+          latched_checksum <= checksum_calc(running_checksum, last_data_in_val & x"00");
         else
           latched_checksum <= running_checksum;
         end if;
@@ -126,6 +127,10 @@ begin
           case header_pos is
             when 0 =>
               data_out <= src_port(15 downto 8);
+
+              --if(unsigned(d_pos_buffer) mod 2 = 0) then
+              --  latched_checksum <= checksum_calc(latched_checksum, data_in & x"00");
+              --end if;
             when 1 =>
               data_out <= src_port(7 downto 0);
               latched_checksum <= checksum_calc(latched_checksum, src_port);
