@@ -17,7 +17,9 @@ entity sine_master is
            smi_mdio : inout STD_LOGIC;
            leds : out  STD_LOGIC_VECTOR (7 downto 0);
            eth_rst_n : out  STD_LOGIC;
-           sine_inc : in std_logic_vector(7 downto 0) );
+           sine_inc : in std_logic_vector(7 downto 0);
+           sine_o : out std_logic_vector(7 downto 0);
+           source_select : in std_logic );
 end sine_master;
 
 architecture Behavioral of sine_master is
@@ -192,6 +194,8 @@ begin
   samp_wr_en <= eth_link_established and eth_reset_complete;
   samp_wr_clk <= samp_clk;
   samp_rd_clk <= data_clk;
+
+  sine_o <= samp_dout when source_select = '0' else samp_din;
 
   process(data_clk, rst_valid)
   begin
