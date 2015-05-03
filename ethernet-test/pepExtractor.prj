@@ -1,6 +1,2 @@
-work	"eth_master.vhd"
-work	"ethernet_tx.vhd"
-work	"ethernet_wrapper_with_preamble.vhd"
-work	"ipcore_dir/ethernet_buffer.vhd"
-work	"ipcore_dir/ethernet_dcm.vhd"
-work	"smi_ramlike.vhd"
+work	"ip_wrapper.vhd"
+work	"ipcore_dir/ip_buffer.vhd"

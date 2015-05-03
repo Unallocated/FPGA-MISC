@@ -55,6 +55,7 @@ architecture behave of udp_wrapper is
   signal is_first_byte : std_logic;
   signal last_data_in_val : std_logic_vector(data_in'range);
   signal running_checksum, latched_checksum : unsigned(15 downto 0);
+  signal actual_length : std_logic_vector(15 downto 0);
 
   function checksum_calc (current_checksum : unsigned; new_data : std_logic_vector) return unsigned is
   begin
@@ -83,6 +84,7 @@ begin
       dropped_frame <= '0';
       data_valid <= '0';
       data_out <= (others => '0');
+      actual_length <= (others => '0');
     elsif(rising_edge(clk)) then
       last_wr_en_val <= wr_en;
       dropped_frame <= '0';
@@ -97,6 +99,7 @@ begin
       elsif(wr_en = '0' and last_wr_en_val = '1') then
         d_pos_buffer <= buffer_data_count;
         payload_pos <= unsigned('0' & buffer_data_count) + 1;
+        actual_length <= std_logic_vector(unsigned("00000" & buffer_data_count) + 8);
         running_checksum <= (others => '0');
         
         if(is_first_byte = '0') then
@@ -140,10 +143,10 @@ begin
               data_out <= dest_port(7 downto 0);
               latched_checksum <= checksum_calc(latched_checksum, src_port);
             when 4 =>
-              data_out <= "00000" & std_logic_vector(payload_pos(10 downto 8));
+              data_out <= actual_length(15 downto 8);
             when 5 =>
-              data_out <= std_logic_vector(payload_pos(7 downto 0));
-              latched_checksum <= checksum_calc(latched_checksum, "00000" & std_logic_vector(payload_pos(payload_pos'high -1 downto 0)));
+              data_out <= actual_length(7 downto 0);
+              latched_checksum <= checksum_calc(latched_checksum, actual_length);
             when 6 =>
               data_out <= std_logic_vector(latched_checksum(15 downto 8));
               buffer_rd_en <= '1';
@@ -162,7 +165,7 @@ begin
             buffer_rd_en <= '0';
           end if;
 
-          if(payload_pos = 0) then
+          if(payload_pos = 1) then
             payload_pos <= (others => '0');
             state <= WAIT_FOR_SEND;
             buffer_rd_en <= '0';

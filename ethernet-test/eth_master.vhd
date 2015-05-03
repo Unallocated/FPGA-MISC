@@ -51,10 +51,53 @@ architecture Behavioral of eth_master is
       );
   END COMPONENT;
   
+  signal udp_data_in, udp_data_out : std_logic_vector(7 downto 0);
+  signal udp_wr_en, udp_prog_full, udp_full, udp_empty, udp_dv, udp_dropped, udp_busy : std_logic;
+  COMPONENT udp_wrapper
+  GENERIC( src_port : std_logic_vector(15 downto 0) := x"8000";
+           dest_port : std_logic_vector(15 downto 0) := x"8000" );
+  PORT(
+    clk : IN std_logic;
+    rst : IN std_logic;
+    data_in : IN std_logic_vector(7 downto 0);
+    wr_en : IN std_logic;
+    buffer_prog_full_val : IN std_logic_vector(10 downto 0);          
+    busy : OUT std_logic;
+    buffer_full : OUT std_logic;
+    buffer_empty : OUT std_logic;
+    buffer_prog_full : OUT std_logic;
+    data_out : OUT std_logic_vector(7 downto 0);
+    data_valid : OUT std_logic;
+    dropped_frame : OUT std_logic
+    );
+  END COMPONENT;
+
+  signal ip_data_in, ip_data_out : std_logic_vector(7 downto 0);
+  signal ip_wr_en, ip_prog_full, ip_full, ip_empty, ip_dv, ip_dropped, ip_busy : std_logic;
+  COMPONENT ip_wrapper
+  GENERIC( src_ip : std_logic_vector(31 downto 0) := x"0a0a0a0a";
+           dest_ip : std_logic_vector(31 downto 0) := x"0a0a0a0b" );
+  PORT(
+    clk : IN std_logic;
+    rst : IN std_logic;
+    data_in : IN std_logic_vector(7 downto 0);
+    wr_en : IN std_logic;
+    buffer_prog_full_val : IN std_logic_vector(10 downto 0);          
+    busy : OUT std_logic;
+    buffer_full : OUT std_logic;
+    buffer_empty : OUT std_logic;
+    buffer_prog_full : OUT std_logic;
+    data_out : OUT std_logic_vector(7 downto 0);
+    data_valid : OUT std_logic;
+    dropped_frame : OUT std_logic
+    );
+  END COMPONENT;
+
   signal e_data_in, e_data_out : std_logic_vector(7 downto 0);
   signal e_wr_en, e_prog_full, e_full, e_empty, e_dv, e_dropped, e_busy : std_logic;
   COMPONENT ethernet_wrapper_with_preamble
-  GENERIC ( dest_mac : std_logic_vector(47 downto 0) := x"00252235fa3b" );
+  GENERIC ( dest_mac : std_logic_vector(47 downto 0) := x"00252235fa3b";
+            protocol : std_logic_vector(15 downto 0) := x"0800" );
   PORT(
     clk : IN std_logic;
     rst : IN std_logic;
@@ -92,7 +135,7 @@ architecture Behavioral of eth_master is
   signal eth_reset_counter : unsigned(26 downto 0);
   signal eth_reset_complete : std_logic;
 
-  signal zeros_gen_counter : unsigned(10 downto 0);
+  signal zeros_gen_counter : unsigned(26 downto 0);
   signal zeros_gen_state : unsigned(0 downto 0);
   signal zeros_gen_actual_data : std_logic_vector(7 downto 0);
   
@@ -101,13 +144,19 @@ begin
 
   leds <= "01" & eth_link_established & eth_reset_complete & e_full & e_empty & e_dropped & fault;
 
+  e_data_in <= ip_data_out;
+  e_wr_en <= ip_dv;
+
+  ip_data_in <= udp_data_out;
+  ip_wr_en <= udp_dv;
+
   process(clk, rst_valid)
   begin
     if(rst_valid = '1') then
       fault <= '0';
     elsif(rising_edge(clk)) then
       if(fault = '0') then
-        if(e_dropped = '1') then
+        if(e_dropped = '1' or udp_dropped = '1' or ip_dropped = '1') then
           fault <= '1';
         end if;
       end if;
@@ -119,26 +168,27 @@ begin
     if(rst_valid = '1') then
       zeros_gen_counter <= (others => '0');
       zeros_gen_state <= (others => '0');
-      e_wr_en <= '0';
-      e_data_in <= (others => '0');
+      udp_wr_en <= '0';
+      udp_data_in <= (others => '0');
+      zeros_gen_actual_data <= (others => '0');
     elsif(rising_edge(data_clk)) then
       case to_integer(zeros_gen_state) is
         when 0 =>
           zeros_gen_counter <= zeros_gen_counter + 1;
           zeros_gen_actual_data <= std_logic_vector(unsigned(zeros_gen_actual_data) + 1);
-          e_data_in <= zeros_gen_actual_data;
-          e_wr_en <= '1';
+          udp_data_in <= zeros_gen_actual_data;
+          udp_wr_en <= '1';
 
-          if(zeros_gen_counter = 250) then
+          if(zeros_gen_counter = 24) then
             zeros_gen_counter <= (others => '0');
             zeros_gen_state <= to_unsigned(1, zeros_gen_state'length);
           end if;
         
         when 1 =>
-          e_wr_en <= '0';
+          udp_wr_en <= '0';
           zeros_gen_counter <= zeros_gen_counter + 1;
 
-          if(zeros_gen_counter = 2047) then
+          if(zeros_gen_counter = 500) then
             zeros_gen_state <= (others => '0');
             zeros_gen_counter <= (others => '0');
           end if;
@@ -251,6 +301,36 @@ begin
       done => smi_done,
       rdy => smi_rdy);
 
+  udp_wrapper_inst : udp_wrapper PORT MAP(
+    clk => data_clk,
+    rst => rst_valid,
+    data_in => udp_data_in,
+    wr_en => udp_wr_en,
+    busy => udp_busy,
+    buffer_full => udp_full,
+    buffer_empty => udp_empty,
+    buffer_prog_full => udp_prog_full,
+    buffer_prog_full_val => std_logic_vector(to_unsigned(1000, 11)),
+    data_out => udp_data_out,
+    data_valid => udp_dv,
+    dropped_frame => udp_dropped
+  );
+
+  ip_wrapper_inst : ip_wrapper PORT MAP(
+    clk => data_clk,
+    rst => rst_valid,
+    data_in => ip_data_in,
+    wr_en => ip_wr_en,
+    busy => ip_busy,
+    buffer_full => ip_full,
+    buffer_empty => ip_empty,
+    buffer_prog_full => ip_prog_full,
+    buffer_prog_full_val => std_logic_vector(to_unsigned(1000, 11)),
+    data_out => ip_data_out,
+    data_valid => ip_dv,
+    dropped_frame => ip_dropped
+  );
+
   ethernet_wrapper_with_preamble_inst : ethernet_wrapper_with_preamble PORT MAP(
     clk => data_clk,
     rst => rst_valid,
@@ -260,7 +340,7 @@ begin
     buffer_full => e_full,
     buffer_empty => e_empty,
     buffer_prog_full => e_prog_full,
-    buffer_prog_full_val => std_logic_vector(to_unsigned(64, 11)),
+    buffer_prog_full_val => std_logic_vector(to_unsigned(1000, 11)),
     data_out => e_data_out,
     data_valid => e_dv,
     dropped_frame => e_dropped

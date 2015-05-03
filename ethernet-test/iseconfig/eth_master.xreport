@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-05-02T21:47:40</DateModified>
+  <DateModified>2015-05-02T23:06:13</DateModified>
   <ModuleName>eth_master</ModuleName>
-  <SummaryTimeStamp>2015-05-02T21:32:21</SummaryTimeStamp>
+  <SummaryTimeStamp>2015-05-02T23:03:23</SummaryTimeStamp>
   <SavedFilePath>/home/main/git/FPGA-MISC/ethernet-test/iseconfig/eth_master.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/main/git/FPGA-MISC/ethernet-test</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>/home/main/git/FPGA-MISC/ethernet-test/</ImplementationReportsDirectory>
   <DateInitialized>2015-05-02T16:10:30</DateInitialized>
   <EnableMessageFiltering>true</EnableMessageFiltering>
  </header>
