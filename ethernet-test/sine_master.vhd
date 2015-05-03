@@ -7,6 +7,7 @@ use unisim.vcomponents.all;
 
 entity sine_master is
     Generic ( 
+      clock_divider_max_value : positive := 6; -- Number of base clock cycles required to toggle samp_clk
 			reset_count : positive := 100_000_000 -- Number of cycles to pause in order to let the PHY reset
 		);
     Port ( clk : in  STD_LOGIC; -- Input clock
@@ -21,6 +22,7 @@ entity sine_master is
            eth_rst_n : out  STD_LOGIC; -- PHY reset signal (active low)
            sine_inc : in std_logic_vector(7 downto 0); -- Allows changing of the DDS output frequency
            sine_o : out std_logic_vector(7 downto 0); -- Debugging output of the DDS output and samp FIFO output
+           divider_max_val : in std_logic_vector(3 downto 0); -- Debugging how fast the interface can run before getting errors
            source_select : in std_logic -- Allows selection of outputting the DDS value or samp FIFO output through sine_o
 				);
 end sine_master;
@@ -117,8 +119,8 @@ architecture Behavioral of sine_master is
   signal ip_wr_en, ip_prog_full, ip_full, ip_empty, ip_dv, ip_dropped, ip_busy : std_logic;
   COMPONENT ip_wrapper
   GENERIC( 
-		src_ip : std_logic_vector(31 downto 0) := x"0a0a0a0a"; -- Source IP
-    dest_ip : std_logic_vector(31 downto 0) := x"0a0a0a0b"; -- Dest IP
+		src_ip : std_logic_vector(31 downto 0) := x"c0a801fb"; -- Source IP
+    dest_ip : std_logic_vector(31 downto 0) := x"c0a80109"; -- Dest IP
 		protocol : std_logic_vector(7 downto 0) := x"11" -- Next level protocol
 	);
   PORT(
@@ -142,7 +144,7 @@ architecture Behavioral of sine_master is
   signal e_wr_en, e_prog_full, e_full, e_empty, e_dv, e_dropped, e_busy : std_logic;
   COMPONENT ethernet_wrapper_with_preamble
   GENERIC ( 
-		dest_mac : std_logic_vector(47 downto 0) := x"00252235fa3b"; -- Destination MAC address
+		dest_mac : std_logic_vector(47 downto 0) := x"0050b60a6ae7"; -- Destination MAC address
 		src_mac : std_logic_vector(47 downto 0) := x"010203040506"; -- Source MAC address
     protocol : std_logic_vector(15 downto 0) := x"0800" -- Next level protocol
 	);
@@ -215,7 +217,7 @@ architecture Behavioral of sine_master is
 begin
 
 	-- Debugging output
-  leds <= "01" & eth_link_established & samp_prog_full & samp_empty & e_empty & samp_full & fault;
+  leds <= "01" & eth_link_established & samp_prog_full & samp_empty & e_empty & e_busy & fault;
 
 	-- The IP wrapper feeds the Ethernet wrapper
   e_data_in <= ip_data_out;
@@ -233,7 +235,7 @@ begin
   udp_wr_en <= '0' when samp_state = SAMP_WAIT_FOR_FULL else '1';
 
 	-- The input to the sampling FIFO is the OUTPUT of the DDS converted to unsigned (+128)
-  samp_din <= std_logic_vector(unsigned(sine_out) + 128);
+  --samp_din <= std_logic_vector(unsigned(sine_out) + 128);
 	-- The write enable signal of the sampling FIFO that is controlled by the link established and reset signals
   samp_wr_en <= eth_link_established and eth_reset_complete;
 	-- The sampling FIFO write clock is the sampling clock
@@ -248,18 +250,31 @@ begin
 	-- Controlls the generation of the sampling clock.  This cannot be the same rate as the 
 	-- data clock since it would overflow the wrapper FIFOs.
 	-- The sampling clock is also what will determine the final data rate flowing out of the PHY
-  process(data_clk, rst_valid)
+  process(clk, rst_valid)
   begin
     if(rst_valid = '1') then
       samp_clk_counter <= (others => '0');
-    elsif(rising_edge(data_clk)) then
+      samp_clk <= '0';
+    elsif(rising_edge(clk)) then
       samp_clk_counter <= samp_clk_counter + 1;
 
 			-- Increase this value to slow the sampling clock down
-      if(samp_clk_counter = 1) then
+      if(samp_clk_counter = unsigned(divider_max_val)) then
         samp_clk <= not samp_clk;
         samp_clk_counter <= (others => '0');
       end if;
+    end if;
+  end process;
+
+  process(samp_clk, rst_valid)
+    variable counter : integer range 0 to 255;
+  begin
+    if(rst_valid = '1') then
+      counter := 0;
+      samp_din <= (others => '0');
+    elsif(rising_edge(samp_clk)) then
+      samp_din <= std_logic_vector(to_unsigned(counter, 8));
+      counter := counter + 1;
     end if;
   end process;
 
@@ -294,6 +309,8 @@ begin
               samp_rd_en <= '0';
               samp_counter <= (others => '0');
               samp_state <= SAMP_WAIT_FOR_FULL;
+            elsif(samp_counter = samp_frame_size - 2) then
+              samp_rd_en <= '0';
             end if;
         end case;
       end if;

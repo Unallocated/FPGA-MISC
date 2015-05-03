@@ -215,10 +215,10 @@ Net "source_select" LOC = C9 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L
 #Net "JB<7>" LOC = K5 | IOSTANDARD = LVCMOS33; #Bank = 3, pin name = IO_L43N_GCLK22_IRDY2_M3CASN, Sch name = JB10
 
 ##JC
-#Net "JC<0>" LOC = H3 | IOSTANDARD = LVCMOS33; #Bank = 3, pin name = IO_L44N_GCLK20_M3A6, Sch name = JC1
-#Net "JC<1>" LOC = L7 | IOSTANDARD = LVCMOS33; #Bank = 3, pin name = IO_L45P_M3A3, Sch name = JC2
-#Net "JC<2>" LOC = K6 | IOSTANDARD = LVCMOS33; #Bank = 3, pin name = IO_L45N_M3ODT, Sch name = JC3
-#Net "JC<3>" LOC = G3 | IOSTANDARD = LVCMOS33; #Bank = 3, pin name = IO_L46P_M3CLK, Sch name = JC4
+Net "divider_max_val<0>" LOC = H3 | IOSTANDARD = LVCMOS33; #Bank = 3, pin name = IO_L44N_GCLK20_M3A6, Sch name = JC1
+Net "divider_max_val<1>" LOC = L7 | IOSTANDARD = LVCMOS33; #Bank = 3, pin name = IO_L45P_M3A3, Sch name = JC2
+Net "divider_max_val<2>" LOC = K6 | IOSTANDARD = LVCMOS33; #Bank = 3, pin name = IO_L45N_M3ODT, Sch name = JC3
+Net "divider_max_val<3>" LOC = G3 | IOSTANDARD = LVCMOS33; #Bank = 3, pin name = IO_L46P_M3CLK, Sch name = JC4
 #Net "JC<4>" LOC = G1 | IOSTANDARD = LVCMOS33; #Bank = 3, pin name = IO_L46N_M3CLKN, Sch name = JC7
 #Net "JC<5>" LOC = J7 | IOSTANDARD = LVCMOS33; #Bank = 3, pin name = IO_L47P_M3A0, Sch name = JC8
 #Net "JC<6>" LOC = J6 | IOSTANDARD = LVCMOS33; #Bank = 3, pin name = IO_L47N_M3A1, Sch name = JC9
