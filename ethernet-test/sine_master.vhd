@@ -6,24 +6,28 @@ library UNISIM;
 use unisim.vcomponents.all;
 
 entity sine_master is
-    Generic ( reset_count : positive := 100_000_000 );
-    Port ( clk : in  STD_LOGIC;
-           rst : in  STD_LOGIC;
-           tx_clk : in  STD_LOGIC;
-           tx_er : out  STD_LOGIC;
-           tx_en : out  STD_LOGIC;
-           tx_data : out  STD_LOGIC_VECTOR (3 downto 0);
-           smi_clk : out STD_LOGIC;
-           smi_mdio : inout STD_LOGIC;
-           leds : out  STD_LOGIC_VECTOR (7 downto 0);
-           eth_rst_n : out  STD_LOGIC;
-           sine_inc : in std_logic_vector(7 downto 0);
-           sine_o : out std_logic_vector(7 downto 0);
-           source_select : in std_logic );
+    Generic ( 
+			reset_count : positive := 100_000_000 -- Number of cycles to pause in order to let the PHY reset
+		);
+    Port ( clk : in  STD_LOGIC; -- Input clock
+           rst : in  STD_LOGIC; -- Reset signal
+           tx_clk : in  STD_LOGIC; -- PHY transmit clock
+           tx_er : out  STD_LOGIC; -- PHY transmit error (will be grounded)
+           tx_en : out  STD_LOGIC; -- PHY transmit enable
+           tx_data : out  STD_LOGIC_VECTOR (3 downto 0); -- PHY transmit data
+           smi_clk : out STD_LOGIC; -- PHY SMI clock
+           smi_mdio : inout STD_LOGIC; -- PHY SMI serial data line
+           leds : out  STD_LOGIC_VECTOR (7 downto 0); -- LEDs for debugging
+           eth_rst_n : out  STD_LOGIC; -- PHY reset signal (active low)
+           sine_inc : in std_logic_vector(7 downto 0); -- Allows changing of the DDS output frequency
+           sine_o : out std_logic_vector(7 downto 0); -- Debugging output of the DDS output and samp FIFO output
+           source_select : in std_logic -- Allows selection of outputting the DDS value or samp FIFO output through sine_o
+				);
 end sine_master;
 
 architecture Behavioral of sine_master is
 
+	-- DDS sine wave generator
   signal sine_out : std_logic_vector(7 downto 0);
   COMPONENT sine_gen
     PORT (
@@ -33,6 +37,7 @@ architecture Behavioral of sine_master is
     );
   END COMPONENT;
 
+	-- FIFO that will buffer samples from the DDS and flush out to the UDP -> IP -> Ethernet -> PHY modules
   signal samp_din, samp_dout : std_logic_vector(7 downto 0);
   signal samp_wr_clk, samp_wr_en, samp_full, samp_prog_full, samp_rd_clk, samp_rd_en, samp_empty : std_logic;
   COMPONENT sampling_fifo
@@ -51,6 +56,7 @@ architecture Behavioral of sine_master is
     );
   END COMPONENT;
 
+	-- DCM to generate the clocks for data (rate for UDP, IP, and Ethernet modules) and SMI (PHY control)
   signal tx_clk_copy, data_clk, smi_clk_buffered : std_logic;
   COMPONENT ethernet_dcm
     PORT ( 
@@ -61,6 +67,7 @@ architecture Behavioral of sine_master is
     );
   END COMPONENT;
 
+	-- A lot of code that simply gets the value of the link established register of the PHY's SMI
   signal smi_working, smi_done, smi_rdy, smi_rd_en : std_logic;
   signal smi_dout : std_logic_vector(15 downto 0);
   type smi_state_t is (SMI_IDLE, SMI_WAIT_FOR_READY, SMI_START_READ, SMI_WAIT_BUSY, SMI_WAIT_DONE);
@@ -81,11 +88,14 @@ architecture Behavioral of sine_master is
       );
   END COMPONENT;
   
+	-- Wrapper that puts a UDP header on the provided data
   signal udp_data_in, udp_data_out : std_logic_vector(7 downto 0);
   signal udp_wr_en, udp_prog_full, udp_full, udp_empty, udp_dv, udp_dropped, udp_busy : std_logic;
   COMPONENT udp_wrapper
-  GENERIC( src_port : std_logic_vector(15 downto 0) := x"1F90";
-           dest_port : std_logic_vector(15 downto 0) := x"1F90" );
+  GENERIC( 
+		src_port : std_logic_vector(15 downto 0) := x"1F90"; -- Source port
+    dest_port : std_logic_vector(15 downto 0) := x"1F90" -- Destination port
+	);
   PORT(
     clk : IN std_logic;
     rst : IN std_logic;
@@ -102,11 +112,15 @@ architecture Behavioral of sine_master is
     );
   END COMPONENT;
 
+	-- Wrapper that puts an IP header on the provided data
   signal ip_data_in, ip_data_out : std_logic_vector(7 downto 0);
   signal ip_wr_en, ip_prog_full, ip_full, ip_empty, ip_dv, ip_dropped, ip_busy : std_logic;
   COMPONENT ip_wrapper
-  GENERIC( src_ip : std_logic_vector(31 downto 0) := x"0a0a0a0a";
-           dest_ip : std_logic_vector(31 downto 0) := x"0a0a0a0b" );
+  GENERIC( 
+		src_ip : std_logic_vector(31 downto 0) := x"0a0a0a0a"; -- Source IP
+    dest_ip : std_logic_vector(31 downto 0) := x"0a0a0a0b"; -- Dest IP
+		protocol : std_logic_vector(7 downto 0) := x"11" -- Next level protocol
+	);
   PORT(
     clk : IN std_logic;
     rst : IN std_logic;
@@ -123,11 +137,15 @@ architecture Behavioral of sine_master is
     );
   END COMPONENT;
 
+	-- Modified version of the ethernet_wrapper that also adds in the Ethernet sync sequence as well
   signal e_data_in, e_data_out : std_logic_vector(7 downto 0);
   signal e_wr_en, e_prog_full, e_full, e_empty, e_dv, e_dropped, e_busy : std_logic;
   COMPONENT ethernet_wrapper_with_preamble
-  GENERIC ( dest_mac : std_logic_vector(47 downto 0) := x"00252235fa3b";
-            protocol : std_logic_vector(15 downto 0) := x"0800" );
+  GENERIC ( 
+		dest_mac : std_logic_vector(47 downto 0) := x"00252235fa3b"; -- Destination MAC address
+		src_mac : std_logic_vector(47 downto 0) := x"010203040506"; -- Source MAC address
+    protocol : std_logic_vector(15 downto 0) := x"0800" -- Next level protocol
+	);
   PORT(
     clk : IN std_logic;
     rst : IN std_logic;
@@ -144,6 +162,7 @@ architecture Behavioral of sine_master is
     );
   END COMPONENT;
 
+	-- Handles the actual transmission of each byte over the Ethernet PHY
   COMPONENT ethernet_tx
   PORT(
     tx_clk : IN std_logic;
@@ -158,45 +177,77 @@ architecture Behavioral of sine_master is
     );
   END COMPONENT;
 
+	-- These two signals are used to bring in the reset signal (button).  The resulting signal
+	-- (rst_valid) should not have any metastability issues
   signal rst_sync : std_logic_vector(3 downto 0);
   signal rst_valid : std_logic;
 
+	-- Used to keep track of if the PHY link has been established (read from the SMI)
   signal eth_link_established : std_logic;
+	-- The PHY needs to be reset using it's active low reset line.  This is used to let it sit
+	-- low long enough
   signal eth_reset_counter : unsigned(26 downto 0);
+	-- Used to know when the PHY reset has been completed
   signal eth_reset_complete : std_logic;
 
-  signal zeros_gen_counter : unsigned(26 downto 0);
-  signal zeros_gen_state : unsigned(0 downto 0);
-  signal zeros_gen_actual_data : std_logic_vector(7 downto 0);
+	-- Used for the pattern generator (commented out now)
+  --signal zeros_gen_counter : unsigned(26 downto 0);
+  --signal zeros_gen_state : unsigned(0 downto 0);
+  --signal zeros_gen_actual_data : std_logic_vector(7 downto 0);
   
+	-- Used to catch when a packet is dropped by and of the protocol wrappers
   signal fault : std_logic;
 
+	-- The state machine type that controls unloading data from the sampling FIFO
   type samp_state_t is (SAMP_WAIT_FOR_FULL, SAMP_UNLOAD);
   signal samp_state : samp_state_t;
+	-- Used to unload only the specified number of bytes from the sampling FIFO at a time
   signal samp_counter : unsigned(10 downto 0);
 
+	-- Counter used to divide down the data clock to create the sampling clock
   signal samp_clk_counter : unsigned(7 downto 0);
+	-- Clock created by a process that controls how often the DDS sampled
   signal samp_clk : std_logic;
+
+	-- Number of samples that make up one frame.  This is how many bytes will be sent at a time
+	-- over the Ethernet connection.
+	constant samp_frame_size : positive := 600;
 begin
 
+	-- Debugging output
   leds <= "01" & eth_link_established & samp_prog_full & samp_empty & e_empty & samp_full & fault;
 
+	-- The IP wrapper feeds the Ethernet wrapper
   e_data_in <= ip_data_out;
   e_wr_en <= ip_dv;
 
+	-- The UDP wrapper feeds the IP wrapper
   ip_data_in <= udp_data_out;
   ip_wr_en <= udp_dv;
 
+	-- The output of the sampling FIFO feeds the UDP wrapper
   udp_data_in <= samp_dout;
+	-- Only allow the frames to be written if the sampling state machine is waiting for more data
+	-- TODO: This actuall might be causing a bug.  Might need to put this in the process that drives
+	--       the state machine...
   udp_wr_en <= '0' when samp_state = SAMP_WAIT_FOR_FULL else '1';
 
+	-- The input to the sampling FIFO is the OUTPUT of the DDS converted to unsigned (+128)
   samp_din <= std_logic_vector(unsigned(sine_out) + 128);
+	-- The write enable signal of the sampling FIFO that is controlled by the link established and reset signals
   samp_wr_en <= eth_link_established and eth_reset_complete;
+	-- The sampling FIFO write clock is the sampling clock
   samp_wr_clk <= samp_clk;
+	-- The sampling FIFO read clock is the data clock (same that drives the wrapper modules)
   samp_rd_clk <= data_clk;
+	
+	-- This is the debugging output of the DDS sine wave.  By using the bottom button, the output can be
+	-- switched between the sampling FIFO output or the sampling FIFO input (this is just the output of the DDS)
+  sine_o <= samp_dout when source_select = '1' else samp_din;
 
-  sine_o <= samp_dout when source_select = '0' else samp_din;
-
+	-- Controlls the generation of the sampling clock.  This cannot be the same rate as the 
+	-- data clock since it would overflow the wrapper FIFOs.
+	-- The sampling clock is also what will determine the final data rate flowing out of the PHY
   process(data_clk, rst_valid)
   begin
     if(rst_valid = '1') then
@@ -204,6 +255,7 @@ begin
     elsif(rising_edge(data_clk)) then
       samp_clk_counter <= samp_clk_counter + 1;
 
+			-- Increase this value to slow the sampling clock down
       if(samp_clk_counter = 1) then
         samp_clk <= not samp_clk;
         samp_clk_counter <= (others => '0');
@@ -211,6 +263,12 @@ begin
     end if;
   end process;
 
+	-- State machine that determines when to send data through the wrapper modules.
+	-- The basic idea is that the process will wait until the programmable full output
+	-- of the sampling FIFO goes high.  That means that there is enough data in the FIFO
+	-- to send an entire frame of samples.
+	-- THIS IS THE NUMBER OF SAMPLES SENT!!  The total bytes sent over the Ethernet connection
+	-- will be more due to protocols!
   process(data_clk, rst_valid)
   begin
     if(rst_valid = '1') then
@@ -230,8 +288,9 @@ begin
 
           when SAMP_UNLOAD =>
             samp_counter <= samp_counter + 1;
-  
-            if(samp_counter = 600) then
+						
+						-- Stop after reading samp_frame_size bytes (remember, zero counts!)
+            if(samp_counter = samp_frame_size - 1) then
               samp_rd_en <= '0';
               samp_counter <= (others => '0');
               samp_state <= SAMP_WAIT_FOR_FULL;
@@ -241,6 +300,9 @@ begin
     end if;
   end process;
 
+	-- Latches any frame dropped errors.  If the drops are intermittent then you might not
+	-- notice them.  This process will grab any drop errors and set fault high until the 
+	-- reset button is pressed.
   process(clk, rst_valid)
   begin
     if(rst_valid = '1') then
@@ -254,6 +316,7 @@ begin
     end if;
   end process;
 
+	-- This process was used to generate a test pattern (counted 0 to 255)
   --process(data_clk, rst_valid)
   --begin
   --  if(rst_valid = '1') then
@@ -290,6 +353,8 @@ begin
   --  end if;
   --end process;
 
+	-- Syncronizes the reset signal to the clk clock domain.  This is to ensure
+	-- that there are no metastability issues.
   process(clk)
   begin
     if(rising_edge(clk)) then
@@ -298,6 +363,9 @@ begin
     end if;
   end process;
 
+	-- Gives the PHY enough time to reset.  Change the value of reset_count (generic field) to
+	-- increase or decrease how long the PHY stays in reset.  There is a minimum value, so be
+	-- sure not to go lower than that!
   process(clk, rst_valid)
   begin
     if(rst_valid = '1') then
@@ -355,6 +423,11 @@ begin
     end if;
   end process;
 
+	-- DCM to generate the needed clocks.  The PHY's tx_clk signal will drive the DCM.  It
+	-- is expected to be 25MHz so this only works on 100Mbit connections!  The tx_clk_copy 
+	-- is a copy of the tx_clk since tx_clk can no longer be used in any processes.  The 
+	-- data_clk signal is for driving the wrapper modules.  Finally, the SMI clock is for
+	-- driving the PHY's SMI.  It must be less than ~ 2MHz to work properly.
   dcm_inst : ethernet_dcm PORT MAP (
     tx_clk25MHz => tx_clk,
     tx_clk_copy => tx_clk_copy,
@@ -362,7 +435,12 @@ begin
     smi_clk => smi_clk_buffered
   );
 
-  ODDR2_smi_clk_inst : ODDR2
+	-- The SMI clock is tied to a pin that will cause complaints by ISE about having to use
+	-- CLK_DEDICATED_ROUTE = false in order to compile without errors.  To fix that, we use
+	-- an ODDR2 buffer to output the clock.  Check out 
+	-- http://forums.xilinx.com/t5/Spartan-Family-FPGAs/Clock-issue-about-spartan-6/td-p/67284
+  -- to see why this is used.
+	ODDR2_smi_clk_inst : ODDR2
    generic map(
       DDR_ALIGNMENT => "NONE",
       INIT => '0',
@@ -385,8 +463,8 @@ begin
       mdio => smi_mdio,
       rd_en => smi_rd_en,
       wr_en => '0',
-      addr => "0001",
-      data_in => (others => '0'),
+      addr => "0001", -- The link established register is on page 1
+      data_in => (others => '0'), -- No need to input data (only reading)
       data_out => smi_dout,
       working => smi_working,
       done => smi_done,
@@ -401,7 +479,7 @@ begin
     buffer_full => udp_full,
     buffer_empty => udp_empty,
     buffer_prog_full => udp_prog_full,
-    buffer_prog_full_val => std_logic_vector(to_unsigned(1000, 11)),
+    buffer_prog_full_val => std_logic_vector(to_unsigned(1000, 11)),  -- Doesn't really matter
     data_out => udp_data_out,
     data_valid => udp_dv,
     dropped_frame => udp_dropped
@@ -416,7 +494,7 @@ begin
     buffer_full => ip_full,
     buffer_empty => ip_empty,
     buffer_prog_full => ip_prog_full,
-    buffer_prog_full_val => std_logic_vector(to_unsigned(1000, 11)),
+    buffer_prog_full_val => std_logic_vector(to_unsigned(1000, 11)),  -- Doesn't really matter
     data_out => ip_data_out,
     data_valid => ip_dv,
     dropped_frame => ip_dropped
@@ -431,7 +509,7 @@ begin
     buffer_full => e_full,
     buffer_empty => e_empty,
     buffer_prog_full => e_prog_full,
-    buffer_prog_full_val => std_logic_vector(to_unsigned(1000, 11)),
+    buffer_prog_full_val => std_logic_vector(to_unsigned(1000, 11)),  -- Doesn't really matter
     data_out => e_data_out,
     data_valid => e_dv,
     dropped_frame => e_dropped
@@ -464,7 +542,7 @@ begin
     din => samp_din,
     wr_en => samp_wr_en,
     rd_en => samp_rd_en,
-    prog_full_thresh => std_logic_vector(to_unsigned(600, 11)),
+    prog_full_thresh => std_logic_vector(to_unsigned(samp_frame_size, 11)), -- Sets when prog_full outputs high
     dout => samp_dout,
     full => samp_full,
     empty => samp_empty,
