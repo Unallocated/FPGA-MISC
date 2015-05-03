@@ -54,6 +54,7 @@ architecture Behavioral of eth_master is
   signal e_data_in, e_data_out : std_logic_vector(7 downto 0);
   signal e_wr_en, e_prog_full, e_full, e_empty, e_dv, e_dropped, e_busy : std_logic;
   COMPONENT ethernet_wrapper_with_preamble
+  GENERIC ( dest_mac : std_logic_vector(47 downto 0) := x"00252235fa3b" );
   PORT(
     clk : IN std_logic;
     rst : IN std_logic;
@@ -93,11 +94,26 @@ architecture Behavioral of eth_master is
 
   signal zeros_gen_counter : unsigned(10 downto 0);
   signal zeros_gen_state : unsigned(0 downto 0);
-
+  signal zeros_gen_actual_data : std_logic_vector(7 downto 0);
+  
+  signal fault : std_logic;
 begin
 
-  leds <= (others => eth_link_established);
- 
+  leds <= "01" & eth_link_established & eth_reset_complete & e_full & e_empty & e_dropped & fault;
+
+  process(clk, rst_valid)
+  begin
+    if(rst_valid = '1') then
+      fault <= '0';
+    elsif(rising_edge(clk)) then
+      if(fault = '0') then
+        if(e_dropped = '1') then
+          fault <= '1';
+        end if;
+      end if;
+    end if;
+  end process;
+
   process(data_clk, rst_valid)
   begin
     if(rst_valid = '1') then
@@ -109,10 +125,11 @@ begin
       case to_integer(zeros_gen_state) is
         when 0 =>
           zeros_gen_counter <= zeros_gen_counter + 1;
-          e_data_in <= (others => '0');
+          zeros_gen_actual_data <= std_logic_vector(unsigned(zeros_gen_actual_data) + 1);
+          e_data_in <= zeros_gen_actual_data;
           e_wr_en <= '1';
 
-          if(zeros_gen_counter = 255) then
+          if(zeros_gen_counter = 250) then
             zeros_gen_counter <= (others => '0');
             zeros_gen_state <= to_unsigned(1, zeros_gen_state'length);
           end if;
