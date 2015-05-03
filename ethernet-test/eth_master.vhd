@@ -188,7 +188,7 @@ begin
           udp_wr_en <= '0';
           zeros_gen_counter <= zeros_gen_counter + 1;
 
-          if(zeros_gen_counter = 500) then
+          if(zeros_gen_counter = 1500) then
             zeros_gen_state <= (others => '0');
             zeros_gen_counter <= (others => '0');
           end if;
