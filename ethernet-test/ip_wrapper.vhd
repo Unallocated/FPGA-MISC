@@ -46,6 +46,7 @@ architecture behave of ip_wrapper is
   END COMPONENT;
 
   signal payload_pos : unsigned(11 downto 0);
+  signal actual_length : std_logic_vector(15 downto 0);
   signal header_pos : integer range 0 to 19;
   signal last_wr_en_val : std_logic;
 
@@ -78,13 +79,14 @@ begin
       data_valid <= '0';
       data_out <= (others => '0');
       latched_checksum <= (others => '0');
+      actual_length <= (others => '0');
     elsif(rising_edge(clk)) then
       last_wr_en_val <= wr_en;
       dropped_frame <= '0';
       
       if(wr_en = '0' and last_wr_en_val = '1') then
         payload_pos <= unsigned('0' & buffer_data_count) + 1;
-        
+        actual_length <= std_logic_vector(unsigned("00000" & buffer_data_count) + 20);
         if(state = WAIT_FOR_SEND) then
           state <= SEND_HEADER;
           busy <= '1';
@@ -115,13 +117,13 @@ begin
               latched_checksum <= checksum_calc(latched_checksum, x"4500");
             when 2 =>
               -- Total length 1
-              data_out <= "00000" & std_logic_vector(payload_pos(10 downto 8));
+              data_out <= actual_length(15 downto 8);
               -- Second part of source IP
               latched_checksum <= checksum_calc(latched_checksum, src_ip(15 downto 0));
             when 3 =>
               -- Total length 2
-              data_out <= std_logic_vector(payload_pos(7 downto 0));
-              latched_checksum <= checksum_calc(latched_checksum, "00000" & std_logic_vector(payload_pos(payload_pos'high -1 downto 0)));
+              data_out <= actual_length(7 downto 0);
+              latched_checksum <= checksum_calc(latched_checksum, actual_length);
             when 4 =>
               -- ID 1
               data_out <= x"00";
@@ -146,7 +148,7 @@ begin
             when 9 =>
               -- Protocol
               data_out <= protocol;
-              latched_checksum <= checksum_calc(latched_checksum, ttl & protocol);
+              latched_checksum <= not checksum_calc(latched_checksum, ttl & protocol);
             when 10 =>
               -- Checksum 1
               data_out <= std_logic_vector(latched_checksum(15 downto 8));

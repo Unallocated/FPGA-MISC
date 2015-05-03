@@ -146,12 +146,14 @@ begin
               data_out <= actual_length(15 downto 8);
             when 5 =>
               data_out <= actual_length(7 downto 0);
-              latched_checksum <= checksum_calc(latched_checksum, actual_length);
+              latched_checksum <= not checksum_calc(latched_checksum, actual_length);
             when 6 =>
-              data_out <= std_logic_vector(latched_checksum(15 downto 8));
+              data_out <= x"00"; -- calculating the UDP checksum is a pain in the ass..
+              --data_out <= std_logic_vector(latched_checksum(15 downto 8));
               buffer_rd_en <= '1';
             when 7 =>
-              data_out <= std_logic_vector(latched_checksum(7 downto 0));
+              data_out <= x"00"; -- calculating the UDP checksum is a pain in the ass...
+              --data_out <= std_logic_vector(latched_checksum(7 downto 0));
               state <= SEND_PAYLOAD;
             when others =>
               null;

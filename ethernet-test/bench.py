@@ -9,8 +9,9 @@ startTime = time.time()
 byteCount = 0
 while 1:
   byteCount += len(s.recvfrom(10000)[0])
+  print byteCount
 
-  if byteCount >= 1024 * 1024 * 10:
+  if byteCount >= 1024 * 1024  * 1:
     print "BW: %0.2f" % (byteCount / int(time.time() - startTime))
     startTime = time.time()
     byteCount = 0

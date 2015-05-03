@@ -8,7 +8,7 @@ counter = -1
 
 while 1:
   data = s.recvfrom(10000)[0]
-  if data[12] == '\x7e' and data[13] == '\x57':
+  if data[12] == '\x08' and data[13] == '\x00':
     if counter == -1:
       counter = ord(data[14])
       start = 15

@@ -54,8 +54,8 @@ architecture Behavioral of eth_master is
   signal udp_data_in, udp_data_out : std_logic_vector(7 downto 0);
   signal udp_wr_en, udp_prog_full, udp_full, udp_empty, udp_dv, udp_dropped, udp_busy : std_logic;
   COMPONENT udp_wrapper
-  GENERIC( src_port : std_logic_vector(15 downto 0) := x"8000";
-           dest_port : std_logic_vector(15 downto 0) := x"8000" );
+  GENERIC( src_port : std_logic_vector(15 downto 0) := x"1F90";
+           dest_port : std_logic_vector(15 downto 0) := x"1F90" );
   PORT(
     clk : IN std_logic;
     rst : IN std_logic;
@@ -179,7 +179,7 @@ begin
           udp_data_in <= zeros_gen_actual_data;
           udp_wr_en <= '1';
 
-          if(zeros_gen_counter = 24) then
+          if(zeros_gen_counter = 700 - 1) then
             zeros_gen_counter <= (others => '0');
             zeros_gen_state <= to_unsigned(1, zeros_gen_state'length);
           end if;
