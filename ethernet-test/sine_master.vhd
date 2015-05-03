@@ -188,10 +188,20 @@ begin
   udp_data_in <= samp_dout;
   udp_wr_en <= '0' when samp_state = SAMP_WAIT_FOR_FULL else '1';
 
-  samp_din <= std_logic_vector(unsigned(sine_out) + 128);
+  --samp_din <= std_logic_vector(unsigned(sine_out) + 128);
   samp_wr_en <= eth_link_established and eth_reset_complete;
   samp_wr_clk <= samp_clk;
   samp_rd_clk <= data_clk;
+
+  process(samp_clk, rst_valid)
+  begin
+    if(rst_valid = '1') then
+      zeros_gen_actual_data <= (others => '0');
+    elsif(rising_edge(samp_clk)) then
+      zeros_gen_actual_data <= std_logic_vector(unsigned(zeros_gen_actual_data) + 1);
+      samp_din <= zeros_gen_actual_data;
+    end if;
+  end process;
 
   process(data_clk, rst_valid)
   begin
@@ -226,8 +236,9 @@ begin
 
           when SAMP_UNLOAD =>
             samp_counter <= samp_counter + 1;
-
+  
             if(samp_counter = 600) then
+              samp_rd_en <= '0';
               samp_counter <= (others => '0');
               samp_state <= SAMP_WAIT_FOR_FULL;
             end if;
