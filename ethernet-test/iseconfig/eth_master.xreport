@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-05-03T11:20:37</DateModified>
+  <DateModified>2015-05-03T12:02:59</DateModified>
   <ModuleName>sine_master</ModuleName>
-  <SummaryTimeStamp>2015-05-03T11:16:45</SummaryTimeStamp>
+  <SummaryTimeStamp>2015-05-03T12:00:52</SummaryTimeStamp>
   <SavedFilePath>/home/main/git/FPGA-MISC/ethernet-test/iseconfig/eth_master.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/home/main/git/FPGA-MISC/ethernet-test/</ImplementationReportsDirectory>
   <DateInitialized>2015-05-03T10:45:55</DateInitialized>
