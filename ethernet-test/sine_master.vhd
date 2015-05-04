@@ -120,7 +120,7 @@ architecture Behavioral of sine_master is
   COMPONENT ip_wrapper
   GENERIC( 
 		src_ip : std_logic_vector(31 downto 0) := x"c0a801fb"; -- Source IP
-    dest_ip : std_logic_vector(31 downto 0) := x"c0a80109"; -- Dest IP
+    dest_ip : std_logic_vector(31 downto 0) := x"c0a801de"; -- Dest IP
 		protocol : std_logic_vector(7 downto 0) := x"11" -- Next level protocol
 	);
   PORT(
@@ -144,7 +144,7 @@ architecture Behavioral of sine_master is
   signal e_wr_en, e_prog_full, e_full, e_empty, e_dv, e_dropped, e_busy : std_logic;
   COMPONENT ethernet_wrapper_with_preamble
   GENERIC ( 
-		dest_mac : std_logic_vector(47 downto 0) := x"0050b60a6ae7"; -- Destination MAC address
+		dest_mac : std_logic_vector(47 downto 0) := x"c82a14252d83"; -- Destination MAC address
 		src_mac : std_logic_vector(47 downto 0) := x"010203040506"; -- Source MAC address
     protocol : std_logic_vector(15 downto 0) := x"0800" -- Next level protocol
 	);
@@ -193,9 +193,9 @@ architecture Behavioral of sine_master is
   signal eth_reset_complete : std_logic;
 
 	-- Used for the pattern generator (commented out now)
-  --signal zeros_gen_counter : unsigned(26 downto 0);
-  --signal zeros_gen_state : unsigned(0 downto 0);
-  --signal zeros_gen_actual_data : std_logic_vector(7 downto 0);
+  signal zeros_gen_counter : unsigned(26 downto 0);
+  signal zeros_gen_state : unsigned(0 downto 0);
+  signal zeros_gen_actual_data : std_logic_vector(7 downto 0);
   
 	-- Used to catch when a packet is dropped by and of the protocol wrappers
   signal fault : std_logic;
@@ -228,11 +228,11 @@ begin
   ip_wr_en <= udp_dv;
 
 	-- The output of the sampling FIFO feeds the UDP wrapper
-  udp_data_in <= samp_dout;
+  --udp_data_in <= samp_dout;
 	-- Only allow the frames to be written if the sampling state machine is waiting for more data
 	-- TODO: This actuall might be causing a bug.  Might need to put this in the process that drives
 	--       the state machine...
-  udp_wr_en <= '0' when samp_state = SAMP_WAIT_FOR_FULL else '1';
+  --udp_wr_en <= '0' when samp_state = SAMP_WAIT_FOR_FULL else '1';
 
 	-- The input to the sampling FIFO is the OUTPUT of the DDS converted to unsigned (+128)
   --samp_din <= std_logic_vector(unsigned(sine_out) + 128);
@@ -284,38 +284,40 @@ begin
 	-- to send an entire frame of samples.
 	-- THIS IS THE NUMBER OF SAMPLES SENT!!  The total bytes sent over the Ethernet connection
 	-- will be more due to protocols!
-  process(data_clk, rst_valid)
-  begin
-    if(rst_valid = '1') then
-      samp_state <= SAMP_WAIT_FOR_FULL;
-      samp_rd_en <= '0';
-      samp_counter <= (others => '0');
-    elsif(rising_edge(data_clk)) then
-      if(eth_link_established = '1' and eth_reset_complete = '1') then
-        case samp_state is
-          when SAMP_WAIT_FOR_FULL =>
-            samp_rd_en <= '0';
-            if(samp_prog_full = '1') then
-              samp_rd_en <= '1';
-              samp_state <= SAMP_UNLOAD;
-              samp_counter <= (others => '0');
-            end if;
+  --process(data_clk, rst_valid)
+  --begin
+  --  if(rst_valid = '1') then
+  --    samp_state <= SAMP_WAIT_FOR_FULL;
+  --    samp_rd_en <= '0';
+  --    samp_counter <= (others => '0');
+  --  elsif(rising_edge(data_clk)) then
+  --    if(eth_link_established = '1' and eth_reset_complete = '1') then
+  --      case samp_state is
+  --        when SAMP_WAIT_FOR_FULL =>
+  --          samp_rd_en <= '0';
+  --          if(samp_prog_full = '1') then
+  --            samp_rd_en <= '1';
+  --            samp_state <= SAMP_UNLOAD;
+  --            samp_counter <= (others => '0');
+	--						udp_wr_en <= '1';
+  --          end if;
 
-          when SAMP_UNLOAD =>
-            samp_counter <= samp_counter + 1;
-						
-						-- Stop after reading samp_frame_size bytes (remember, zero counts!)
-            if(samp_counter = samp_frame_size - 1) then
-              samp_rd_en <= '0';
-              samp_counter <= (others => '0');
-              samp_state <= SAMP_WAIT_FOR_FULL;
-            elsif(samp_counter = samp_frame_size - 2) then
-              samp_rd_en <= '0';
-            end if;
-        end case;
-      end if;
-    end if;
-  end process;
+  --        when SAMP_UNLOAD =>
+  --          samp_counter <= samp_counter + 1;
+	--					
+	--					-- Stop after reading samp_frame_size bytes (remember, zero counts!)
+  --          if(samp_counter = samp_frame_size - 1) then
+  --            samp_rd_en <= '0';
+  --            samp_counter <= (others => '0');
+  --            samp_state <= SAMP_WAIT_FOR_FULL;
+	--						udp_wr_en <= '0';
+  --          elsif(samp_counter = samp_frame_size - 2) then
+  --            samp_rd_en <= '0';
+  --          end if;
+  --      end case;
+  --    end if;
+  --  end if;
+  --end process;
 
 	-- Latches any frame dropped errors.  If the drops are intermittent then you might not
 	-- notice them.  This process will grab any drop errors and set fault high until the 
@@ -334,41 +336,41 @@ begin
   end process;
 
 	-- This process was used to generate a test pattern (counted 0 to 255)
-  --process(data_clk, rst_valid)
-  --begin
-  --  if(rst_valid = '1') then
-  --    zeros_gen_counter <= (others => '0');
-  --    zeros_gen_state <= (others => '0');
-  --    udp_wr_en <= '0';
-  --    udp_data_in <= (others => '0');
-  --    zeros_gen_actual_data <= (others => '0');
-  --  elsif(rising_edge(data_clk)) then
-  --    case to_integer(zeros_gen_state) is
-  --      when 0 =>
-  --        zeros_gen_counter <= zeros_gen_counter + 1;
-  --        zeros_gen_actual_data <= std_logic_vector(unsigned(zeros_gen_actual_data) + 1);
-  --        udp_data_in <= zeros_gen_actual_data;
-  --        udp_wr_en <= '1';
+  process(data_clk, rst_valid)
+  begin
+    if(rst_valid = '1') then
+      zeros_gen_counter <= (others => '0');
+      zeros_gen_state <= (others => '0');
+      udp_wr_en <= '0';
+      udp_data_in <= (others => '0');
+      zeros_gen_actual_data <= (others => '0');
+    elsif(rising_edge(data_clk)) then
+      case to_integer(zeros_gen_state) is
+        when 0 =>
+          zeros_gen_counter <= zeros_gen_counter + 1;
+          zeros_gen_actual_data <= std_logic_vector(unsigned(zeros_gen_actual_data) + 1);
+          udp_data_in <= zeros_gen_actual_data;
+          udp_wr_en <= '1';
 
-  --        if(zeros_gen_counter = 700 - 1) then
-  --          zeros_gen_counter <= (others => '0');
-  --          zeros_gen_state <= to_unsigned(1, zeros_gen_state'length);
-  --        end if;
-  --      
-  --      when 1 =>
-  --        udp_wr_en <= '0';
-  --        zeros_gen_counter <= zeros_gen_counter + 1;
+          if(zeros_gen_counter = 599) then
+            zeros_gen_counter <= (others => '0');
+            zeros_gen_state <= to_unsigned(1, zeros_gen_state'length);
+          end if;
+        
+        when 1 =>
+          udp_wr_en <= '0';
+          zeros_gen_counter <= zeros_gen_counter + 1;
 
-  --        if(zeros_gen_counter = 1500) then
-  --          zeros_gen_state <= (others => '0');
-  --          zeros_gen_counter <= (others => '0');
-  --        end if;
+          if(zeros_gen_counter = 610) then
+            zeros_gen_state <= (others => '0');
+            zeros_gen_counter <= (others => '0');
+          end if;
 
-  --      when others => 
-  --        null;
-  --    end case;
-  --  end if;
-  --end process;
+        when others => 
+          null;
+      end case;
+    end if;
+  end process;
 
 	-- Syncronizes the reset signal to the clk clock domain.  This is to ensure
 	-- that there are no metastability issues.
