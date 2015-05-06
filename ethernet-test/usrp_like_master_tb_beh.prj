@@ -1,0 +1,7 @@
+vhdl work "ipcore_dir/sine_gen.vhd"
+vhdl work "ipcore_dir/usrp_like_buffer.vhd"
+vhdl work "ipcore_dir/usrp_like_master_dcm.vhd"
+vhdl work "usrp_like.vhd"
+vhdl work "smi_ramlike.vhd"
+vhdl work "usrp_like_master.vhd"
+vhdl work "usrp_like_master_tb.vhd"
