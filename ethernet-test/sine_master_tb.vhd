@@ -27,6 +27,7 @@ ARCHITECTURE behavior OF sine_master_tb IS
          eth_rst_n : OUT  std_logic;
          sine_inc : IN  std_logic_vector(7 downto 0);
          sine_o : OUT  std_logic_vector(7 downto 0);
+			divider_max_val : in std_logic_vector(3 downto 0);
          source_select : IN  std_logic
         );
     END COMPONENT;
@@ -38,6 +39,7 @@ ARCHITECTURE behavior OF sine_master_tb IS
    signal tx_clk : std_logic := '0';
    signal sine_inc : std_logic_vector(7 downto 0) := "00000001";
    signal source_select : std_logic := '0';
+	signal divider_max_val : std_logic_vector(3 downto 0) := "0100";
 
 	--BiDirs
    signal smi_mdio : std_logic;
@@ -71,6 +73,7 @@ BEGIN
           eth_rst_n => eth_rst_n,
           sine_inc => sine_inc,
           sine_o => sine_o,
+			 divider_max_val => divider_max_val,
           source_select => source_select
         );
 
@@ -97,10 +100,11 @@ BEGIN
    begin		
       -- hold reset state for 100 ns.
 		rst <= '1';
-      wait for 100 ns;	
+      wait for 1000 ns;	
+		wait until rising_edge(tx_clk);
 		rst <= '0';
 
-      wait for clk_period*10;
+      wait for clk_period*40;
 
       -- insert stimulus here 
 

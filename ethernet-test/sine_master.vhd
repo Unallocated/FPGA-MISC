@@ -120,7 +120,7 @@ architecture Behavioral of sine_master is
   COMPONENT ip_wrapper
   GENERIC( 
 		src_ip : std_logic_vector(31 downto 0) := x"c0a801fb"; -- Source IP
-    dest_ip : std_logic_vector(31 downto 0) := x"c0a801de"; -- Dest IP
+    dest_ip : std_logic_vector(31 downto 0) := x"c0a80103"; -- Dest IP
 		protocol : std_logic_vector(7 downto 0) := x"11" -- Next level protocol
 	);
   PORT(
@@ -144,7 +144,7 @@ architecture Behavioral of sine_master is
   signal e_wr_en, e_prog_full, e_full, e_empty, e_dv, e_dropped, e_busy : std_logic;
   COMPONENT ethernet_wrapper_with_preamble
   GENERIC ( 
-		dest_mac : std_logic_vector(47 downto 0) := x"c82a14252d83"; -- Destination MAC address
+		dest_mac : std_logic_vector(47 downto 0) := x"0050b60a6ae7"; -- Destination MAC address
 		src_mac : std_logic_vector(47 downto 0) := x"010203040506"; -- Source MAC address
     protocol : std_logic_vector(15 downto 0) := x"0800" -- Next level protocol
 	);
@@ -352,7 +352,8 @@ begin
           udp_data_in <= zeros_gen_actual_data;
           udp_wr_en <= '1';
 
-          if(zeros_gen_counter = 599) then
+          if(zeros_gen_counter = 1000) then
+				zeros_gen_actual_data <= zeros_gen_actual_data;
             zeros_gen_counter <= (others => '0');
             zeros_gen_state <= to_unsigned(1, zeros_gen_state'length);
           end if;
@@ -361,7 +362,7 @@ begin
           udp_wr_en <= '0';
           zeros_gen_counter <= zeros_gen_counter + 1;
 
-          if(zeros_gen_counter = 610) then
+          if(zeros_gen_counter = 200) then
             zeros_gen_state <= (others => '0');
             zeros_gen_counter <= (others => '0');
           end if;
