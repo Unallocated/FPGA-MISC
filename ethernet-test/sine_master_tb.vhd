@@ -12,7 +12,8 @@ ARCHITECTURE behavior OF sine_master_tb IS
     COMPONENT sine_master
 	 Generic ( 
 			clock_divider_max_value : positive := 4;
-			reset_count : positive := 100
+			reset_count : positive := 100;
+			frame_size: positive := 256
 		);
     PORT(
          clk : IN  std_logic;

@@ -8,6 +8,7 @@ use unisim.vcomponents.all;
 entity sine_master is
     Generic ( 
       clock_divider_max_value : positive := 6; -- Number of base clock cycles required to toggle samp_clk
+      frame_size : positive := 600; -- Number of samples to send in each data frame
 			reset_count : positive := 100_000_000 -- Number of cycles to pause in order to let the PHY reset
 		);
     Port ( clk : in  STD_LOGIC; -- Input clock
@@ -39,24 +40,27 @@ architecture Behavioral of sine_master is
     );
   END COMPONENT;
 
-	-- FIFO that will buffer samples from the DDS and flush out to the UDP -> IP -> Ethernet -> PHY modules
-  signal samp_din, samp_dout : std_logic_vector(7 downto 0);
-  signal samp_wr_clk, samp_wr_en, samp_full, samp_prog_full, samp_rd_clk, samp_rd_en, samp_empty : std_logic;
-  COMPONENT sampling_fifo
-    PORT (
-      wr_clk : in std_logic;
-      din : in std_logic_vector(7 downto 0);
-      wr_en : in std_logic;
-      prog_full_thresh : in std_logic_vector(10 downto 0);
-      full : out std_logic;
-      prog_full : out std_logic;
-      rd_clk : in std_logic;
-      dout : out std_logic_vector(7 downto 0);
-      rd_en : in std_logic;
-      empty : out std_logic;
-      rst : in std_logic
-    );
-  END COMPONENT;
+	---- FIFO that will buffer samples from the DDS and flush out to the UDP -> IP -> Ethernet -> PHY modules
+  --signal samp_din, samp_dout : std_logic_vector(7 downto 0);
+  --signal samp_wr_clk, samp_wr_en, samp_full, samp_prog_full, samp_rd_clk, samp_rd_en, samp_empty : std_logic;
+  --signal samp_rd_count, samp_wr_count : std_logic_vector(10 downto 0);
+  --COMPONENT sampling_fifo
+  --  PORT (
+  --    wr_clk : in std_logic;
+  --    din : in std_logic_vector(7 downto 0);
+  --    wr_en : in std_logic;
+  --    prog_full_thresh : in std_logic_vector(10 downto 0);
+  --    full : out std_logic;
+  --    wr_data_count : OUT std_logic_vector(10 downto 0);
+  --    prog_full : out std_logic;
+  --    rd_clk : in std_logic;
+  --    dout : out std_logic_vector(7 downto 0);
+  --    rd_data_count : OUT std_logic_vector(10 downto 0);
+  --    rd_en : in std_logic;
+  --    empty : out std_logic;
+  --    rst : in std_logic
+  --  );
+  --END COMPONENT;
 
 	-- DCM to generate the clocks for data (rate for UDP, IP, and Ethernet modules) and SMI (PHY control)
   signal tx_clk_copy, data_clk, smi_clk_buffered : std_logic;
@@ -179,6 +183,23 @@ architecture Behavioral of sine_master is
     );
   END COMPONENT;
 
+  signal samp_dv, samp_wr_en, samp_wr_clk, samp_rd_clk, samp_rdy, samp_ovflo : std_logic;
+  signal samp_dout, samp_din : std_logic_vector(7 downto 0);
+  COMPONENT sampling_buff
+    GENERIC( frame_size : positive := frame_size );
+    PORT(
+      wr_clk : IN std_logic;
+      rst : IN std_logic;
+      wr_en : IN std_logic;
+      rd_clk : IN std_logic;
+      data_in : IN std_logic_vector(7 downto 0);          
+      dv : OUT std_logic;
+      ovflo : OUT std_logic;
+      rdy : OUT std_logic;
+      data_out : OUT std_logic_vector(7 downto 0)
+      );
+    END COMPONENT;
+
 	-- These two signals are used to bring in the reset signal (button).  The resulting signal
 	-- (rst_valid) should not have any metastability issues
   signal rst_sync : std_logic_vector(3 downto 0);
@@ -201,23 +222,20 @@ architecture Behavioral of sine_master is
   signal fault : std_logic;
 
 	-- The state machine type that controls unloading data from the sampling FIFO
-  type samp_state_t is (SAMP_WAIT_FOR_FULL, SAMP_UNLOAD);
-  signal samp_state : samp_state_t;
+  --type samp_state_t is (SAMP_WAIT_FOR_FULL, SAMP_UNLOAD);
+  --signal samp_state : samp_state_t;
 	-- Used to unload only the specified number of bytes from the sampling FIFO at a time
-  signal samp_counter : unsigned(10 downto 0);
+  --signal samp_counter : unsigned(10 downto 0);
 
 	-- Counter used to divide down the data clock to create the sampling clock
   signal samp_clk_counter : unsigned(7 downto 0);
 	-- Clock created by a process that controls how often the DDS sampled
   signal samp_clk : std_logic;
 
-	-- Number of samples that make up one frame.  This is how many bytes will be sent at a time
-	-- over the Ethernet connection.
-	constant samp_frame_size : positive := 600;
 begin
 
 	-- Debugging output
-  leds <= "01" & eth_link_established & samp_prog_full & samp_empty & e_empty & e_busy & fault;
+  leds <= "01" & eth_link_established & samp_ovflo & samp_rdy & e_empty & e_busy & fault;
 
 	-- The IP wrapper feeds the Ethernet wrapper
   e_data_in <= ip_data_out;
@@ -228,20 +246,22 @@ begin
   ip_wr_en <= udp_dv;
 
 	-- The output of the sampling FIFO feeds the UDP wrapper
-  --udp_data_in <= samp_dout;
+  udp_data_in <= samp_dout;
 	-- Only allow the frames to be written if the sampling state machine is waiting for more data
 	-- TODO: This actuall might be causing a bug.  Might need to put this in the process that drives
 	--       the state machine...
   --udp_wr_en <= '0' when samp_state = SAMP_WAIT_FOR_FULL else '1';
+  udp_wr_en <= samp_dv;
 
 	-- The input to the sampling FIFO is the OUTPUT of the DDS converted to unsigned (+128)
   --samp_din <= std_logic_vector(unsigned(sine_out) + 128);
 	-- The write enable signal of the sampling FIFO that is controlled by the link established and reset signals
-  samp_wr_en <= eth_link_established and eth_reset_complete;
+  samp_wr_en <= eth_link_established and eth_reset_complete and samp_rdy;
 	-- The sampling FIFO write clock is the sampling clock
   samp_wr_clk <= samp_clk;
 	-- The sampling FIFO read clock is the data clock (same that drives the wrapper modules)
   samp_rd_clk <= data_clk;
+
 	
 	-- This is the debugging output of the DDS sine wave.  By using the bottom button, the output can be
 	-- switched between the sampling FIFO output or the sampling FIFO input (this is just the output of the DDS)
@@ -278,12 +298,12 @@ begin
     end if;
   end process;
 
-	-- State machine that determines when to send data through the wrapper modules.
-	-- The basic idea is that the process will wait until the programmable full output
-	-- of the sampling FIFO goes high.  That means that there is enough data in the FIFO
-	-- to send an entire frame of samples.
-	-- THIS IS THE NUMBER OF SAMPLES SENT!!  The total bytes sent over the Ethernet connection
-	-- will be more due to protocols!
+	---- State machine that determines when to send data through the wrapper modules.
+	---- The basic idea is that the process will wait until the programmable full output
+	---- of the sampling FIFO goes high.  That means that there is enough data in the FIFO
+	---- to send an entire frame of samples.
+	---- THIS IS THE NUMBER OF SAMPLES SENT!!  The total bytes sent over the Ethernet connection
+	---- will be more due to protocols!
   --process(data_clk, rst_valid)
   --begin
   --  if(rst_valid = '1') then
@@ -311,7 +331,7 @@ begin
   --            samp_counter <= (others => '0');
   --            samp_state <= SAMP_WAIT_FOR_FULL;
 	--						udp_wr_en <= '0';
-  --          elsif(samp_counter = samp_frame_size - 2) then
+  --          --elsif(samp_counter = samp_frame_size - 2) then
   --            samp_rd_en <= '0';
   --          end if;
   --      end case;
@@ -336,42 +356,42 @@ begin
   end process;
 
 	-- This process was used to generate a test pattern (counted 0 to 255)
-  process(data_clk, rst_valid)
-  begin
-    if(rst_valid = '1') then
-      zeros_gen_counter <= (others => '0');
-      zeros_gen_state <= (others => '0');
-      udp_wr_en <= '0';
-      udp_data_in <= (others => '0');
-      zeros_gen_actual_data <= (others => '0');
-    elsif(rising_edge(data_clk)) then
-      case to_integer(zeros_gen_state) is
-        when 0 =>
-          zeros_gen_counter <= zeros_gen_counter + 1;
-          zeros_gen_actual_data <= std_logic_vector(unsigned(zeros_gen_actual_data) + 1);
-          udp_data_in <= zeros_gen_actual_data;
-          udp_wr_en <= '1';
-
-          if(zeros_gen_counter = 1000) then
-				zeros_gen_actual_data <= zeros_gen_actual_data;
-            zeros_gen_counter <= (others => '0');
-            zeros_gen_state <= to_unsigned(1, zeros_gen_state'length);
-          end if;
-        
-        when 1 =>
-          udp_wr_en <= '0';
-          zeros_gen_counter <= zeros_gen_counter + 1;
-
-          if(zeros_gen_counter = 200) then
-            zeros_gen_state <= (others => '0');
-            zeros_gen_counter <= (others => '0');
-          end if;
-
-        when others => 
-          null;
-      end case;
-    end if;
-  end process;
+--  process(data_clk, rst_valid)
+--  begin
+--    if(rst_valid = '1') then
+--      zeros_gen_counter <= (others => '0');
+--      zeros_gen_state <= (others => '0');
+--      udp_wr_en <= '0';
+--      udp_data_in <= (others => '0');
+--      zeros_gen_actual_data <= (others => '0');
+--    elsif(rising_edge(data_clk)) then
+--      case to_integer(zeros_gen_state) is
+--        when 0 =>
+--          zeros_gen_counter <= zeros_gen_counter + 1;
+--          zeros_gen_actual_data <= std_logic_vector(unsigned(zeros_gen_actual_data) + 1);
+--          udp_data_in <= zeros_gen_actual_data;
+--          udp_wr_en <= '1';
+--
+--          if(zeros_gen_counter = 1000) then
+--				zeros_gen_actual_data <= zeros_gen_actual_data;
+--            zeros_gen_counter <= (others => '0');
+--            zeros_gen_state <= to_unsigned(1, zeros_gen_state'length);
+--          end if;
+--        
+--        when 1 =>
+--          udp_wr_en <= '0';
+--          zeros_gen_counter <= zeros_gen_counter + 1;
+--
+--          if(zeros_gen_counter = 200) then
+--            zeros_gen_state <= (others => '0');
+--            zeros_gen_counter <= (others => '0');
+--          end if;
+--
+--        when others => 
+--          null;
+--      end case;
+--    end if;
+--  end process;
 
 	-- Syncronizes the reset signal to the clk clock domain.  This is to ensure
 	-- that there are no metastability issues.
@@ -554,20 +574,34 @@ begin
     sine => sine_out
   );
 
-  sampling_fifo_inst : sampling_fifo
-  PORT MAP (
-    rst => rst_valid,
+  sampling_buff_inst : sampling_buff PORT MAP(
     wr_clk => samp_wr_clk,
-    rd_clk => samp_rd_clk,
-    din => samp_din,
+    rst => rst_valid,
     wr_en => samp_wr_en,
-    rd_en => samp_rd_en,
-    prog_full_thresh => std_logic_vector(to_unsigned(samp_frame_size, 11)), -- Sets when prog_full outputs high
-    dout => samp_dout,
-    full => samp_full,
-    empty => samp_empty,
-    prog_full => samp_prog_full
+    rd_clk => samp_rd_clk,
+    dv => samp_dv,
+    ovflo => samp_ovflo,
+    rdy => samp_rdy,
+    data_in => samp_din,
+    data_out => samp_dout
   );
+
+  --sampling_fifo_inst : sampling_fifo
+  --PORT MAP (
+  --  rst => rst_valid,
+  --  wr_clk => samp_wr_clk,
+  --  rd_clk => samp_rd_clk,
+  --  din => samp_din,
+  --  wr_en => samp_wr_en,
+  --  rd_en => samp_rd_en,
+  --  prog_full_thresh => std_logic_vector(to_unsigned(samp_frame_size, 11)), -- Sets when prog_full outputs high
+  --  dout => samp_dout,
+  --  full => samp_full,
+  --  empty => samp_empty,
+  --  wr_data_count => samp_wr_count,
+  --  rd_data_count => samp_rd_count,
+  --  prog_full => samp_prog_full
+  --);
 
 end Behavioral;
 

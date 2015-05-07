@@ -56,7 +56,7 @@ architecture behave of udp_wrapper is
   signal last_data_in_val : std_logic_vector(data_in'range);
   signal running_checksum, latched_checksum : unsigned(15 downto 0);
   signal actual_length : std_logic_vector(15 downto 0);
-
+  signal was_empty, was_empty_latched : std_logic;
   function checksum_calc (current_checksum : unsigned; new_data : std_logic_vector) return unsigned is
   begin
     if(unsigned('0' & new_data) + unsigned('0' & current_checksum) > 65535) then
@@ -85,6 +85,8 @@ begin
       data_valid <= '0';
       data_out <= (others => '0');
       actual_length <= (others => '0');
+      was_empty <= '0';
+      was_empty_latched <= '0';
     elsif(rising_edge(clk)) then
       last_wr_en_val <= wr_en;
       dropped_frame <= '0';
@@ -92,6 +94,14 @@ begin
       last_data_in_val <= data_in;
 
       if(wr_en = '1') then
+        if(last_wr_en_val = '0') then
+          if(unsigned(buffer_data_count) = 0) then
+            was_empty <= '1';
+          else
+            was_empty <= '0';
+          end if;
+        end if;
+
         is_first_byte <= not is_first_byte;
         if(is_first_byte = '0') then
           running_checksum <= checksum_calc(running_checksum, last_data_in_val & data_in);
@@ -101,7 +111,8 @@ begin
         payload_pos <= unsigned('0' & buffer_data_count) + 1;
         actual_length <= std_logic_vector(unsigned("00000" & buffer_data_count) + 8);
         running_checksum <= (others => '0');
-        
+        was_empty_latched <= was_empty;
+
         if(is_first_byte = '0') then
           --latched_checksum <= running_checksum;
           latched_checksum <= checksum_calc(running_checksum, last_data_in_val & x"00");
@@ -163,9 +174,20 @@ begin
           payload_pos <= payload_pos - 1;
           data_out <= buffer_data_out;
 
-          if(payload_pos = 2) then
-            buffer_rd_en <= '0';
+          if(was_empty_latched = '1') then
+            if(payload_pos = 2) then
+              buffer_rd_en <= '0';
+            end if;
+          else
+            if(payload_pos = 3) then
+              buffer_rd_en <= '0';
+            end if;
           end if;
+
+  
+          --if(was_empty_latched = '1' and payload_pos = 2) then
+          --  buffer_rd_en <= '0';
+          --end if;
 
           if(payload_pos = 1) then
             payload_pos <= (others => '0');
