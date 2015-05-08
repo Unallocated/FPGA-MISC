@@ -1,2 +1,2 @@
-work	"ipcore_dir/sampling_buffer.vhd"
-work	"sampling_buff.vhd"
+work	"ip_wrapper.vhd"
+work	"ipcore_dir/ip_buffer.vhd"
