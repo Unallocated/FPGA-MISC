@@ -56,7 +56,7 @@ ARCHITECTURE behavior OF udp_ip_tester IS
    signal rst : std_logic := '0';
 
    -- Clock period definitions
-   constant clk_period : time := 10 ns;
+   constant clk_period : time := 90 ns;
 	constant samp_period : time := 110 ns;
 	
 	constant frame_size : positive := 128;
@@ -80,17 +80,49 @@ ARCHITECTURE behavior OF udp_ip_tester IS
 	END COMPONENT;
 	
 BEGIN
-
-	samp_clk_proc : process
-	begin
-		samp_clk <= not samp_clk;
-		wait for samp_period;
-	end process;
 	
+	------------------------------------------
+	--      BEGIN IP WRAPPER TEST           --
+	------------------------------------------
 	process(clk)
 	begin
 		if(rising_edge(clk)) then
 			assert (ip_dropped = '0') report "IP DROPPED FRAME" severity failure;
+		end if;
+	end process;
+	
+	process
+	begin
+		wait until rising_edge(clk);
+		ip_last_dv <= ip_dv;
+	end process;
+	
+	process
+	begin
+		wait until rising_edge(clk) and ip_last_dv = '0' and ip_dv = '1';
+		wait for clk_period * 28;
+		
+		if(ip_is_first_pass = '1') then
+			wait for clk_period * (frame_size);
+			ip_last_val <= ip_dout;
+			ip_is_first_pass <= '0';
+		else
+			for i in 0 to frame_size loop
+				assert (unsigned(ip_dout) = unsigned(ip_last_val) + 1) report "IP VALUE NOT WHAT WAS EXPECTED" severity warning;
+				
+				ip_last_val <= ip_dout;
+				wait for clk_period;
+			end loop;
+		end if;
+	end process;
+
+		
+	------------------------------------------
+	--        BEGIN UDP WRAPPER TEST        --
+	------------------------------------------
+	process(clk)
+	begin
+		if(rising_edge(clk)) then
 			assert (udp_dropped = '0') report "UDP DROPPED FRAME" severity failure;
 		end if;
 	end process;
@@ -120,6 +152,18 @@ BEGIN
 		end if;
 	end process;
 	
+	
+	
+	
+	-------------------------------------------
+	--             FIFO LOADER               --
+	-------------------------------------------
+	samp_clk_proc : process
+	begin
+		samp_clk <= not samp_clk;
+		wait for samp_period;
+	end process;
+
 	data_gen : process
 	begin
 		wait until rising_edge(samp_clk);
@@ -138,10 +182,14 @@ BEGIN
 		data_in => samp_din,
 		data_out => samp_dout
 	);
-	
+
+
 	udp_din <= samp_dout;
 	udp_wr_en <= samp_dv;
- 
+
+	ip_din <= udp_dout;
+	ip_wr_en <= udp_dv;
+
 	-- Instantiate the Unit Under Test (UUT)
    uut: udp_wrapper PORT MAP (
           clk => clk,
@@ -156,6 +204,21 @@ BEGIN
           data_out => udp_dout,
           data_valid => udp_dv,
           dropped_frame => udp_dropped
+        );
+
+		uut2: ip_wrapper PORT MAP (
+          clk => clk,
+          rst => rst,
+          data_in => ip_din,
+          wr_en => ip_wr_en,
+          busy => ip_busy,
+          buffer_full => ip_full,
+          buffer_empty => ip_empty,
+          buffer_prog_full => ip_prog_full,
+          buffer_prog_full_val => ip_prog_full_val,
+          data_out => ip_dout,
+          data_valid => ip_dv,
+          dropped_frame => ip_dropped
         );
 
    -- Clock process definitions
