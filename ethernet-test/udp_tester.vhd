@@ -46,7 +46,8 @@ ARCHITECTURE behavior OF udp_tester IS
    -- Clock period definitions
    constant clk_period : time := 10 ns;
 	constant samp_period : time := 110 ns;
-	constant frame_size : positive := 128;
+	
+	constant frame_size : positive := 32;
 	
 	signal samp_clk : std_logic := '0';
 	signal samp_wr_en, samp_dv, samp_rdy, samp_ovflo : std_logic := '0';
@@ -75,6 +76,13 @@ BEGIN
 	begin
 		samp_clk <= not samp_clk;
 		wait for samp_period;
+	end process;
+	
+	process(clk)
+	begin
+		if(rising_edge(clk)) then
+			assert (dropped_frame = '0') report "DROPPED FRAME" severity failure;
+		end if;
 	end process;
 	
 	process
