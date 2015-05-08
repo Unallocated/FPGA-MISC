@@ -52,6 +52,8 @@ ENTITY sampling_fifo IS
     dout : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     full : OUT STD_LOGIC;
     empty : OUT STD_LOGIC;
+    rd_data_count : OUT STD_LOGIC_VECTOR(10 DOWNTO 0);
+    wr_data_count : OUT STD_LOGIC_VECTOR(10 DOWNTO 0);
     prog_full : OUT STD_LOGIC
   );
 END sampling_fifo;
@@ -70,6 +72,8 @@ COMPONENT wrapped_sampling_fifo
     dout : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     full : OUT STD_LOGIC;
     empty : OUT STD_LOGIC;
+    rd_data_count : OUT STD_LOGIC_VECTOR(10 DOWNTO 0);
+    wr_data_count : OUT STD_LOGIC_VECTOR(10 DOWNTO 0);
     prog_full : OUT STD_LOGIC
   );
 END COMPONENT;
@@ -159,7 +163,7 @@ END COMPONENT;
       c_has_prog_flags_wach => 0,
       c_has_prog_flags_wdch => 0,
       c_has_prog_flags_wrch => 0,
-      c_has_rd_data_count => 0,
+      c_has_rd_data_count => 1,
       c_has_rd_rst => 0,
       c_has_rst => 1,
       c_has_slave_ce => 0,
@@ -167,7 +171,7 @@ END COMPONENT;
       c_has_underflow => 0,
       c_has_valid => 0,
       c_has_wr_ack => 0,
-      c_has_wr_data_count => 0,
+      c_has_wr_data_count => 1,
       c_has_wr_rst => 0,
       c_implementation_type => 2,
       c_implementation_type_axis => 1,
@@ -282,6 +286,8 @@ U0 : wrapped_sampling_fifo
     dout => dout,
     full => full,
     empty => empty,
+    rd_data_count => rd_data_count,
+    wr_data_count => wr_data_count,
     prog_full => prog_full
   );
 -- synthesis translate_on

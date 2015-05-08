@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.7
-# Date: Sun May  3 14:41:56 2015
+# Date: Wed May  6 01:06:50 2015
 #
 ##############################################################
 #
@@ -167,7 +167,7 @@ CSET programmable_full_type_wrch=No_Programmable_Full_Threshold
 CSET rach_type=FIFO
 CSET rdch_type=FIFO
 CSET read_clock_frequency=1
-CSET read_data_count=false
+CSET read_data_count=true
 CSET read_data_count_width=11
 CSET register_slice_mode_axis=Fully_Registered
 CSET register_slice_mode_rach=Fully_Registered
@@ -202,7 +202,7 @@ CSET wrch_type=FIFO
 CSET write_acknowledge_flag=false
 CSET write_acknowledge_sense=Active_High
 CSET write_clock_frequency=1
-CSET write_data_count=false
+CSET write_data_count=true
 CSET write_data_count_width=11
 CSET wuser_width=1
 # END Parameters
@@ -210,4 +210,4 @@ CSET wuser_width=1
 MISC pkg_timestamp=2012-11-19T12:39:56Z
 # END Extra information
 GENERATE
-# CRC: b2a0e327
+# CRC: d1dbfcd2

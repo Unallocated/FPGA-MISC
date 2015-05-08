@@ -97,6 +97,8 @@ ARCHITECTURE simulation_arch OF sampling_fifo_synth IS
     -- FIFO interface signal declarations
     SIGNAL wr_clk_i                       :   STD_LOGIC;
     SIGNAL rd_clk_i                       :   STD_LOGIC;
+    SIGNAL wr_data_count                  :   STD_LOGIC_VECTOR(11-1 DOWNTO 0);
+    SIGNAL rd_data_count                  :   STD_LOGIC_VECTOR(11-1 DOWNTO 0);
     SIGNAL rst	                          :   STD_LOGIC;
     SIGNAL prog_full                      :   STD_LOGIC;
     SIGNAL prog_full_thresh               :   STD_LOGIC_VECTOR(11-1 DOWNTO 0);
@@ -287,6 +289,8 @@ ARCHITECTURE simulation_arch OF sampling_fifo_synth IS
     PORT MAP (
            WR_CLK                    => wr_clk_i,
            RD_CLK                    => rd_clk_i,
+           WR_DATA_COUNT             => wr_data_count,
+           RD_DATA_COUNT             => rd_data_count,
            RST                       => rst,
            PROG_FULL                 => prog_full,
            PROG_FULL_THRESH          => prog_full_thresh,

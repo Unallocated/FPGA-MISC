@@ -75,6 +75,8 @@ entity sampling_fifo_exdes is
    PORT (
            WR_CLK                    : IN  std_logic;
      	   RD_CLK                    : IN  std_logic;
+     	   WR_DATA_COUNT             : OUT std_logic_vector(11-1 DOWNTO 0);
+           RD_DATA_COUNT             : OUT std_logic_vector(11-1 DOWNTO 0);
            RST                       : IN  std_logic;
            PROG_FULL                 : OUT std_logic;
            PROG_FULL_THRESH          : IN  std_logic_vector(11-1 DOWNTO 0);
@@ -100,6 +102,8 @@ architecture xilinx of sampling_fifo_exdes is
    PORT (
            WR_CLK                    : IN  std_logic;
      	   RD_CLK                    : IN  std_logic;
+     	   WR_DATA_COUNT             : OUT std_logic_vector(11-1 DOWNTO 0);
+           RD_DATA_COUNT             : OUT std_logic_vector(11-1 DOWNTO 0);
            RST                       : IN  std_logic;
            PROG_FULL                 : OUT std_logic;
            PROG_FULL_THRESH          : IN  std_logic_vector(11-1 DOWNTO 0);
@@ -132,6 +136,8 @@ begin
     PORT MAP (
            WR_CLK                    => wr_clk_i,
            RD_CLK                    => rd_clk_i,
+           WR_DATA_COUNT             => wr_data_count,
+           RD_DATA_COUNT             => rd_data_count,
            RST                       => rst,
            PROG_FULL                 => prog_full,
            PROG_FULL_THRESH          => prog_full_thresh,

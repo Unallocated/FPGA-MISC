@@ -200,6 +200,8 @@ PACKAGE sampling_fifo_pkg IS
    PORT (
            WR_CLK                    : IN  std_logic;
      	   RD_CLK                    : IN  std_logic;
+     	   WR_DATA_COUNT             : OUT std_logic_vector(11-1 DOWNTO 0);
+           RD_DATA_COUNT             : OUT std_logic_vector(11-1 DOWNTO 0);
            RST                       : IN  std_logic;
            PROG_FULL                 : OUT std_logic;
            PROG_FULL_THRESH          : IN  std_logic_vector(11-1 DOWNTO 0);

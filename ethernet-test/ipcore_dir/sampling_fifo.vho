@@ -67,6 +67,8 @@ COMPONENT sampling_fifo
     dout : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     full : OUT STD_LOGIC;
     empty : OUT STD_LOGIC;
+    rd_data_count : OUT STD_LOGIC_VECTOR(10 DOWNTO 0);
+    wr_data_count : OUT STD_LOGIC_VECTOR(10 DOWNTO 0);
     prog_full : OUT STD_LOGIC
   );
 END COMPONENT;
@@ -88,6 +90,8 @@ your_instance_name : sampling_fifo
     dout => dout,
     full => full,
     empty => empty,
+    rd_data_count => rd_data_count,
+    wr_data_count => wr_data_count,
     prog_full => prog_full
   );
 -- INST_TAG_END ------ End INSTANTIATION Template ------------
