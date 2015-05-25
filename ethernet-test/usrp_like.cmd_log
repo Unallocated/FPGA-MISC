@@ -1,0 +1,1 @@
+vhdtdtfi -prj ethernet-test -o /home/main/git/FPGA-MISC/ethernet-test/usrp_like.vhi -module usrp_like -template /opt/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/usrp_like_dcm.vhd -lib work ipcore_dir/usrp_like_buffer.vhd -lib work smi_ramlike.vhd -lib work usrp_like.vhd 

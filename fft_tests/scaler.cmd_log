@@ -1,0 +1,1 @@
+vhdtdtfi -prj fft_tests -o /home/main/git/FPGA-MISC/fft_tests/scaler.vhi -module scaler -template /opt/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/scaling_multiplier.vhd -lib work scaler.vhd 

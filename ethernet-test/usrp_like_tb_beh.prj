@@ -1,0 +1,3 @@
+vhdl work "ipcore_dir/usrp_like_buffer.vhd"
+vhdl work "usrp_like.vhd"
+vhdl work "usrp_like_tb.vhd"

@@ -1,0 +1,1 @@
+vhdtdtfi -prj fft_tests -o /home/main/git/FPGA-MISC/fft_tests/fft_unscaled.vhi -module fft_unscaled -template /opt/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/fft_unscaled_512.vhd -lib work fft_unscaled.vhd 

@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--This is an ISE project configuration file.-->
+<!--It holds project specific layout data for the projectmgr plugin.-->
+<!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
+<Project version="2" owner="projectmgr" name="ethernet-test" >
+   <!--This is an ISE project configuration file.-->
+   <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/eth - Behavioral |home|main|git|FPGA-MISC|ethernet-test|eth.vhd</ClosedNode>
+         <ClosedNode>/eth_master - Behavioral |home|main|git|FPGA-MISC|ethernet-test|eth_master.vhd/ethernet_wrapper_with_preamble_inst - ethernet_wrapper_with_preamble - behave</ClosedNode>
+         <ClosedNode>/eth_master - Behavioral |home|main|git|FPGA-MISC|ethernet-test|eth_master.vhd/ip_wrapper_inst - ip_wrapper - behave</ClosedNode>
+         <ClosedNode>/eth_master - Behavioral |home|main|git|FPGA-MISC|ethernet-test|eth_master.vhd/udp_wrapper_inst - udp_wrapper - behave</ClosedNode>
+         <ClosedNode>/ethernet_wrapper - behave |home|main|git|FPGA-MISC|ethernet-test|ethernet_wrapper.vhd</ClosedNode>
+         <ClosedNode>/sine_master - Behavioral |home|main|git|FPGA-MISC|ethernet-test|sine_master.vhd/ethernet_wrapper_with_preamble_inst - ethernet_wrapper_with_preamble - behave</ClosedNode>
+         <ClosedNode>/sine_master - Behavioral |home|main|git|FPGA-MISC|ethernet-test|sine_master.vhd/ip_wrapper_inst - ip_wrapper - behave</ClosedNode>
+         <ClosedNode>/sine_master - Behavioral |home|main|git|FPGA-MISC|ethernet-test|sine_master.vhd/udp_wrapper_inst - udp_wrapper - behave</ClosedNode>
+         <ClosedNode>/usrp_like_master - behave |home|main|git|FPGA-MISC|ethernet-test|usrp_like_master.vhd</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>sine_master - Behavioral (/home/main/git/FPGA-MISC/ethernet-test/sine_master.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >9</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000004a1000000020000000000000000000000000200000064ffffffff000000810000000300000002000004a10000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>sine_master - Behavioral (/home/main/git/FPGA-MISC/ethernet-test/sine_master.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000fd000000010000000100000000000000000000000064ffffffff000000810000000000000001000000fd0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView guiview="File" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000000000000000100000000000000000000000000000000000009cc000000040101000100000000000000000000000064ffffffff0000008100000000000000040000005f0000000100000000000000350000000100000000000000a900000001000000000000088f0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>ethernet_buffer.xco</CurrentItem>
+   </ItemView>
+   <ItemView guiview="Library" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>work</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000181000000010001000100000000000000000000000064ffffffff000000810000000000000001000001810000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>work</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Configure Target Device</ClosedNode>
+         <ClosedNode>Implement Design</ClosedNode>
+         <ClosedNode>Synthesize - XST</ClosedNode>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Generate Programming File</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000156000000010000000100000000000000000000000064ffffffff000000810000000000000001000001560000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Generate Programming File</CurrentItem>
+   </ItemView>
+   <SourceProcessView>000000ff0000000000000002000001930000012001000000060100000002</SourceProcessView>
+   <CurrentView>Implementation</CurrentView>
+   <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/crc_tb - behavior |home|main|git|FPGA-MISC|ethernet-test|crc_tb.vhd</ClosedNode>
+         <ClosedNode>/e_tb - behavior |home|main|git|FPGA-MISC|ethernet-test|e_tb.vhd</ClosedNode>
+         <ClosedNode>/eth2_tb - behavior |home|main|git|FPGA-MISC|ethernet-test|eth2_tb.vhd</ClosedNode>
+         <ClosedNode>/eth_master_tb - behavior |home|main|git|FPGA-MISC|ethernet-test|eth_master_tb.vhd/uut - eth_master - Behavioral/ethernet_wrapper_with_preamble_inst - ethernet_wrapper_with_preamble - behave</ClosedNode>
+         <ClosedNode>/eth_master_tb - behavior |home|main|git|FPGA-MISC|ethernet-test|eth_master_tb.vhd/uut - eth_master - Behavioral/ip_wrapper_inst - ip_wrapper - behave</ClosedNode>
+         <ClosedNode>/eth_master_tb - behavior |home|main|git|FPGA-MISC|ethernet-test|eth_master_tb.vhd/uut - eth_master - Behavioral/udp_wrapper_inst - udp_wrapper - behave</ClosedNode>
+         <ClosedNode>/eth_tb - behavior |home|main|git|FPGA-MISC|ethernet-test|eth_tb.vhd</ClosedNode>
+         <ClosedNode>/ethernet_tb - behavior |home|main|git|FPGA-MISC|ethernet-test|ethernet_tb.vhd</ClosedNode>
+         <ClosedNode>/ethernet_tb - behavior |mnt|hgfs|git|FPGA-MISC|ethernet-test|ethernet_tb.vhd</ClosedNode>
+         <ClosedNode>/ethernet_wrapper_tb - behavior |home|main|git|FPGA-MISC|ethernet-test|ethernet_wrapper_tb.vhd</ClosedNode>
+         <ClosedNode>/ip_wrapper_tb - behavior |home|main|git|FPGA-MISC|ethernet-test|ip_wrapper_tb.vhd</ClosedNode>
+         <ClosedNode>/packet_capture_tb - behavior |home|main|git|FPGA-MISC|ethernet-test|packet_capture_tb.vhd</ClosedNode>
+         <ClosedNode>/sine_master - Behavioral |home|main|git|FPGA-MISC|ethernet-test|sine_master.vhd</ClosedNode>
+         <ClosedNode>/smi_ramlike_tb - behavior |home|main|git|FPGA-MISC|ethernet-test|smi_ramlike_tb.vhd</ClosedNode>
+         <ClosedNode>/smi_tb - behavior |home|main|git|FPGA-MISC|ethernet-test|smi_tb.vhd</ClosedNode>
+         <ClosedNode>/udp_test - behavior |home|main|git|FPGA-MISC|ethernet-test|udp_test.vhd</ClosedNode>
+         <ClosedNode>/udp_wrapper_tb - behavior |home|main|git|FPGA-MISC|ethernet-test|udp_wrapper_tb.vhd</ClosedNode>
+         <ClosedNode>/usrp_like_master_tb - behavior |home|main|git|FPGA-MISC|ethernet-test|usrp_like_master_tb.vhd</ClosedNode>
+         <ClosedNode>/usrp_like_tb - behavior |home|main|git|FPGA-MISC|ethernet-test|usrp_like_tb.vhd</ClosedNode>
+         <ClosedNode>/usrp_like_tb2 - behavior |home|main|git|FPGA-MISC|ethernet-test|usrp_like_tb2.vhd</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>smi_ramlike_tb - behavior (/home/main/git/FPGA-MISC/ethernet-test/smi_ramlike_tb.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >18</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000004b5000000020000000000000000000000000200000064ffffffff000000810000000300000002000004b50000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>smi_ramlike_tb - behavior (/home/main/git/FPGA-MISC/ethernet-test/smi_ramlike_tb.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000156000000010000000100000000000000000000000064ffffffff000000810000000000000001000001560000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Simulate Behavioral Model</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000156000000010000000100000000000000000000000064ffffffff000000810000000000000001000001560000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Simulate Behavioral Model</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000156000000010000000100000000000000000000000064ffffffff000000810000000000000001000001560000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_XCO" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000156000000010000000100000000000000000000000064ffffffff000000810000000000000001000001560000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_XCO" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000156000000010000000100000000000000000000000064ffffffff000000810000000000000001000001560000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_PACKAGE_BODY" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" />
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+</Project>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/main/git/FPGA-MISC/ethernet-test/udp_test_isim_beh2.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="udp_test" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="56" />
+   <wvobject fp_name="/udp_test/ip_busy" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ip_busy</obj_property>
+      <obj_property name="ObjectShortName">ip_busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/ip_full" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ip_full</obj_property>
+      <obj_property name="ObjectShortName">ip_full</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/ip_prog_full" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ip_prog_full</obj_property>
+      <obj_property name="ObjectShortName">ip_prog_full</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/ip_empty" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ip_empty</obj_property>
+      <obj_property name="ObjectShortName">ip_empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/ip_dv" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ip_dv</obj_property>
+      <obj_property name="ObjectShortName">ip_dv</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/ip_dropped" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ip_dropped</obj_property>
+      <obj_property name="ObjectShortName">ip_dropped</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/ip_wr_en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ip_wr_en</obj_property>
+      <obj_property name="ObjectShortName">ip_wr_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/ip_data_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ip_data_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ip_data_in[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/ip_data_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ip_data_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ip_data_out[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/udp_busy" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">udp_busy</obj_property>
+      <obj_property name="ObjectShortName">udp_busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/udp_full" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">udp_full</obj_property>
+      <obj_property name="ObjectShortName">udp_full</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/udp_prog_full" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">udp_prog_full</obj_property>
+      <obj_property name="ObjectShortName">udp_prog_full</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/udp_empty" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">udp_empty</obj_property>
+      <obj_property name="ObjectShortName">udp_empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/udp_dv" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">udp_dv</obj_property>
+      <obj_property name="ObjectShortName">udp_dv</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/udp_dropped" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">udp_dropped</obj_property>
+      <obj_property name="ObjectShortName">udp_dropped</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/udp_wr_en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">udp_wr_en</obj_property>
+      <obj_property name="ObjectShortName">udp_wr_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/udp_data_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">udp_data_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">udp_data_in[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/udp_data_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">udp_data_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">udp_data_out[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/ethernet_busy" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ethernet_busy</obj_property>
+      <obj_property name="ObjectShortName">ethernet_busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/ethernet_full" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ethernet_full</obj_property>
+      <obj_property name="ObjectShortName">ethernet_full</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/ethernet_prog_full" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ethernet_prog_full</obj_property>
+      <obj_property name="ObjectShortName">ethernet_prog_full</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/ethernet_empty" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ethernet_empty</obj_property>
+      <obj_property name="ObjectShortName">ethernet_empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/ethernet_dv" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ethernet_dv</obj_property>
+      <obj_property name="ObjectShortName">ethernet_dv</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/ethernet_dropped" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ethernet_dropped</obj_property>
+      <obj_property name="ObjectShortName">ethernet_dropped</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/ethernet_wr_en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ethernet_wr_en</obj_property>
+      <obj_property name="ObjectShortName">ethernet_wr_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/ethernet_data_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ethernet_data_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ethernet_data_in[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/ethernet_data_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ethernet_data_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ethernet_data_out[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/data_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/wr_en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">wr_en</obj_property>
+      <obj_property name="ObjectShortName">wr_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/busy" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/buffer_full" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">buffer_full</obj_property>
+      <obj_property name="ObjectShortName">buffer_full</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/buffer_empty" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">buffer_empty</obj_property>
+      <obj_property name="ObjectShortName">buffer_empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/buffer_prog_full" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">buffer_prog_full</obj_property>
+      <obj_property name="ObjectShortName">buffer_prog_full</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/buffer_prog_full_val" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">buffer_prog_full_val[10:0]</obj_property>
+      <obj_property name="ObjectShortName">buffer_prog_full_val[10:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/data_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/data_valid" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">data_valid</obj_property>
+      <obj_property name="ObjectShortName">data_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/dropped_frame" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dropped_frame</obj_property>
+      <obj_property name="ObjectShortName">dropped_frame</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/buffer_rd_en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">buffer_rd_en</obj_property>
+      <obj_property name="ObjectShortName">buffer_rd_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/buffer_data_count" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">buffer_data_count[10:0]</obj_property>
+      <obj_property name="ObjectShortName">buffer_data_count[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/buffer_data_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">buffer_data_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">buffer_data_out[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/d_pos_buffer" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">d_pos_buffer[10:0]</obj_property>
+      <obj_property name="ObjectShortName">d_pos_buffer[10:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/payload_pos" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">payload_pos[11:0]</obj_property>
+      <obj_property name="ObjectShortName">payload_pos[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/header_pos" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">header_pos</obj_property>
+      <obj_property name="ObjectShortName">header_pos</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/last_wr_en_val" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">last_wr_en_val</obj_property>
+      <obj_property name="ObjectShortName">last_wr_en_val</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/is_first_byte" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">is_first_byte</obj_property>
+      <obj_property name="ObjectShortName">is_first_byte</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/last_data_in_val" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">last_data_in_val[7:0]</obj_property>
+      <obj_property name="ObjectShortName">last_data_in_val[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/running_checksum" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">running_checksum[15:0]</obj_property>
+      <obj_property name="ObjectShortName">running_checksum[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/latched_checksum" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">latched_checksum[15:0]</obj_property>
+      <obj_property name="ObjectShortName">latched_checksum[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/dest_port" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dest_port[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dest_port[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_test/Inst_udp_wrapper/src_port" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">src_port[15:0]</obj_property>
+      <obj_property name="ObjectShortName">src_port[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+</wave_config>

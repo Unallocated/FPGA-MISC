@@ -1,0 +1,2 @@
+vhdtdtfi -prj ethernet-test -o /home/main/git/FPGA-MISC/ethernet-test/sampling_buff.vhi -module sampling_buff -template /opt/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/sampling_buffer.vhd -lib work sampling_buff.vhd 
+vhdtdtfi -prj ethernet-test -o /home/main/git/FPGA-MISC/ethernet-test/sampling_buff.vhi -module sampling_buff -template /opt/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/sampling_buffer.vhd -lib work sampling_buff.vhd 

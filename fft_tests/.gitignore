@@ -1,0 +1,9 @@
+ipcore_dir/*.log
+ipcore_dir/tmp
+**/*.tcl
+**/*.html
+ipcore_dir/_xmsgs/*
+**/.xmsgs
+*.lso
+_xmsgs/
+**/*.xreport

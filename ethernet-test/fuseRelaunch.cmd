@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/main/git/FPGA-MISC/ethernet-test/udp_ip_ethernet_tester_isim_beh.exe" -prj "/home/main/git/FPGA-MISC/ethernet-test/udp_ip_ethernet_tester_beh.prj" "work.udp_ip_ethernet_tester" 

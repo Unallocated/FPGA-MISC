@@ -1,0 +1,15 @@
+# Output products list for <unscaled_adder>
+_xmsgs/pn_parser.xmsgs
+unscaled_adder/doc/c_addsub_v11_0_readme.txt
+unscaled_adder/doc/c_addsub_v11_0_vinfo.html
+unscaled_adder/doc/ds214_addsub.pdf
+unscaled_adder.asy
+unscaled_adder.gise
+unscaled_adder.ngc
+unscaled_adder.sym
+unscaled_adder.vhd
+unscaled_adder.vho
+unscaled_adder.xco
+unscaled_adder.xise
+unscaled_adder_flist.txt
+unscaled_adder_xmdf.tcl

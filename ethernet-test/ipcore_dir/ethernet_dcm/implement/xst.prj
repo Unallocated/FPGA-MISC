@@ -1,0 +1,2 @@
+vhdl work ../../ethernet_dcm.vhd
+vhdl work ../example_design/ethernet_dcm_exdes.vhd

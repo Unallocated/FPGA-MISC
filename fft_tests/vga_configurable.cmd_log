@@ -1,0 +1,1 @@
+vhdtdtfi -prj fft_tests -o /home/main/git/FPGA-MISC/fft_tests/vga_configurable.vhi -module vga_configurable -template /opt/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work lib.vhd -lib work vga_configurable.vhd 
