@@ -1,0 +1,3 @@
+work	"gigabit_tx.vhd"
+work	"ipcore_dir/clock_mgr.vhd"
+work	"smi_ramlike.vhd"

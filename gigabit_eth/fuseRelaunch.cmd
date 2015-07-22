@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/tmp/gigabit_eth/gigabit_tx_tb_isim_beh.exe" -prj "/tmp/gigabit_eth/gigabit_tx_tb_beh.prj" "work.gigabit_tx_tb" 
