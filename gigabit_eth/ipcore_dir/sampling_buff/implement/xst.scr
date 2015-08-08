@@ -1,0 +1,13 @@
+run
+-ifmt VHDL
+-ent sampling_buff_exdes 
+-p xc4vlx200-ff1513-10
+-ifn xst.prj
+-write_timing_constraints No
+-iobuf YES
+-max_fanout 100
+-ofn sampling_buff_exdes 
+-ofmt NGC
+-bus_delimiter ()
+-hierarchy_separator /
+-case Maintain

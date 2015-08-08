@@ -103,9 +103,7 @@ architecture Behavioral of gigabit_tx is
   signal state : state_t;
 begin
 
-  --eth_tx_en <= '0';
   eth_tx_err <= '0';
-  --eth_tx_data <= (others => '0');
 
   eth_rst_n <= eth_reset_complete;
   eth_mdc <= smi_clk;
@@ -255,7 +253,7 @@ begin
             end if;
           when SMI_WAIT_DONE =>
             if(smi_done = '1') then
-              eth_link_established <= smi_dout(2);
+              eth_link_established <= smi_dout(10);
               smi_state <= SMI_IDLE;
             end if;
         end case;

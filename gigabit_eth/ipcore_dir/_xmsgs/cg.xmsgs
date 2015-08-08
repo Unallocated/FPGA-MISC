@@ -8,5 +8,23 @@
 <msg type="info" file="sim" num="172" delta="old" >Generating IP...
 </msg>
 
+<msg type="info" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">Pre-processing HDL files for &apos;sampling_buffer&apos;...</arg>
+</msg>
+
+<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">BlackBox generator run option &apos;-ifmt&apos; found multiple times. Only the first occurence is considered.</arg>
+</msg>
+
+<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">Overwriting existing file /home/xilinx/FPGA-MISC/gigabit_eth/ipcore_dir/tmp/_cg/sampling_buffer/doc/fifo_generator_v9_3_vinfo.html with file from view xilinx_documentation</arg>
+</msg>
+
+<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">Overwriting existing file /home/xilinx/FPGA-MISC/gigabit_eth/ipcore_dir/tmp/_cg/sampling_buffer/doc/fifo_generator_v9_3_readme.txt with file from view xilinx_readme</arg>
+</msg>
+
+<msg type="info" file="sim" num="949" delta="old" >Finished generation of ASY schematic symbol.
+</msg>
+
+<msg type="info" file="sim" num="948" delta="old" >Finished FLIST file generation.
+</msg>
+
 </messages>
 

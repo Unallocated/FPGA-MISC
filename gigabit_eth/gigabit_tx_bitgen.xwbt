@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=/tmp/gigabit_eth/gigabit_tx.ncd
-OUTFILE=/tmp/gigabit_eth/gigabit_tx.bit
+INFILE=/home/xilinx/FPGA-MISC/gigabit_eth/gigabit_tx.ncd
+OUTFILE=/home/xilinx/FPGA-MISC/gigabit_eth/gigabit_tx.bit
 FAMILY=Virtex4
 PART=xc4vsx35-10ff668
-WORKINGDIR=/tmp/gigabit_eth
+WORKINGDIR=/home/xilinx/FPGA-MISC/gigabit_eth
 LICENSE=ISE
 USER_INFO=210826213_0_0_741
